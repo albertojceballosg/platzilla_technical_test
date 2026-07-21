@@ -1,0 +1,46 @@
+<?php
+	$mod_strings = array (
+		'LBL_TITLE_MODAL_EDIT_GRAPH' => 'Editar Gráfico',
+		'LBL_CANCEL_BUTTON'          => 'Cancelar',
+		'LBL_SAVE'                   => 'Guardar',
+		'LBL_TIPO_GRAFICO'           => 'Tipo de Gráfico',
+		'LBL_TIPO_CALCULO'           => 'Tipo de Cálculo',
+		'LBL_FIELD_OPERATION'        => 'Dato a Graficar',
+		'LBL_FIELD_GRID_OPERATION'   => 'Field to Calculate',
+		'LBL_FIELD_TWO_OPERATION'    => 'Data for comparison',
+		'LBL_MODULES'                => 'Módulos',
+		'LBL_FIELD_GROUPING'         => 'Dato a usar para Calcular (Suma o Promedio)',
+		'LBL_PREVIEW'                => 'Previsualizar',
+		'LBL_DATE_GROUPING'          => 'Período a graficar',
+		'OPT_ALL'                    => 'All',
+		'OPT_TODAY'                  => 'Today',
+		'OPT_LAST_WEEK'              => 'Last week',
+		'OPT_LAST_MONTH'             => 'Last month',
+		'OPT_LAST_THREE_MONTH'       => 'Last quarter',
+		'OPT_LAST_SIX_MONTH'         => 'Last semester',
+		'OPT_LAST_YEAR'              => 'Last year',
+		'OPT_CUSTOM_DATE'            => 'Personalized',
+		//GRAPHIC TYPE AREA
+		'graphic-orientation'        => 'Chart orientation',
+		'graphic-width'              => 'Chart width (px)',
+		'graphic-height'             => 'Chart height (px)',
+		'hAxis-title'                => 'Horizontal axis title',
+		'hAxis-direction'            => 'Numbering of the horizontal axis',
+		'legend-position'            => 'Legend position',
+		'vAxis-title'                => 'Vertical axis title',
+		'vAxis-direction'            => 'Vertical axis numbering',
+		'graphic-isStacked'          => 'Stack chart elements',
+		// GRAPHIC TYPE BAR
+		'hAxis-format'               => 'Horizontal axis numbering format',
+		'vAxis-format'               => 'Vertical axis numbering format',
+		// GRAPHIC TYPE DONUT
+		'graphic-is3D'               => 'Appearance of the circle',
+		'graphic-pieHole'            => 'Hole diameter',
+		//GRAPHIC TYPE COMBO
+		'graphic-seriesType'         => 'General chart type',
+		'graphic-series'             => 'Data source for line',
+		// GRAPHIC TYPE TABLE
+		'graphic-page'               => 'Page layout',
+		'graphic-pageSize'           => 'Data per page',
+		'graphic-showRowNumber'      => 'Row number',
+	);

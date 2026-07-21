@@ -1,0 +1,42 @@
+label {
+	font-size:   1em;
+	font-weight: 300;
+}
+.required {
+	color: #FF0000;
+}
+.button-container {
+	margin-top: 25px;
+}
+.button-container > .fa {
+	margin-left: 0.5em;
+}
+.button-container > .fa.fa-times {
+	color: #880000;
+}
+.button-container > .fa.fa-check {
+	color: #008800;
+}
+.section {
+	margin-bottom: 1em;
+}
+.section .alert {
+	margin-bottom: 0;
+}
+.action-bar .btn {
+	margin-left: 5px;
+}
+.col-provider {
+	width: 20em;
+}
+.col-provider > .col-incoming-provider,
+.col-provider > .col-outgoing-provider {
+	display: inline-block;
+	width: 50%;
+}
+.col-folder-names {
+	width: 8em;
+}
+.col-actions {
+	width: 6em;
+}

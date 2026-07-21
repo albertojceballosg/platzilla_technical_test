@@ -1,0 +1,132 @@
+.btn.wizard-cancel, .btn.wizard-back, .btn.wizard-next{
+	text-transform: none;
+	width: 8em;
+	font-weight: 300 !important;
+}
+
+.btn.wizard-back{
+	color: #3498db;
+}
+
+.btn.wizard-back, .btn.wizard-next{
+	border-radius: 15px;
+}
+
+.btn.wizard-cancel, .btn.wizard-back{
+	background-color: white;
+	border: 1px solid #ccc;
+}
+
+.btn.wizard-cancel{
+	border-radius: 3px;
+	margin-left: 2.3em;
+	/*color: #a8a6a6;*/
+	color: #989898;
+}
+
+.btn.wizard-cancel:hover, .btn.wizard-back:hover{
+	background-color:#b6b6b6;
+	border-color: transparent;
+	color:white;
+	transition: background-color .1s;
+	-moz-transition: background-color .1s;
+	-webkit-transition: background-color .1s;
+	-o-transition: background-color .1s;
+}
+
+.hide-element, .hide-element > span{
+	/*color: white;
+	border: none;*/
+	display: none;
+}
+
+.wizard-modal.modal .nav-list > li.active > a.wizard-nav-link{
+	color:white;
+}
+
+.wizard-modal.modal .nav-list > li.already-visited > a.wizard-nav-link{
+	color: white;
+}
+
+.wizard-modal.modal .nav-list > li.already-visited > a.wizard-nav-link:hover {
+	/*background: #208ed8;*/
+	background: #1F8DD7;
+	color: white !important;
+}
+
+.wizard-modal.modal .nav-list li.active > a, .wizard-modal.modal .nav-list > li.active > a:hover, .wizard-modal.modal .nav-list > li.already-visited.active > a:hover{
+	background-color: white;
+	color: #3498db !important;
+}
+
+.wizard-steps{
+	background-color: #3498db;
+}
+
+.wizard-modal.modal .nav-list > li > a{
+	background-color: #3498db;
+	color: white;
+}
+
+.wizard-progress-container > div > .progress-bar-primary{
+	background-color: #f1c40f;
+}
+
+.modal.wizard-modal{
+	box-shadow: 0 0 1em rgba(0,0,0,0.4);
+}
+
+.close{
+	font-size: 1.33em;
+	font-weight: normal;
+}
+
+.wizard-modal-header.modal-header{
+	border-bottom: 1px solid #3498db;
+}
+
+div.bootstrap-timepicker{
+	direction: rtl;
+}
+
+div.bootstrap-timepicker > #timepicker, div.bootstrap-timepicker > #timepickerEnd{
+	margin-left: -2px;
+	text-align: left;
+}
+
+div.bootstrap-timepicker > span{
+	border-left: 1px solid #ccc !important;
+	border-radius: 3px !important;
+	border-right: 0 !important;
+}
+
+.wizard-cards, .wizard-card-container, .wizard-card{
+	height: 350px;
+}
+
+.wizard-modal.modal .nav-list > li > a{
+	line-height: 1.5em;
+}
+
+.wizard-nav-link {
+	padding-top: .8em !important;
+	padding-bottom: .8em !important;
+}
+
+.btn-group-single.pull-right{
+	margin-right: 1.4em;
+}
+
+.bootstrap-timepicker-widget.dropdown-menu{
+	direction: ltr;
+}
+
+.progress{
+	background-color: #297FBA;
+	height: .9em;
+}
+
+.progress-striped .progress-bar, .progress-bar-striped {
+    background-image: -webkit-linear-gradient(45deg, rgba(255,255,255,0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.39) 50%, rgba(255, 255, 255, 0.36) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255,255,255,0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.39) 50%, rgba(255, 255, 255, 0.36) 75%, transparent 75%, transparent);
+}

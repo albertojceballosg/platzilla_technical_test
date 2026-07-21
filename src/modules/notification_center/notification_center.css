@@ -1,0 +1,78 @@
+.parley-own {
+	background-color: #E0F8F7 !important;
+	padding:          6px;
+}
+a.parley-link-own:hover, a.parley-link-own:focus {
+	text-decoration:  none;
+	color:            #555555;
+	background-color: #E0F8F7 !important;
+}
+.parley-others {
+	background-color: #F5F5F5 !important;
+	padding:          6px;
+}
+#notification-body {
+	height:           450px;
+	overflow-y:       auto;
+	background-color: white;
+}
+.rounded {
+	-webkit-border-radius: 5px;
+	-moz-border-radius:    5px;
+	border-radius:         5px;
+}
+.associated-to {
+	text-align: center;
+	font-style: italic;
+	color:      #0080FF;
+}
+.no-gutters {
+	margin-right: 0;
+	margin-left:  0
+}
+.row-parley {
+	display:       -webkit-box;
+	display:       -ms-flexbox;
+	display:       flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap:     wrap;
+	margin-right:  -15px;
+	margin-left:   -15px
+}
+.justify-content-center {
+	-webkit-box-pack: center !important;
+	-ms-flex-pack:    center !important;
+	justify-content:  center !important
+}
+.no-gutters > .col,
+.no-gutters > [class*=col-] {
+	padding-right: 1px;
+	padding-left:  1px;
+}
+.box_shadow {
+	-webkit-box-shadow: 1px 1px 3px #CCCCCC;
+	-moz-box-shadow:    1px 1px 3px #CCCCCC;
+	box-shadow:         1px 1px 3px #CCCCCC;
+}
+.nav-tabs .fa {
+	margin-right: 0.5em;
+}
+.alert .btn {
+	margin: 0 1em;
+}
+.required {
+	color: #FF0000;
+}
+#email-account-modal {
+	font-weight: 300;
+}
+#email-account-modal label {
+	font-size: 1em;
+	font-weight: 300;
+}
+#email-account-modal .button-container {
+	margin-top: 25px;
+}
+#email-account-modal .section {
+	margin-bottom: 15px;
+}

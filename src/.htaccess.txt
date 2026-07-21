@@ -1,0 +1,11 @@
+Options +FollowSymLinks
+RewriteEngine on
+RewriteRule ^clientes/(.+) http://platzillagit.local.com/index.php?plat=$1
+
+RewriteRule ^module-(\w+)-action-(\w+)-(.+)-(.+)-(.+)$ index.php?module=$1&action=$2&$3=$4&$5=$6
+RewriteRule ^module-(\w+)-action-(\w+)-(.+)-(.+)$ index.php?module=$1&action=$2&$3=$4
+RewriteRule ^module-(\w+)-action-(\w+)-(.+)$ index.php?module=$1&action=$2&$3
+RewriteRule ^module-(\w+)-action-(\w+)$ index.php?module=$1&action=$2
+<IfModule pagespeed_module>
+ModPagespeed off
+</IfModule>

@@ -1,0 +1,25 @@
+html,
+body {
+	margin: 3px !important;
+}
+p {
+	margin: 0 !important;
+}
+var {
+	background:      #FFF none;
+	border:          1px solid #CCC;
+	border-radius:   4px;
+	display:         inline-block;
+	margin-bottom:   0;
+	padding:         2px 4px;
+	text-align:      center;
+	vertical-align:  middle;
+	white-space:     nowrap;
+	text-decoration: none;
+}
+var:before {
+	content: '<';
+}
+var:after {
+	content: '>';
+}

@@ -1,0 +1,47 @@
+<?php
+	require_once ('include/platzilla/Managers/NotificationManager.php');
+	require_once ('include/utils/CommonUtils.php');
+	require_once ('include/utils/PlatzillaUtils.class.php');
+	// Agregado por EB para integrar BUGSNAG - 20200213
+	global $site_URL;
+	require_once ('include/bugsnag-php-2.9.2/src/Bugsnag/Autoload.php');
+	$bugsnag = new Bugsnag_Client('834d564193a48c47f138dc66d2cf5e83');
+	$bugsnag->setAppVersion('1.0.0');
+	if ($site_URL == 'https://apphome.platzillatest.com/') {
+		$bugsnag->setReleaseStage('https://apphome.platzillatest.com/');
+	} else if ($site_URL == 'https://app.platzilla.com/') {
+		$bugsnag->setReleaseStage('https://app.platzilla.com/');
+	} else {
+		$bugsnag->setReleaseStage($site_URL);
+	}
+	$bugsnag->setErrorReportingLevel(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_WARNING & ~E_DEPRECATED);
+	// Agregado por EB para integrar BUGSNAG - 20200213
+
+	global $adb, $current_user;
+
+	try {
+		$notificationId = PlatzillaUtils::purify ($_POST, 'record');
+		$notification   = Notification::getInstance ()
+			->setId ($notificationId);
+		
+		// Obtener la notificación completa para verificar el evento
+		$fullNotification = NotificationManager::getInstance ($adb)->fetchNotification ($notificationId);
+		
+		// Solo deshabilitar si NO es evento ALWAYS
+		// Las notificaciones ALWAYS deben mostrarse siempre que se cumplan las condiciones
+		if ($fullNotification && $fullNotification->getEvent() !== Notification::EVENT_ALWAYS) {
+			NotificationManager::getInstance ($adb)->disableNotification ($notification, $current_user);
+
+			if ($notification->getStyle() != $notification::STYLE_MODAL) {
+				$_SESSION ['last_notifications'] = ($_SESSION ['last_notifications'] > 1) ? ($_SESSION ['last_notifications'] - 1) : 0;
+			}
+		}
+
+		header ('HTTP/1.1 200 OK');
+		header ('Content-Type: application/json');
+	} catch (Exception $e) {
+		header ('HTTP/1.1 400 Bad request');
+		header ('Content-Type: application/json');
+		echo json_encode ($e->getMessage ());
+	}
+	exit ();

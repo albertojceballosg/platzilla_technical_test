@@ -1,0 +1,11 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_proveedor</name>
+		</table>
+		<table>
+			<name>vtiger_proveedorcf</name>
+		</table>
+	</tables>
+</schema>

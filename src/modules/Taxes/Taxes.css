@@ -1,0 +1,35 @@
+.condition-group {
+	margin-bottom: 0;
+}
+.condition-group > .condition-group-header .btn {
+	padding-bottom: 0;
+	padding-top: 0;
+}
+.condition-group > .condition-group-body {
+	padding: 0;
+}
+.condition-group > .condition-group-body > .list-group {
+	margin-bottom: 0;
+}
+.condition-group > .condition-group-body > .list-group > .list-group-item {
+	border: 0;
+}
+.condition-group > .condition-group-footer {
+	padding: 0;
+}
+.condition-group-glue {
+	margin: 5px 0;
+}
+.required {
+	color: #FF0000;
+}
+label {
+	font-size:   inherit;
+	font-weight: 300;
+}
+.main-box > .main-box-header {
+	padding: 20px;
+}
+.action-bar .btn {
+	margin-left: 5px;
+}

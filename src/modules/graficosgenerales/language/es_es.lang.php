@@ -1,0 +1,47 @@
+<?php
+	$mod_strings = array (
+		'graficosgenerales'          => 'Gráficos',
+		'LBL_TITLE_MODAL_EDIT_GRAPH' => 'Editar Gráfico',
+		'LBL_CANCEL_BUTTON'          => 'Cancelar',
+		'LBL_SAVE'                   => 'Guardar',
+		'LBL_TIPO_GRAFICO'           => 'Tipo de gráfico',
+		'LBL_TIPO_CALCULO'           => 'Tipo de Cálculo',
+		'LBL_FIELD_OPERATION'        => 'Dato a Graficar',
+		'LBL_FIELD_GRID_OPERATION'   => 'Campo a Calcular',
+		'LBL_FIELD_TWO_OPERATION'    => 'Dato para Comparar',
+		'LBL_MODULES'                => 'Módulos',
+		'LBL_FIELD_GROUPING'         => 'Dato a usar para Calcular (Suma o Promedio)',
+		'LBL_PREVIEW'                => 'Previsualizar',
+		'LBL_DATE_GROUPING'          => 'Períodos a graficar',
+		'OPT_ALL'                    => 'Todos',
+		'OPT_TODAY'                  => 'Hoy',
+		'OPT_LAST_WEEK'              => 'última semana',
+		'OPT_LAST_MONTH'             => 'último mes',
+		'OPT_LAST_THREE_MONTH'       => 'último trimestre',
+		'OPT_LAST_SIX_MONTH'         => 'último semestre',
+		'OPT_LAST_YEAR'              => 'último año',
+		'OPT_CUSTOM_DATE'            => 'Personalizado',
+		//GRAPHIC TYPE AREA
+		'graphic-orientation'        => 'Orientación del gráfico',
+		'graphic-width'              => 'Ancho del gráfico (px)',
+		'graphic-height'             => 'Alto del gráfico (px)',
+		'hAxis-title'                => 'Título del eje horizontal',
+		'hAxis-direction'            => 'Numeración del eje horizontal',
+		'legend-position'            => 'Posición de la leyenda',
+		'vAxis-title'                => 'Título del eje vertical',
+		'vAxis-direction'            => 'Numeración del eje vertical',
+		'graphic-isStacked'          => 'Apilar elementos del gráfico',
+		// GRAPHIC TYPE BAR
+		'hAxis-format'               => 'Formato de la numeración del eje horizontal',
+		'vAxis-format'               => 'Formato de la numeración del eje vertical',
+		// GRAPHIC TYPE DONUT
+		'graphic-is3D'               => 'Apariencia del circulo',
+		'graphic-pieHole'            => 'Diámetro del agujero',
+		//GRAPHIC TYPE COMBO
+		'graphic-seriesType'         => 'Tipo de gráfico en general',
+		'graphic-series'             => 'Fuente de datos para línea',
+		// GRAPHIC TYPE TABLE
+		'graphic-page'               => 'Paginador',
+		'graphic-pageSize'           => 'Datos por página',
+		'graphic-showRowNumber'      => 'Número de fila',
+	);

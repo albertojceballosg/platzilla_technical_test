@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings> 
+  <font>Tahoma</font>                
+  <depth>20</depth>                  
+  <angle>25</angle>                  
+  
+  <column>
+    <type>100% stacked</type>        
+    <width>70</width>                
+    <grow_time>2</grow_time>         
+    <grow_effect>strong</grow_effect>    
+    <alpha>60</alpha>                
+    <data_labels>
+      <![CDATA[{percents}%]]>        
+    </data_labels>
+    <data_labels_text_color>#FFFFFF</data_labels_text_color> 
+    <balloon_text>          
+      <![CDATA[In {series} {percents}% of rich people investments went to {title}</b>]]> 
+    </balloon_text>    
+  </column>
+  
+     
+  <plot_area>              
+    <margins>              
+      <left>0</left>        
+      <top>80</top>         
+      <right>200</right>   
+      <bottom>90</bottom>  
+    </margins>
+  </plot_area>
+  
+  <grid>                   
+    <category>                                                                  
+      <alpha>0</alpha>     
+    </category>
+    <value>          
+      <alpha>0</alpha>
+    </value>
+  </grid>
+  
+  <values>            
+    <value>           
+      <enabled>false</enabled>    
+    </value>
+  </values>
+  
+  <axes>               
+    <category>         
+      <alpha>0</alpha> 
+    </category>
+    <value>            
+      <alpha>0</alpha> 
+    </value>
+  </axes>  
+  
+  <legend>                       
+    <enabled>true</enabled>      
+    <x>470</x>                   
+    <y>70</y>                    
+    <width>120</width>  
+    <reverse_order>true</reverse_order>         
+  </legend>  
+  
+  <labels>                       
+    <label>
+      <x>90</x>                  
+      <y>25</y>                  
+      <text_size>14</text_size>  
+      <text>                     
+        <![CDATA[<b>Where rich people invest their money?</b>]]>
+      </text>        
+    </label>
+    
+    <label>
+      <x>80</x>    
+      <y>370</y>   
+      <text_color>7e7e7e</text_color> 
+      <text>                          
+        <![CDATA[Source: Capgemini/Merrill Lynch Relationship Manager Surveys]]>
+      </text>        
+    </label>    
+  </labels>
+</settings>

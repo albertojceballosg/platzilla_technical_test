@@ -1,0 +1,243 @@
+<?php
+	require_once ('Smarty_setup.php');
+	require_once ('data/CRMEntity.php');
+	require_once ('include/database/PearDatabase.php');
+	require_once ('include/ListView/ListViewSession.php');
+	require_once ('include/platzilla/Managers/PlatformSubscriptionManager.php');
+	require_once ('include/utils/AttachmentsUtils.class.php');
+	require_once ('include/utils/CommonUtils.php');
+	require_once ('include/utils/DetailViewUtils.php');
+	require_once ('include/utils/EditViewUtils.class.php');
+	require_once ('include/utils/PlatformUtils.class.php');
+	require_once ('include/utils/UserInfoUtil.php');
+	require_once ('include/utils/utils.php');
+	require_once ('modules/backgroundtasks/lib/BackgroundTasksRunner.class.php');
+	require_once ('modules/PickList/PickListUtils.php');
+	require_once ('modules/store/lib/StoreUtils.class.php');
+	require_once ('user_privileges/default_module_view.php');
+	require_once ('vtlib/Vtiger/Link.php');
+
+	global $adb, $app_strings, $mod_strings, $currentModule, $current_user, $singlepane_view, $theme;
+
+	if (!empty ($_SESSION ['platInstancia'])) {
+		if (!StoreUtils::isInstanceVerified ($_SESSION ['platInstancia'])) {
+			$smarty = new vtigerCRM_Smarty ();
+			$smarty->assign ('MENSAJE', 'Debes verificar tu cuenta!');
+			$smarty->display ('instanciaUnverified.tpl');
+			exit ();
+		}
+
+		$masterAdb          = AdbManager::getInstance ()->getMasterAdb ();
+		$subscription       = null;
+		$moduleSubscription = null;
+		try {
+			$psm          = PlatformSubscriptionManager::getInstance ($masterAdb);
+			$subscription = $psm->fetchSubscription ($_SESSION ['platInstancia']);
+			if ((empty ($subscription)) || ($subscription->getStatus () == PlatformSubscription::STATUS_INACTIVE)) {
+				throw new Exception ('Tu suscripción se encuentra inactiva');
+			}
+
+			$moduleSubscription = $psm->fetchModuleSubscription ($_SESSION ['platInstancia'], $currentModule);
+			if (empty ($moduleSubscription)) {
+				throw new Exception ('El módulo no se encuentra instalado. Te invitamos a instalar una aplicación que lo contenga');
+			} else if ($moduleSubscription->getStatus () == ModuleSubscription::STATUS_INACTIVE) {
+				throw new Exception ('El módulo se encuentra vencido. Te invitamos a renovar el servicio');
+			}
+		} catch (Exception $e) {
+			$smarty = new vtigerCRM_Smarty ();
+			$smarty->assign ('LABEL', 'Tu suscripción');
+			$smarty->assign ('MESSAGE', $e->getMessage ());
+			$smarty->assign ('TYPE', 'ERROR');
+			$smarty->assign ('URL', 'index.php?module=Home&action=ViewSubscriptionDetails&tab=subscription');
+			$smarty->display ('Message.tpl');
+			exit ();
+		}
+
+		$applications     = PlatformUtils::getApplicationsByUserRole ($adb, $current_user->column_fields ['roleid'], $currentModule);
+		$canCreateRecords = ($moduleSubscription->getMaxRecords () == -1) || ($moduleSubscription->getMaxRecords () > $moduleSubscription->getTotalRecords ());
+	} else {
+		$applications     = PlatformUtils::getApplicationsByModuleName ($adb, $currentModule);
+		$canCreateRecords = true;
+	}
+
+	$action           = isset ($_REQUEST ['action']) ? vtlib_purify ($_REQUEST ['action']) : null;
+	$record           = isset ($_REQUEST ['record']) ? vtlib_purify ($_REQUEST ['record']) : '';
+	$isDuplicate      = isset ($_REQUEST ['isDuplicate']) ? vtlib_purify ($_REQUEST ['isDuplicate']) : null;
+	$profileIds       = isset ($_REQUEST ['profileids']) ? vtlib_purify ($_REQUEST ['profileids']) : null;
+	$relationId       = (isset ($_REQUEST ['relation_id'])) && (!empty ($_REQUEST ['relation_id'])) ? vtlib_purify ($_REQUEST ['relation_id']) : null;
+	$selectedHeader   = (isset ($_REQUEST ['selected_header'])) && (!empty ($_REQUEST ['selected_header'])) ? vtlib_purify ($_REQUEST ['selected_header']) : null;
+	$platformDatabase = (isset ($_REQUEST ['platdb'])) && (!empty ($_REQUEST ['platdb'])) ? vtlib_purify ($_REQUEST ['platdb']) : null;
+
+	if (!isset ($_REQUEST ['module'])) {
+		$_REQUEST ['module'] = $currentModule;
+	}
+
+	$profileIds = !empty ($profileIds) ? explode (',', $profileIds) : null;
+
+	/** @var CRMEntity|stdClass $entity */
+	$entity           = CRMEntity::getInstance ($currentModule);
+	$toolButtons      = Button_Check ($currentModule);
+	$tabId            = getTabid ($currentModule);
+	$category         = getParentTab ();
+	$swDetailViewGrid = true;
+
+	if ($record != '') {
+		$entity->id = $record;
+		$entity->retrieve_entity_info ($record, $currentModule);
+	}
+
+	$oldDieOnError = $adb->dieOnError;
+	$adb->setDieOnError (false);
+	BackgroundTasksRunner::getInstance ($adb, $_SESSION ['plat'])->runEventTriggeredTasks ('READ', BackgroundTaskInterface::EVENT_INSTANT_BEFORE, $entity);
+	$adb->setDieOnError ($oldDieOnError);
+
+	if ($isDuplicate == 'true') {
+		$entity->id = '';
+	}
+
+	$recordName = array_values (getEntityName ($currentModule, $entity->id));
+	$recordName = $recordName [0];
+
+	// Module Sequence Numbering
+	$modSeqField = getModuleSequenceField ($currentModule);
+	$modSeqId    = ($modSeqField != null) ? $entity->column_fields [ $modSeqField ['name'] ] : $entity->id;
+
+	$validationArray = EditViewUtils::splitValidationData (getDBValidationData ($entity->tab_name, $tabId));
+
+	// Gather the custom link information to display
+	$customLinkParams = array (
+		'MODULE' => $currentModule,
+		'RECORD' => $entity->id,
+		'ACTION' => $action,
+	);
+
+	$blocksData = getBlocks ($currentModule, 'detail_view', '', $entity->column_fields, '', $profileIds);
+	// Eliminar de la información de bloques obtenidos aquellos campos que están condicionados
+	if (!empty ($record)) {
+		$conditioningFieldNames = array ();
+		$result                 = $adb->pquery (
+			'SELECT
+				f.fieldname
+			FROM
+				vtiger_field f
+				INNER JOIN vtiger_tab t ON t.tabid=f.tabid AND t.name=?
+			WHERE
+				f.uitype IN (?, ?, ?)',
+			array ($currentModule, FieldInterface::UI_TYPE_GLOBAL_PICKLIST, FieldInterface::UI_TYPE_MULTI_SELECT, FieldInterface::UI_TYPE_PICKLIST)
+		);
+		if (($result) && ($adb->num_rows ($result) > 0)) {
+			while ($row = $adb->fetchByAssoc ($result, -1, false)) {
+				$conditioningFieldNames [] = $row ['fieldname'];
+			}
+		}
+
+		$conditionedFieldIds = array ();
+		if (!empty ($conditioningFieldNames)) {
+			foreach ($conditioningFieldNames as $fieldName) {
+				if (empty ($entity->column_fields [ $fieldName ])) {
+					$whereClause = "pl.{$fieldName} IS NULL";
+					$arguments   = array ();
+				} else {
+					$whereClause = "pl.{$fieldName}=?";
+					$arguments   = array ($entity->column_fields [ $fieldName ]);
+				}
+				$result = $adb->pquery (
+					"SELECT DISTINCT
+						tf.fieldid
+					FROM
+						vtiger_fielddependencies fd
+						INNER JOIN vtiger_tab t ON t.name=fd.modulename AND t.name=?
+						INNER JOIN vtiger_field tf ON tf.fieldname=fd.targetfieldname AND tf.tabid=t.tabid
+						LEFT JOIN vtiger_{$fieldName} pl ON pl.{$fieldName}=fd.sourcefieldvalue
+					WHERE
+						fd.targetfieldvisibility=0 AND
+						fd.sourcefieldname=? AND
+						{$whereClause}",
+					array_merge (array ($currentModule, $fieldName), $arguments)
+				);
+				if ((!$result) || ($adb->num_rows ($result) == 0)) {
+					continue;
+				}
+				while ($row = $adb->fetchByAssoc ($result, -1, false)) {
+					$conditionedFieldIds [] = $row ['field'];
+				}
+			}
+		}
+
+		if (!empty ($conditionedFieldIds)) {
+			foreach ($blocksData as $blockLabel => $blockData) {
+				foreach ($blockData as $row => $fields) {
+					foreach ($fields as $fieldLabel => $fieldData) {
+						$fieldId = $fieldData ['fldid'];
+						if (in_array ($fieldId, $conditionedFieldIds)) {
+							unset ($blocksData [ $blockLabel ][ $row ][ $fieldLabel ]);
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+	$smarty = new vtigerCRM_Smarty();
+	$smarty->assign ('ACTIVE_APPLICATIONS', $applications);
+	$smarty->assign ('APP', $app_strings);
+	$smarty->assign ('AVAILABLE_PICKLISTS', getUserFldArray ($currentModule, $current_user->column_fields ['roleid']));
+	$smarty->assign ('BLOCKS', $blocksData);
+	$smarty->assign ('CAMPOS_TIPO_GRID', escribeCamposGrid ($currentModule, $entity->id, $swDetailViewGrid, $smarty));
+	$smarty->assign ('CAN_CREATE_RECORDS', $canCreateRecords);
+	$smarty->assign ('CATEGORY', $category);
+	$smarty->assign ('CHECK', $toolButtons);
+	$smarty->assign ('CURRENT_USER_NAME', "{$current_user->column_fields ['first_name']} {$current_user->column_fields ['last_name']}");
+	$smarty->assign ('CUSTOM_BUTTONS', PlatformUtils::getCustomButtons ($adb, $currentModule, 'DetailView', $_REQUEST));
+	$smarty->assign ('CUSTOM_LINKS', Vtiger_Link::getAllByType (getTabid ($currentModule), array ('DETAILVIEWBASIC', 'DETAILVIEW', 'DETAILVIEWWIDGET'), $customLinkParams));
+	$smarty->assign ('CUSTOM_MODULE', true);
+	$smarty->assign ('DETAILVIEW_AJAX_EDIT', PerformancePrefs::getBoolean ('DETAILVIEW_AJAX_EDIT', true));
+	$smarty->assign ('EDIT_PERMISSION', isPermitted ($currentModule, 'EditView', $record));
+	$smarty->assign ('FIELD_ATTACHMENTS', AttachmentsUtils::fetchFieldAttachments ($adb, $record, $currentModule));
+	$smarty->assign ('ID', $entity->id);
+	$smarty->assign ('IMAGE_PATH', "themes/$theme/images/");
+	$smarty->assign ('IS_REL_LIST', isPresentRelatedLists ($currentModule));
+	$smarty->assign ('MOD', $mod_strings);
+	$smarty->assign ('MOD_SEQ_ID', $modSeqId);
+	$smarty->assign ('MODE', $entity->mode);
+	$smarty->assign ('MODULE', $currentModule);
+	$smarty->assign ('NAME', $recordName);
+	$smarty->assign ('PROFILE_IDS', $profileIds);
+	$smarty->assign ('SINGLE_MOD', "SINGLE_{$currentModule}");
+	$smarty->assign ('SinglePane_View', $singlepane_view);
+	$smarty->assign ('THEME', $theme);
+	$smarty->assign ('UPDATEINFO', updateInfo ($entity->id));
+	$smarty->assign ('VALIDATION_DATA_FIELDDATATYPE', $validationArray ['datatype']);
+	$smarty->assign ('VALIDATION_DATA_FIELDLABEL', $validationArray ['fieldlabel']);
+	$smarty->assign ('VALIDATION_DATA_FIELDNAME', $validationArray ['fieldname']);
+	if ($singlepane_view == 'true') {
+		$smarty->assign ('RELATEDLISTS', getRelatedLists ($currentModule, $entity));
+		require_once ('include/ListView/RelatedListViewSession.php');
+		if (($selectedHeader !== null) && ($relationId !== null)) {
+			RelatedListViewSession::addRelatedModuleToSession ($relationId, $selectedHeader);
+		}
+		$smarty->assign ('SELECTEDHEADERS', RelatedListViewSession::getRelatedModulesFromSession ());
+	}
+	if (isPermitted ($currentModule, 'EditView', $record) == 'yes') {
+		$smarty->assign ('EDIT_DUPLICATE', 'permitted');
+	}
+	if (isPermitted ($currentModule, 'Delete', $record) == 'yes') {
+		$smarty->assign ('DELETE', 'permitted');
+	}
+	if ((PerformancePrefs::getBoolean ('DETAILVIEW_RECORD_NAVIGATION', true)) && (isset ($_SESSION ["{$currentModule}_listquery"]))) {
+		$recordNavigationInfo = ListViewSession::getListViewNavigation ($entity->id);
+		VT_detailViewNavigation ($smarty, $recordNavigationInfo, $entity->id);
+	}
+	if ($platformDatabase !== null) {
+		$smarty->assign ('PLATDB', $platformDatabase);
+	}
+	$smarty->display ('modules/invitations/DetailView.tpl');
+
+	// Record Change Notification
+	$entity->markAsViewed ($current_user->id);
+
+	$oldDieOnError = $adb->dieOnError;
+	$adb->setDieOnError (false);
+	BackgroundTasksRunner::getInstance ($adb, $_SESSION ['plat'])->runEventTriggeredTasks ('READ', BackgroundTaskInterface::EVENT_INSTANT_AFTER, $entity);
+	$adb->setDieOnError ($oldDieOnError);

@@ -1,0 +1,659 @@
+@import url('https://googleapis.com/css?family=Roboto'); /*Importar fonts desde el api de google */
+:root {
+  --font-family-base:  'Roboto', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+#layout-editor {
+	font-size: 2vmin !important;
+}
+@media (min-aspect-ratio: 16/9) {         /* 1.7777*/
+	#layout-editor {
+		font-size: 2vmin !important;
+	}
+	#buttoms_field_list.action-bar button, #buttoms_field_list.action-bar a.btn.btn-success {
+		height: 3em;
+		max-width: 13vw ;
+	}
+	#buttoms_field_list.action-bar a.btn.btn-primary{
+	/*padding-top:0.5em;*/
+	height: 3em;
+	max-width: 13vw ;
+	}
+	#layout-editor .pull-right .block-label.pull-left, #layout-editor .pull-left.btn.btn-success, #layout-editor .btn.btn-primary.dropdown-toggle, #layout-editor .pull-right .btn-group.pull-right {
+		width: 3em;
+		height:3em;
+		font-size: 0.70em;
+		padding: 0.1em;
+	}
+	#layout-editor .pull-left.btn.btn-success .glyphicon {
+		top: -0.8em;
+	}
+	#layout-editor .menu > .menu-form > .btn,
+	#layout-editor .admin-visibility > .admin-visibility-form > .btn,
+	#layout-editor .field-label > .field-label-form > .btn,
+	#layout-editor .dd-links > .btn {
+		height:         2.0em;
+		line-height:    1.6em;
+		margin:         0 0 0 5px;
+		padding:        0;
+		vertical-align: baseline;
+		width:          2.0em;
+		font-size: 0.7em;
+	}
+}
+@media (min-aspect-ratio: 4/3) and (max-aspect-ratio: 16/9) { /*1.3333 y 1.7777*/
+	#layout-editor {
+		font-size: 2.0vmin  !important;
+	}
+	#buttoms_field_list.action-bar button,  #buttoms_field_list.action-bar a.btn.btn-success{
+		height: 3em;
+		max-width: 12vw;
+	}
+	#buttoms_field_list.action-bar a.btn.btn-primary{
+		height: 3em;
+		max-width: 12vw;
+	}
+	#layout-editor .pull-right .block-label.pull-left, #layout-editor .pull-left.btn.btn-success, #layout-editor .btn.btn-primary.dropdown-toggle, #layout-editor .pull-right .btn-group.pull-right {
+		width: 3em;
+		height:3em;
+		font-size: 0.70em;
+		padding: 0.1em;
+	}
+	#layout-editor .pull-left.btn.btn-success .glyphicon {
+		top: -0.6em;
+	}
+	#layout-editor .menu > .menu-form > .btn,
+	#layout-editor .admin-visibility > .admin-visibility-form > .btn,
+	#layout-editor .field-label > .field-label-form > .btn,
+	#layout-editor .dd-links > .btn {
+		height:         2.0em;
+		line-height:    1.6em;
+		margin:         0 0 0 5px;
+		padding:        0;
+		vertical-align: baseline;
+		width:          2.0em;
+		font-size: 0.7em;
+	}
+}
+@media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 4/3) {  /*1 y 1.3333 */
+	#layout-editor {
+		font-size: 2.0vmin !important;
+	}
+	#buttoms_field_list.action-bar button,  #buttoms_field_list.action-bar a.btn.btn-success{
+		height: 4em;
+		max-width: 13vw ;
+	}
+	#buttoms_field_list.action-bar a.btn.btn-primary{
+		height: 4em;
+		max-width: 13vw;
+	}
+	#layout-editor .pull-right .block-label.pull-left, #layout-editor .pull-left.btn.btn-success, #layout-editor .btn.btn-primary.dropdown-toggle, #layout-editor .pull-right .btn-group.pull-right {
+		width: 2em;
+		height:2em;
+		font-size: 0.70em;
+		padding: 0.1em;
+	}
+	#layout-editor .menu > .menu-form > .btn,
+	#layout-editor .admin-visibility > .admin-visibility-form > .btn,
+	#layout-editor .field-label > .field-label-form > .btn,
+	#layout-editor .dd-links > .btn {
+		height:         2.0em;
+		line-height:    1.6em;
+		margin:         0 0 0 5px;
+		padding:        0;
+		vertical-align: baseline;
+		width:          2.0em;
+		font-size: 0.7em;
+	}
+}
+@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1) {  /*0.75 y 1 */
+	#layout-editor {
+		font-size: 2vmin !important;
+	}
+	#buttoms_field_list.action-bar button,  #buttoms_field_list.action-bar a.btn.btn-success{
+		height: 4em;
+		max-width: 13vw ;
+	}
+	#buttoms_field_list.action-bar a.btn.btn-primary{
+		height: 4em;
+		max-width: 13vw;
+	}
+	#layout-editor .pull-right .block-label.pull-left, #layout-editor .pull-left.btn.btn-success, #layout-editor .btn.btn-primary.dropdown-toggle, #layout-editor .pull-right .btn-group.pull-right {
+		width: 2em;
+		height:2em;
+		font-size: 0.70em;
+		padding: 0.1em;
+	}
+	#layout-editor .menu > .menu-form > .btn,
+	#layout-editor .admin-visibility > .admin-visibility-form > .btn,
+	#layout-editor .field-label > .field-label-form > .btn,
+	#layout-editor .dd-links > .btn {
+		height:         2.0em;
+		line-height:    1.6em;
+		margin:         0 0 0 5px;
+		padding:        0;
+		vertical-align: baseline;
+		width:          2.0em;
+		font-size: 0.7em;
+	}
+		#buttoms_field_list.action-bar .btn{
+		padding: 0.3em;
+	}
+}
+@media (min-aspect-ratio: 9/16) and (max-aspect-ratio: 3/4) {  /*0.5625 y 0.75 */
+	#layout-editor {
+		font-size: 2.0vmin !important;
+	}
+	#buttoms_field_list.action-bar button,  #buttoms_field_list.action-bar a.btn.btn-success{
+		height: 4em;
+		max-width: 10vw;
+	}
+	#buttoms_field_list.action-bar a.btn.btn-primary{
+		height: 4em;
+		max-width: 10vw;
+	}
+	#layout-editor .pull-right .block-label.pull-left, #layout-editor .pull-left.btn.btn-success, #layout-editor .btn.btn-primary.dropdown-toggle, #layout-editor .pull-right .btn-group.pull-right {
+		width: 3em;
+		height:3em;
+		font-size: 0.70em;
+		padding: 0.1em;
+	}
+	#layout-editor .pull-left.btn.btn-success .glyphicon {
+		top: -0.8em;
+	}
+	#layout-editor .menu > .menu-form > .btn,
+	#layout-editor .admin-visibility > .admin-visibility-form > .btn,
+	#layout-editor .field-label > .field-label-form > .btn,
+	#layout-editor .dd-links > .btn {
+		height:         2.0em;
+		line-height:    1.5em;
+		margin:         0 0 0 5px;
+		padding:        0;
+		vertical-align: baseline;
+		width:          2.0em;
+		font-size: 0.6em;
+	}
+		#buttoms_field_list.action-bar .btn{
+		padding: 0.3em;
+	}
+}
+@media (max-aspect-ratio: 9/16) {   /*0.5625*/
+	#layout-editor {
+		font-size: 2.0vmin  !important;
+	}
+	#buttoms_field_list.action-bar button,  #buttoms_field_list.action-bar a.btn.btn-success{
+		height: 6em;
+		max-width: 10vw;
+	}
+	#buttoms_field_list.action-bar a.btn.btn-primary{
+		height: 6em;
+		max-width: 9vw;
+	}
+	#layout-editor .pull-right .block-label.pull-left, #layout-editor .pull-left.btn.btn-success, #layout-editor .btn.btn-primary.dropdown-toggle, #layout-editor .pull-right .btn-group.pull-right {
+		width: 4em;
+		height:4em;
+		font-size: 0.70em;
+		padding: 0.1em;
+	}
+	#layout-editor .pull-left.btn.btn-success .glyphicon {
+		top: -0.6em;
+	}
+	#layout-editor .menu > .menu-form > .btn,
+	#layout-editor .admin-visibility > .admin-visibility-form > .btn,
+	#layout-editor .field-label > .field-label-form > .btn,
+	#layout-editor .dd-links > .btn {
+		height:         2.0em;
+		line-height:    1.6em;
+		margin:         0 0 0 5px;
+		padding:        0;
+		vertical-align: baseline;
+		width:          2.0em;
+		font-size: 0.7em;
+	}
+	#buttoms_field_list.action-bar .btn{
+		padding: 0.3em;
+	}	
+}
+
+.block-hide {
+	color: #cccccc;
+}
+
+#email-box .action-bar .btn {
+	margin-right: 5px;
+}
+
+#buttoms_field_list.action-bar .btn, #buttoms_field_list.action-bar .btn.btn-success{
+	font-family: var(--font-family-base);
+	font-size:1.8vmin;
+	margin-bottom: 1em; 
+	overflow-wrap: normal;
+	white-space: normal;
+	line-height: 1.25em;
+}
+#buttoms_field_list.action-bar a.btn.btn-primary, #buttoms_field_list.action-bar .btn.btn-success {
+	display: inline-flex;/* 1. Habilita Flexbox */
+	align-items: center;/* 2. Centra verticalmente */
+	justify-content: center;/* 3. Centra horizontalmente (opcional, pero útil) */
+}
+
+#layout-editor .dd-handle,
+#layout-editor .dd-links {
+	line-height: 2.0em;
+	margin:      0;
+	padding:     0;
+	width:calc( 100% - 8em);
+	height:100%;
+}
+#layout-editor .dd-handle {
+	cursor: move;
+}
+#layout-editor .dd-links {
+	background:      #F6F6F8 none repeat scroll 0 0 padding-box;
+	border:          1px solid #E1E1E1;
+	border-radius:   0;
+	box-sizing:      border-box;
+	color:           #000000;
+	text-decoration: none;
+	max-width: 6.5em;
+	line-height: 1.5em;
+	height:100%;
+	padding-top: 2px;
+    padding-bottom: 3px;
+}
+#layout-editor .form-group {
+	margin-bottom: 5px !important;
+}
+#layout-editor input[type=checkbox][disabled] {
+	color: #CCCCCC;
+}
+#layout-editor .block-label > .old-label {
+	cursor: pointer;
+}
+#layout-editor .block-label:hover > .old-label {
+	text-decoration: underline;
+}
+#layout-editor .block-label > .block-label-form > .form-control {
+	display:        inline-block;
+	float:          none;
+	height:         29px;
+	padding-bottom: 3px;
+	padding-top:    3px;
+	vertical-align: baseline;
+	width:          auto;
+}
+#layout-editor .block-label > .block-label-form > .btn {
+	height:         27px;
+	line-height:    1em;
+	margin:         0 0 0 5px;
+	padding:        0;
+	vertical-align: baseline;
+	width:          27px;
+}
+#layout-editor .field-label > .old-label {
+	color:        #555555;
+	cursor:       pointer;
+	display:      inline-block;
+	font-size:    1.2em;
+	font-weight:  bold;
+	padding-left: 13px;
+}
+#layout-editor header .block-label.pull-left h2.old-label {
+	font-size: 1.3em;
+}
+#layout-editor form.field-label-form input[name="label"].form-control.new-label {
+	font-size: 1.0em;
+}
+#layout-editor .dd-nodrag.input-group.field-label label.old-label{
+	font-size: 1.05em	;
+}
+
+
+
+#layout-editor .field-label:hover > .old-label {
+	text-decoration: underline;
+}
+#layout-editor .field-label > .field-label-form > .form-control {
+	float:          none;
+	height:         29px;
+	padding-bottom: 3px;
+	padding-top:    3px;
+	vertical-align: baseline;
+	width:          auto;
+}
+
+
+#layout-editor .pull-right .block-label.pull-left, #layout-editor .pull-left.btn.btn-success, #layout-editor .btn.btn-primary.dropdown-toggle,
+#layout-editor .pull-right .btn-group.pull-right {
+	line-height: 1.0em;
+	text-align:center;
+	margin-right:7px;
+}
+#layout-editor .pull-left.btn.btn-success {
+	padding-top:1.5vmin !important;
+}
+
+#layout-editor .hidden {
+	display: none;
+}
+#layout-editor .menu,
+#layout-editor .admin-visibility {
+	margin-top: 5px;
+}
+#layout-editor .menu > .control-label,
+#layout-editor .admin-visibility > .control-label {
+	color:       #344644;
+	font-size:   2.5vmin;
+	font-weight: 300;
+	line-height: 1.5em;
+	padding-top: 0;
+}
+#layout-editor .menu > .old-value,
+#layout-editor .admin-visibility > .old-value {
+	cursor:      pointer;
+	display:     inline-block;
+	float:       left;
+	font-size:   1.0em;
+	line-height: 2em;
+}
+#layout-editor .menu:hover > .old-value,
+#layout-editor .admin-visibility:hover > .old-value {
+	text-decoration: underline;
+}
+#layout-editor .menu > .menu-form > .new-value,
+#layout-editor .admin-visibility > .admin-visibility-form > .new-value {
+	display: inline-block;
+	width:   auto;
+}
+#layout-editor .field-label span.label.label-default  {
+	margin-left: 10px;
+	font-size:70%;
+}
+#field-modal .field-types {
+	list-style: none;
+}
+#field-modal .field-types,
+#field-modal .field-definitions {
+	border:         1px solid #E5E5E5;
+	height:         50vh;
+	overflow-x:     hidden;
+	overflow-y:     auto;
+	padding-bottom: 8px;
+	padding-top:    8px;
+}
+#field-modal .field-types .field-type {
+	background-color: transparent;
+	border:           1px solid transparent;
+	cursor:           pointer;
+	padding:          5px;
+	text-align:       left;
+	width:            100%;
+}
+#field-modal .field-types .field-type:hover {
+	border: 1px solid #ADADAD;
+}
+#field-modal .field-types .field-type.selected {
+	border:           1px solid #ADADAD;
+	background-color: #DEDEDE;
+}
+#field-modal textarea {
+	resize: vertical;
+}
+#field-properties {
+	width: 100%;
+}
+#field-properties-modal {
+	top:     -10;
+	z-index: 1950;
+	width:   70vw;
+	max-width: 1100px;
+	margin: 25px auto;
+	overflow: visible !important; /* Evita scroll externo en la modal */
+}
+#field-properties-modal .modal-dialog {
+	width: 70vw;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+#field-properties-modal .modal-content {
+	overflow: visible !important; /* Asegura que solo el body tenga scroll */
+}
+#field-properties-modal .modal-body {
+	max-height: 70vh;
+	min-height: 70vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+	width:      100%;
+}
+#field-properties-modal .dependency,
+#field-properties-modal .picklist-value,
+#field-properties-modal .visibility-value,
+#field-properties-modal .pipeline-value {
+	margin-bottom: 5px;
+	margin-top:    5px;
+}
+#field-properties-modal .dependency .hidden-fields,
+#field-properties-modal .dependency .visible-fields,
+#field-properties-modal .dependency .available-fields,
+#field-properties-modal .picklist-value .visible-roles,
+#field-properties-modal .visibility-value .visible-profiles,
+#field-properties-modal .picklist-value .hidden-roles,
+#field-properties-modal .visibility-value .hidden-profiles {
+	height: 8em;
+}
+#field-properties-modal .vertical-group {
+	margin-top: 1.5em;
+}
+#field-properties-modal .dependency .available-fields {
+	display:        inline-block;
+	vertical-align: middle;
+	width:          70%;
+}
+#field-properties-modal .dependency .available-fields > optgroup > option {
+	padding-left: 5px;
+}
+#field-properties-modal .dependency .vertical-group {
+	display:        inline-block;
+	margin-top:     0;
+	vertical-align: middle;
+}
+#field-properties-modal .dependency .vertical-group.left {
+	margin-right: 0.5em;
+}
+#field-properties-modal .dependency .vertical-group.right {
+	margin-left: 0.5em;
+}
+#field-properties-modal .btn.btn-icon {
+	font-size:   14px;
+	height:      27px;
+	line-height: 27px;
+	margin:      5px auto;
+	padding:     0;
+	text-align:  center;
+	width:       27px;
+}
+#field-properties-modal .action-summary {
+	width:          100%;
+	vertical-align: top;
+}
+#field-properties-modal .calculated-list {
+	max-height: 550px;
+	overflow-y: auto;
+	font-size:  .8em
+}
+#field-properties-modal .calculated-list a {
+	padding: 4px 6px !important;
+	margin:  1px;
+}
+#grid-properties-modal {
+	top:     0;
+	z-index: 1150;
+	width:   90vw;
+	max-width: 1100px;
+	margin: 25px auto;
+}
+#grid-properties-modal .modal-dialog {
+	width: 90vw;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+#grid-properties-modal .modal-content {
+	overflow: visible !important;
+}
+#grid-properties-modal .modal-body {
+	max-height: 70vh;
+	min-height: 70vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+	width:      100%;
+}
+#grid-properties-modal .btn.btn-icon {
+	font-size:   14px;
+	height:      27px;
+	line-height: 27px;
+	margin:      5px auto;
+	padding:     0;
+	text-align:  center;
+	width:       27px;
+}
+#grid-modal .panel-primary {
+	margin-bottom: 0;
+}
+.isDisabled > a {
+	color: currentColor;
+	display: inline-block; /* For IE11/ MS Edge bug */
+	pointer-events: none;
+	text-decoration: none;
+}
+
+#related-lists-modal {
+	top:     0;
+	z-index: 1150;
+	width:   70vw;
+	max-width: 1100px;
+	margin: 25px auto;
+}
+#related-lists-modal .modal-dialog {
+	width: 70vw;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+#related-lists-modal .modal-content {
+	overflow: visible !important;
+}
+#related-lists-modal .modal-body {
+	max-height: 60vh;
+	overflow:   auto;
+	width:      100%;
+}
+#related-lists-modal .btn-icon {
+	display:        inline-block;
+	height:         27px;
+	line-height:    1em;
+	margin:         0 0 0 5px;
+	padding:        0;
+	vertical-align: baseline;
+	width:          27px;
+}
+#related-lists-modal .modal-body {
+	max-height: 60vh;
+	overflow:   auto;
+}
+#related-lists-modal .col-module-name {
+	width: 30%;
+}
+#related-lists-modal .col-available-for {
+	width: 20%;
+}
+#related-lists-modal .col-actions {
+	width: 20%;
+}
+#related-lists-modal .col-available-for label {
+	display: block;
+}
+#related-lists-modal .col-available-for label input[type="checkbox"],
+#related-lists-modal .col-available-for label span {
+	display:        inline-block;
+	margin:         0 5px 0 0;
+	vertical-align: middle;
+}
+#permissions-modal .btn {
+	margin-left: 5px;
+}
+#permissions-modal .filter-group-body {
+	padding: 0;
+}
+#permissions-modal .filter-group,
+#permissions-modal .filter-group-body .filters {
+	margin: 0;
+}
+#permissions-modal .filter-group-body .filters .filter {
+	border: 0;
+}
+#permissions-modal .filter-group-operator {
+	margin: 5px 0;
+}
+#permissions-modal .btn-icon {
+	display:        inline-block;
+	height:         27px;
+	line-height:    1em;
+	margin:         0 0 0 5px;
+	padding:        0;
+	vertical-align: baseline;
+	width:          27px;
+}
+.hideToMe {
+	display: none;
+}
+.action-summary {
+	width:          100%;
+	vertical-align: top;
+}
+.calculated-list {
+	max-height: 550px;
+	overflow-y: auto;
+	font-size:  .8em
+}
+.calculated-list a {
+	padding: 4px 6px !important;
+	margin:  1px;
+}
+#editable-fields-modal .modal-dialog {
+    width: 90vw;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+#editable-fields-modal .btn.btn-icon {
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+    margin: 5px auto;
+    padding: 0 32px;
+    text-align: center;
+    width: auto;
+    min-width: 180px;
+}
+/*
+@media (max-width: 768px) {
+	#layout-editor .dd-handle {
+		display: inline-block;
+		float:   none;
+		width:   58%;
+	}
+	#layout-editor .dd-links {
+		width:   42%;
+		float:   right;
+		display: inline-block;
+	}
+}
+@media (min-width: 769px) {
+	#layout-editor .dd-handle {
+		width:   90%;
+		float:   none;
+		display: inline-block;
+	}
+	#layout-editor .dd-links {
+		width:   10%;
+		float:   right;
+		display: inline-block;
+	}
+	*/

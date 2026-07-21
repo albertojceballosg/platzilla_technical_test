@@ -1,0 +1,74 @@
+<?php
+	global $default_language;
+?>
+					</div>
+				</td>
+			</tr>
+			</table>
+			<!-- Table with Tickets and FAQ tabs - Ends -->
+		</td>
+	</tr>
+	</table>
+	</td>
+	
+	<td height="100"  bgcolor="#FFFFFF">&nbsp;</td>
+	</tr>
+	<tr>
+	<td width="6" height="6"></td>
+	<td bgcolor="#FFFFFF"></td>
+	<td width="6" height="6"></td>
+	</tr>
+	</table>
+	
+    </td>
+   </tr>
+</table>
+
+
+<!-- Added for Search in Tickets -->
+<!-- pop up for Search -->
+<div id="tabSrch">
+	<img id="tabSrch_progress" src="images/status.gif" border="0" align="right">
+	<form name="search" method="post" action="index.php">
+		<input type="hidden" name="module">
+		<input type="hidden" name="action">
+		<input type="hidden" name="fun">
+		
+		<div id="_search_formelements_"> &nbsp;</div>
+	</form>
+</div>
+
+<script type="text/javascript">
+function showSearchFormNow(elementid, module) {
+	fnDown(elementid);
+	
+	if($(elementid).loaded) {
+		return;
+	} else {
+		// Squeeze the search div wrapper
+		$(elementid).style.width = '100px';
+	}
+	if(module=='Notifications')
+	  var url = 'module=Notifications&action=SearchForm&ajax=true&login_language=<?php echo $default_language;?>';
+	else
+	  var url = 'module=HelpDesk&action=SearchForm&ajax=true&login_language=<?php echo $default_language;?>';
+	
+	new Ajax.Request(
+		'index.php', {queue: {position: 'end', scope: 'command'},
+		method: 'post',
+		postBody:url,
+		onComplete: function(response){
+					
+			// Set the width of serach div wrapper
+			$(elementid).style.width = '600px';
+						
+			$('_search_formelements_').innerHTML = response.responseText;
+			$(elementid).loaded = true;
+			$(elementid+'_progress').hide();			
+		}
+	});
+	
+}
+</script>
+</body>
+</html>

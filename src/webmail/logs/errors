@@ -1,0 +1,2 @@
+[25-May-2017 10:54:43 -0400]: <bn6isnaa> IMAP Error: Login failed for admin from 192.168.1.11. Could not connect to localhost:143: Connection refused in /var/www/roundcube/program/lib/Roundcube/rcube_imap.php on line 193 (POST /roundcube/?_task=login&_action=login)
+[25-May-2017 11:56:24 -0400]: <bn6isnaa> IMAP Error: Login failed for lpadron@timemanagement.es from 192.168.1.11. Empty startup greeting (mail.timemanagement.es:993) in /var/www/roundcube/program/lib/Roundcube/rcube_imap.php on line 193 (POST /roundcube/?_task=login&_action=login)

@@ -1,0 +1,6 @@
+<?php
+
+	class FieldGridException extends Exception {
+		const ERROR_GRID_FIELD_EMPTY_ENTYTI_ID    = 'ERROR_GRID_FIELD_EMPTY_ENTYTI_ID';
+		const ERROR_GRID_FIELD_EMPTY_SUBFIELD_ID  = 'ERROR_GRID_FIELD_EMPTY_SUBFIELD_ID';
+	}

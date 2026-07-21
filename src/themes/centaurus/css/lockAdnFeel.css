@@ -1,0 +1,66 @@
+#col-left {
+    background-color: #0E2032!important;
+}
+
+#nav-col {
+    background-color: #0E2032!important;
+}
+.btn-primary {
+    color: #ffffff;
+    background-color: #0266A9!important;
+    border-color: #357ebd;
+}
+.btn-default{
+    color:#fff;
+    background-color:#6e797a;
+    border-color:#ccc
+}
+
+h1 {
+    color: #0266A9!important;
+}
+
+h1 a {
+    color: #0266A9!important;
+}
+.table_list th a {
+    color: #000000;
+}
+#table_list td a {
+    color: #0266A9!important;
+}
+
+.title-overflow  {
+    color: #000000!important;
+}
+body, #content-wrapper {
+    background: #F9f8f7;
+}
+#page-wrapper, .row.fix-h {
+    background: #F9f8f7;
+}
+#myKanban .kanban-board-header {
+    background-color: #0266A9!important;
+}
+#myKanban  .kanban-item {
+    color: #000000;
+}
+#myKanban  .calculation-data {
+    color: #000000;
+}
+.infographic-box a {
+    color: #0266A9!important;
+}
+.platzilla-list-view-td {
+    color: #000000;
+}
+.module-list-view-td a {
+    color: #0266A9!important;
+}
+.platzilla-fast-create h6 {
+    font-weight: bold;
+    color: #000000;
+}
+.platzilla-fast-create li a {
+    color: #000000;
+}

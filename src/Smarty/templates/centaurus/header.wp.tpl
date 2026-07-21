@@ -1,0 +1,13 @@
+<link rel='stylesheet' id='wgs-css'  href='../wp-content/plugins/wp-google-search/wgs.css?ver=4.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='front-estilos-css'  href='../wp-content/plugins/asesor-cookies-para-la-ley-en-espana/html/front/estilos.css?ver=4.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='tm_clicktotweet-css'  href='../wp-content/plugins/click-to-tweet-by-todaymade/assets/css/styles.css?ver=4.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='easy_author_image-css'  href='../wp-content/plugins/easy-author-image/css/easy-author-image.css?ver=4.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wpsr-socialbuttons-css'  href='../wp-content/plugins/wp-socializer/public/css/wp-socializer-buttons-css.css?ver=2.4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='recent-facebook-posts-css-css'  href='../wp-content/plugins/recent-facebook-posts/assets/css/default.min.css?ver=2.0.7' type='text/css' media='all' />
+<link rel='stylesheet' id='nexus-fonts-css'  href='https://(fonts.)?googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,800italic,400,300,700,800|Raleway:400,200,100,500,700,800,900&#038;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='nexus-style-css'  href='../wp-content/themes/Nexus/style.css?ver=4.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='PI_stt_front-css'  href='../wp-content/plugins/simple-twitter-tweets/css/stt.min.css?ver=4.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='et-shortcodes-css-css'  href='../wp-content/themes/Nexus/epanel/shortcodes/css/shortcodes.css?ver=3.0' type='text/css' media='all' />
+<link rel='stylesheet' id='et-shortcodes-responsive-css-css'  href='../wp-content/themes/Nexus/epanel/shortcodes/css/shortcodes_responsive.css?ver=3.0' type='text/css' media='all' />
+<link rel='stylesheet' id='fancybox-css'  href='../wp-content/themes/Nexus/epanel/page_templates/js/fancybox/jquery.fancybox-1.3.4.css?ver=1.3.4' type='text/css' media='screen' />
+<link rel='stylesheet' id='et_page_templates-css'  href='../wp-content/themes/Nexus/epanel/page_templates/page_templates.css?ver=1.8' type='text/css' media='screen' />

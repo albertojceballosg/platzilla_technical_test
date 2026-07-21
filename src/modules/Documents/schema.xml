@@ -1,0 +1,32 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_notes</name>
+		</table>
+		<table>
+			<name>vtiger_notescf</name>
+		</table>
+		<table>
+			<name>vtiger_senotesrel</name>
+		</table>
+		<table>
+			<name>vtiger_crmentitynotesrel</name>
+		</table>
+		<table>
+			<name>vtiger_attachments</name>
+		</table>
+		<table>
+			<name>vtiger_attachmentsfolder</name>
+		</table>
+		<table>
+			<name>vtiger_attachmentsfolder_seq</name>
+		</table>
+		<table>
+			<name>vtiger_seattachmentsrel</name>
+		</table>
+		<table>
+			<name>vtiger_salesmanattachmentsrel</name>
+		</table>
+	</tables>
+</schema>

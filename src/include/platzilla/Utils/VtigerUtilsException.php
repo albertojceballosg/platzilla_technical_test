@@ -1,0 +1,7 @@
+<?php
+
+	class VtigerUtilsException extends Exception {
+		const ERROR_ENTITY_EMPTY_MODULE_NAME        = 'ERROR_ENTITY_EMPTY_MODULE_NAME';
+		const ERROR_ENTITY_INVALID_MODULE_FILE_PATH = 'ERROR_ENTITY_INVALID_MODULE_FILE_PATH';
+
+	}

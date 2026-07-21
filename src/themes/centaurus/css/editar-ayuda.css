@@ -1,0 +1,97 @@
+@font-face {
+  font-family: 'editar-ayuda';
+  src:  url('fonts/editar-ayuda.eot?asem8c');
+  src:  url('fonts/editar-ayuda.eot?asem8c#iefix') format('embedded-opentype'),
+    url('fonts/editar-ayuda.ttf?asem8c') format('truetype'),
+    url('fonts/editar-ayuda.woff?asem8c') format('woff'),
+    url('fonts/editar-ayuda.svg?asem8c#editar-ayuda') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: 'editar-ayuda-diapo';
+  src:  url('fonts/editar-ayuda-diapo.eot?bjrw8v');
+  src:  url('fonts/editar-ayuda-diapo.eot?bjrw8v#iefix') format('embedded-opentype'),
+  url('fonts/editar-ayuda-diapo.ttf?bjrw8v') format('truetype'),
+  url('fonts/editar-ayuda-diapo.woff?bjrw8v') format('woff'),
+  url('fonts/editar-ayuda-diapo.svg?bjrw8v#editar-ayuda') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon-help-1.eot?6ygr0');
+  src:  url('fonts/icomoon-help-1.eot?6ygr0#iefix') format('embedded-opentype'),
+  url('fonts/icomoon-help-1.ttf?6ygr0') format('truetype'),
+  url('fonts/icomoon-help-1.woff?6ygr0') format('woff'),
+  url('fonts/icomoon-help-1.svg?6ygr0#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'editar-ayuda' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-diapo-"], [class*=" icon-diapo-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'editar-ayuda-diapo' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[class^="icon-Boton-"], [class*=" icon-Boton-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-editar-ayuda:before {
+  content: "\e900";
+}
+.icon-diapo-editar-ayuda:before {
+  content: "\e900";
+  color: #3498DB;
+  cursor: pointer;
+}
+
+.icon-Boton-de-ayuda-1:before {
+  content: "\e900";
+ /* color: #44B170; */
+  cursor: pointer;
+}
+
+.icon-Boton-color:before {
+  content: "\e900";
+   color: #44B170;
+  cursor: pointer;
+}

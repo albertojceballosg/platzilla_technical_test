@@ -1,0 +1,32 @@
+<?php
+
+	class PlatformSubscriptionException extends Exception {
+		const ERROR_PLATFORM_SUBSCRIPTION_APPLICATION_ACTIVE               = 'La aplicación no ha sido agregada a tu suscripción';
+		const ERROR_PLATFORM_SUBSCRIPTION_APPLICATION_INACTIVE             = 'Tienes aplicaciones pendientes por pago';
+		const ERROR_PLATFORM_SUBSCRIPTION_APPLICATION_INSTALLED            = 'La aplicación ya está instalada en tu instancia';
+		const ERROR_PLATFORM_SUBSCRIPTION_APPLICATION_SUBSCRIBED           = 'La aplicación ya forma parte de tu suscripción';
+		const ERROR_PLATFORM_SUBSCRIPTION_APPLICATION_NOT_INSTALLED        = 'La aplicación no está instalada en tu instancia';
+		const ERROR_PLATFORM_SUBSCRIPTION_EMPTY                            = 'ERROR_PLATFORM_SUBSCRIPTION_EMPTY';
+		const ERROR_PLATFORM_SUBSCRIPTION_EMPTY_ACCOUNT_ID                 = 'ERROR_PLATFORM_SUBSCRIPTION_EMPTY_ACCOUNT_ID';
+		const ERROR_PLATFORM_SUBSCRIPTION_EMPTY_APPLICATION_SUBSCRIPTIONS  = 'ERROR_PLATFORM_SUBSCRIPTION_EMPTY_APPLICATION_SUBSCRIPTIONS';
+		const ERROR_PLATFORM_SUBSCRIPTION_EMPTY_BILLING_PLAN_ID            = 'No has suministrado el plan al cual quieres suscribirte';
+		const ERROR_PLATFORM_SUBSCRIPTION_EMPTY_INSTANCE_CODE              = 'ERROR_PLATFORM_SUBSCRIPTION_EMPTY_INSTANCE_CODE';
+		const ERROR_PLATFORM_SUBSCRIPTION_EMPTY_PRICEBOOK_ID               = 'ERROR_PLATFORM_SUBSCRIPTION_EMPTY_PRICEBOOK_ID';
+		const ERROR_PLATFORM_SUBSCRIPTION_EMPTY_REGISTRATION_DATE          = 'ERROR_PLATFORM_SUBSCRIPTION_EMPTY_REGISTRATION_DATE';
+		const ERROR_PLATFORM_SUBSCRIPTION_EMPTY_SUBSCRIPTION_PAYMENT_DAY   = 'ERROR_PLATFORM_SUBSCRIPTION_EMPTY_SUBSCRIPTION_PAYMENT_DAY';
+		const ERROR_PLATFORM_SUBSCRIPTION_EMPTY_TOTAL_ACTIVE_USERS         = 'ERROR_PLATFORM_SUBSCRIPTION_EMPTY_TOTAL_ACTIVE_USERS';
+		const ERROR_PLATFORM_SUBSCRIPTION_EMPTY_TOTAL_DISK_SPACE           = 'ERROR_PLATFORM_SUBSCRIPTION_EMPTY_TOTAL_DISK_SPACE';
+		const ERROR_PLATFORM_SUBSCRIPTION_INVALID_APPLICATION_CODE         = 'ERROR_PLATFORM_SUBSCRIPTION_INVALID_APPLICATION_CODE';
+		const ERROR_PLATFORM_SUBSCRIPTION_INVALID_APPLICATION_SUBSCRIPTION = 'ERROR_PLATFORM_SUBSCRIPTION_INVALID_APPLICATION_SUBSCRIPTION';
+		const ERROR_PLATFORM_SUBSCRIPTION_INVALID_BILLING_PLAN             = 'El plan solicitado no es válido';
+		const ERROR_PLATFORM_SUBSCRIPTION_MINOR_PLAN                       = 'Imposible suscribir un plan menor al actual';
+		const ERROR_PLATFORM_SUBSCRIPTION_INVALID_PAYMENT                  = 'ERROR_PLATFORM_SUBSCRIPTION_INVALID_PAYMENT';
+		const ERROR_PLATFORM_SUBSCRIPTION_MODULE_RECORDS_LIMIT_EXCEEDED    = 'Alguno de los módulos contiene una cantidad de registros que supera los límites del plan gratuito';
+		const ERROR_PLATFORM_SUBSCRIPTION_SAME_BILLING_PLAN                = 'Ya estás suscrito al plan solicitado';
+		const ERROR_PLATFORM_SUBSCRIPTION_SUBSCRIBED_APPLICATIONS_FULL     = 'Has alcanzado el límite de aplicaciones suscritas con tu plan actual';
+		const ERROR_PLATFORM_SUBSCRIPTION_TOTAL_APPLICATIONS_EXCEEDED      = 'Tienes más aplicaciones suscritas de las que permite el plan seleccionado';
+		const ERROR_PLATFORM_SUBSCRIPTION_TOTAL_DISK_SPACE_EXCEEDED        = 'Estás usando más espacio en disco del que permite el plan seleccionado';
+		const ERROR_PLATFORM_SUBSCRIPTION_TOTAL_USERS_EXCEEDED             = 'Tienes más usuarios registrados de los que permite el plan seleccionado';
+		const ERROR_PLATFORM_SUBSCRIPTION_UNABLE_TO_UPDATE_SUBSCRIPTIONS   = 'Imposible actualizar las suscripciones';
+
+	}

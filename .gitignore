@@ -1,0 +1,23 @@
+# ── Dump de base de datos (pesado, se restaura vía docker-entrypoint-initdb.d) ──
+db_init/*.sql
+
+# ── Basura de Windows / WSL ──
+*.Zone.Identifier
+
+# ── Respaldo local del .gitignore del cliente (no publicar) ──
+src/.gitignore.cliente.bak
+
+# ── Cachés y datos de runtime de vtiger (se regeneran solos) ──
+src/Smarty/templates_c/
+src/cache/
+src/logs/
+src/storage/
+
+# ── Config de editores / IDE ──
+src/.idea/
+.idea/
+.vscode/
+
+# ── Sistema operativo ──
+.DS_Store
+Thumbs.db

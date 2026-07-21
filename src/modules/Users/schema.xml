@@ -1,0 +1,14 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_loginhistory</name>
+		</table>
+		<table>
+			<name>vtiger_mail_accounts</name>
+		</table>
+		<table>
+			<name>vtiger_notebook_contents</name>
+		</table>
+	</tables>
+</schema>

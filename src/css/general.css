@@ -1,0 +1,607 @@
+html, body {
+	height:100%;
+	margin:0;
+	padding:0;
+}
+
+*+html, body {
+	overflow-y:visible;
+	
+}
+
+body {
+	position: relative;
+	background-color: #FCFCFC;
+	background-image:url(../img_mms/back_pixel.png);
+	text-align: center;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+img {
+	border:0px;
+	border-bottom:0px;
+	border-left:0px;
+	border-right:0px;
+	border-top:0px;
+	
+}
+
+/*---------------------------------------------*/
+
+#contenedor {
+	position: absolute;
+	width: 955px;
+	height: 684px;
+	/*top:50%;*/
+	/*margin-top:-342px;*/
+	left: 50%;
+	margin-left: -480px;
+}
+
+/*---------------------------------------------*/
+
+#top {
+	width: 955px;
+	height: 126px;
+	background-image: url(../img_mms/bkgTop_fondo_2.png);
+}
+#top a img {
+	border:0 ;
+
+}
+#top h1 {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	left: 570px;
+	top: 12px;
+	padding-left: 7px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #FFFFFF;
+	font-weight: normal;
+	border-left: 1px solid #FFFFFF;
+}
+
+#top #menuBuscador {
+	position: absolute;
+	left: 570px;
+	top: 22px;
+	width: 250px;
+	height: 35px;
+	text-align: left;
+}
+#top #menuBuscador ul{
+	list-style:none; padding:0 ; margin:0;
+}
+#top #menuBuscador li{
+	float:left ; width:auto; padding-right:25px;
+}
+#top #menuBuscador a {
+	font-family: /*AsapRegular, */Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FFFFFF;
+	font-weight:normal;
+	list-style:none;
+	text-decoration:none; 
+}
+#top #menuBuscador a:link {
+	color: #FFFFFF;
+}
+#top #menuBuscador a:visited {
+	color: #FFFFFF;
+}
+#top #menuBuscador a:hover {
+	color: #0082cb;
+}
+#top #menuBuscador #buscador {
+}
+#top #menuBuscador #inputBuscador {
+	margin:0;
+	padding:0;
+	font-family: /*AsapRegular, */Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color:#000000;
+	font-weight:normal;
+	width:291px;
+	height:12px;
+	border:0px;
+	background-color:#FFFFFF;
+	padding:2px;
+	padding-left:4px;
+}
+
+#top #menuBuscador #submitBuscador {
+	margin:0;
+	padding:0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color:#3F8CFE ;
+	font-weight:normal;
+	width:50px;
+	height:12px;
+	border:0px;
+	background-color:#FFFFFF;
+	padding-left:3px;
+	margin-left:-65px;
+}
+#contenedor #menuBuscador {
+	height:45px;
+}
+
+/*---------------------------------------------*/
+#middle {
+	margin:0;
+	padding:0;
+	width:955px;
+	height:470px;
+	text-align:left;
+}
+
+#middle table { border-collapse:collapse; height:100%; width:100% }
+#middle th { padding:0 ; margin:0; vertical-align:top; }
+
+/*---------------------------------------------*/
+
+#menuPpal {
+	background-color: #e4e4e4;
+	width: 100%;
+	width: 150px;
+	height: 100%;
+	text-align: right;
+}
+
+#menuPpal ul {
+	list-style: none;
+	text-align: left;
+	width: 150px;
+	margin-left: 4px;
+	margin-top: 12px;
+	padding-bottom: 8px;
+	margin-right: 0;
+	margin-bottom: 0;
+	padding-top: 0;
+	padding-right: 0;
+	padding-left: 0;
+}
+#menuPpal li {
+	list-style: none;
+	border-bottom: 1px solid #00D7FE;
+	padding-top: 6px;
+	padding-right: 0px;
+	padding-bottom: 6px;
+	padding-left: 8px;
+	line-height: 15px;
+}
+#menuPpal a {
+	text-decoration: none;
+	font-family: /*AsapBold, */Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+#menuPpal a:link {
+	color: #666666;
+}
+#menuPpal a:visited {
+	color: #666666;
+}
+#menuPpal a:hover {
+	color: #0082CB;
+}
+#menuPpalOn { 
+	text-decoration:none;
+	font-family: /*AsapBold, */Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 15px;
+	color: #FFFFFF;
+	background-color:#0082CB;
+	text-transform:uppercase;
+	font-weight: bold;
+
+}
+
+#menuPpalOn a:link { 
+	text-decoration:none;
+	font-family: /*AsapBold, */Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 15px;
+	color: #FFFFFF;
+	background-color:#0082CB;
+	font-weight: bold;
+}
+
+#menuPpal #menuPpalOn a:hover {
+	color: #666666;
+}
+
+#menuPpalSub { border:0; margin:0; padding:0; width:154px ; float:left ; text-align:left; margin-top:2px }
+#menuPpalSub ul {list-style:none; width:154px; margin:0; padding:0; margin-left:-10px;}
+
+
+/*#menuPpalSub {
+	border: 0;
+	padding: 0;
+	width: 154px;
+	float: left;
+	text-align: left;
+	margin-top: 0px;
+	margin-right: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+}
+#menuPpalSub ul {list-style:none; width:154px; margin:0; padding:0; margin-left:-10px;}
+*/
+#menuPpalSub li {
+	border-bottom: 1px dashed  #FFFFFF;
+	line-height: 15px;
+	width: 125px;
+	background-color: #E4E4E4;
+	margin-left: 5px;
+}
+
+#menuPpalSub li a {
+	font-family: /*AsapRegular, */Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #666666;
+	font-weight: normal;
+	text-decoration: none;
+	line-height: 15px;
+	text-transform: none;
+}
+
+#menuPpalSub li a:link {
+	color: #666666;
+}
+#menuPpalSub li a:visited {
+	color: #666666;
+}
+#menuPpalSub li a:hover {
+	color: #0082CB;
+}
+
+#menuPpalSub #menuPpalSubOn {
+	text-decoration: none;
+	font-family: /*AsapRegular, */Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 15px;
+	color: #0082CB;
+	font-weight: normal;
+}
+#menuPpalSub #menuPpalSubEnd {
+	padding-bottom: 12px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #00D7FE;
+}
+/*--------------------------------------*/
+#contenido {
+	width:648px;
+	height:100%;
+	background-color:#F2F2F2;
+	
+}
+
+
+
+/*--------------------------------------*/
+#menuDer { 
+	width:154px;
+	height:100%;
+	background-color:#e4e4e4;
+	text-align:left;
+}
+#menuDer ul {
+	width:122px; list-style:none; 
+	padding:0;
+	margin-top:12px;
+	margin-left:10px;
+}
+#menuDer li {
+	list-style: none;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #FFFFFF;
+	margin-bottom: 5px;
+	line-height: 15px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 8px;
+	padding-left: 0px;
+}
+#menuDer a {
+	text-decoration:none;
+	font-family: /*AsapRegular, */Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FFFFFF;
+}
+#menuDer a:link {
+	color: #666666;
+}
+#menuDer a:visited {
+	color: #666666;
+}
+#menuDer a:hover {
+	color: #0082CB;
+}
+#menuDer #menuDerOn {
+	color: #0082CB;
+}
+
+/*---------------------------------------------*/
+
+/*#footer {
+	width:955px; height:82px; background-image:url(../img_mms/cierre-logos.jpg); background-repeat:no-repeat ;
+}*/
+#footer12 {
+	width: 955px;
+	height: 55px;
+	background-image: url(../img_mms/img_footer.png);
+	background-repeat: no-repeat;
+}
+
+#footer #presidencia {
+	border:0px solid; width:168px; height:64px; display:block;position:absolute; left:0px;
+}
+#footer #casarosada {
+	border: 0px solid;
+	width: 140px;
+	height: 55px;
+	display: block;
+	position: absolute;
+	left: 815px;
+}
+#footer12 #casarosada {
+	border: 0px solid;
+	width: 140px;
+	height: 55px;
+	display: block;
+	position: absolute;
+	left: 815px;
+}
+
+#footer #copyright {
+	border: 0px solid;
+	width: 500px;
+	height: 55px;
+	display: block;
+	position: absolute;
+	left: 0px;
+	text-align: left;
+	padding-top: 20px;
+	margin: 0px;
+}
+#footer12 #copyright {
+	border: 0px solid;
+	width: 815px;
+	height: 38px;
+	display: block;
+	position: absolute;
+	left: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #777;
+	text-align: left;
+	padding-top: 22px;
+	padding-left: 20px;
+	margin: 0px;
+}
+
+
+.textoFooter {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #666;
+	text-align: left;
+}
+
+#footer #bicentenario {
+	border:0px solid; width:168px; height:64px; display:block;
+	position:absolute; left:190px;
+}
+#footer #argentina {
+	border:0px solid; width:123px; height:64px; display:block;
+	position:absolute; left:368px;
+}
+#footer #argentina_2 {
+	border:0px solid; width:146px; height:64px; display:block;
+	position:absolute; left:500px;
+}
+
+
+
+.filete_tablas {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #DDDDDD;
+}
+.filete_tablasVerticales {
+	border-right-width: 2px;
+	border-right-style: solid;
+	border-right-color: #FFFFFF;
+}
+#top #menuBuscador img.iconos {
+	margin-top: -15px;
+	margin-left: 15px;
+}
+
+@font-face {
+    font-family: 'RopaSansRegular';
+    src: url('fontface/RopaSans-Regular-webfont.eot');
+    src: url('fontface/RopaSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fontface/RopaSans-Regular-webfont.woff') format('woff'),
+         url('fontface/RopaSans-Regular-webfont.ttf') format('truetype'),
+         url('fontface/RopaSans-Regular-webfont.svg#RopaSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'RopaSansItalic';
+    src: url('fontface/RopaSans-Italic-webfont.eot');
+    src: url('fontface/RopaSans-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fontface/RopaSans-Italic-webfont.woff') format('woff'),
+         url('fontface/RopaSans-Italic-webfont.ttf') format('truetype'),
+         url('fontface/RopaSans-Italic-webfont.svg#RopaSansItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'AsapRegular';
+    src: url('fontface/Asap-Regular-webfont.eot');
+    src: url('fontface/Asap-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fontface/Asap-Regular-webfont.woff') format('woff'),
+         url('fontface/Asap-Regular-webfont.ttf') format('truetype'),
+         url('fontface/Asap-Regular-webfont.svg#AsapRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'AsapItalic';
+    src: url('fontface/Asap-Italic-webfont.eot');
+    src: url('fontface/Asap-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fontface/Asap-Italic-webfont.woff') format('woff'),
+         url('fontface/Asap-Italic-webfont.ttf') format('truetype'),
+         url('fontface/Asap-Italic-webfont.svg#AsapItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'AsapBold';
+    src: url('fontface/Asap-Bold-webfont.eot');
+    src: url('fontface/Asap-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fontface/Asap-Bold-webfont.woff') format('woff'),
+         url('fontface/Asap-Bold-webfont.ttf') format('truetype'),
+         url('fontface/Asap-Bold-webfont.svg#AsapBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'AsapBoldItalic';
+    src: url('fontface/Asap-BoldItalic-webfont.eot');
+    src: url('fontface/Asap-BoldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fontface/Asap-BoldItalic-webfont.woff') format('woff'),
+         url('fontface/Asap-BoldItalic-webfont.ttf') format('truetype'),
+         url('fontface/Asap-BoldItalic-webfont.svg#AsapBoldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+#fotosG {
+	border-top-width: 10px;
+	border-right-width: 12px;
+	border-left-width: 12px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-top-color: #e4e4e4;
+	border-right-color: #e4e4e4;
+	border-left-color: #e4e4e4;
+}
+.apps4{
+	height: 27px;
+	width: 140px;	
+}
+
+.apps3{
+	margin-bottom: 5px;
+	height: 40px;
+	width: 140px;	
+}
+.apps2 {
+	margin-bottom: 5px;
+	height: 40px;
+	width: 140px;
+}
+
+.apps1 {
+	margin-bottom: 5px;
+	height: 40px;
+	width: 140px;
+}
+#aportes_2 {
+	padding-top: 20px;
+	padding-bottom: 10px;
+	width: 167px;
+	height: 140px;
+}
+#aportes_3 {
+	width: 167px;
+	height: 116px;
+	padding-bottom: 4px;
+	padding-top: 21px;
+}
+
+#aportes_2 #enlace_2 {
+	border: 0px solid;
+	width: 167px;
+	height: 140px;
+	display: block;
+	position: absolute;
+	left: 0px;
+	z-index: 100;
+}
+#aportes_3 #enlace_3 {
+	border: 0px solid;
+	width: 167px;
+	height: 116px;
+	display: block;
+	position: absolute;
+	left: 0px;
+	z-index: 250;
+}
+
+#div_trenes {
+	background-image: url('img_mms/fondo_trenes.png');
+	width: 527px;
+	height: 176px;
+	margin: 0px;
+	padding: 0px;
+}
+#div_trenes_buscar {
+	position: relative;
+	left: 57px;
+	top: 112px;
+	width: 50px;
+	height: 18px;
+	background-image: url('http://trenes.mininterior.gov.ar/images/buscarON.png');
+	cursor: pointer;
+}
+
+.apps {
+	height: 188px;
+	width: 140px;
+	text-align: center;
+	float: right;
+	margin-top: 10px;
+	margin-right: 16px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+.listado-corredores {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #666;
+	text-decoration: none;
+}
+.listado-corredores a{
+	color:#666;
+	text-decoration:none}
+.listado-corredores a:hover{
+	color:#25A8E0;
+	font-weight:bold}

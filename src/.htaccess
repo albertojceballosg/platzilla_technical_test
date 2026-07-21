@@ -1,0 +1,25 @@
+#AuthUserFile /home/userweb/.htpasswd
+#AuthName "Por favor ingrese sus datos de conexion"
+#AuthType Basic
+#require user userweb
+
+Options +FollowSymLinks
+RewriteEngine on
+#ggc#RewriteCond %{HTTPS} off
+#ggc#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+##RewriteRule ^clientes/(.+) https://app.platzilla.com/index.php?plat=$1
+RewriteRule ^clientes/(.+) http://platzillagit.local.com/index.php?plat=$1
+
+RewriteRule ^module-(\w+)-action-(\w+)-(.+)-(.+)-(.+)$ index.php?module=$1&action=$2&$3=$4&$5=$6
+RewriteRule ^module-(\w+)-action-(\w+)-(.+)-(.+)$ index.php?module=$1&action=$2&$3=$4
+RewriteRule ^module-(\w+)-action-(\w+)-(.+)$ index.php?module=$1&action=$2&$3
+RewriteRule ^module-(\w+)-action-(\w+)$ index.php?module=$1&action=$2
+<IfModule pagespeed_module>
+ModPagespeed off
+</IfModule>
+<IfModule mod_php5.c>
+php_value memory_limit 1024M
+php_value date.timezone 'Europe/Madrid'
+php_value post_max_size 100M
+php_value upload_max_filesize 100M
+</IfModule>

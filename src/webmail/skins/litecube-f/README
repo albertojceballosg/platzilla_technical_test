@@ -1,0 +1,51 @@
+Roundcube Plus Free Skins
+=========================
+
+Roundcube Plus free skins add a new look to the Roundcube program. They are simplified versions of their commercial
+counterparts: they don't include the mobile support.
+
+Roundcube compatibility
+-----------------------
+The skins are compatible with Roundcube 1.2.x. They will not work properly with earlier versions or unreleased beta
+versions of Roundcube.
+
+Browser compatibility
+---------------------
+The skins are compatible with all modern browsers.
+
+Plugin compatibility
+--------------------
+The skins do not support MyRoundcube plugins. MyRoundcube plugins have been discontinued and don't work properly with
+the latest versions of Roundcube. They should no longer be used in a production environment. If you need replacement
+plugins, visit http://roundcubeplus.com.
+
+Installation steps
+------------------
+1. Copy the directories 'skins' and 'plugins' to the directory where your Roundcube is installed.
+
+IMPORTANT: If you already have a full version of any Roundcube Plus skins, do not overwrite the xskin plugin as it will
+cause errors when using your existing skins.
+
+2. Edit the file 'config/config.inc.php', find the line that begins with $config['plugins'] and add 'xskin' to the
+array, like this:
+
+$config['plugins'] = array('xskin');
+
+If the $config['plugins'] line doesn't exist in your config file, add it at the end of the file.
+
+3. If you'd like to use litecube-f on the Roundcube login screen and as the default skin for the newly created user
+accounts, edit 'config/config.inc.php', find the setting $config['skin'] and set it to 'litecube-f'. If this setting
+doesn't exist, add it at the end of the file, like this:
+
+$config['skin'] = 'litecube-f';
+
+4. If you'd like to use your own branding images or customize other skin settings, copy the file
+plugins/xskin/config.inc.php.dist to config.inc.php and follow the instructions given in that file.
+
+License
+-------
+The Roundcube Plus free skins are covered by a commercial license agreement (see the file LICENSE for details).
+
+Copyright and credits
+---------------------
+Copyright (c) 2011-2017, Tecorama, England (http://roundcubeplus.com)

@@ -1,0 +1,37 @@
+<?php
+	$mod_strings = array (
+		'materials'                   => 'Gestor de documentos',
+		'SINGLE_materials'            => 'Materiales',
+		'materials ID'                => 'Materiales ID',
+		// ListView
+		'APP_TITLE'                   => 'Gestor de documentos',
+		'APP_DESCRIPTION'             => 'Carpetas y documentos publicados',
+		'BTL_CATEGORIES'              => 'Categorías',
+		'BTL_FEATURED'                => 'Destacado',
+		'BTL_FOLDERS'                 => 'Carpetas',
+		'BTL_FILES'                   => 'Documentos',
+		'BTL_CREATE_CATEGORY'         => 'Crear categoría',
+		'BTL_CREATE_FOLDER'           => 'Crear carpeta',
+		'BTL_CREATE_DOCUMENTS'        => 'Registrar documento',
+		'BTL_DATE'                    => 'Fecha',
+		'BTL_DELETE_FILE'             => '¿Estás seguro que quieres eliminar el documento seleccionado?',
+		'BTL_DELETE_FOLDER'           => '¿Estás seguro que quieres eliminar la carpeta seleccionada?',
+		'BTL_STATUS'                  => 'Estado',
+		'BTL_TYPE'                    => 'Tipo de Documento',
+		'BTL_ACTION'                  => 'Aciones',
+		'BTL_EMPTY_CATEGORIES'        => 'No hay categorias registradas',
+		'BTL_EMPTY_DOCUMENTS'         => 'No hay documentos registrados',
+		'BTL_EMPTY_FOLFERS'           => 'No hay carpetas registradas',
+		'BTL_VIEWED'                  => 'Num. Visitas',
+		'BTL_DOCUMENTS'               => 'Documentos',
+		'BTL_URL'                     => 'Url blog',
+		'DISABLED'                    => 'Deshabilitado',
+		'ENABLED'                     => 'Activo',
+		'UPLOADED'                    => 'Archivos para descargar',
+		'SAVED'                       => 'Enlace registrado',
+
+		'LBL_CUSTOM_INFORMATION'      => 'Custom Information',
+		'LBL_MODULEBLOCK_INFORMATION' => 'ModuleBlock Information',
+
+		'ModuleFieldLabel'            => 'ModuleFieldLabel Text',
+	);

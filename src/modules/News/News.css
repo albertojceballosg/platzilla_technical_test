@@ -1,0 +1,53 @@
+.col-from {
+	width: 13em;
+}
+.col-to {
+	width: 13em;
+}
+.col-actions {
+	text-align: center;
+	width: 7em;
+}
+.btn.btn-icon {
+	font-size:   14px;
+	height:      27px;
+	line-height: 27px;
+	margin:      0 0 5px 0;
+	padding:     0;
+	text-align:  center;
+	width:       27px;
+}
+.sharing-data select[multiple] {
+	height: 150px;
+}
+.columns-actions {
+	height:        196px;
+	margin-bottom: 0;
+}
+.vertical-group {
+	position:  relative;
+	text-align: center;
+	transform: translate(0, -50%);
+	top:       50%;
+}
+.row-news {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin-right: -15px;
+	margin-left: -15px
+}
+
+.justify-content-center {
+	-webkit-box-pack: center !important;
+	-ms-flex-pack: center !important;
+	justify-content: center !important
+}
+
+.no-gutters > .col,
+.no-gutters > [class*=col-] {
+	padding-right: 1px;
+	padding-left: 1px;
+}

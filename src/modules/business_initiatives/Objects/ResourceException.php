@@ -1,0 +1,7 @@
+<?php
+	class ResourceException  extends Exception {
+		const CRM_ID_RESOURCE_EMPTY	      = 'CRM_ID_RESOURCE_EMPTY';
+		const RECURSE_INITIATIVE_ID_EMPTY = 'RECURSE_INITIATIVE_ID_EMPTY';
+		const TYPE_RESOURCE_EMPTY         = 'TYPE_RESOURCE_EMPTY';
+		const TYPE_RESOURCE_INDEFINED     = 'TYPE_RESOURCE_INDEFINED';
+	}

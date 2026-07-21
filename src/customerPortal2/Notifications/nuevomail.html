@@ -1,0 +1,37 @@
+	<form name="index" method="POST" action="index.php">
+	<input type="hidden" name="module" value="Notifications">
+	<input type="hidden" name="action" value="index">
+	<input type="hidden" name="fun" value="savenot">
+	<table  cellpadding="5" cellspacing="0" width="100%" border="0" align="center" class="dvtContentSpace">
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td background="https://webmail.timemanagement.es/images/bg/bg_folder_title.gif" align="left" colspan="4">
+<small>
+<b>Ingrese la Nueva Notificación</b>
+</small>
+</td>
+</tr>
+
+	<tr>
+		<td class="dvtCellLabel"  align="left">Asunto:</td>
+              <td class="dvtCellInfo"  ><input name="asunto" type ="text" size="166" maxlength="166" value='' /></td>
+	</tr>
+	<tr>
+		<td class="dvtCellLabel"   align="left">Dirigido A:</td>
+              <td class="dvtCellInfo"  >
+	      <select  name="usuario" id="usuario">
+		<option value="4722">Soporte</option>
+	      </select>
+	      </td>
+	</tr>
+	<tr>
+		<td class="dvtCellLabel"   align="left">Mensaje:</td></tr>
+			<tr>
+ 
+              <td colspan="4" class="dvtCellInfo"  ><textarea name="mensaje" wrap="hard" cols="135" rows="8" style="" wrap="OFF"  ></textarea></td>
+	</tr>
+	<tr><td align="center" colspan="4"><input class="crmbutton small cancel" name="Submitnot" type='submit' value="  Enviar  "  /></td></tr>
+	</table>
+	</form>

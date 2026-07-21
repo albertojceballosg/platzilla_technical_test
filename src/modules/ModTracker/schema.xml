@@ -1,0 +1,14 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_modtracker_basic</name>
+		</table>
+		<table>
+			<name>vtiger_modtracker_tabs</name>
+		</table>
+		<table>
+			<name>vtiger_modtracker_detail</name>
+		</table>
+	</tables>
+</schema>

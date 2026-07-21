@@ -1,0 +1,11 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_proyectos</name>
+		</table>
+		<table>
+			<name>vtiger_proyectoscf</name>
+		</table>
+	</tables>
+</schema>

@@ -1,0 +1,63 @@
+svg {
+  overflow: visible;
+  width: 100% !important;
+  height: 600px !important;
+}
+
+.graph.simple {
+  height: 500px;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+.graph.simple.embudo .legend {
+  display: none;
+}
+.graph.simple.embudo .funnelLabel {
+  background-color: rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+  font-size: 12px;
+  left: 50% !important;
+  padding: 5px;
+  transform: translate(-50%, -5px);
+}
+.history-container {
+  max-width: 1200px;
+}
+.history-record {
+  table-layout: fixed;
+  width: 100%;
+  font-size: 90%;
+}
+.history-record td:nth-child(1) {
+  width: 6%;
+}
+.history-record td:nth-child(3) {
+  width: 12%;
+}
+.history-record td:nth-child(2) {
+  width: 82%;
+  word-wrap: break-word;
+  white-space: normal;
+}
+.history-record span {
+  font-weight: bold;
+}
+
+.row-history {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.justify-content-center {
+  -webkit-box-pack: center !important;
+  -ms-flex-pack: center !important;
+  justify-content: center !important;
+}
+.progress-class {
+  cursor: progress;
+}

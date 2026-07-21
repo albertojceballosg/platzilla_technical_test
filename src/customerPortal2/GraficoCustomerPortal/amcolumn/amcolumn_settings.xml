@@ -1,0 +1,85 @@
+  <?xml version="1.0" encoding="UTF-8" ?> 
+- <settings>
+  <font>Tahoma</font> 
+  <text_color>7F8DA9</text_color> 
+- <column>
+  <width>85</width> 
+  <spacing>0</spacing> 
+  <grow_time>1</grow_time> 
+  <sequenced_grow>false</sequenced_grow> 
+  </column>
+- <plot_area>
+- <margins>
+  <left>54</left> 
+  <top>0</top> 
+  <right>0</right> 
+  <bottom>40</bottom> 
+  </margins>
+  </plot_area>
+- <grid>
+- <category>
+  <alpha>5</alpha> 
+  <dashed>false</dashed> 
+  </category>
+- <value>
+  <alpha>5</alpha> 
+  <dashed>false</dashed> 
+  <dash_length>5</dash_length> 
+  </value>
+  </grid>
+- <values>
+- <category>
+  <frequency>1</frequency> 
+  <rotate>0</rotate> 
+  <text_size>9</text_size> 
+  </category>
+- <value>
+  <min>0</min> 
+  <skip_last>true</skip_last> 
+  </value>
+  </values>
+- <axes>
+- <category>
+  <color>#7F8DA9</color> 
+  <width>1</width> 
+  </category>
+- <value>
+  <color>#7F8DA9</color> 
+  <width>1</width> 
+  </value>
+  </axes>
+- <legend>
+  <enabled>false</enabled> 
+  </legend>
+- <labels>
+- <label>
+  <x>0</x> 
+  <y>290</y> 
+  <rotate>90</rotate> 
+- <text>
+- <![CDATA[   ]]> 
+  </text>
+  </label>
+- <label>
+  <x>0</x> 
+  <y>430</y> 
+  <align>right</align> 
+- <text>
+- <![CDATA[ ]]> 
+  </text>
+  </label>
+  </labels>
+- <graphs>
+- <graph gid="1">
+  <title>Consumida</title> 
+  <color>DB4C3C</color> 
+- <balloon_text><![CDATA[{series}: {value} hs consumidas]]></balloon_text>
+  </graph>
+- <graph gid="2">
+  <type>line</type> 
+  <color>FEC514</color> 
+  <title>Contratada</title> 
+- <balloon_text><![CDATA[{series}: {value} hs contratadas]]></balloon_text>
+  </graph>
+  </graphs>
+  </settings>

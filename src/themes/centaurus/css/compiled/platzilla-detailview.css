@@ -1,0 +1,402 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Roboto'); /*Importar fonts desde el api de google */
+:root {
+  --font-family-base:  'Roboto', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-size-base: 14px;
+  --font-size-large: 18px;
+  --font-size-small: 10px;
+  --color-text-primary: #000000;
+}
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize #2C3E50 */
+.nav-platzilla-history {
+    height: 30px !important;
+    font-size: 12px !important;
+    background-color: #365759 !important;
+    margin-left:   -15px !important;
+    margin-right:  -15px !important;
+
+}
+.nav-platzilla-history > li > a {
+    padding: 5px 10px !important;
+    font-weight: bold !important;
+    color: #FFFFFF;
+}
+
+.nav-platzilla-history > li > a:hover {
+    color: #000000 !important;
+    background-color: #FFFFFF !important;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    cursor: default;
+}
+
+.nav-platzilla-history .dropdown-toggle .caret {
+    border-bottom-color: #FFFFFF;
+    border-top-color: #FFFFFF;
+}
+.nav-platzilla-history .dropdown-toggle:hover .caret {
+    border-bottom-color: #000000;
+    border-top-color: #000000;
+}
+
+.nav-platzilla-history > li.active > a, .nav-platzilla-history > li.active > a:hover, .nav-platzilla-history > li.active, .nav-platzilla-history > li.open, .nav-platzilla-history > li > a:focus {
+    color: #000000 !important;
+    background-color: #FFFFFF !important;
+    border: 1px solid #FFFFFF;
+    border-bottom-color: transparent;
+    cursor: default;
+}
+.main-box {
+    box-shadow:    0px 0px 0px 0 #FFFFFF !important;
+    border-radius: 0px !important;
+    margin-bottom: 0 !important;
+}
+.label-input {
+    text-align: left !important;
+    margin-left: 2px ;
+	height: 2em !important;
+	width:100% !important;
+}
+.label-input > label {
+    font-weight: bold;
+}
+
+div[id^="tab-detail-"].tab-pane.fade.in.active div.card-body form#form div.row div.main-box div.main-box-body.clearfix div.col-md-6 div.col-md-5 {
+	width:100% !important;
+	min-height: 1.5em;
+}
+
+.data-input {
+    margin-bottom: 2px !important;
+    padding-bottom: 2px !important;
+}
+.form-control {
+    color: #000000 !important;
+}
+
+.input-group > .input-group-btn > .btn, .filter-block .form-group .form-control, .header-button.btn-additional > a {
+    border-color: #FFFFFF !important;
+}
+
+#instances-data-sharing-share-modal .form-control,
+#instances-data-sharing-share-modal .input-group-addon,
+#instances-data-sharing-share-modal .checkbox-nice label::before,
+#instances-data-sharing-share-modal .input-group-addon,
+.wizard-input-section .form-control,
+.wizard-input-section .input-group-addon,
+.wizard-input-section .checkbox-nice label::before,
+.wizard-input-section .input-group-addon,
+#history-body .form-control,
+#history-body .input-group-addon,
+#history-body .checkbox-nice label::before,
+#tab-comments .form-control,
+#tab-comments .input-group-addon,
+#tab-comments .checkbox-nice label::before,
+#tab-conversations .form-control,
+#tab-conversations .input-group-addon,
+#tab-conversations .checkbox-nice label::before,
+#tab-control_panel .form-control,
+#tab-control_panel .input-group-addon,
+#tab-control_panel .checkbox-nice label::before 
+ {
+    border: 1px solid #E7EBEE !important;
+}
+
+
+#modal-detail-row .main-box {
+    height: auto;
+    min-height: 100% !important;
+
+}
+
+#modal-detail-row {
+    height: 100%!important;
+    overflow-y: scroll;
+}
+
+/* Vertical tabs */
+.tabs-left, .tabs-right {
+    border-bottom: none;
+    padding-top: 2px;
+}
+.tabs-left {
+    border-right: 1px solid #ddd;
+}
+.tabs-right {
+    float: right;
+    border-left: 1px solid #ddd;
+    width: 60px;
+    margin-right: -12px;
+
+}
+.tabs-left>li, .tabs-right>li {
+    float: none;
+    margin-bottom: 2px;
+}
+.tabs-left>li {
+    margin-right: -1px;
+}
+.tabs-right>li {
+    margin-left: -1px;
+}
+.tabs-left>li.active>a,
+.tabs-left>li.active>a:hover,
+.tabs-left>li.active>a:focus {
+    border-bottom-color: #ddd;
+    border-right-color: transparent;
+}
+
+.tabs-right>li.active>a,
+.tabs-right>li.active>a:hover,
+.tabs-right>li.active>a:focus {
+    border-bottom: 1px solid #ddd;
+    border-left-color: transparent;
+}
+.tabs-left>li>a {
+    border-radius: 4px 0 0 4px;
+    margin-right: 0;
+    display:block;
+}
+.tabs-right>li>a {
+    border-radius: 0 4px 4px 0;
+    margin-right: 0;
+}
+.vertical-text {
+    margin-top:50px;
+    border: none;
+    position: relative;
+}
+.vertical-text>li {
+    height: 20px;
+    width: 10px;
+    margin-bottom: 100px;
+}
+.vertical-text>li>a {
+    border-bottom: 1px solid #ddd;
+    border-right-color: transparent;
+    text-align: center;
+    border-radius: 4px 4px 0px 0px;
+}
+.vertical-text>li.active>a,
+.vertical-text>li.active>a:hover,
+.vertical-text>li.active>a:focus {
+    border-bottom-color: transparent;
+    border-right-color: #ddd;
+    border-left-color: #ddd;
+}
+.vertical-text.tabs-left {
+    left: -50px;
+}
+.vertical-text.tabs-right {
+    right: -50px;
+}
+.vertical-text.tabs-right>li {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.vertical-text.tabs-left>li {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.editable-click > span:hover {
+    background-color: #F5F5F5 !important;
+    border:           1px solid #DDDDDD !important;
+    text-decoration: underline !important;
+}
+.related-list-card-row td small {
+    font-size: 0.95em !important;
+    color: #000000 !important;
+}
+
+div[id^="tab-related-list-"].tab-pane.fade.in.active div.row div.col-md-6 div.card.rounded div#RLContents.card-body.card-body-related {
+	padding-top:0px !important;
+}
+
+
+/* tablas grid en vista detallada */
+form[name="DetailView"] div[id^="tbl"].main-box-body.clearfix div.row.field-container div.col-md-12 div.main-box-body.clearfix div.table-responsive {
+	width:100%;
+	max-width:100%;
+}
+form[name="DetailView"] div[id^="tbl"].main-box-body.clearfix div.row.field-container div.col-md-12 div.main-box-body.clearfix div.table-responsive table.table.table-bordered.tablegridvalidate {
+	max-width:100%;
+	table-layout: fixed;
+	font-family: var(--font-family-base);
+	font-size: 1.0rem !important;
+}
+
+form[name="DetailView"] div[id^="tbl"].main-box-body.clearfix div.row.field-container div.col-md-12 div.main-box-body.clearfix div.table-responsive table.table.table-bordered.tablegridvalidate thead tr td, 
+form[name="DetailView"] div[id^="tbl"].main-box-body.clearfix div.row.field-container div.col-md-12 div.main-box-body.clearfix div.table-responsive table.table.table-bordered.tablegridvalidate thead tr th
+{
+	font-size:1.3em !important;
+	font-weight:bold;	
+}
+form[name="DetailView"] div[id^="tbl"].main-box-body.clearfix div.row.field-container div.col-md-12 div.main-box-body.clearfix div.table-responsive table.table.table-bordered.tablegridvalidate tbody tr td {
+	padding-top: 0.6em !important;
+	padding-bottom: 0.6em !important;
+}
+
+form[name="DetailView"] div[id^="tbl"].main-box-body.clearfix div.row.field-container div.col-md-12 div.main-box-body.clearfix div.table-responsive table.table.table-bordered.tablegridvalidate tbody tr td div.grid-input-compact.grid-text-display
+{
+	font-size:1.2rem !important;
+	font-weight:normal;
+	color:#000000;	
+}
+form[name="DetailView"] div[id^="tbl"].main-box-body.clearfix div.row.field-container div.col-md-12 div.main-box-body.clearfix div.table-responsive table.table.table-bordered.tablegridvalidate tbody tr[id$="-summary"] td, 
+form[name="DetailView"] div[id^="tbl"].main-box-body.clearfix div.row.field-container div.col-md-12 div.main-box-body.clearfix div.table-responsive table.table.table-bordered.tablegridvalidate tbody tr[id$="-summary"] td p 
+{
+	font-size:1.1rem !important;
+	font-weight:500;
+	color:#000000;	
+}
+
+/* Iconos de acción de la listview */
+
+div[id^="tab-detail-"] div#card-view-register-container div.card.rounded div.card-header.platzilla-card-header.rounded div.row div.col-md-5 {
+	width:30% !important;
+	float:left;
+	
+}
+div[id^="tab-detail-"] div#card-view-register-container div.card.rounded div.card-header.platzilla-card-header.rounded div.row div.col-md-7 {
+	width:69% !important;
+	text-align:right !important;
+	float:right;
+}
+
+/*Tabla de tareas en trabajos*/
+
+/*Linea de tarea*/
+form[name="DetailView"] div.table-responsive.field-container table[id^="task-project-table-"].table.table-bordered.tablegridvalidate tbody[id^="tbody-task-project-"] tr[id^="tr-row-"].tabla-field-row td,
+form[name="DetailView"] div.table-responsive.field-container table[id^="task-project-table-"].table.table-bordered.tablegridvalidate tbody[id^="tbody-task-project-"] tr[id^="tr-row-"].tabla-field-row td div.input-group span {
+	font-family: var(--font-family-base) !important;
+	color: #000000 !important;
+	/*font-size: 1.1rem !important;*/
+	font-weight:normal !important;
+}
+
+html.js.mozilla body.pace-done div#page-wrapper.container.nav-small div div.row.fix-h div#content-wrapper div.row div.col-lg-12 div.container-fluid div.tabs-wrapper.row div.col-md-12 div.tab-content div#tab-detail-30470.tab-pane.fade.in.active div.row div.col-md-8 div#card-view-register-container div.row div.col-md-12 div.card.rounded div.card-body form#form div.row div.main-box div#tblTareas.main-box-body.clearfix div.col-md-12 div.table-responsive.field-container table#task-project-table-.table.table-bordered.tablegridvalidate tfoot#tfoot-17065 tr td
+
+form[name="DetailView"] div.table-responsive.field-container table[id^="task-project-table-"].table.table-bordered.tablegridvalidate tfoot[id^="tfoot-"] tr td,
+form[name="DetailView"] div.table-responsive.field-container table[id^="task-project-table-"].table.table-bordered.tablegridvalidate tfoot[id^="tfoot-"] tr td .form-control {
+		font-size: 1.3rem !important;
+}
+
+form[name="DetailView"] div.table-responsive.field-container table[id^="task-project-table-"].table.table-bordered.tablegridvalidate thead tr td span {
+	font-family: var(--font-family-base) !important;
+	color: #000000 !important;
+	font-size: 1.3rem !important;
+	font-weight:500;
+	line-height: 1.1em;
+}
+
+/*Tarjetas de lado derecho de la detailview*/
+div.tab-content div[id^="tab-detail-"].tab-pane.fade.in.active div.row div.col-md-4 div.row div.col-md-12 div.card.rounded div.card-body div.grid-container div.project-box-content div.row div.col-md-10 div.grid-item span {
+	font-size: 1.2rem !important;
+}
+  /*Fecha del reporte de avance en la tarjeta de la detailview*/
+ div[id^="tab-detail-"].tab-pane.fade.in.active div.row div.col-md-4 div.row div.col-md-12 div.card.rounded div.card-body div.grid-container div.project-box-content div.row div.col-md-10 div.grid-item.border-bottom.border-secondary small {
+	 font-size:0.7em !important;
+	 padding-left:0.7em;
+ }
+ /*Texto del reporte de avance en la tarjeta de la detailview*/
+ div[id^="tab-detail-"].tab-pane.fade.in.active div.row div.col-md-4 div.row div.col-md-12 div.card.rounded div.card-body div.grid-container div.project-box-content div.row div.col-md-10 div.grid-item {
+	text-align: left;
+	margin: 1px 2px;
+	font-size: 0.85em !important;
+	width: 100%;
+	line-height: 1em !important;
+	padding-top: 1em !important;
+ }
+ /*Barras de desplazamiento de la tarjeta*/
+div[id^="tab-detail-"].tab-pane.fade.in.active div.row div.col-md-4 div.row div.col-md-12 div.card.rounded div.card-body div.grid-container
+ {
+	--scrollbar-size: 5px;
+	padding-right:0.5em !important;
+ }
+div[id^="tab-detail-"].tab-pane.fade.in.active div.row div.col-md-4 div.row div.col-md-12 div.card.rounded div.card-body div.grid-container::-webkit-scrollbar {
+    width: var(--scrollbar-size);
+    height: var(--scrollbar-size);
+    background-color: transparent;
+}
+
+div[id^="tab-detail-"].tab-pane.fade.in.active div.row div.col-md-4 div.row div.col-md-12 div.card.rounded div.card-body div.grid-container::-webkit-scrollbar-track {
+    background: #fefdfd;
+    border-radius: var(--scrollbar-size);
+    border: none;
+}
+
+div[id^="tab-detail-"].tab-pane.fade.in.active div.row div.col-md-4 div.row div.col-md-12 div.card.rounded div.card-body div.grid-container::-webkit-scrollbar-thumb {
+    background: #F9F8F7;
+    border-radius: var(--scrollbar-size);
+    opacity: 0.7;
+    border: none;
+}
+
+div[id^="tab-detail-"].tab-pane.fade.in.active div.row div.col-md-4 div.row div.col-md-12 div.card.rounded div.card-body div.grid-container::-webkit-scrollbar-thumb:hover {
+    background: var(--color-scroll-thumb);
+}
+
+/* Estilos para SpecialJobView dentro del modal */
+#modal-detail-row .modal-body {
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0;
+}
+
+/* Cuando el SpecialJobView está cargado en el modal */
+#modal-detail-row .modal-body > div[id="sjv-container"] {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    max-width: 100%;
+}
+
+/* Ajustar el contenido del SpecialJobView al ancho del modal */
+#modal-detail-row .modal-body #sjv-container {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Asegurar que las tablas y grids no se desborden */
+#modal-detail-row .modal-body #sjv-container table,
+#modal-detail-row .modal-body #sjv-container .table-responsive {
+    max-width: 100%;
+    width: 100%;
+}
+
+/* Ajuste de posición del modal para orden_de_trabajo */
+#modal-detail-row.md-modal {
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 95%;
+    width: 900px;
+}
+
+/* Asegurar que el contenido del modal se muestre correctamente */
+#modal-detail-row .md-content {
+    max-height: 90vh;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Estilos específicos para modal de orden_de_trabajo (vista especial) */
+#modal-detail-row.md-modal-special-job .md-content {
+    max-height: 85vh;
+    width: 95%;
+    max-width: 1000px;
+}
+
+#modal-detail-row.md-modal-special-job .modal-body {
+    max-height: calc(85vh - 120px);
+    overflow-y: auto;
+    padding: 0;
+}

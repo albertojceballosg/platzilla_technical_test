@@ -1,0 +1,116 @@
+.required {
+	color: #FF0000;
+}
+.panel > .panel-heading {
+	border:        1px solid #DDDDDD;
+	margin-bottom: 1em;
+}
+.panel > .panel-heading > a > .panel-title {
+	display: inline-block;
+	width:   90%;
+}
+.panel > .panel-heading > .btn {
+	position: absolute;
+	right:    5px;
+	top:      5px;
+}
+.filter-group {
+	margin-bottom: 0;
+}
+.filter-group-header {
+	padding: 5px 5px 5px 15px
+}
+.filter-group-body {
+	padding: 0;
+}
+.filter-group-body > .filters {
+	margin-bottom: 0;
+	padding:       5px 0;
+}
+.filter-group-body > .filters > .filter {
+	border:  0;
+	padding: 5px 10px 5px 15px;
+}
+.filter-group-operator {
+	margin: 5px 0;
+}
+label {
+	font-size:   1em;
+	font-weight: 300;
+}
+.btn {
+	margin-left: 5px;
+}
+.main-box > .main-box-header {
+	padding-bottom: 20px;
+	padding-top:    20px;
+}
+.main-box > .main-box-footer {
+	padding: 0 20px 20px 20px;
+}
+#variable-parameter-modal {
+	top:     0;
+	z-index: 3000;
+}
+#variable-parameter-modal .modal-body {
+	max-height: 70vh;
+	min-height: 70vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+.wizard-modal label {
+	font-size:   1em;
+	font-weight: 300;
+}
+.wizard-modal > form {
+	padding-bottom: 60px !important;
+}
+.wizard-steps {
+	height: auto !important;
+	float:  none !important;
+	width:  100% !important;
+}
+.wizard-nav-container {
+	height: auto !important;
+}
+.wizard-nav-container > .nav {
+	padding-bottom: 0 !important;
+}
+.wizard-nav-container > .nav > .wizard-nav-item {
+	display: inline-block !important;
+}
+.wizard-progress-container {
+	padding: 0 !important;
+}
+.wizard-progress-container > .progress {
+	margin-bottom: 0 !important;
+}
+.wizard-modal-footer > .wizard-buttons-container {
+	padding-bottom: 10px;
+	padding-top:    10px;
+}
+.wizard-modal .checkbox input[type="checkbox"] {
+	margin-top: 0 !important;
+}
+.wizard-modal .checkbox {
+	margin-bottom: 0;
+	margin-top:    0;
+}
+.wizard-modal .checkbox + .checkbox {
+	margin-top: 0;
+}
+@media (max-width: 1023px) {
+	.wizard-modal {
+		width: 100% !important;
+	}
+}
+@media (min-width: 1024px) and (max-width: 1199px) {
+	.wizard-modal {
+		width: 90% !important;
+	}
+}
+@media (min-width: 1200px) {
+	.wizard-modal {
+		width: 80% !important;
+	}
+}

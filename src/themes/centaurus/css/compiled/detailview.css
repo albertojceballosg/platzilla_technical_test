@@ -1,0 +1,385 @@
+.table tbody > tr > td {
+	font-size:   1.125em;
+	font-weight: 300;
+}
+.row-parley {
+	display:       -webkit-box;
+	display:       -ms-flexbox;
+	display:       flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap:     wrap;
+	margin-right:  -10px;
+	margin-left:   -10px
+}
+.justify-content-center {
+	-webkit-box-pack: center !important;
+	-ms-flex-pack:    center !important;
+	justify-content:  center !important;
+}
+#tab-detail {
+	font-weight: 300;
+}
+#users-info {
+	padding:    0 2px;
+	min-height: 300px;
+	overflow-y: auto;
+}
+#users-info::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	background-color:   #F5F5F5;
+}
+#users-info::-webkit-scrollbar {
+	width:            2px;
+	background-color: #F5F5F5;
+}
+#users-info::-webkit-scrollbar-thumb {
+	background-color: #000000;
+}
+#parley_chats {
+	padding:    0 2px;
+	min-height: 300px;
+	overflow-y: auto;
+}
+#parley_chats::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	background-color:   #F5F5F5;
+}
+#parley_chats::-webkit-scrollbar {
+	width:            2px;
+	background-color: #F5F5F5;
+}
+#parley_chats::-webkit-scrollbar-thumb {
+	background-color: #000000;
+}
+.list-group-item.active span {
+	color: #FFFFFF;
+}
+@media (min-width: 360px) {
+	#tab-conversations {
+		min-height: 425px;
+		font-size:  0.85em;
+	}
+	#users-info {
+		padding:    0 2px;
+		max-height: 400px;
+		overflow-y: auto;
+	}
+	#users-info img {
+		width:         40%;
+		height:        40%;
+		margin-right:  0;
+		padding-right: 0;
+	}
+	#parley_chats {
+		padding:    0 2px;
+		max-height: 400px;
+		overflow-y: auto;
+	}
+}
+@media (min-width: 768px) {
+	#tab-conversations {
+		min-height: 425px;
+		font-size:  0.75em;
+	}
+	#users-info {
+		padding:    0 2px;
+		max-height: 400px;
+		overflow-y: auto;
+	}
+	#users-info img {
+		width:         25%;
+		height:        25%;
+		margin-right:  0;
+		padding-right: 0;
+	}
+	#parley_chats {
+		padding:    0 2px;
+		max-height: 400px;
+		overflow-y: auto;
+	}
+}
+@media (min-width: 992px) {
+	#tab-conversations {
+		min-height: 450px;
+		font-size:  0.855em;
+	}
+	#users-info {
+		padding:    0 2px;
+		max-height: 425px;
+		overflow-y: auto;
+	}
+	#users-info img {
+		width:         85%;
+		height:        85%;
+		margin-right:  0;
+		padding-right: 0;
+	}
+	#parley_chats {
+		padding:    0 2px;
+		max-height: 425px;
+		overflow-y: auto;
+	}
+}
+@media (min-width: 1200px) {
+	#tab-conversations > .main-box {
+		min-height: 450px;
+		font-size:  1.15em;
+	}
+	#tab-conversations .row-parley {
+		min-height: 425px;
+	}
+	#users-info {
+		padding:    0 2px;
+		max-height: 425px;
+		overflow-y: auto;
+	}
+	#users-info img {
+		width:         95%;
+		height:        95%;
+		margin-right:  0;
+		padding-right: 0;
+	}
+	#parley_chats {
+		padding:    0 2px;
+		max-height: 425px;
+		overflow-y: auto;
+	}
+	.users-board {
+		max-height:   425px;
+		border-right: 1px solid #CCCCCC;
+		padding:      4px;
+	}
+}
+@media (min-width: 1200px) and (max-height: 720px) {
+	#tab-conversations > .main-box {
+		min-height: 350px;
+		font-size:  1.15em;
+	}
+	#tab-conversations .row-parley {
+		min-height: 325px;
+	}
+	#users-info {
+		padding:    0 2px;
+		max-height: 325px;
+		overflow-y: auto;
+	}
+	#users-info img {
+		width:         95%;
+		height:        95%;
+		margin-right:  0;
+		padding-right: 0;
+	}
+	#parley_chats {
+		padding:    0 2px;
+		max-height: 325px;
+		overflow-y: auto;
+	}
+	.users-board {
+		max-height:   325px;
+		border-right: 1px solid #CCCCCC;
+		padding:      4px;
+	}
+}
+@media (min-width: 1440px) {
+	#tab-conversations {
+		min-height: 425px;
+		font-size:  0.855em;
+	}
+	#users-info {
+		padding:    0 2px;
+		max-height: 425px;
+		overflow-y: auto;
+	}
+	#users-info img {
+		width:         75%;
+		height:        75%;
+		margin-right:  0;
+		padding-right: 0;
+	}
+	.users-board {
+		max-height:   425px;
+		border-right: 1px solid #CCCCCC;
+		padding:      4px;
+	}
+	#tab-conversations .row-parley {
+		min-height: 425px;
+	}
+	#parley_chats {
+		padding:    0 2px;
+		max-height: 425px;
+		overflow-y: auto;
+	}
+}
+@media (min-width: 1440px) and (max-height: 720px) {
+	#tab-conversations > .main-box {
+		min-height: 350px;
+		font-size:  1.15em;
+	}
+	#tab-conversations .row-parley {
+		min-height: 325px;
+	}
+	#users-info {
+		padding:    0 2px;
+		max-height: 325px;
+		overflow-y: auto;
+	}
+	#users-info img {
+		width:         95%;
+		height:        95%;
+		margin-right:  0;
+		padding-right: 0;
+	}
+	#parley_chats {
+		padding:    0 2px;
+		max-height: 325px;
+		overflow-y: auto;
+	}
+	.users-board {
+		max-height:   325px;
+		border-right: 1px solid #CCCCCC;
+		padding:      4px;
+	}
+}
+@media (min-width: 1920px) {
+	#tab-conversations {
+		min-height: 500px;
+		font-size:  1.15em;
+	}
+	#users-info {
+		padding:    0 2px;
+		max-height: 475px;
+		overflow-y: auto;
+	}
+	#users-info img {
+		width:         55%;
+		height:        55%;
+		margin-right:  0;
+		padding-right: 0;
+	}
+	.users-board {
+		max-height:   475px;
+		border-right: 1px solid #CCCCCC;
+		padding:      4px;
+	}
+	#tab-conversations .row-parley {
+		min-height: 475px;
+	}
+	#parley_chats {
+		padding:    0 2px;
+		max-height: 475px;
+		overflow-y: auto;
+	}
+}
+
+#email-viewer-modal,
+#email-compose-modal {
+	top: 0;
+}
+#email-viewer-modal .modal-body,
+#email-compose-modal .modal-body {
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+#email-viewer-modal .form-control,
+#email-compose-modal .form-control {
+	margin-bottom: 5px;
+}
+#email-viewer-modal #attachments {
+	list-style: none;
+}
+#email-viewer-modal #attachments .attachment {
+	margin-right: 2em;
+}
+#email-viewer-modal #email-body {
+	border:        1px solid #E7EBEE;
+	border-radius: 3px;
+	padding:       0;
+	height:        50vh;
+	width:         100%;
+}
+#emails-conversation.conversation-wrapper .conversation-body.email {
+	cursor: pointer;
+}
+#emails-conversation.conversation-wrapper .conversation-body .name {
+	font-weight: 600;
+	font-size:   1.25rem;
+	word-wrap:   break-word;
+}
+#emails-conversation.conversation-wrapper .conversation-body .time {
+	color:       #605F5F;
+	font-size:   0.875em;
+	font-weight: 300;
+	text-align:  right;
+}
+#emails-conversation.conversation-wrapper .conversation-body .time:before {
+	content:         "\f017";
+	font-family:     FontAwesome;
+	font-style:      normal;
+	font-weight:     normal;
+	margin-right:    0.5em;
+	text-decoration: inherit;
+	margin-top:      4px;
+	font-size:       0.875em;
+}
+#emails-conversation.conversation-wrapper .conversation-body .text {
+	font-size:   1.5rem;
+	padding-top: 6px;
+	word-wrap:   break-word;
+}
+#emails-conversation.conversation-wrapper .conversation-body .actions {
+	cursor:     default;
+	margin-top: 5px;
+}
+#emails-conversation.conversation-wrapper .conversation-body .actions .btn:last-of-type {
+	margin-left:  5px;
+	margin-right: 0;
+}
+#emails-conversation.conversation-wrapper .conversation-body .actions > .dropdown {
+	display: inline;
+}
+#emails-conversation.conversation-wrapper .conversation-body .related-entities {
+	background-color: #FFFFFF;
+	border:           1px solid #DDDDDD;
+	border-radius:    5px;
+	cursor:           default;
+	margin-top:       5px;
+}
+#emails-conversation.conversation-wrapper .conversation-body .related-entities .table {
+	margin-bottom: 0;
+}
+#emails-conversation.conversation-wrapper .conversation-body .related-entities .table .col-module-name {
+	width: 20em;
+}
+#emails-conversation.conversation-wrapper .conversation-body .related-entities .table .col-actions {
+	width: 5em;
+}
+#emails-conversation.conversation-wrapper .conversation-body .related-entities .action-bar {
+	margin-bottom: 5px;
+}
+#emails-conversation .btn {
+	margin-left: 5px;
+}
+@media (max-width: 767px) {
+	#emails-conversation.conversation-wrapper .conversation-inner {
+		margin-right: 0;
+	}
+	#emails-conversation.conversation-wrapper .conversation-user {
+		display: none;
+	}
+	#emails-conversation.conversation-wrapper .conversation-body {
+		margin-left: 0;
+	}
+	#emails-conversation.conversation-wrapper .conversation-body .actions {
+		text-align: center;
+	}
+}
+@media (min-width: 768px) and (max-width: 991px) {
+	#emails-conversation.conversation-wrapper .conversation-body .actions {
+		text-align: right;
+	}
+}
+@media (min-width: 992px) {
+	#emails-conversation.conversation-wrapper .conversation-body .actions {
+		text-align: right;
+	}
+}

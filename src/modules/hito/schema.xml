@@ -1,0 +1,11 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_hito</name>
+		</table>
+		<table>
+			<name>vtiger_hitocf</name>
+		</table>
+	</tables>
+</schema>

@@ -1,0 +1,462 @@
+.hide {
+  display: none !important;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.store-wrapper {
+  font-size: 12px;
+}
+.store-wrapper .btn {
+  display: inline-block;
+  border-radius: 2px;
+  padding: 0.5em 0.8em;
+  border-width: 0;
+  font-weight: bold;
+}
+.store-wrapper .apps-wrapper {
+  text-align: center;
+  padding: 1em 0 2.916666666666667em 0;
+}
+.store-wrapper .app {
+  display: inline-block;
+  text-align: center;
+  padding: 0 3em;
+  vertical-align: top;
+}
+
+.store-wrapper .app.mrg-b-lg {
+  cursor: pointer;
+}
+.store-wrapper .app .app-icon {
+  display: inline-block;
+  background-color: white;
+  border-radius: 50%;
+  line-height: 9.5em;
+  width: 9.5em;
+  border: 1px solid #AEBBBB;
+  margin-top: 2em;
+}
+.store-wrapper .app .app-icon img {
+  display: inline-block;
+  width: 100%;
+  margin-top: -.33em
+}
+.store-wrapper .app .app-title {
+  text-transform: uppercase;
+  text-align: center;
+  display: inline-block;
+  font-weight: bold;
+  padding: 1em 0 1em 0;
+  display: block;
+}
+.store-wrapper .app .btn {
+  color: #fff;
+  text-transform: uppercase;
+}
+.store-wrapper .app .btn-add {
+  background-color: #2dcc70;
+}
+.store-wrapper .app .btn-add:active {
+  transform: scale(0.9);
+}
+.store-wrapper .app .btn-add:hover {
+  background-color: #29b865;
+}
+.store-wrapper .app .btn-remove {
+  background-color: #e84c3d;
+}
+.store-wrapper .app .btn-remove:active {
+  transform: scale(0.9);
+}
+.store-wrapper .app .btn-remove:hover {
+  background-color: #e53423;
+}
+.store-wrapper .app .coming-soon {
+  background-color: #fdcd00;
+  color: #987b00;
+  padding: 0.5em;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.store-wrapper .app .app-price {
+  background-color: #8fa7a7;
+  color: #fff;
+  display: inline-block;
+  width: 5em;
+  margin-top: 0.5em;
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 2px 0;
+}
+.store-wrapper .calculator {
+  padding-top: 2em;
+}
+.store-wrapper .calculator .calculator-tabs {
+  display: block;
+}
+.store-wrapper .calculator .calculator-tabs .calculator-tab {
+  display: inline-block;
+  width: 50%;
+  font-weight: normal;
+  float: left;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 1em 0;
+  font-size: 1.2em;
+  cursor: pointer;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.store-wrapper .calculator .calculator-tabs .calculator-tab:hover {
+  background-color: #edeff1;
+}
+.store-wrapper .calculator .calculator-tabs .calculator-tab.-selected {
+  background-color: #2dcc70;
+  color: #fff;
+}
+.store-wrapper .calculator .calculator-tabs .calculator-tab.-selected:hover {
+  background-color: #2dcc70;
+  cursor: default;
+}
+.store-wrapper .calculator input[type=number] {
+  width: 3em;
+  text-align: center;
+  font-weight: bold;
+}
+.store-wrapper .calculator table {
+  width: 100%;
+  margin-bottom: 2em;
+}
+.store-wrapper .calculator table th {
+  font-size: 1.2em;
+  color: #2dcc70;
+  text-transform: uppercase;
+}
+.store-wrapper .calculator table tr {
+  border-top: 2px solid #edeff1;
+  height: 3.3em;
+}
+.store-wrapper .calculator table tr td {
+  font-size: 1.2em;
+  padding-left: 1em;
+}
+.store-wrapper .calculator table tr.total {
+  background-color: #00b175;
+  color: #fff;
+}
+.img-modal-freetrial{
+  width: 100px;
+  height: 80px;
+  float: left;
+  margin-right: 15px;
+}
+
+.imglogos-modal-freetrial{
+  width: 180px;
+  //height: 80px;
+  //float: left;
+  margin-right: 0px;
+}
+
+
+.store-wrapper .app .btn-danger {
+  background-color: #e74c3c;
+  border-color: #c0392b;
+}
+
+.store-wrapper .app .btn-danger:hover,
+.store-wrapper .app .btn-danger:focus,
+.store-wrapper .app .btn-danger:active,
+.store-wrapper .app .btn-danger.active{
+  background-color: #c0392b;
+}
+
+.tituloApp{
+  width: 100%;
+  background: #CFCACA;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.modal-header{
+  border-bottom: 0px;
+}
+
+.modal-footer{
+  border-top: 0px;
+}
+
+
+.app-title-confirmation {
+  text-transform: uppercase;
+  text-align: left;
+  display: inline-block;
+  font-weight: bold;
+  padding: 5px;
+  display: block;
+}
+
+.app-price-confirmation {
+  background-color: #D0D6D6;
+  color: #000;
+  display: inline-block;
+  width: 6em;
+  margin: 0.5em 0 0.2em 0;
+  font-weight: normal;
+  font-size: 1em;
+  padding: 5px 2px;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.logo-braintree{
+  width: 160px;
+  margin-top: 15px;
+}
+
+#list_items_ready > li > div > img{
+  margin-top: -100px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 1em rgba(0,0,0,0.4);
+  width: 70px;
+  border: none;
+}
+
+#list_items_ready > li > div > div > h4{
+  color: grey;
+  margin-top: -20px;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: .5em;
+}
+
+.apps-wrapper > div{
+  margin-bottom: 3em;
+}
+
+.app-checked .app_estatus {
+  display: block;
+}
+
+.app_estatus{
+  margin-top: -33px;
+  position: absolute;
+  float: right;
+  text-align: right; 
+  line-height:0 !important; 
+  display:none;
+  margin-left: 6.9em;
+}
+
+.app_estatus> i{
+  border: 1px solid #20D37F;
+  border-radius: 50%;
+  padding: .2em;
+  font-size: 1.6em;
+  color: #20D37F;
+  background: white;
+}
+
+.app-checked{
+  border: 1px solid #20D37F !important;
+  border-radius: 50%;
+  max-width: 100%;
+  width: 128px;
+}
+
+.app-checked >img{
+  /*width: 100%;*/
+}
+
+.app-title.text-left{
+  font-size:1.2em !important;
+  text-align:left !important;
+}
+
+.app-description > p{
+  font-size:1.13em; 
+  text-align:justify;
+  color: #B2B9BA;
+}
+
+.app button{
+  width: 7em;
+}
+
+#login-logo h1{
+  font-size: 1em; 
+  padding-left:0;
+  margin-bottom: .3em;
+}
+
+#login-logo p.title-description{
+  padding-bottom:.5em;
+  font-size: .66em !important;
+}
+
+#app-car{
+  height: 90px;
+  background: white;
+  float: initial;
+  margin-top: -2em;
+  box-shadow: 0 0 1em rgba(0,0,0,0.4);
+  position: fixed;
+  bottom: 0;
+  width: 102%;
+  z-index: 2000;
+  margin-left: -15px;
+  display: none;
+}
+
+#app-car > div{
+  width: 78%;
+  margin-left: 11%;
+  padding-left: 0;
+}
+
+#app-car > div > div > div{
+  margin-top: 40px;
+}
+
+#app-car > div > div > div > div{
+  padding: 0 30px 0 0;
+}
+
+#app-car > div > div > div > div > div{
+  font-size: 1.5em; 
+  margin-top:-.4em;
+}
+
+#app-car h4{
+  font-size: .9em;
+}
+
+#apps-ready{
+  height: 50px;
+  margin: 0;
+}
+
+#list_items_ready{
+  list-style:none;
+}
+
+#app-car button{
+  padding-left: .7em !important;
+  padding-right: .7em !important;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-size: .74em;
+}
+
+#app-car button > span{
+  margin-left: .3em;
+}
+
+#login-logo.flex{
+  padding-bottom:1px;
+  padding-left: 3.4em;
+  padding-right: 3.4em;
+}
+
+#login-box.flex{
+  max-width:80%;
+}
+
+@media (max-width: 1195px) and (min-width: 991px){
+  .app_estatus{
+    margin-left: 5em;
+  }
+}
+
+@media (max-width: 1195px){
+  .store-wrapper .app {
+    padding: 0 1em;
+  }
+
+  .store-wrapper .app .app-icon img{
+    width: 85%;
+  }
+
+  .store-wrapper .app .app-icon {
+    line-height: 7em;
+    width: 7em;
+  }
+
+  #login-logo.flex{
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+  }
+
+}
+
+@media (max-width: 991px){
+
+  #text-status{
+    margin-top: -20px !important;
+  }
+
+  .store-wrapper .app .app-icon img{
+    width: 90%;
+  }
+
+  .store-wrapper .app .app-icon {
+    line-height: 9.5em;
+    width: 9.5em;
+  }
+
+}
+
+@media (max-width: 526px) {
+  #login-box.flex {
+    max-width: 390px;
+  }
+}
+
+@media (max-width: 767px){
+  #login-logo.flex{
+    padding-bottom:1px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .store-wrapper .app{
+    padding: 0;
+  }
+
+  #app-car button {
+    margin-top: -10px;
+  }
+
+  .app-title.text-left{
+    text-align: center !important;
+  }
+
+  .app button{
+    float: right;
+  }
+
+  #text-status, #apps-ready{
+    display: none;
+  }
+
+  #app-car > div > div > div > div{
+    padding: 0;
+  }
+
+  #app-car button{
+    width: 100%;
+    font-size: .9em !important;
+  }
+
+  #app-car > div{
+    margin-left: 12%;
+  }
+
+}

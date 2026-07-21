@@ -1,0 +1,11 @@
+HTTP/1.1 301 Moved Permanently
+Content-Type: text/html; charset=UTF-8
+Location: http://www.msn.com/en-us/money
+Server: Microsoft-IIS/8.5
+X-Powered-By: ASP.NET
+Date: Thu, 09 Jul 2015 09:52:20 GMT
+Connection: close
+Content-Length: 153
+
+<head><title>Document Moved</title></head>
+<body><h1>Object Moved</h1>This document may be found <a HREF="http://www.msn.com/en-us/money">here</a></body>

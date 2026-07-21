@@ -1,0 +1,27 @@
+.btn.btn-icon {
+	font-size:   14px;
+	height:      27px;
+	line-height: 27px;
+	margin:      0 5px 0 0;
+	padding:     0;
+	text-align:  center;
+	width:       27px;
+}
+.col-label {
+	width: auto !important;
+}
+.col-registration-date {
+	width: 10em;
+}
+.col-summary {
+	width: 18em;
+}
+.col-source {
+	width: 10em;
+}
+.col-status {
+	width: 10em;
+}
+.col-actions {
+	width: 12em;
+}

@@ -1,0 +1,612 @@
+
+p { color: #6c6c6d; font-family: Arial, sans-serif; font-size: 15px; line-height: 23px; }
+ul li {
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+
+ul {
+    font-weight: normal;
+    line-height: 20px;
+    list-style: circle outside none;
+}
+
+#main .title-wrap, .single.single-post .title-wrap, .features .title-wrap, .biggermast .title-wrap, .single.single-connectors .title-wrap {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 5px 3px 3px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 5px 3px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 3px 3px rgba(0, 0, 0, 0.1);
+    opacity: .97;
+}
+
+.single.single-post .post-header, .features .post-header, .biggermast, .single.single-connectors .post-header {
+    padding: 60px 0 20px;
+}
+
+.post-title, .single-faqs .post-title {
+	font-size: 40px;
+	font-weight: 300;
+    margin: 0;
+}
+
+.ch-grid {
+	margin: 20px 0 0 0;
+	padding: 0;
+	list-style: none;
+	display: block;
+	text-align: center;
+	width: 100%;
+}
+
+.ch-grid:after,
+.ch-item:before {
+	content: '';
+    display: table;
+}
+
+.ch-grid:after {
+	clear: both;
+}
+
+.ch-grid li {
+	width: 220px;
+	height: 220px;
+	display: inline-block;
+	margin: 20px;
+}
+
+.ch-item {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	position: relative;
+	cursor: default;
+	box-shadow: 
+		inset 0 0 0 0 rgba(0, 0, 0, 0.4),
+		inset 0 0 0 16px rgba(255,255,255,0.6),
+		0 1px 2px rgba(0,0,0,0.1);
+		
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+	*background-size: 210px;
+	background-repeat: no-repeat;
+}
+
+.ch-img-1 { 
+	*background-image: url(../img/management.png);
+}
+
+.ch-img-2 { 
+	*background-image: url(../img/CRM.png);
+}
+
+.ch-img-3 { 
+	*background-image: url(../img/6.jpg);
+}
+
+.ch-info {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	opacity: 0;
+	
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+	
+	-webkit-transform: scale(0);
+	-moz-transform: scale(0);
+	-o-transform: scale(0);
+	-ms-transform: scale(0);
+	transform: scale(0);
+	
+	-webkit-backface-visibility: hidden; /*for a smooth font */
+
+}
+
+.ch-info h3 {
+	color: #fff;
+	text-transform: uppercase;
+	position: relative;
+	letter-spacing: 2px;
+	font-size: 22px;
+	margin: 0 30px;
+	padding: 40px 0 0 0;
+	height: 60px;
+	font-family: 'Open Sans', Arial, sans-serif;
+	text-shadow: 
+		0 0 1px #fff, 
+		0 1px 2px rgba(0,0,0,0.3);
+}
+
+.ch-info p {
+	color: #fff;
+	padding: 5px 5px;
+	font-style: italic;
+	margin: 0 30px;
+	font-size: 12px;
+	border-top: 1px solid rgba(255,255,255,0.5);
+}
+
+.ch-info p a {
+	display: block;
+	color: #fff;
+	color: rgba(255,255,255,0.7);
+	font-style: normal;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 9px;
+	letter-spacing: 1px;
+	padding-top: 4px;
+	font-family: 'Open Sans', Arial, sans-serif;
+}
+
+.ch-info p a:hover {
+	color: #fff222;
+	color: rgba(255,242,34, 0.8);
+}
+
+.ch-item:hover {
+	box-shadow: 
+		inset 0 0 0 110px rgba(0, 0, 0, 0.4),
+		inset 0 0 0 16px rgba(255,255,255,0.8),
+		0 1px 2px rgba(0,0,0,0.1);
+	cursor:pointer;
+}
+
+.ch-item:hover .ch-info {
+	opacity: 1;
+	
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-o-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);	
+}
+
+.oe_slogan {
+color: #333333;
+font-family: Ubuntu, sans-serif;
+text-align: center;
+margin-top: 32px;
+*margin-bottom: 32px;
+}
+h2.oe_slogan {
+font-size: 40px;
+font-weight: 300;
+}
+[class*='oe_span'] {
+float: left;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+padding: 0 16px;
+}
+.oe_span12 {
+width: 928px;
+}
+.oe_span6 {
+width: 100%;
+}
+.oe_mt32 {
+margin-top: 32px !important;
+}
+.oe_centeralign {
+text-align: center;
+}
+.oe_emph {
+font-weight: 400;
+}
+.oe_big {
+font-size: 24px;
+}
+.oe_centeralign {
+text-align: center;
+}
+div.oe_demo {
+position: relative;
+border: 1px solid #dedede;
+padding: 10px;
+}
+.oe_picture {
+display: block;
+max-width: 84%;
+max-height: 400px;
+margin: 16px 8%;
+}
+.oe_screenshot {
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+-ms-border-radius: 3px;
+-o-border-radius: 3px;
+border-radius: 3px;
+-webkit-box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+-moz-box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+min-height:180px;
+}
+div.oe_demo div.oe_demo_footer {
+position: absolute;
+left: 0;
+background-color: rgba(0, 0, 200, 0.5);
+opacity: 0.85;
+bottom: -1px;
+width: 100%;
+padding-top: 7px;
+padding-bottom: 7px;
+color: white;
+font-size: 14px;
+font-weight: bold;
+border-bottom-left-radius: 3px;
+border-bottom-right-radius: 3px;
+pointer-events: none;
+}
+.ot_objetive{
+margin-left:15px;
+width: 650px;
+float: left;
+}
+.oe_form_start {
+text-align: center;
+}
+.oe_domain {
+display: inline-block;
+margin-left: -145px;
+margin-right: 20px;
+}
+.clear-this{clear:both}
+
+.row-fluid [class*="span"] {
+    display: block;
+    width: 100%;
+    min-height: 40px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    *margin-left: 2.5641%;
+    *margin-left: 2.51091%;
+  }
+  /* line 614, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid [class*="span"]:first-child {
+    margin-left: 0;
+  }
+  /* line 619, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .controls-row [class*="span"] + [class*="span"] {
+    margin-left: 2.5641%;
+  }
+  /* line 631, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .span12 {
+    width: 100%;
+    *width: 99.94681%;
+  }
+  /* line 631, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .span11 {
+    width: 91.45299%;
+    *width: 91.3998%;
+  }
+  /* line 631, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .span10 {
+    width: 82.90598%;
+    *width: 82.85279%;
+  }
+  /* line 631, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .span9 {
+    width: 74.35897%;
+    *width: 74.30578%;
+  }
+  /* line 631, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .span8 {
+    width: 65.81197%;
+    *width: 65.75877%;
+  }
+  /* line 631, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .span7 {
+    width: 57.26496%;
+    *width: 57.21177%;
+  }
+  /* line 631, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .span6 {
+    width: 48.71795%;
+    *width: 48.66476%;
+  }
+  /* line 631, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .span5 {
+    width: 40.17094%;
+    *width: 40.11775%;
+  }
+  /* line 631, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .span4 {
+    width: 31.62393%;
+    *width: 31.57074%;
+  }
+  /* line 631, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .span3 {
+    width: 23.07692%;
+    *width: 23.02373%;
+  }
+  /* line 631, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .span2 {
+    width: 14.52991%;
+    *width: 14.47672%;
+  }
+  /* line 631, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .span1 {
+    width: 5.98291%;
+    *width: 5.92971%;
+  }
+  /* line 638, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset12 {
+    margin-left: 105.12821%;
+    *margin-left: 105.02182%;
+  }
+  /* line 639, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset12:first-child {
+    margin-left: 102.5641%;
+    *margin-left: 102.45772%;
+  }
+  /* line 638, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset11 {
+    margin-left: 96.5812%;
+    *margin-left: 96.47481%;
+  }
+  /* line 639, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset11:first-child {
+    margin-left: 94.01709%;
+    *margin-left: 93.91071%;
+  }
+  /* line 638, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset10 {
+    margin-left: 88.03419%;
+    *margin-left: 87.92781%;
+  }
+  /* line 639, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset10:first-child {
+    margin-left: 85.47009%;
+    *margin-left: 85.3637%;
+  }
+  /* line 638, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset9 {
+    margin-left: 79.48718%;
+    *margin-left: 79.3808%;
+  }
+  /* line 639, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset9:first-child {
+    margin-left: 76.92308%;
+    *margin-left: 76.81669%;
+  }
+  /* line 638, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset8 {
+    margin-left: 70.94017%;
+    *margin-left: 70.83379%;
+  }
+  /* line 639, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset8:first-child {
+    margin-left: 68.37607%;
+    *margin-left: 68.26969%;
+  }
+  /* line 638, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset7 {
+    margin-left: 62.39316%;
+    *margin-left: 62.28678%;
+  }
+  /* line 639, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset7:first-child {
+    margin-left: 59.82906%;
+    *margin-left: 59.72268%;
+  }
+  /* line 638, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset6 {
+    margin-left: 53.84615%;
+    *margin-left: 53.73977%;
+  }
+  /* line 639, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset6:first-child {
+    margin-left: 51.28205%;
+    *margin-left: 51.17567%;
+  }
+  /* line 638, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset5 {
+    margin-left: 45.29915%;
+    *margin-left: 45.19276%;
+  }
+  /* line 639, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset5:first-child {
+    margin-left: 42.73504%;
+    *margin-left: 42.62866%;
+  }
+  /* line 638, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset4 {
+    margin-left: 36.75214%;
+    *margin-left: 36.64575%;
+  }
+  /* line 639, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset4:first-child {
+    margin-left: 34.18803%;
+    *margin-left: 34.08165%;
+  }
+  /* line 638, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset3 {
+    margin-left: 28.20513%;
+    *margin-left: 28.09875%;
+  }
+  /* line 639, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset3:first-child {
+    margin-left: 25.64103%;
+    *margin-left: 25.53464%;
+  }
+  /* line 638, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset2 {
+    margin-left: 19.65812%;
+    *margin-left: 19.55174%;
+  }
+  /* line 639, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset2:first-child {
+    margin-left: 17.09402%;
+    *margin-left: 16.98763%;
+  }
+  /* line 638, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset1 {
+    margin-left: 11.11111%;
+    *margin-left: 11.00473%;
+  }
+  /* line 639, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .offset1:first-child {
+    margin-left: 8.54701%;
+    *margin-left: 8.44063%;
+  }
+
+  #menu-main-navigation {
+        margin-top: 5px;
+        padding: 5px;
+    }
+
+    #menu-under-header {
+        height: 40px;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        line-height: 30px;
+        padding-bottom: 12px;
+        background-image: none;
+        background: white;
+    }
+
+    #menu-under-header .navbar-inner {
+        height: 46px;
+        min-height: 35px;
+        background: white;
+        font-size: 11px;
+        color: #fff;
+        background-image: none;
+        background: white;
+        background-image: none;
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0);
+    }
+
+    #menu-under-header .navbar-inner a {
+        color: black;
+        line-height: 35px;
+        padding: 0 10px;
+    }
+
+    #menu-under-header .navbar-inner .form-search {
+        height: 28px;
+        margin: 0;
+    }
+
+    #menu-under-header .navbar-inner .form-search input {
+        height: 20px;
+        margin-top: 0;
+        padding: 1px 3px;
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    #menu-under-header .navbar-inner .form-search .btn-link, #sidebar .form-search .btn-link {
+        padding: 0;
+        margin: 0;
+    }
+
+    #menu-under-header .navbar-inner .form-search .btn-link:hover, #sidebar .form-search .btn-link:hover {
+        text-decoration: none;
+    }
+
+    #menu-under-header.navbar .nav {
+        left: auto;
+        right: 0;
+        float: right;
+    }
+
+    #menu-under-header.navbar .nav > li {
+        float: right;
+    }
+
+    #menu-above-header, #menu-under-header {
+        background: white;
+        color: black;
+    }
+
+	.admin-bar #menu-under-header {
+		margin-top: 28px !important;
+	}
+
+    .admin-bar #menu-above-header, .admin-bar #menu-under-header, .admin-bar a.brand img {
+        margin-top: 28px !important;
+    }
+    
+    .home.admin-bar #menu-under-header, .pricing.admin-bar #menu-under-header, .pricing-nd.admin-bar #menu-under-header, .pricing-gbp.admin-bar #menu-under-header, .pricing-eur.admin-bar #menu-under-header, .pricing-aud.admin-bar #menu-under-header, .pricing-nzd.admin-bar #menu-under-header, .home.admin-bar a.brand img, .pricing.admin-bar a.brand img, .pricing-nd.admin-bar a.brand img, .pricing-gbp.admin-bar a.brand img, .pricing-eur.admin-bar a.brand img, .pricing-aud.admin-bar a.brand img, .pricing-nzd.admin-bar a.brand img {
+	    margin-top: 0 !important;
+    }
+
+    .home #menu-above-header, .pricing #menu-above-header, .pricing-nd #menu-above-header, .pricing-gbp #menu-above-header, .pricing-eur #menu-above-header, #menu-under-header, .pricing-aud #menu-above-header, .pricing-nzd #menu-above-header, #menu-under-header {
+        margin-top: inherit;
+        z-index: 999;
+    }
+	
+
+	.home #wrapper .btn-warning {
+    margin-left: 15px;
+}
+#wrapper .btn, .pager li > a, .pager li > span {
+    padding: 5px 15px;
+    transition: background-color 0.3s ease 0s;
+}
+.btn-warning {
+    background: none repeat scroll 0 0 #009DDC;
+}
+.btn {
+    font-family: "Lucida Grande",Helvetica,Arial,sans-serif;
+    text-transform: uppercase;
+}
+.btn {
+    border-radius: 3px;
+    font-size: 15.3px;
+    font-weight: bold;
+    padding: 5px 12px;
+}
+.btn-warning {
+    background-color: #E37F00;
+    background-image: linear-gradient(to bottom, #E98300, #DA7A00);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.btn {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #EAEAEA;
+    background-image: linear-gradient(to bottom, #EEEEEE, #E6E6E6);
+    background-repeat: repeat-x;
+    border-color: #BBBBBB #BBBBBB #A2A2A2;
+    border-image: none;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    color: #5E6A71;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 30px;
+    margin-bottom: 0;
+    padding: 4px 12px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    vertical-align: middle;
+}
+
+
+.social-links-content { background-color: #6a737b; color: white;text-align: center; margin: 5px auto; padding: 10px;}
+.social-links-content .heading { display: inline; font-size: 20px; line-height: 26px; font-family: "Univers LT W01 45 Light", Arial, sans-serif; text-transform: uppercase; color:white;}

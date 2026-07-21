@@ -1,0 +1,264 @@
+body {
+	color: #344644;
+	background:#3598DB;
+	background-size: 220px 220px;
+}
+
+body, #login-page {
+	background-color: #3598DB;
+}
+
+#login-logo {
+	background: white;
+}
+
+.linea {
+	/*border-top: .2em solid #EBEBEB;*/
+	border-top: .1em solid #ccc;
+	width: 85%;
+	margin: auto;
+}
+
+#login-box-inner {
+	border:none;
+	border-bottom: 1px solid #e1e1e1;
+	padding: 16px 25px 40px;
+}
+
+#login-box {
+	max-width: 390px;
+}
+
+#login-logo > img, #login-logo > a > img {
+	height: 55px;
+}
+
+#login-box .social-text{
+	margin: 0;
+	padding: 0 0 15px;
+}
+
+#login-box #login-forget-link{
+	text-align: center;
+	color: #6C757D;
+	font-size: 1.2em;
+}
+
+.social-text.first, p.first {
+	padding-top: 15px !important;
+	margin-top: 5px !important;
+}
+
+.social-text > a, #login-forget-link {
+	color: #6C757D;
+	text-decoration: none !important;
+}
+
+.social-text > a:hover, a.social-text:hover, #login-forget-link:hover {
+	color: #14AD76 !important;
+}
+
+.header-nav > li > a {
+	color: white !important;
+	text-transform: uppercase;
+}
+
+.header-nav > li > a:hover {
+	background-color: transparent;
+	text-decoration: underline;
+}
+
+.nav .nav-bar-default .navbar-static-top{
+	margin: auto;
+	margin-top: 2em;
+}
+
+.navbar-center{
+	color: white !important;
+	float: left;
+	left: 50%;
+	margin: 0 auto;
+	padding: 0;
+	position: relative;
+}
+
+.navbar-center > li{
+	float: left;
+	position: relative;
+	right: 50%;
+	font-weight: 300;
+}
+
+#login-box-inner h1 {
+	margin-left: -.5em;
+	color: #4B5763;
+	font-weight: 400;
+	font-size: 1.7em;
+	text-align: center;
+	/*margin-left: .5em;*/
+}
+
+.login-form{
+	color: #989898;
+	font-size: 1.3em;
+}
+
+#remember-me-wrapper .checkbox-nice{
+	right: -2.5em;
+}
+
+#remember-me-wrapper .checkbox-nice label{
+	color: #A8ABAA;
+	font-size: 1em;
+}
+
+.login-error{
+	padding: 10px 0 0;
+	color: #ef0707;
+	font-size: 1.1em;
+	margin-bottom: -25px;
+	padding-bottom: 0px;
+	font-weight: 300;
+}
+
+.login-error > p.social-text{
+	text-align: justify;
+}
+
+.social-text-link{
+	color: #6C757D;
+	font-size: 1em !important;
+	text-decoration: underline;
+}
+
+#login-box-inner h1.title-large{
+	font-weight: 600;
+	font-size: 1.3em;
+}
+
+.title-description{
+	padding-bottom: 20px;
+	color: #8A9698;
+	text-align: justify;
+}
+
+.navbar-nav > li > a{
+	margin: 6px;
+}
+
+#login-logo, #login-logo p{
+	text-transform: none;
+	text-align: left;
+}
+
+#login-logo h5{
+	color: #3698D7;
+}
+
+#login-logo p{
+	font-size: .68em !important;
+}
+
+#login-logo{
+	padding: 35px 24px;
+}
+
+#login-logo > a > img{
+	margin: 0 20%;
+}
+
+/*#login-box {
+	margin: 40px auto 20px;
+}*/
+
+#login-box .btn{
+	text-transform: none;
+	font-size: 1.3em;
+	font-weight: 400;
+}
+
+.app-nochecked {
+    border: 2px solid #B3BFBD;
+    border-radius: 50%;
+    max-width: 100%;
+    width: 128px;
+}
+
+.btn-large{
+	padding: .6em 2em !important;
+	font-size: 1.19em !important;
+}
+
+
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -36px;
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  height: 36px;
+}
+.site-footer {
+  background: orange;
+}
+
+.header-nav > li > a:active, .header-nav > li > a:visited {
+    background: #2f90d1;
+}
+
+.navigation-bar{
+	width: 100%;
+	margin-top: 1em;
+}
+
+.navigation-bar ul   {
+	padding: 0px;
+	margin: 0px;
+  	text-align:center;
+}
+.navigation-bar li    {
+	list-style-type: none;
+	padding: 0px;
+	height: 24px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+  	display:inline;
+}
+.navigation-bar li a    {
+	color: white;
+	font-weight: 300;
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 1em;
+	line-height: 2em;
+	/*margin-right: 16px;*/
+}
+/*.navigation-bar li:first-child {
+	margin-left:20px;
+}*/
+
+.navigation-bar li a:hover {
+	background-color: transparent;
+	text-decoration: underline;
+}
+
+.navigation-bar li a:active, .navigation-bar li a:visited {
+    background: #2f90d1;
+}
+
+@media (max-width: 767px){
+	.navigation-bar{
+		margin-bottom: 2.5em;
+	}
+}

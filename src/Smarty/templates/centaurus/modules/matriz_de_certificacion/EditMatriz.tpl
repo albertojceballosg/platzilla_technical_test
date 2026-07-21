@@ -1,0 +1,69 @@
+{strip}
+<div class="row">
+	<div class="col-xs-8">
+		<h1><a href="index.php?module=matriz_de_certificacion&action=index">Matriz de Certificación</a></h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<div class="main-box">
+			<header class="main-box-header clearfix">
+				<h2 class="pull-left">Certificación Cursos/Usuarios</h2>
+			</header>
+			<div class="main-box-body clearfix">
+				<form role="form" name="check_m" id="check_m">
+					<table class="table">
+						<thead>
+						<tr>
+							<th></th>
+{foreach key=key item=u from=$USR }
+							<th>{{$u.nombres}}</th>
+{/foreach}
+						</tr>
+						</thead>
+						<tbody>
+{$i=0}
+{foreach key=key item=ma from=$MATRIZ}
+						<tr>
+							<td><b>{{$TIT[$i].titulo}}</b></td>
+	{$i=$i+1}
+	{foreach key=key1 item=m from=$ma}
+		{if $m eq 0}
+							<td style="text-align: center">
+								<input type="checkbox" name="matriz[{$key}][{$key1}]" value="1" placeholder="">
+							</td>
+		{else}
+							<td style="text-align: center">
+								<input type="checkbox" name="matriz[{$key}][{$key1}]" value="{$m['Asignado']}" checked="checked" placeholder="">
+							</td>
+		{/if}
+	{/foreach}
+						</tr>
+{/foreach}
+						</tbody>
+					</table>
+					<button type="button" class="btn btn-primary" onclick="saveMatriz('check_m')">Guardar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+function saveMatriz (matriz) {
+	var datapost = jQuery ('#' + matriz).serialize ();
+	jQuery.ajax ({
+		type: "POST",
+		url:  "index.php",
+		data: {
+			module:   "matriz_de_certificacion",
+			action:   "EditView",
+			file:     "EditView",
+			save:     true,
+			datapost: datapost
+		}
+	});
+	location.reload ();
+	return false;
+}
+</script>
+{/strip}

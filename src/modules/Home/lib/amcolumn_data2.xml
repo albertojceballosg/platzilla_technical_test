@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<chart>
+  <!-- <message bg_color="#BBBB00" text_color="#FFFFFF"><![CDATA[You can broadcast any message to chart from data XML file]]></message> -->
+	<series>
+		<value xid="100">Internet</value>
+		<value xid="101">VoIP</value>
+		<value xid="102">VideoVigilacia</value>
+		<value xid="103">Domotica</value>
+		<value xid="104">Eficiencia Energetica</value>
+		<value xid="105">Otros</value>
+	</series>
+	<graphs>	
+		<graph gid="1">
+			<value xid="100" color="#00c441">8450</value>
+			<value xid="101" color="">5320</value>
+			<value xid="102" color="#fcd202">3750</value>
+			<value xid="103" color="#2a55df">3100</value>
+			<value xid="104" color="#cf58e1">2750</value>
+			<value xid="105" color="#00c441">1750</value>
+		</graph>
+	</graphs>
+</chart>

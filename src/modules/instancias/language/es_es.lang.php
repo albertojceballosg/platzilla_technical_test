@@ -1,0 +1,22 @@
+<?php
+	$mod_strings = array (
+		'SINGLE_instancias'                 => 'Instancias',
+		'ModuleName ID'                     => 'Module Name ID',
+		'LBL_CUSTOM_INFORMATION'            => 'Custom Information',
+		'LBL_MODULEBLOCK_INFORMATION'       => 'ModuleBlock Information',
+		'LBL_NOMBRE_CODIGO'                 => 'Nombre código de la Demo',
+		'LBL_ORGANIZATION_NAME'             => 'Empresa/Cliente o nombre de la Demo',
+		'LBL_ORGANIZATION_WEBSITE'          => 'URL de la Demo',
+		'LBL_ORGANIZATION_LOGO'             => 'Archivo Logotipo',
+		'LBL_SIGUIENTE'                     => 'Siguiente -->',
+		'LBL_ANTERIOR'                      => '<-- Anterior',
+		'LBL_DEMO_DETAILS'                  => 'Detalles de la replica de la Demo',
+		'LBL_CREATED_DATABASE'              => 'Base de datos creada',
+		'LBL_DUPLICATED_DATABASE'           => 'Duplicando datos',
+		'LBL_DUPLICATED_PARTICULAR_MODULES' => 'Duplicando módulos particulares',
+		'LBL_UPDATE_LOGO_IMAGE'             => 'Cargando archivo de logo',
+		'LBL_COMPLETED_PROCESS'             => 'Proceso completado',
+		'LBL_GO_TO_NEW_DEMO'                => 'Accesar a Nueva demostración',
+		'LBL_MODULES_EXPORT'                => 'Módulos a exportar a la plataforma hija',
+		'LBL_GO_TO_NEW_CHILD'               => 'Accesar a la nueva plataforma hija',
+	);

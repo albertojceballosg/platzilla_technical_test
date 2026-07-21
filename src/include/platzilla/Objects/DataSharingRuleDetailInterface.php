@@ -1,0 +1,14 @@
+<?php
+
+	interface DataSharingRuleDetailInterface {
+		const ACTION_RECEIVE_ONLY     = 'RECEIVE ONLY';
+		const ACTION_SEND_AND_RECEIVE = 'SEND AND RECEIVE';
+		const ACTION_SEND_ONLY        = 'SEND ONLY';
+
+		const PARAMETER_TYPE_LITERAL           = 'LITERAL';
+		const PARAMETER_TYPE_SHARING_RULE      = 'SHARING_RULE';
+		const PARAMETER_TYPE_SOURCE_FIELD      = 'SOURCE FIELD';
+		const PARAMETER_TYPE_SOURCE_GRID_FIELD = 'SOURCE GRID FIELD';
+		const PARAMETER_TYPE_VARIABLE          = 'VARIABLE';
+
+	}

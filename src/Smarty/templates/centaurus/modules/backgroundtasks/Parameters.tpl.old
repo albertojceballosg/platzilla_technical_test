@@ -1,0 +1,139 @@
+{strip}
+{if (isset ($TASK)) && (!empty ($TASK.scope))}
+	{assign var='scope' value=$TASK.scope}
+{else}
+	{assign var='scope' value='USER'}
+{/if}
+{foreach $PARAMETERS as $parameterName => $parameterData}
+	{if (!$parameterData.showexpanded)}
+		{if (empty ($parameterData.options))}
+	<div class="col-md-6 parameter{if $parameterData.ismandatory} mandatory{/if}">
+		<div class="col-md-4">
+			<div class="label-input">
+				<label for="{$parameterName}-{$id}">{$MOD[$parameterName]}:{if ($parameterData.ismandatory)} <span class="required">*</span>{/if}</label>
+			</div>
+		</div>
+		<div class="form-group col-md-8 field-container">
+			<div class="input-group" style="width: 100%;">
+			{if (!empty ($parameterData.optionstype))}
+				<select id="{$parameterName}-{$id}" name="actions[{$id}][parameters][{$parameterName}]" class="form-control parametervalue"{if ($parameterData.refreshonchanges)} onchange="BackgroundTasksUtils.refreshFields (this);"{/if}>
+					<option value=""></option>
+				{if (!empty ($parameterData.defaultoptions))}
+					{foreach $parameterData.defaultoptions as $value => $label}
+					<option value="{$value|escape: 'html' }"{if (isset ($ACTION)) && ($ACTION.parameters[$parameterName] == $value)} selected="selected"{/if}>{$label|escape: 'html'}</option>
+					{/foreach}
+				{/if}
+				</select>
+			{else}
+				<input type="text" name="actions[{$id}][parameters][{$parameterName}]" class="form-control parametervalue" placeholder="" value="{$ACTION.parameters[$parameterName]}"{if ($parameterData.refreshonchanges)} onchange="BackgroundTasksUtils.refreshFields (this);"{/if} />
+			{/if}
+			</div>
+		</div>
+	</div>
+		{else}
+	<div class="col-md-12 parameter{if $parameterData.ismandatory} mandatory{/if}">
+		<div class="col-md-2">
+			<div class="label-input">
+				<label for="{$parameterName}-{$id}">{$MOD[$parameterName]}:{if ($parameterData.ismandatory)} <span class="required">*</span>{/if}</label>
+			</div>
+		</div>
+		<div class="col-md-3 form-group">
+			<div class="input-group" style="width: 100%;">
+				<select id="{$parameterName}-{$id}" name="actions[{$id}][parameters][{$parameterName}][type]" class="form-control parametertype" onchange="BackgroundTasksUtils.setParameterValue (this);">
+					<option value=""></option>
+			{foreach array_keys ($parameterData.options) as $type}
+					<option value="{$type|escape: 'html'}"{if (isset ($ACTION)) && ($ACTION.parameters[$parameterName].type == $type)} selected="selected"{/if}{if ($type == 'CUSTOM SQL')} data-scope="SYSTEM"{/if}{if ($type == 'CUSTOM SQL') && ($scope != 'SYSTEM')} style="display: none;"{/if}>{$MOD[$type]|escape: 'html'}</option>
+			{/foreach}
+				</select>
+			</div>
+		</div>
+		<div class="form-group col-md-7 field-container">
+			<div class="input-group" style="width: 100%;">
+			{foreach $parameterData.options as $type => $options}
+				{if ($type == 'SOURCE FIELD')}
+					<select name="actions[{$id}][parameters][{$parameterName}][value]" class="form-control parametervalue" title="" data-type="{$type}"{if (!isset ($ACTION)) || ($ACTION.parameters[$parameterName].type != $type)} disabled="disabled" style="display: none;"{/if}{if ($parameterData.refreshonchanges)} onchange="BackgroundTasksUtils.refreshFields (this);"{/if}>
+						<option value=""></option>
+						<option value="record_id"{if (isset ($ACTION)) && ($ACTION.parameters[$parameterName].type == $type) && ($ACTION.parameters[$parameterName].value == 'record_id')} selected="selected"{/if}>ID del registro</option>
+					{foreach $AVAILABLE_FIELDS as $field}
+						<option value="{$field.fieldname}"{if (isset ($ACTION)) && ($ACTION.parameters[$parameterName].type == $type) && ($ACTION.parameters[$parameterName].value == $field.fieldname)} selected="selected"{/if}>{$field.fieldlabel}</option>
+					{/foreach}
+					</select>
+				{elseif ($type == 'VARIABLE')}
+				<div class="input-group variable"{if (!isset ($ACTION)) || ($ACTION.parameters[$parameterName].type != $type)} disabled="disabled" style="display: none;"{/if}>
+					<input type="text" name="actions[{$id}][parameters][{$parameterName}][value]" value="{if (isset ($ACTION)) && ($ACTION.parameters[$parameterName].type == $type)}{$ACTION.parameters[$parameterName].value|escape: 'html'}{/if}" class="form-control parametervalue" placeholder="" data-type="{$type}"{if (!isset ($ACTION)) || ($ACTION.parameters[$parameterName].type != $type)} disabled="disabled" style="display: none;"{/if}{if ($parameterData.refreshonchanges)} onchange="BackgroundTasksUtils.refreshFields (this);"{/if} />
+					<div class="input-group-btn">
+						<button class="btn btn-default" type="button" title="Campos en la fuente de datos" onclick="BackgroundTasksUtils.openFieldsModal (this);"><i class="fa fa-code"></i></button>
+						<button class="btn btn-default" type="button" title="Variables de sistema" onclick="BackgroundTasksUtils.openVariablesModal (this);"><i class="fa fa-cogs"></i></button>
+					</div>
+				</div>
+				{elseif (!is_array ($options))}
+				<input type="text" name="actions[{$id}][parameters][{$parameterName}][value]" value="{if (isset ($ACTION)) && ($ACTION.parameters[$parameterName].type == $type)}{$ACTION.parameters[$parameterName].value|escape: 'html'}{/if}" class="form-control parametervalue" placeholder="" data-type="{$type}"{if (!isset ($ACTION)) || ($ACTION.parameters[$parameterName].type != $type)} disabled="disabled" style="display: none;"{/if}{if ($parameterData.refreshonchanges)} onchange="BackgroundTasksUtils.refreshFields (this);"{/if} />
+				{else}
+				<select name="actions[{$id}][parameters][{$parameterName}][value]" class="form-control parametervalue" title="" data-type="{$type}"{if (!isset ($ACTION)) || ($ACTION.parameters[$parameterName].type != $type)} disabled="disabled" style="display: none;"{/if}{if ($parameterData.refreshonchanges)} onchange="BackgroundTasksUtils.refreshFields (this);"{/if}>
+					<option value=""></option>
+					{foreach $options as $value => $label}
+					<option value="{$value|escape: 'html'}"{if (isset ($ACTION)) && ($ACTION.parameters[$parameterName].type == $type) && ($ACTION.parameters[$parameterName].value == $value)} selected="selected"{/if}{if ($type == 'CUSTOM SQL')} data-scope="SYSTEM"{/if}{if ($type == 'CUSTOM SQL') && ($scope != 'SYSTEM')} style="display: none;"{/if}>{$label|escape: 'html'}</option>
+					{/foreach}
+				</select>
+				{/if}
+			{/foreach}
+			</div>
+		</div>
+	</div>
+		{/if}
+	{elseif (!empty ($parameterData.defaultoptions))}
+	<h4 class="col-md-12">{$MOD[$parameterName]}{if ($parameterData.ismandatory)}<span class="required">*</span>{/if}</h4>
+		{foreach $parameterData.defaultoptions as $value => $label}
+	<div class="col-md-12 parameter{if $parameterData.ismandatory} mandatory{/if}">
+		<div class="col-md-2">
+			<div class="label-input">
+				<input type="text" value="{$label|getTranslatedString: $parameterData.translationmodule|escape: 'html'}" disabled="disabled" class="form-control" placeholder="" />
+			</div>
+		</div>
+		<div class="col-md-3 form-group">
+			<div class="input-group" style="width: 100%;">
+				<select id="{$parameterName}-{$id}" name="actions[{$id}][parameters][{$parameterName}][{$value}][type]" class="form-control parametertype" onchange="BackgroundTasksUtils.setParameterValue (this);">
+					<option value=""></option>
+			{foreach array_keys ($parameterData.options) as $type}
+					<option value="{$type|escape: 'html'}"{if (isset ($ACTION)) && ($ACTION.parameters[$parameterName][$value].type == $type)} selected="selected"{/if}{if ($type == 'CUSTOM SQL')} data-scope="SYSTEM"{/if}{if ($type == 'CUSTOM SQL') && ($scope != 'SYSTEM')} style="display: none;"{/if}>{$MOD[$type]|escape: 'html'}</option>
+			{/foreach}
+				</select>
+			</div>
+		</div>
+		<div class="form-group col-md-7 field-container">
+			<div class="input-group" style="width: 100%;">
+			{foreach $parameterData.options as $type => $options}
+				{if ($type == 'SOURCE FIELD')}
+				<select name="actions[{$id}][parameters][{$parameterName}][{$value}][value]" class="form-control parametervalue" title="" data-type="{$type}"{if (!isset ($ACTION)) || ($ACTION.parameters[$parameterName][$value].type != $type)} disabled="disabled" style="display: none;"{/if}{if ($parameterData.refreshonchanges)} onchange="BackgroundTasksUtils.refreshFields (this);"{/if}>
+					<option value=""></option>
+					<option value="record_id"{if (isset ($ACTION)) && ($ACTION.parameters[$parameterName][$value].type == $type) && ($ACTION.parameters[$parameterName][$value].value == 'record_id')} selected="selected"{/if}>ID del registro</option>
+					{foreach $AVAILABLE_FIELDS as $field}
+					<option value="{$field.fieldname}"{if (isset ($ACTION)) && ($ACTION.parameters[$parameterName][$value].type == $type) && ($ACTION.parameters[$parameterName][$value].value == $field.fieldname)} selected="selected"{/if}>{$field.fieldlabel}</option>
+					{/foreach}
+				</select>
+				{elseif ($type == 'VARIABLE')}
+				<div class="input-group variable"{if (!isset ($ACTION)) || ($ACTION.parameters[$parameterName][$value].type != $type)} disabled="disabled" style="display: none;"{/if}>
+					<input type="text" name="actions[{$id}][parameters][{$parameterName}][{$value}][value]" value="{if (isset ($ACTION)) && ($ACTION.parameters[$parameterName][$value].type == $type)}{$ACTION.parameters[$parameterName][$value].value|escape: 'html'}{/if}" class="form-control parametervalue" placeholder="" data-type="{$type}"{if (!isset ($ACTION)) || ($ACTION.parameters[$parameterName][$value].type != $type)} disabled="disabled" style="display: none;"{/if}{if ($parameterData.refreshonchanges)} onchange="BackgroundTasksUtils.refreshFields (this);"{/if} />
+					<div class="input-group-btn">
+						<button class="btn btn-default" type="button" title="Campos en la fuente de datos" onclick="BackgroundTasksUtils.openFieldsModal (this);"><i class="fa fa-code"></i></button>
+						<button class="btn btn-default" type="button" title="Variables del sistema" onclick="BackgroundTasksUtils.openVariablesModal (this);"><i class="fa fa-cogs"></i></button>
+					</div>
+				</div>
+				{elseif (!is_array ($options))}
+				<input type="text" name="actions[{$id}][parameters][{$parameterName}][{$value}][value]" value="{if (isset ($ACTION)) && ($ACTION.parameters[$parameterName][$value].type == $type)}{$ACTION.parameters[$parameterName][$value].value|escape: 'html'}{/if}" class="form-control parametervalue" placeholder="" data-type="{$type}"{if (!isset ($ACTION)) || ($ACTION.parameters[$parameterName][$value].type != $type)} disabled="disabled" style="display: none;"{/if}{if ($parameterData.refreshonchanges)} onchange="BackgroundTasksUtils.refreshFields (this);"{/if} />
+				{else}
+				<select name="actions[{$id}][parameters][{$parameterName}][{$value}][value]" class="form-control parametervalue" title="" data-type="{$type}"{if (!isset ($ACTION)) || ($ACTION.parameters[$parameterName][$value].type != $type)} disabled="disabled" style="display: none;"{/if}{if ($parameterData.refreshonchanges)} onchange="BackgroundTasksUtils.refreshFields (this);"{/if}>
+					<option value=""></option>
+					{foreach $options as $value => $label}
+					<option value="{$value|escape: 'html'}"{if (isset ($ACTION)) && ($ACTION.parameters[$parameterName][$value].type == $type) && ($ACTION.parameters[$parameterName][$value].value == $value)} selected="selected"{/if}>{$label|escape: 'html'}</option>
+					{/foreach}
+				</select>
+				{/if}
+			{/foreach}
+			</div>
+		</div>
+	</div>
+		{/foreach}
+	{/if}
+{/foreach}
+{/strip}

@@ -1,0 +1,595 @@
+#seccionContenido2 {
+	height:505px;
+	background-color:#EAEAE0;
+	padding-left: 20px;
+}
+#seccionContenido_mapas {
+	width:650px;
+	height:505px;
+	background-color:#F2F2F2;
+}
+#seccionContenido {
+	width:630px;
+	height:505px;
+	background-color:#FCFCFC;
+	padding-left: 20px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+#seccionTitulo {
+	width:650px;
+	height:82px;
+	background-image:url(../img_mms/fondo-degrade-horz.png) ;
+	text-align:left;
+	height:auto;
+}
+
+#seccionTitulo ul {
+	margin:0;
+	padding:0;
+	list-style:none;
+	text-decoration:none;
+	text-align:left;
+}
+
+#seccionTitulo h1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+	height: auto;
+	width: 624px;
+	border-bottom: 1px solid #00D7FE;
+	margin-left: 15px;
+	padding-top: 5px;
+	text-transform: none;
+	text-decoration: none;
+	margin-top: 0;
+	margin-right: 0;
+	margin-bottom: 0;
+	padding-right: 0;
+	padding-bottom: 2px;
+	padding-left: 0;
+}
+#seccionTitulo h1 a {
+	margin:0;
+	padding:0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 16px;
+	font-weight: bold;
+	color: #FFFFFF;
+	height:auto;
+	width:624px;
+	border-bottom:1px solid #FFFFFF;
+	text-transform:none;
+	text-decoration:none;
+	border-bottom:none;
+}
+
+#seccionTitulo h2 {
+	margin: 0;
+	padding: 0;
+	font-family: /*AsapBold, */Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	color: #FFFFFF;
+	height: auto;
+	width: 620px;
+	line-height: 30px;
+	margin-left: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-weight: bold;/*	text-transform: uppercase;
+*/}
+
+#seccionContenido img {
+}
+#seccionContenido #infoApps {
+	margin: 0;
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	width: 594px;
+	height: 197px;
+	padding-top: 25px;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-bottom: 25px;
+	color: #666666;
+	height: auto;
+}
+#seccionContenido #infoApps p {
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	font-weight: normal;
+	text-decoration: none;
+}
+#seccionContenido #infoApps img {
+	font-size: 12px;
+	font-weight: normal;
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 10;
+	padding-left: 0;
+	margin-top: 0;
+	margin-right: 0;
+	margin-bottom: 10;
+	margin-left: 0;
+}
+#seccionContenido #infoApps p a {
+	text-decoration:none;
+	color:#333333;
+}
+
+#seccionContenido #infoApps p a:link {
+}
+#seccionContenido #infoApps p a:visited {
+	
+}
+#seccionContenido #infoApps p a:hover {
+	text-decoration:underline;
+	
+}
+
+#seccionContenido #infoApps h1 {
+	font-family: Arial, Helvetica, sans-serif;
+	margin:0;
+	padding:0;
+	color:#0082cb;
+	font-size: 18px;
+}
+#seccionContenido #infoApps h2 {
+	margin:0;
+	padding:0;
+	color:#333333;
+	font-size: 12px;
+	text-transform:none
+}
+#seccionContenido #infoApps h3 {
+	margin:0;
+	padding:0;
+	color:#0082cb;
+	font-size: 12px;
+	text-transform:uppercase;
+}
+#seccionContenido #infoApps h4 {
+	margin:0;
+	padding:0;
+	color:#666666;
+	font-size: 12px;
+	text-transform:uppercase;
+}
+#seccionContenido #infoApps h5 {
+	margin:0;
+	padding:0;
+	color:#666666;
+	font-size: 12px;
+	text-transform:none
+}
+
+
+
+
+
+
+
+#seccionContenido #info {
+	padding:0;
+	margin:0;
+	text-align:left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	width:551px;
+	height:197px;
+	padding-top:25px;
+	padding-left:35px;
+	padding-right:35px;
+	padding-bottom:25px;
+	color:#666666;
+	height:auto;
+	
+}
+
+
+#seccionContenido #info p {
+	margin:0;
+	padding:0;
+	font-size: 12px;
+	font-weight:normal;
+}
+
+
+#seccionContenido #info h1 {
+	font-family: Arial, Helvetica, sans-serif;
+	margin:0;
+	padding:0;
+	color:#0082cb;
+	font-size: 18px;
+}
+#seccionContenido  #info  table  a {
+	text-decoration:none;
+	color:#bbb;
+}
+
+#seccionContenido #info p a {
+	text-decoration:none;
+	color:#333333;
+}
+
+#seccionContenido #info p a:link {
+}
+#seccionContenido #info p a:visited {
+	
+}
+#seccionContenido #info p a:hover {
+	text-decoration:underline;
+	
+}
+#seccionContenido #info h2 {
+	margin:0;
+	padding:0;
+	color:#333333;
+	font-size: 12px;
+	text-transform:none
+}
+#seccionContenido #info h3 {
+	margin:0;
+	padding:0;
+	color:#0082cb;
+	font-size: 12px;
+	text-transform:uppercase;
+}
+#seccionContenido #info h4 {
+	margin:0;
+	padding:0;
+	color:#fff;
+	font-size: 12px;
+	text-transform:uppercase;
+}
+#seccionContenido #info h5 {
+	margin:0;
+	padding:0;
+	color:#666666;
+	font-size: 12px;
+	text-transform:none
+}
+
+#seccionContenido #info h6 {
+	margin:0;
+	padding:0;
+	font-size: 12px;
+	font-weight:normal;
+	color:#FFFFFF;
+}
+
+#seccionContenido #info p25-1 {
+	margin:0;
+	padding:0;
+	color:#2B2D8A;
+	font-size: 12px;
+	text-transform:uppercase;
+}
+
+#seccionContenido #info p25-2 {
+	margin:0;
+	padding:0;
+	color:#79B040;
+	font-size: 12px;
+	text-transform:uppercase;
+}
+
+#seccionContenido #info p25-3 {
+	margin:0;
+	padding:0;
+	color:#E41C23;
+	font-size: 12px;
+	text-transform:uppercase;
+}
+
+#seccionContenido #info p25-4 {
+	margin:0;
+	padding:0;
+	color:#F9A11F;
+	font-size: 12px;
+	text-transform:uppercase;
+}
+
+
+#seccionContenido #info ul {
+	margin:0;
+	padding-left:12px;
+	color:#666666;
+	font-size: 12px;
+	text-transform: none;
+	list-style:square;
+}
+
+#seccionContenido #info li {
+	line-height:25px;
+}
+
+#seccionContenido #info ul a {
+	color:#333333;
+	text-decoration:none;
+	font-weight:normal;
+}
+#seccionContenido #info ul a:hover {
+	text-decoration:underline;
+	
+}
+
+#seccionContenido #info s1 {
+	margin:0;
+	padding:0;
+	font-weight: bold;
+	font-size: 11px;
+	color: #0082cb;
+	text-align: right;
+
+}
+#seccionContenido #info f1 {
+	margin:0;
+	padding:0;
+	font-weight: normal;
+	font-size: 12px;
+	color: #777777;
+	text-align: left;
+
+}
+
+#seccionContenido #info tp1 {
+	margin:0;
+	padding:0;
+	color:#333333;
+	font-size: 12px;
+	text-transform: none;
+
+}
+
+
+
+#linea {
+	width:100%; 
+	border-bottom:1px solid #0082cb;
+}
+
+input {
+	border:1px solid #999999;
+}
+
+textarea {
+		border:1px solid #999999;
+}
+
+select {
+		border:1px solid #999999;
+}
+#alfabeto  a:hover {
+	color: #000000;
+	text-decoration: none;
+}
+
+#alfabeto a {
+	color: #EDCD58;
+	text-decoration: none;
+}
+
+#menuDer { 
+	background-color:#E4E4E4;
+}
+
+.infoImagen {
+	position:relative;
+	left:-35px;
+}
+
+/*Aplicaciones*/
+#info2 {
+	color: #666666;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	height: auto;
+	margin: 0;
+	padding: 25px 25px;
+	text-align: left;
+	width: 594px;
+}
+.clear{clear:both}
+.celulares{
+	float: left;
+	width: 280px;
+}
+.imagen-cel{
+	float:left}
+.datos-cel{
+	float: left;
+	width: 170px;
+	margin-left: 10px;
+	font-size: 11px;
+	color: #666666;
+}
+
+.celulares#derecha{
+	margin-left: 3px;
+	float: right;
+	margin-left: 3px;
+	color: #666666;
+}
+.datos-cel a:link{
+	text-decoration: none;
+	color: #666666;
+}
+.datos-cel a:visited {
+	text-decoration: none;
+	color: #666666;
+}
+.datos-cel a:hover {
+	text-decoration: none;
+	color: #666666;
+}
+
+
+.boton-apps input{
+	margin-top:10px;
+	cursor:pointer;
+	font-size:11px;}
+#info2 h4{ 
+margin:0px}
+
+#info2 h4 img{ 
+margin:0px}
+
+
+/*contacto provincias*/
+.col_contacto{
+	float:left;
+	width: 192px;
+	height: 400px;
+
+	text-align:left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color:#666666;
+
+	}
+.col_margin{
+	margin-left: 20px;
+
+}
+
+/*provincias 25*/
+.btn-prov25 ul{
+	margin:0px;
+	padding:0px !important}
+.btn-prov25 ul li{
+	float:left;
+	list-style-type:none;
+	padding:0px}
+.btn-prov25 ul li a{
+	height:74px;
+	width:260px;
+	display:block;
+	text-indent:-9999px}
+.btn-prov25 ul li a.guia{
+	background-image: url(../sec-provincias/imagenes/guia-ampliada.png);
+	margin-top: 25px;
+}
+.btn-prov25 ul li a.conexiones {
+	background-image: url(../sec-provincias/imagenes/conexiones.png)
+}
+
+.btn-prov25 ul li a.guia:hover{
+	background-position:bottom}
+.btn-prov25 ul li a.conexiones:hover {
+	background-position: bottom
+}
+
+.btn-prov25 ul li a.registro{
+	background-image: url(../sec-provincias/imagenes/registro.png);
+	margin-right: 31px;
+}
+.btn-prov25 ul li a.btn-registro {
+	background-image: url(../sec-provincias/imagenes/btn-registrarse.png);
+	margin-right: 10px;
+	width: 130px;
+	height: 47px;
+}
+.btn-prov25 ul li a.btn-leg-pcial {
+	background-image: url(../sec-provincias/imagenes/btn-leg-provincial.png);
+	width: 130px;
+	height: 47px;
+}
+
+.btn-prov25 ul li a.btn-tramites {
+	background-image: url(../sec-provincias/imagenes/btn-tramites.png);
+	margin-right: 10px;
+	width: 130px;
+	height: 47px;
+}
+
+.btn-prov25 ul li a.btn-perfil-pcial {
+	background-image: url(../sec-provincias/imagenes/btn-perfil-pcial.png);
+	margin-right: 10px;
+	width: 130px;
+	height: 47px;
+}
+
+.btn-prov25 ul li a.btn-conexiones {
+	background-image: url(../sec-provincias/imagenes/btn-conexiones.png);
+	margin-right: 10px;
+	width: 130px;
+	height: 47px;
+}
+.btn-prov25 ul li a.btn-info-inst {
+	background-image: url(../sec-provincias/imagenes/btn-info-institucional.png);
+	margin-right: 10px;
+	width: 130px;
+	height: 47px;
+}
+
+.btn-prov25 ul li a.btn-guia-retorno {
+	background-image: url(../sec-provincias/imagenes/btn-guia-retorno.png);
+	margin-right: 10px;
+	width: 130px;
+	height: 47px;
+}
+.btn-prov25 ul li a.btn-guia-retorno-amp {
+	background-image: url(../sec-provincias/imagenes/btn-guia-retorno-amp.png);
+	width: 130px;
+	height: 47px;
+}
+
+
+
+
+.btn-prov25 ul li a.retorno {
+	background-image: url(../sec-provincias/imagenes/guia.png);
+	margin-right: 31px;
+	margin-top: 25px;
+}
+
+.btn-prov25 ul li a.registro:hover{
+	background-position: bottom;
+}
+.btn-prov25 ul li a.btn-registro:hover {
+	background-position: bottom
+}
+.btn-prov25 ul li a.btn-leg-pcial:hover {
+	background-position: bottom;
+	background-image: url(../sec-provincias/imagenes/btn-leg-provincial.png);
+}
+
+.btn-prov25 ul li a.btn-tramites:hover {
+	background-position: bottom;
+	background-image: url(../sec-provincias/imagenes/btn-tramites.png);
+}
+
+.btn-prov25 ul li a.btn-perfil-pcial:hover {
+	background-position: bottom
+}
+
+.btn-prov25 ul li a.btn-conexiones:hover {
+	background-position: bottom
+}
+.btn-prov25 ul li a.btn-info-inst:hover {
+	background-position: bottom;
+	background-image: url(../sec-provincias/imagenes/btn-info-institucional.png);
+}
+
+.btn-prov25 ul li a.btn-guia-retorno:hover {
+	background-position: bottom
+}
+.btn-prov25 ul li a.btn-guia-retorno-amp:hover {
+	background-position: bottom
+}
+
+
+
+
+.btn-prov25 ul li a.retorno:hover {
+	background-position: bottom
+}

@@ -1,0 +1,40 @@
+label {
+	font-size: 1.1em;
+	font-weight: 300;
+	margin-left: 1em;
+	margin-right: 1em;
+}
+input.number {
+	width: 5em !important;
+}
+.date[readonly="readonly"] {
+	background-color: inherit !important;
+}
+.btn {
+	margin-left: 1em;
+}
+.chart.simple,
+.chart.funnel {
+	height:   500px;
+	padding:  0;
+	position: relative;
+	width:    100%;
+}
+.chart > .alert {
+	position:  relative;
+	transform: translate(0, -50%);
+	top:       50%;
+}
+.chart > .alert > .message {
+	margin-bottom: 5px;
+}
+@media (max-width: 1023px) {
+	.chart-container {
+		height: auto;
+	}
+}
+@media (min-width: 1024px) {
+	.chart-container {
+		height: 540px;
+	}
+}

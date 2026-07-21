@@ -1,0 +1,88 @@
+.no-bordered  th,
+.no-bordered  td {
+    border: 0px solid #ddd !important;
+}
+.table td {
+    padding: 10px 5px !important;
+}
+
+.table-invoice {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.table-invoice td {
+    padding: 10px 5px !important;
+}
+.invoice-company {
+    font-family: Ubuntu;
+    font-weight: bold;
+    font-size: xx-large;
+    margin-bottom: 12px;
+}
+.invoice-cell-numbre {
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 20px !important;
+}
+
+.rounded-color {
+    border:1mm dashed #220044;
+    background-color: #f0f2ff;
+    border-radius: 3mm / 3mm;
+    background-clip: border-box;
+    padding: 1em;
+}
+.invoice-big-title {
+    font-family: Ubuntu;
+    font-weight: bold;
+    font-size: 250%;
+    padding: 1em;
+}
+
+.black-box {
+    border:1mm solid #220044;
+    background-color: #000000;
+    background-clip: border-box;
+    padding: 1em;
+    color: #ffffff;
+    text-align:center;
+    font-size: xx-large;
+}
+
+.blue-box {
+    border:1px solid #D8D8D8;
+    background-color: #2E64FE;
+  /* background-clip: border-box;*/
+    padding: 1em;
+    color: #ffffff;
+    text-align:center;
+    font-size: xx-large;
+}
+
+.table-color {
+    background-color: #E0F2F7 !important;
+}
+
+.tr-color {
+    background-color: #CEECF5 !important;
+}
+.custumer-adrress p {
+    text-align: left;
+    margin: 2px 2px;
+    padding: 2px;
+}
+
+.table-invoice-info tr,
+.table-invoice-info td {
+    padding: 1px 2px !important;
+}
+
+.table-invoice-info p {
+    padding: 2px !important;
+    margin: 2px 2px;
+}
+.tr-color-gray {
+    background-color: #E6E6E6 !important;
+}

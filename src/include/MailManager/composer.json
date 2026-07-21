@@ -1,0 +1,25 @@
+{
+    "name":              "platzilla/mail-manager",
+    "description":       "IMAP / POP3 mail manager",
+    "minimum-stability": "stable",
+    "license":           "proprietary",
+    "type":              "library",
+    "authors":           [
+        {
+            "name":  "Felipe Pérez",
+            "email": "fperez@timemanagement.es"
+        }
+    ],
+    "autoload":          {
+        "psr-4": {
+            "Platzilla\\MailManager\\": "src/"
+        }
+    },
+    "require":           {
+        "league/oauth2-client":                      "^2.4",
+        "league/oauth2-google":                      "^3.0",
+        "hayageek/oauth2-yahoo":                     "2.0.5",
+        "zendframework/zend-mail":                   "^2.10",
+        "php-mime-mail-parser/php-mime-mail-parser": "3.0.4"
+    }
+}

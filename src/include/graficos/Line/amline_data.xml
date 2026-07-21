@@ -1,0 +1,46 @@
+<chart>
+<series>
+<value xid="0">Enero</value>
+<value xid="1">Febrero</value>
+<value xid="2">Marzo</value>
+<value xid="3">Abril</value>
+<value xid="4">Mayo</value>
+<value xid="5">Junio</value>
+<value xid="6">Julio</value>
+<value xid="7">Agosto</value>
+<value xid="8">Septiembre</value>
+<value xid="9">Octubre</value>
+<value xid="10">Noviembre</value>
+<value xid="11">Diciembre</value>
+</series>
+<graphs>
+<graph gid="1">
+<value xid="0">0</value>
+<value xid="1">6.12</value>
+<value xid="2">3.25</value>
+<value xid="3">0</value>
+<value xid="4">0</value>
+<value xid="5">0</value>
+<value xid="6">0</value>
+<value xid="7">0</value>
+<value xid="8">0</value>
+<value xid="9">0</value>
+<value xid="10">0</value>
+<value xid="11">0</value>
+</graph>
+<graph gid="2">
+<value xid="0">19.73</value>
+<value xid="1">18.43</value>
+<value xid="2">18.08</value>
+<value xid="3">19.01</value>
+<value xid="4">19.57</value>
+<value xid="5">19.58</value>
+<value xid="6">19.43</value>
+<value xid="7">20.83</value>
+<value xid="8">19.73</value>
+<value xid="9">18.87</value>
+<value xid="10">18.43</value>
+<value xid="11">18.31</value>
+</graph>
+</graphs>
+</chart>

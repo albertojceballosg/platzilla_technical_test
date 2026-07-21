@@ -1,0 +1,279 @@
+form[name="graphform"] {
+  font-size: 13px !important;
+}
+@media (max-width: 1750px) {
+  .preview-modal {
+    max-width: 90%;
+    height: 90%;
+  }
+}
+
+@media (max-width: 1500px) {
+  .preview-modal {
+    max-width: 95%;
+    height: 105%;
+  }
+}
+
+.preview-modal {
+  height: 90vh;
+  width: auto;
+  max-width: 90%;
+}
+
+#preview .modal-dialog.preview-modal,
+#preview .modal-content {
+  height: 90vh;
+  width: auto;
+}
+
+select[multiple] {
+  height: 7em;
+}
+
+.col-labels {
+  width: 30%;
+  font-size: 0.875rem;
+  font-weight: normal;
+  padding-left: 12px;
+}
+
+.col-labels p {
+  font-size: 0.95em;
+  margin-bottom: 5px;
+}
+
+/* Estandarizar tamaño de fuente en todos los campos del formulario de gráficos */
+form[name="graphform"] input.form-control,
+form[name="graphform"] select.form-control,
+form[name="graphform"] textarea.form-control {
+  font-size: 0.95em;
+}
+
+/* Opciones de select múltiple y simple */
+form[name="graphform"] select.form-control.option {
+  font-size: 0.95em;
+}
+form[name="graphform"] select#wmodule.form-control.wmodule,
+form[name="graphform"] select#fieldoperation.form-control,
+form[name="graphform"] select#opcolumn.form-control {
+  font-size: 0.85em;
+}
+/* Asegurar que los placeholders también tengan el tamaño correcto */
+form[name="graphform"] input.form-control::placeholder {
+  font-size: 0.95em;
+  color: #cccccc;
+}
+
+/* Etiquetas de columnas en sección de fuentes de datos (Módulo, Campo, Operación, Filtros) */
+#graphc-module-column-titles .variable-cell {
+  font-size: 1.05em; /* 14px */
+}
+
+.no-gutters > .col,
+.no-gutters > [class*="col-"] {
+  padding-right: 1px;
+  padding-left: 1px;
+}
+
+.box_shadow {
+  -webkit-box-shadow: 1px 1px 3px #ccc;
+  -moz-box-shadow: 1px 1px 3px #ccc;
+  box-shadow: 1px 1px 3px #ccc;
+}
+
+tr.header {
+  cursor: pointer;
+}
+
+.table-borderless td,
+.table-borderless th {
+  border: 0 !important;
+}
+
+.platzilla-headerRow {
+  font-size: 12px;
+  font-weight: bold;
+  border-left: 1px solid #d0e4f5;
+  padding: 6px 8px !important;
+  height: 32px !important;
+  line-height: 1.2 !important;
+}
+
+.platzilla-headerRow > .gradient {
+  color: #ffffff !important;
+  text-align: center !important;
+  background: #2c3e50;
+}
+
+.platzilla-headerRow th {
+  font-size: 12px !important;
+  padding: 6px 8px !important;
+  height: 32px !important;
+  line-height: 1.2 !important;
+}
+
+.platzilla-tableRow {
+  font-size: 12px !important;
+  border: 1px solid #ddd !important;
+  height: 28px !important;
+  line-height: 1.2 !important;
+}
+
+.platzilla-tableCell {
+  font-size: 12px !important;
+  border-left: 1px solid #ddd !important;
+  padding: 4px 8px !important;
+  height: 28px !important;
+  line-height: 1.2 !important;
+}
+
+.platzilla-tableRow tr {
+  font-family: sans-serif !important;
+  font-size: 12px !important;
+  height: 28px !important;
+  line-height: 1.2 !important;
+}
+
+.platzilla-tableRow td {
+  font-size: 12px !important;
+  padding: 4px 8px !important;
+  height: 28px !important;
+  line-height: 1.2 !important;
+}
+
+.platzilla-oddtableRow {
+  font-size: 12px !important;
+  border: 1px solid #ddd !important;
+  height: 28px !important;
+  line-height: 1.2 !important;
+}
+
+.platzilla-oddtableRow tr {
+  font-size: 12px !important;
+  height: 28px !important;
+  line-height: 1.2 !important;
+}
+
+.platzilla-oddtableRow td {
+  font-size: 12px !important;
+  padding: 4px 8px !important;
+  height: 28px !important;
+  line-height: 1.2 !important;
+}
+
+.google-visualization-table-div-page {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+svg {
+  overflow: visible;
+  width: auto;
+  height: auto;
+}
+
+.main-box {
+  margin-top: 15px;
+}
+
+.tabs-wrapper > .tab-content {
+  margin-bottom: 0;
+}
+
+.graph.simple {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  min-width: 0;
+  height: auto;
+  min-height: 0;
+  transform: scale(0.9);
+  transform-origin: center center;
+}
+
+.graph.simple.donut {
+  padding: 0 20% 0 15%;
+}
+
+.graph.simple.area,
+.graph.simple.combo,
+.graph.simple.bar {
+  padding-left: 3%;
+}
+div#row-graphic.justify-content-center div.col-lg-1 {
+  padding-left: 0px;
+  padding-right: 0px;
+  font-size: 0.1em;
+  width: 0.1em;
+}
+
+.graph.simple.table {
+  padding: 0 5%;
+}
+
+.rounded {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.row-graphic {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+/* Ajuste para row-graphic dentro de main-box-body en index.tpl */
+.main-box-body .row-graphic {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.justify-content-center {
+  -webkit-box-pack: center !important;
+  -ms-flex-pack: center !important;
+  justify-content: center !important;
+}
+
+.justify-content-between {
+  -webkit-box-pack: justify !important;
+  -webkit-justify-content: space-between !important;
+  -ms-flex-pack: justify !important;
+  justify-content: space-between !important;
+}
+
+.no-gutters > .col,
+.no-gutters > [class*="col-"] {
+  padding-right: 1px;
+  padding-left: 1px;
+}
+
+.box_shadow {
+  -webkit-box-shadow: 1px 1px 3px #ccc;
+  -moz-box-shadow: 1px 1px 3px #ccc;
+  box-shadow: 1px 1px 3px #ccc;
+}
+
+.isDisabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.isDisabled > a {
+  color: currentColor;
+  display: inline-block; /* For IE11/ MS Edge bug */
+  pointer-events: none;
+  text-decoration: none;
+}
+.google-visualization-table-type-number {
+  text-align: right !important;
+}

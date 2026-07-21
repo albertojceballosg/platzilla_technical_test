@@ -1,0 +1,14 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_formacion_cursos</name>
+		</table>
+		<table>
+			<name>vtiger_formacion_cursoscf</name>
+		</table>
+		<table>
+			<name>vtiger_comments</name>
+		</table>
+	</tables>
+</schema>

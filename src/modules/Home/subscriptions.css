@@ -1,0 +1,238 @@
+.plan {
+    display: inline-block;
+    margin: 0 15px;
+    vertical-align: top;
+}
+
+.plan-name-container {
+    background-color: #00FF00;
+    border: 3px solid #00FF00;
+    border-radius: 50%;
+    display: inline-block;
+    height: 260px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    position: relative;
+    text-align: center;
+    width: 260px;
+}
+
+.plan-name-container.selected {
+    border-color: #000000;
+}
+
+.plan-name {
+    font-size: 20px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.plan-name .name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.plan-name .name,
+.plan-name .price {
+    color: #000000;
+    display: block;
+}
+
+.plan-name .price {
+    font-size: 14px;
+}
+
+.plan-description {
+    font-size: 14px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.gray {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+body {
+    margin: 0 auto;
+    position: relative;
+}
+
+.bg-red {
+    background-color: #FF4B3A;
+}
+
+.bg-green {
+    background-color: #2DCC70;
+}
+
+.bg-yellow {
+    background-color: #FECE00;
+}
+
+.bg-blue {
+    background-color: #01B9FF;
+}
+
+.border-red {
+    border-bottom: solid 3px #FF4B3A;
+}
+
+.border-green {
+    border-bottom: solid 3px #2DCC70;
+}
+
+.border-yellow {
+    border-bottom: solid 3px #FECE00;
+}
+
+.border-blue {
+    border-bottom: solid 3px #01B9FF;
+}
+
+.main-box .main-box-header .tab-description {
+    font-size: 1.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.main-box-body.application-category {
+    padding-bottom: 0;
+}
+
+.application-category-label {
+    font-size: 1.25em;
+}
+
+.application-category-label > .label {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    display: inline-block;
+    line-height: 2em;
+}
+
+.applications {
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+.application {
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+.application .application-icon {
+    display: inline-block;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    border: solid 4px #EDEFF1;
+    line-height: 1em;
+}
+
+.application .application-title {
+    color: #626E6E;
+    font-size: 1.1em;
+    font-weight: 700;
+    height: 2.25em;
+    line-height: 1.1em;
+    margin-bottom: 0.75em;
+    overflow-y: hidden;
+    text-transform: uppercase;
+}
+
+.application .application-description {
+    color: #9E9E9E;
+    font-size: 0.9em;
+    height: 6em;
+    margin-bottom: 0.75em;
+    overflow-y: auto;
+}
+
+.plan {
+    display: inline-block;
+    margin: 15px 30px;
+    vertical-align: top;
+    width: 140px;
+}
+
+.plan-name {
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    height: 150px;
+    margin-bottom: 5px;
+    padding-top: 45px;
+    text-align: center;
+    width: 150px;
+}
+
+.plan-name .name,
+.plan-name .price {
+    color: #000000;
+    display: block;
+}
+
+.plan-description {
+    font-size: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.gray {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+@media (max-width: 767px) {
+    .application-category-label > .label {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .application-category-label > .label {
+        width: 50%;
+    }
+}
+
+@media (min-width: 992px) {
+    .application-category-label > .label {
+        width: 33.33%;
+    }
+}
+
+ul#rtl_func {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    overflow: auto;
+    padding: 0 10px;
+    list-style: none;
+}
+ul#rtl_func > li {
+    border-radius: 4px;
+    border: 1px solid #dedede;
+    font-weight: bold;
+    font-family: 'segoe ui', sans-serif;
+    margin: 10px 0;
+    min-width: 45%;
+    padding: 5px 10px;
+    transition: box-shadow .25s ease;
+}
+ul#rtl_func > li:hover {
+    box-shadow: 0px 0px 15px 5px rgba(0,0,0,.15);
+    cursor: default;
+}
+ul#rtl_func > li > ul > li {
+    list-style: none;
+    font-weight: normal;
+}
+ul#rtl_func > li > ul > li:first-of-type {
+    border-top: 1px solid #eee;
+    margin-top: 4px;
+}

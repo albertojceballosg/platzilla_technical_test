@@ -1,0 +1,84 @@
+.required {
+	color: #FF0000;
+}
+.wizard-modal label {
+	font-size:   1em;
+	font-weight: 300;
+}
+.wizard-modal > form {
+	padding-bottom: 60px !important;
+}
+.wizard-steps {
+	height: auto !important;
+	float:  none !important;
+	width:  100% !important;
+}
+.wizard-nav-container {
+	height: auto !important;
+}
+.wizard-nav-container > .nav {
+	padding-bottom: 0 !important;
+}
+.wizard-nav-container > .nav > .wizard-nav-item {
+	display: inline-block !important;
+}
+.wizard-progress-container {
+	padding: 0 !important;
+}
+.wizard-progress-container > .progress {
+	margin-bottom: 0 !important;
+}
+.wizard-modal-footer > .wizard-buttons-container {
+	padding-bottom: 10px;
+	padding-top:    10px;
+}
+.wizard-modal .checkbox input[type="checkbox"] {
+	margin-top: 0 !important;
+}
+.wizard-modal .checkbox {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+.wizard-modal .checkbox + .checkbox {
+	margin-top: 0;
+}
+.block-name-cell {
+	min-width: 20em;
+}
+.block-visibility-cell {
+	min-width: 10em;
+	width:     10em;
+}
+.field-name-cell {
+	min-width: 10em;
+	width:     20%;
+}
+.field-label-cell {
+	min-width: 15em;
+}
+.field-type-cell {
+	min-width: 16em;
+	width:     20%;
+}
+.field-options-cell {
+	min-width: 12em;
+	width:     12em;
+}
+.actions-cell {
+	width: 5em;
+}
+@media (max-width: 1023px) {
+	.wizard-modal {
+		width: 100% !important;
+	}
+}
+@media (min-width: 1024px) and (max-width: 1199px) {
+	.wizard-modal {
+		width: 90% !important;
+	}
+}
+@media (min-width: 1200px) {
+	.wizard-modal {
+		width: 80% !important;
+	}
+}

@@ -1,0 +1,35 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_boxscore</name>
+		</table>
+		<table>
+			<name>vtiger_boxscorecf</name>
+		</table>
+		<table>
+			<name>vtiger_boxscore_blocks</name>
+		</table>
+		<table>
+			<name>vtiger_boxscore_operacion</name>
+		</table>
+		<table>
+			<name>vtiger_boxscore_privileges</name>
+		</table>
+		<table>
+			<name>vtiger_boxsoperation_privileges</name>
+		</table>
+		<table>
+			<name>vtiger_box_score_data</name>
+		</table>
+		<table>
+			<name>vtiger_box_score_data_cump</name>
+		</table>
+		<table>
+			<name>vtiger_box_score_data_semanal</name>
+		</table>
+		<table>
+			<name>vtiger_box_score_objective</name>
+		</table>
+	</tables>
+</schema>

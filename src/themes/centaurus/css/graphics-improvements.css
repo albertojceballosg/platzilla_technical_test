@@ -1,0 +1,220 @@
+/**
+ * Mejoras de presentación para gráficos de Google Charts
+ * Optimiza el uso del espacio disponible en la galería de dos columnas
+ */
+
+/* Contenedor principal de gráficos - mejor espaciado */
+.graph.simple {
+  height: 382px !important;
+  min-height: 382px !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Gráficos de columnas necesitan más altura */
+.graph.simple.column {
+  height: 467px !important;
+  min-height: 467px !important;
+}
+
+/* Gráficos de barras horizontales */
+.graph.simple.bar {
+  height: 425px !important;
+  min-height: 425px !important;
+}
+
+/* Gráficos circulares (pie/donut) - altura optimizada */
+.graph.simple.pie,
+.graph.simple.donut {
+  height: 382px !important;
+  min-height: 382px !important;
+}
+
+/* Tablas de datos */
+.graph.simple.table {
+  height: auto !important;
+  min-height: 340px !important;
+}
+
+/* Asegurar que los SVG de Google Charts usen todo el espacio */
+.graph.simple svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Contenedor de cada tarjeta de gráfico */
+.col-lg-6.col-md-6.col-xs-12 > .rounded {
+  min-height: 520px !important;
+  height: auto !important;
+  padding: 10px 15px !important;
+}
+
+/* Ajustar el título para que no ocupe tanto espacio */
+.graph.simple + h4.text-center,
+h4.text-center + .row {
+  margin-bottom: 5px !important;
+}
+
+/* Mejorar la visualización de leyendas de Google Charts */
+.google-visualization-legend {
+  font-size: 11px !important;
+}
+
+.google-visualization-legend-item {
+  margin: 2px 0 !important;
+}
+
+/* Optimizar el área de las tablas de Google Charts */
+.google-visualization-table-table {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.google-visualization-table {
+  width: 100% !important;
+  padding: 10px 5% !important;
+}
+
+/* Asegurar que los gráficos en modal también se vean bien */
+.modal-body .graph.simple {
+  height: 500px !important;
+  min-height: 500px !important;
+}
+
+/* Responsive: en pantallas más pequeñas, ajustar alturas */
+@media (max-width: 1280px) {
+  .graph.simple {
+    height: 400px !important;
+    min-height: 400px !important;
+  }
+
+  .graph.simple.column {
+    height: 480px !important;
+    min-height: 480px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .graph.simple {
+    height: 350px !important;
+    min-height: 350px !important;
+  }
+
+  .graph.simple.column {
+    height: 420px !important;
+    min-height: 420px !important;
+  }
+}
+
+/* Eliminar espacios innecesarios en la galería */
+.row-graphic {
+  margin-right: -8px !important;
+  margin-left: -8px !important;
+}
+
+.row-graphic > [class*="col-"] {
+  padding-right: 8px !important;
+  padding-left: 8px !important;
+}
+
+/* Mejorar el espaciado entre filas de gráficos */
+.row-graphic + .row-graphic {
+  margin-top: 15px;
+}
+
+/* ===== CORRECCIÓN: BOTONES DE GRÁFICOS E INFORMES EN MÉTRICAS ===== */
+/* Regularizar tamaño de botones - mantener siempre el tamaño de hover */
+
+/* Contenedor de botones - alineamiento vertical */
+.btn-group.btn-control.pull-left {
+  display: inline-flex !important;
+  align-items: center !important;
+  vertical-align: middle !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  float: none !important;
+  position: relative !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+/* Botones en el grupo de control de métricas */
+.btn-control > .btn,
+.btn-control > button.btn,
+.btn-control > a.btn {
+  height: 34px !important;
+  width: auto !important;
+  min-width: 40px !important;
+  margin-right: 2px !important;
+  margin-left: 2px !important;
+  padding: 6px 12px !important;
+  font-size: 15px !important;
+  line-height: 1.42857143 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  vertical-align: middle !important;
+  box-sizing: border-box !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
+}
+
+/* Iconos dentro de los botones */
+.btn-control > .btn > i,
+.btn-control > button.btn > i,
+.btn-control > a.btn > i {
+  font-size: 15px !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+/* Mantener el mismo tamaño en hover, focus y active - CRÍTICO */
+.btn-control > .btn:hover,
+.btn-control > .btn:focus,
+.btn-control > .btn:active,
+.btn-control > button.btn:hover,
+.btn-control > button.btn:focus,
+.btn-control > button.btn:active,
+.btn-control > a.btn:hover,
+.btn-control > a.btn:focus,
+.btn-control > a.btn:active {
+  height: 34px !important;
+  width: auto !important;
+  min-width: 40px !important;
+  padding: 6px 12px !important;
+  font-size: 15px !important;
+  line-height: 1.42857143 !important;
+  transform: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Iconos en hover - mantener tamaño */
+.btn-control > .btn:hover > i,
+.btn-control > .btn:focus > i,
+.btn-control > .btn:active > i,
+.btn-control > button.btn:hover > i,
+.btn-control > button.btn:focus > i,
+.btn-control > button.btn:active > i,
+.btn-control > a.btn:hover > i,
+.btn-control > a.btn:focus > i,
+.btn-control > a.btn:active > i {
+  font-size: 15px !important;
+}
+
+/* Solo cambiar colores en hover, no el tamaño */
+.btn-control > .btn.btn-default:hover,
+.btn-control > a.btn.btn-default:hover {
+  background-color: #e6e6e6 !important;
+  border-color: #adadad !important;
+}
+
+.btn-control > .btn.btn-primary:hover,
+.btn-control > button.btn.btn-primary:hover {
+  background-color: #286090 !important;
+  border-color: #204d74 !important;
+}

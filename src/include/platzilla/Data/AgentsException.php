@@ -1,0 +1,8 @@
+<?php
+	
+	class AgentsException extends Exception {
+		const ERROR_ENTITY_INSTANCES = 'ERROR_ENTITY_INSTANCES';
+		const ERROR_ENTITY_USER_ID   = 'ERROR_ENTITY_USER_ID';
+		const ERROR_ENTITY_USER_NAME = 'ERROR_ENTITY_USER_NAME';
+		const ERROR_INVALID_STATUS   = 'ERROR_INVALID_STATUS';
+	}

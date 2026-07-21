@@ -1,0 +1,274 @@
+04/30/2024 14:42:17 INFO [13640] BackgroundTasksRunner -  ------------------------------------------------------------------------------------------------------------------------
+04/30/2024 14:42:17 INFO [13640] BackgroundTasksRunner -  Iniciando ejecución de la tarea 73. 018- Oportunidades que cierran los próximos 7 días
+04/30/2024 14:42:17 INFO [13640] BackgroundTasksRunner -  Obteniendo fuente de datos
+04/30/2024 14:42:24 INFO [13640] BackgroundTasksRunner -  Ejecutando acciones
+04/30/2024 14:42:24 INFO [13640] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+04/30/2024 14:42:24 INFO [13640] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+04/30/2024 14:42:24 INFO [13640] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+04/30/2024 14:42:24 INFO [13640] BackgroundTasksRunner -  Obteniendo parámetros
+04/30/2024 14:42:24 INFO [13640] BackgroundTasksRunner -  Invocando al emailmanager
+04/30/2024 14:42:24 INFO [13640] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+04/30/2024 14:42:24 INFO [13640] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+04/30/2024 14:42:24 INFO [13640] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+04/30/2024 14:42:24 INFO [13640] BackgroundTasksRunner -  Obteniendo parámetros
+04/30/2024 14:42:24 INFO [13640] BackgroundTasksRunner -  Invocando al emailmanager
+04/30/2024 14:42:25 INFO [13640] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+04/30/2024 14:42:25 INFO [13640] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+04/30/2024 14:42:25 INFO [13640] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+04/30/2024 14:42:25 INFO [13640] BackgroundTasksRunner -  Obteniendo parámetros
+04/30/2024 14:42:25 INFO [13640] BackgroundTasksRunner -  Invocando al emailmanager
+04/30/2024 14:42:25 INFO [13640] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+04/30/2024 14:42:25 INFO [13640] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+04/30/2024 14:42:25 INFO [13640] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+04/30/2024 14:42:25 INFO [13640] BackgroundTasksRunner -  Obteniendo parámetros
+04/30/2024 14:42:25 INFO [13640] BackgroundTasksRunner -  Invocando al emailmanager
+04/30/2024 14:42:25 INFO [13640] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+04/30/2024 14:42:25 INFO [13640] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+04/30/2024 14:42:25 INFO [13640] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+04/30/2024 14:42:25 INFO [13640] BackgroundTasksRunner -  Obteniendo parámetros
+04/30/2024 14:42:25 INFO [13640] BackgroundTasksRunner -  Invocando al emailmanager
+04/30/2024 14:42:26 INFO [13640] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+04/30/2024 14:42:26 INFO [13640] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+04/30/2024 14:42:26 INFO [13640] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+04/30/2024 14:42:26 INFO [13640] BackgroundTasksRunner -  Obteniendo parámetros
+04/30/2024 14:42:26 INFO [13640] BackgroundTasksRunner -  Invocando al emailmanager
+04/30/2024 14:42:26 INFO [13640] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+04/30/2024 14:42:26 INFO [13640] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+04/30/2024 14:42:26 INFO [13640] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+04/30/2024 14:42:26 INFO [13640] BackgroundTasksRunner -  Obteniendo parámetros
+04/30/2024 14:42:26 INFO [13640] BackgroundTasksRunner -  Invocando al emailmanager
+04/30/2024 14:42:26 INFO [13640] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+04/30/2024 14:42:26 INFO [13640] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+04/30/2024 14:42:26 INFO [13640] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+04/30/2024 14:42:26 INFO [13640] BackgroundTasksRunner -  Obteniendo parámetros
+04/30/2024 14:42:26 INFO [13640] BackgroundTasksRunner -  Invocando al emailmanager
+04/30/2024 14:42:27 INFO [13640] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+04/30/2024 14:42:27 INFO [13640] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+04/30/2024 14:42:27 INFO [13640] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+04/30/2024 14:42:27 INFO [13640] BackgroundTasksRunner -  Obteniendo parámetros
+04/30/2024 14:42:27 INFO [13640] BackgroundTasksRunner -  Invocando al emailmanager
+04/30/2024 14:42:27 INFO [13640] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+04/30/2024 14:42:27 INFO [13640] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+04/30/2024 14:42:27 INFO [13640] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+04/30/2024 14:42:27 INFO [13640] BackgroundTasksRunner -  Obteniendo parámetros
+04/30/2024 14:42:27 INFO [13640] BackgroundTasksRunner -  Invocando al emailmanager
+04/30/2024 14:42:27 INFO [13640] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+04/30/2024 14:42:27 INFO [13640] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+04/30/2024 14:42:27 INFO [13640] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+04/30/2024 14:42:27 INFO [13640] BackgroundTasksRunner -  Obteniendo parámetros
+04/30/2024 14:42:27 INFO [13640] BackgroundTasksRunner -  Invocando al emailmanager
+04/30/2024 14:42:28 INFO [13640] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+04/30/2024 14:42:28 INFO [13640] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+04/30/2024 14:42:28 INFO [13640] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+04/30/2024 14:42:28 INFO [13640] BackgroundTasksRunner -  Obteniendo parámetros
+04/30/2024 14:42:28 INFO [13640] BackgroundTasksRunner -  Invocando al emailmanager
+04/30/2024 14:42:28 INFO [13640] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+04/30/2024 14:42:28 INFO [13640] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+04/30/2024 14:42:28 INFO [13640] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+04/30/2024 14:42:28 INFO [13640] BackgroundTasksRunner -  Obteniendo parámetros
+04/30/2024 14:42:28 INFO [13640] BackgroundTasksRunner -  Invocando al emailmanager
+04/30/2024 14:42:28 INFO [13640] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+04/30/2024 14:42:28 INFO [13640] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+04/30/2024 14:42:28 INFO [13640] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+04/30/2024 14:42:28 INFO [13640] BackgroundTasksRunner -  Obteniendo parámetros
+04/30/2024 14:42:28 INFO [13640] BackgroundTasksRunner -  Invocando al emailmanager
+04/30/2024 14:42:29 INFO [13640] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+04/30/2024 14:42:29 INFO [13640] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+04/30/2024 14:42:29 INFO [13640] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+04/30/2024 14:42:29 INFO [13640] BackgroundTasksRunner -  Obteniendo parámetros
+04/30/2024 14:42:29 INFO [13640] BackgroundTasksRunner -  Invocando al emailmanager
+04/30/2024 14:42:29 INFO [13640] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+04/30/2024 14:42:29 INFO [13640] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+04/30/2024 14:42:29 INFO [13640] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+04/30/2024 14:42:29 INFO [13640] BackgroundTasksRunner -  Obteniendo parámetros
+04/30/2024 14:42:29 INFO [13640] BackgroundTasksRunner -  Invocando al emailmanager
+04/30/2024 14:42:29 INFO [13640] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+04/30/2024 14:42:29 INFO [13640] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+04/30/2024 14:42:29 INFO [13640] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+04/30/2024 14:42:29 INFO [13640] BackgroundTasksRunner -  Obteniendo parámetros
+04/30/2024 14:42:29 INFO [13640] BackgroundTasksRunner -  Invocando al emailmanager
+04/30/2024 14:42:30 INFO [13640] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+04/30/2024 14:42:30 INFO [13640] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+04/30/2024 14:42:30 INFO [13640] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+04/30/2024 14:42:30 INFO [13640] BackgroundTasksRunner -  Obteniendo parámetros
+04/30/2024 14:42:30 INFO [13640] BackgroundTasksRunner -  Invocando al emailmanager
+04/30/2024 14:42:30 INFO [13640] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+04/30/2024 14:42:30 INFO [13640] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+04/30/2024 14:42:30 INFO [13640] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+04/30/2024 14:42:30 INFO [13640] BackgroundTasksRunner -  Obteniendo parámetros
+04/30/2024 14:42:30 INFO [13640] BackgroundTasksRunner -  Invocando al emailmanager
+04/30/2024 14:42:30 INFO [13640] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+04/30/2024 14:42:30 INFO [13640] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+04/30/2024 14:42:30 INFO [13640] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+04/30/2024 14:42:30 INFO [13640] BackgroundTasksRunner -  Obteniendo parámetros
+04/30/2024 14:42:30 INFO [13640] BackgroundTasksRunner -  Invocando al emailmanager
+04/30/2024 14:42:31 INFO [13640] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+04/30/2024 14:42:31 INFO [13640] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+04/30/2024 14:42:31 INFO [13640] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+04/30/2024 14:42:31 INFO [13640] BackgroundTasksRunner -  Obteniendo parámetros
+04/30/2024 14:42:31 INFO [13640] BackgroundTasksRunner -  Invocando al emailmanager
+04/30/2024 14:42:31 INFO [13640] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+04/30/2024 14:42:31 INFO [13640] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+04/30/2024 14:42:31 INFO [13640] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+04/30/2024 14:42:31 INFO [13640] BackgroundTasksRunner -  Obteniendo parámetros
+04/30/2024 14:42:31 INFO [13640] BackgroundTasksRunner -  Invocando al emailmanager
+04/30/2024 14:42:31 ERROR [13640] BackgroundTasksRunner -  Imposible ejecutar la tarea:  - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+04/30/2024 14:42:31 INFO [13640] BackgroundTasksRunner -  Finalizando ejecución de la tarea
+06/12/2024 14:00:31 INFO [11440] BackgroundTasksRunner -  ------------------------------------------------------------------------------------------------------------------------
+06/12/2024 14:00:31 INFO [11440] BackgroundTasksRunner -  Iniciando ejecución de la tarea 73. 018- Oportunidades que cierran los próximos 7 días
+06/12/2024 14:00:31 INFO [11440] BackgroundTasksRunner -  Obteniendo fuente de datos
+06/12/2024 14:00:37 INFO [11440] BackgroundTasksRunner -  Ejecutando acciones
+06/12/2024 14:00:37 INFO [11440] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+06/12/2024 14:00:37 INFO [11440] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+06/12/2024 14:00:37 INFO [11440] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+06/12/2024 14:00:37 INFO [11440] BackgroundTasksRunner -  Obteniendo parámetros
+06/12/2024 14:00:37 INFO [11440] BackgroundTasksRunner -  Invocando al emailmanager
+06/12/2024 14:00:38 INFO [11440] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+06/12/2024 14:00:38 INFO [11440] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+06/12/2024 14:00:38 INFO [11440] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+06/12/2024 14:00:38 INFO [11440] BackgroundTasksRunner -  Obteniendo parámetros
+06/12/2024 14:00:38 INFO [11440] BackgroundTasksRunner -  Invocando al emailmanager
+06/12/2024 14:00:38 INFO [11440] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+06/12/2024 14:00:38 INFO [11440] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+06/12/2024 14:00:38 INFO [11440] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+06/12/2024 14:00:38 INFO [11440] BackgroundTasksRunner -  Obteniendo parámetros
+06/12/2024 14:00:38 INFO [11440] BackgroundTasksRunner -  Invocando al emailmanager
+06/12/2024 14:00:39 INFO [11440] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+06/12/2024 14:00:39 INFO [11440] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+06/12/2024 14:00:39 INFO [11440] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+06/12/2024 14:00:39 INFO [11440] BackgroundTasksRunner -  Obteniendo parámetros
+06/12/2024 14:00:39 INFO [11440] BackgroundTasksRunner -  Invocando al emailmanager
+06/12/2024 14:00:39 INFO [11440] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+06/12/2024 14:00:39 INFO [11440] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+06/12/2024 14:00:39 INFO [11440] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+06/12/2024 14:00:39 INFO [11440] BackgroundTasksRunner -  Obteniendo parámetros
+06/12/2024 14:00:39 INFO [11440] BackgroundTasksRunner -  Invocando al emailmanager
+06/12/2024 14:00:39 INFO [11440] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+06/12/2024 14:00:39 INFO [11440] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+06/12/2024 14:00:39 INFO [11440] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+06/12/2024 14:00:39 INFO [11440] BackgroundTasksRunner -  Obteniendo parámetros
+06/12/2024 14:00:39 INFO [11440] BackgroundTasksRunner -  Invocando al emailmanager
+06/12/2024 14:00:40 INFO [11440] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+06/12/2024 14:00:40 INFO [11440] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+06/12/2024 14:00:40 INFO [11440] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+06/12/2024 14:00:40 INFO [11440] BackgroundTasksRunner -  Obteniendo parámetros
+06/12/2024 14:00:40 INFO [11440] BackgroundTasksRunner -  Invocando al emailmanager
+06/12/2024 14:00:40 INFO [11440] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+06/12/2024 14:00:40 INFO [11440] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+06/12/2024 14:00:40 INFO [11440] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+06/12/2024 14:00:40 INFO [11440] BackgroundTasksRunner -  Obteniendo parámetros
+06/12/2024 14:00:40 INFO [11440] BackgroundTasksRunner -  Invocando al emailmanager
+06/12/2024 14:00:40 INFO [11440] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+06/12/2024 14:00:40 INFO [11440] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+06/12/2024 14:00:40 INFO [11440] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+06/12/2024 14:00:40 INFO [11440] BackgroundTasksRunner -  Obteniendo parámetros
+06/12/2024 14:00:40 INFO [11440] BackgroundTasksRunner -  Invocando al emailmanager
+06/12/2024 14:00:41 INFO [11440] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+06/12/2024 14:00:41 INFO [11440] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+06/12/2024 14:00:41 INFO [11440] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+06/12/2024 14:00:41 INFO [11440] BackgroundTasksRunner -  Obteniendo parámetros
+06/12/2024 14:00:41 INFO [11440] BackgroundTasksRunner -  Invocando al emailmanager
+06/12/2024 14:00:41 INFO [11440] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+06/12/2024 14:00:41 INFO [11440] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+06/12/2024 14:00:41 INFO [11440] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+06/12/2024 14:00:41 INFO [11440] BackgroundTasksRunner -  Obteniendo parámetros
+06/12/2024 14:00:41 INFO [11440] BackgroundTasksRunner -  Invocando al emailmanager
+06/12/2024 14:00:41 INFO [11440] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+06/12/2024 14:00:41 INFO [11440] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+06/12/2024 14:00:41 INFO [11440] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+06/12/2024 14:00:41 INFO [11440] BackgroundTasksRunner -  Obteniendo parámetros
+06/12/2024 14:00:41 INFO [11440] BackgroundTasksRunner -  Invocando al emailmanager
+06/12/2024 14:00:42 INFO [11440] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+06/12/2024 14:00:42 INFO [11440] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+06/12/2024 14:00:42 INFO [11440] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+06/12/2024 14:00:42 INFO [11440] BackgroundTasksRunner -  Obteniendo parámetros
+06/12/2024 14:00:42 INFO [11440] BackgroundTasksRunner -  Invocando al emailmanager
+06/12/2024 14:00:42 INFO [11440] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+06/12/2024 14:00:42 INFO [11440] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+06/12/2024 14:00:42 INFO [11440] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+06/12/2024 14:00:42 INFO [11440] BackgroundTasksRunner -  Obteniendo parámetros
+06/12/2024 14:00:42 INFO [11440] BackgroundTasksRunner -  Invocando al emailmanager
+06/12/2024 14:00:42 INFO [11440] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+06/12/2024 14:00:42 INFO [11440] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+06/12/2024 14:00:42 INFO [11440] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+06/12/2024 14:00:42 INFO [11440] BackgroundTasksRunner -  Obteniendo parámetros
+06/12/2024 14:00:42 INFO [11440] BackgroundTasksRunner -  Invocando al emailmanager
+06/12/2024 14:00:43 INFO [11440] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+06/12/2024 14:00:43 INFO [11440] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+06/12/2024 14:00:43 INFO [11440] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+06/12/2024 14:00:43 INFO [11440] BackgroundTasksRunner -  Obteniendo parámetros
+06/12/2024 14:00:43 INFO [11440] BackgroundTasksRunner -  Invocando al emailmanager
+06/12/2024 14:00:43 INFO [11440] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+06/12/2024 14:00:43 INFO [11440] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+06/12/2024 14:00:43 INFO [11440] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+06/12/2024 14:00:43 INFO [11440] BackgroundTasksRunner -  Obteniendo parámetros
+06/12/2024 14:00:43 INFO [11440] BackgroundTasksRunner -  Invocando al emailmanager
+06/12/2024 14:00:43 INFO [11440] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+06/12/2024 14:00:43 INFO [11440] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+06/12/2024 14:00:43 INFO [11440] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+06/12/2024 14:00:43 INFO [11440] BackgroundTasksRunner -  Obteniendo parámetros
+06/12/2024 14:00:43 INFO [11440] BackgroundTasksRunner -  Invocando al emailmanager
+06/12/2024 14:00:44 INFO [11440] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+06/12/2024 14:00:44 INFO [11440] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+06/12/2024 14:00:44 INFO [11440] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+06/12/2024 14:00:44 INFO [11440] BackgroundTasksRunner -  Obteniendo parámetros
+06/12/2024 14:00:44 INFO [11440] BackgroundTasksRunner -  Invocando al emailmanager
+06/12/2024 14:00:44 INFO [11440] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+06/12/2024 14:00:44 INFO [11440] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+06/12/2024 14:00:44 INFO [11440] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+06/12/2024 14:00:44 INFO [11440] BackgroundTasksRunner -  Obteniendo parámetros
+06/12/2024 14:00:44 INFO [11440] BackgroundTasksRunner -  Invocando al emailmanager
+06/12/2024 14:00:44 INFO [11440] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+06/12/2024 14:00:44 INFO [11440] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+06/12/2024 14:00:44 INFO [11440] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+06/12/2024 14:00:44 INFO [11440] BackgroundTasksRunner -  Obteniendo parámetros
+06/12/2024 14:00:44 INFO [11440] BackgroundTasksRunner -  Invocando al emailmanager
+06/12/2024 14:00:45 INFO [11440] BackgroundTasksRunner -  Localizando clase gestora SendEmailAction
+06/12/2024 14:00:45 INFO [11440] BackgroundTasksRunner -  Determinando si la clase gestora SendEmailAction contiene el método run
+06/12/2024 14:00:45 INFO [11440] BackgroundTasksRunner -  Ejecutando el método run de la clase SendEmailAction
+06/12/2024 14:00:45 INFO [11440] BackgroundTasksRunner -  Obteniendo parámetros
+06/12/2024 14:00:45 INFO [11440] BackgroundTasksRunner -  Invocando al emailmanager
+06/12/2024 14:00:45 ERROR [11440] BackgroundTasksRunner -  Imposible ejecutar la tarea:  - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+ - Se ha presentado un error al enviar el correo: código REJECTED
+06/12/2024 14:00:45 INFO [11440] BackgroundTasksRunner -  Finalizando ejecución de la tarea

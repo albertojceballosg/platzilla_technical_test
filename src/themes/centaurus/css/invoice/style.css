@@ -1,0 +1,142 @@
+/*----------------------------------------/
+/*  Estilos para Template PDF Modelo 1   */
+/*----------------------------------------*/
+.container_model1 span{
+	color :  #1E90FF;
+}
+
+.organization{
+	padding-left: 3%;
+	padding-right: 1%;
+	float: left;
+	width: 20%;
+	border-right: 1px solid #1E90FF;
+}
+
+.products{
+	padding-right: 3%;
+	float: right;
+	width: 70%;
+}
+
+.header_model1{
+	height: 20%;
+	padding: 0;
+	background-color: #1E90FF;
+	margin: 0;
+}
+
+.table_model1 th{
+	color :  #1E90FF;
+}
+
+#info{
+	padding-top: 8%;
+	padding-left: 3%;
+}
+
+.header_model1 h1{
+	font-family: sans-serif ;
+	color : #fff;
+}
+
+
+.header_model1 h2{
+	font-family: sans-serif;
+	color : #000;
+}
+
+.header_model1 p{
+	font-family: sans-serif;
+	color : #fff;
+}
+
+.footer_model1{
+	position: absolute;
+	height: 15%;
+	width: 95%;
+	bottom: 0 !important;
+	margin-bottom:8%;
+}
+
+.terms {
+	position: absolute;
+	bottom: 0 !important;
+	margin-bottom:8%;
+	padding-left: 3%;
+    float: left;
+    width: 70%;
+    color :  #1E90FF;
+}
+
+.terms p{
+	color :  #000;
+}
+
+.logo_organization_model1{
+	margin-bottom:8%;
+	float: right;
+	padding-right: 3%;
+	width: 20%;
+} 
+/*----------------------------------------/
+/*  Estilos para Template PDF Modelo 2   */
+/*----------------------------------------*/
+
+.header_model2{
+	padding: 1%;
+	border-color: #4682B4;
+	border-style: solid;
+	width: 60%;
+	border-width: 2px;
+	float: left;
+	height: 6%;
+}
+
+#bill_to{
+	float: left;
+	width: 70%;
+}
+
+#name_organization{
+	float: right;
+	width: 30%;
+}
+
+.logo_organization{
+	float: right;
+	width: 30%;
+}
+
+img {
+border: none;
+}
+
+
+.information{
+	padding-top: 5%;
+	width: 100%;
+}
+
+
+.table th{
+	color :  #fff;
+	background-color: #4682B4;
+}
+
+.container_model2 span{
+	color :  #4682B4;
+}
+
+.footer_model2 p{
+	color :  #000;
+}
+
+.footer_model2 {
+    position: absolute;
+	bottom: 0 !important;
+	margin-bottom:10%;
+    text-align: left;
+    color:  #4682B4;
+}
+

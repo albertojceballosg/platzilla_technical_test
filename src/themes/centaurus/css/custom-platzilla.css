@@ -1,0 +1,1697 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto'); /*Importar fonts desde el api de google */
+/* ===== CORRECCIÓN: DESPLAZAMIENTO VERTICAL EN #PAGE-WRAPPER ===== */
+/* Normalizar el posicionamiento de #page-wrapper para que siempre comience en el borde superior */
+/* Variables globales */
+:root {
+  --font-family-base:  'Roboto', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-size-base: 1.3rem;
+  --font-size-large: 1.4rem;
+
+  --color-text-primary: #333;
+  --color-text-secondary: #666;
+  --color-border: #e3e3e3;
+  --color-background: #ffffff;
+  --color-table-header: #f8f9fa;
+  --color-scroll-thumb: #e0dfde;
+
+  --spacing-xs: 0.2em;
+  --spacing-sm: 0.5em;
+  --spacing-md: 0.9em;
+  --spacing-lg: 1.5em;
+  --column-width: 49.5%;
+  --input-padding: 1.5em;
+
+#page-wrapper {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* ===== CORRECCIÓN: SOLAPAMIENTO ICONO EMBUDO Y DROPDOWN EN LISTVIEW (CONSOLIDADO) ===== */
+/* Aplicar estilos consistentes para ListView estándar, Kanban y Gantt */
+
+/* Input group - contenedor base */
+.list-control .input-group,
+#LIST-VIEW-KANBAN-VIEW .input-group,
+#LIST-VIEW-GANTT-MODULE .input-group,
+.kanban-view-container .input-group,
+.gantt-view-container .input-group {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+/* Input group button - contenedor del botón */
+.list-control .input-group-btn,
+#LIST-VIEW-KANBAN-VIEW .input-group-btn,
+#LIST-VIEW-GANTT-MODULE .input-group-btn,
+.kanban-view-container .input-group-btn,
+.gantt-view-container .input-group-btn {
+  flex-shrink: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Ancho específico para Kanban y Gantt */
+#LIST-VIEW-KANBAN-VIEW .input-group-btn,
+#LIST-VIEW-GANTT-MODULE .input-group-btn,
+.kanban-view-container .input-group-btn,
+.gantt-view-container .input-group-btn {
+  width: auto !important;
+}
+
+/* Botones dentro del input-group-btn */
+.list-control .input-group-btn .btn,
+#LIST-VIEW-KANBAN-VIEW .input-group-btn .btn,
+#LIST-VIEW-GANTT-MODULE .input-group-btn .btn,
+.kanban-view-container .input-group-btn .btn,
+.gantt-view-container .input-group-btn .btn {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  margin-right: -1px !important;
+  z-index: 2 !important;
+}
+
+/* Altura específica para Kanban y Gantt */
+#LIST-VIEW-KANBAN-VIEW .input-group-btn .btn,
+#LIST-VIEW-GANTT-MODULE .input-group-btn .btn,
+.kanban-view-container .input-group-btn .btn,
+.gantt-view-container .input-group-btn .btn {
+  height: 34px !important;
+}
+
+/* Form controls y selects */
+.list-control .input-group .form-control,
+#LIST-VIEW-KANBAN-VIEW .input-group .form-control,
+#LIST-VIEW-GANTT-MODULE .input-group .form-control,
+#LIST-VIEW-GANTT-MODULE .input-group select,
+.kanban-view-container .input-group .form-control,
+.gantt-view-container .input-group .form-control,
+.gantt-view-container .input-group select {
+  flex: 1 !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+/* Selects de vistas - evitar solapamiento */
+.list-control select[name="viewname"],
+#LIST-VIEW-KANBAN-VIEW select[name="viewname"],
+#LIST-VIEW-GANTT-MODULE select[name="gantt_view_id"],
+#LIST-VIEW-GANTT-MODULE select#gantt-module-view-selector,
+.kanban-view-container select[name="viewname"],
+.gantt-view-container select {
+  margin-left: 0 !important;
+  border-left: 1px solid #ccc !important;
+}
+
+/* Centrado vertical real de la modal */
+.modal {
+  align-items: center;
+  justify-content: center;
+}
+body.pace-done.modal-open div.modal.wizard-modal.in {
+  padding-bottom: 2vh;
+  max-height: 90vh !important;
+  height: 85vh !important;
+}
+body.pace-done.modal-open div.modal.wizard-modal.in div.wizard-nav-container ul.nav.nav-list div.pull-left.wizard-steps.hidden-xs.hidden-sm {
+  max-height: 4em !important;
+}
+div.wizard-cards div.wizard-modal-footer {
+  margin-left: 150px;
+  padding-left: 15px;
+  height: 3.5em;
+  background-color:#ffffff;
+  margin-right:2em;
+  position: relative;
+  z-index: 5;
+  border-top: 1px solid #e7ebee;
+  border-left: none;
+  /*box-shadow: 0 0 1em rgba(0, 0, 0, .4);*/
+  box-shadow: 0 -6px 1em rgba(222, 222, 222, 0.3);
+}
+body > div.modal.wizard-modal.in > div.pull-left.wizard-steps.hidden-xs.hidden-sm {
+  max-height: 450px !important;
+}
+body > div.modal.wizard-modal.in > div.pull-left.wizard-steps.hidden-xs.hidden-sm > div.wizard-nav-container {
+  max-height: 400px !important;
+}
+body > div.modal.wizard-modal.in > form > div > div.wizard-card-container > div.wizard-card[data-cardname="general"] {
+  height: 400px !important;
+}
+body > div.modal.wizard-modal.in > form > div > div.wizard-card-container,
+div.modal.wizard-modal.in div.wizard-cards div.wizard-card-container div#actions-section.wizard-card
+ {
+  height: calc(100% - 4.0em) !important;
+  min-height: calc(100% - 5.0em) !important;
+}
+body > div.modal.wizard-modal.in > form > div > div.wizard-card-container div#setp-3-section {
+  height: calc(100% - 10em) !important;
+  margin-top: 0em;
+}
+
+div.modal.wizard-modal.in form {
+  padding-bottom: 2em !important;
+  max-height: 85%;
+  height: 85%;
+}
+
+div.wizard-cards div.wizard-modal-footer div.wizard-buttons-container {
+  padding-bottom: 5px !important;
+  vertical-align: bottom !important;
+}
+body > div.modal.wizard-modal.in > form > div > div.wizard-modal-footer > div > button,
+div.wizard-modal-footer div.wizard-buttons-container button.btn.wizard-cancel {
+  float: left !important;
+}
+div.wizard-modal-footer div.wizard-buttons-container button.btn.wizard-cancel.wizard-close.hidden-xs.hidden-sm {
+  vertical-align: bottom !important;
+  margin-left: 2px !important;
+}
+div#setp-3-section.wizard-card div.wizard-input-section.data-section div.row.data-section div#dv-n-contents div.input-group textarea#contents.form-control {
+  height: 12em;
+  width: 98% !important;
+}
+div#setp-3-section.wizard-card {
+  margin-top: 0.5em;
+}
+
+/* Agregada por Alfredo Romero en la revisión del wizard de notificaciones-Nov-2025*/
+div.wizard-cards, div.wizard-card-container {
+  position: relative;
+  height: 100% !important;
+}
+div.wizard-card {
+  position: relative;
+  z-index: 0;
+}
+/*
+div.wizard-modal-footer {
+  position: relative;
+  z-index: 5;
+  border-top: 1px solid #e7ebee;
+  border-left: none;
+  box-shadow: 0 -6px 1em rgba(222, 222, 222, 0.3);
+}
+*/
+/* ===== TIPOGRAFÍA Y FUENTES ===== */
+/* Forzar 'roboto' en selects y opciones desplegables */
+select,
+select option,
+select optgroup {
+  font-family: var(--font-family-base) !important;
+  font-size: 1em;
+}
+
+/* ===== TABLA DE TAREAS (CAMPO ESPECIAL) ===== */
+/* Estilos para el campo de tareas en el módulo orden_de_trabajo */
+div#tblTareas tfoot[id^="tfoot-"] > tr > td:nth-child(2) {
+  padding: 2px;
+}
+div#tblTareas tfoot[id^="tfoot-"] > tr > td:nth-child(2) input {
+  padding: 2px;
+  border: none !important;
+  text-align: right;
+}
+
+form[name="EditView"] table[id^="task-project-table"] td textarea[id^="task_title-"],
+div#tblTareas tr.tabla-field-row td textarea[id^="task_title-"] {
+  font-size: 0.76em !important;
+  padding: 1px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-gutter: auto;
+  height: 4.5em;
+}
+div#tblTareas tr.tabla-field-row td textarea[id^="task-"] {
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-gutter: auto;
+  height: 4.5em;
+  font-size: 0.95em;
+  font-family: var(--font-family-base) !important;
+}
+div#tblTareas tr.tabla-field-row td input[id^="duration-"] {
+  text-align: right;
+}
+
+.form-control,
+.form-control option,
+.form-control optgroup {
+  font-family: var(--font-family-base) !important;
+  overflow: auto;
+}
+div.tab-content table#proTabFields table#lvt-edit-table {
+	font-size: 1.1em;
+}
+
+div.main-box-body.clearfix
+  div.form-group.col-md-8.field-container
+  textarea.form-control {
+  min-height: 5em !important;
+  resize: vertical !important;
+  overflow: auto !important;
+}
+div#tblTareas .form-control {
+  padding: 2px 4px;
+  border: none;
+}
+/*Barra de scroll en campos tabla */
+
+div#tblTareas
+  tr.tabla-field-row
+  td
+  textarea[id^="task_title-"]::-webkit-scrollbar {
+  width: var(--scrollbar-size);
+  height: var(--scrollbar-size);
+  background-color: transparent;
+}
+
+div#tblTareas
+  tr.tabla-field-row
+  td
+  textarea[id^="task_title-"]::-webkit-scrollbar-track {
+  background: #fefdfd;
+  border-radius: var(--scrollbar-size);
+  border: none;
+  font-size: 0.9em;
+}
+
+div#tblTareas
+  tr.tabla-field-row
+  td
+  textarea[id^="task_title-"]::-webkit-scrollbar-thumb {
+  background: #f9f8f7;
+  border-radius: var(--scrollbar-size);
+  opacity: 0.7;
+  border: none;
+}
+
+div#tblTareas
+  tr.tabla-field-row
+  td
+  textarea[id^="task_title-"]::-webkit-scrollbar-thumb:hover {
+  background: var(--color-scroll-thumb);
+}
+
+/* Modal de selección de referencia: ancho amplio y altura limitada */
+div#related-module-records.modal.fade.in
+  div.modal-content
+  div.table-responsive.selection-stuff {
+  font-size: 0.8em;
+}
+div#related-module-records.modal.fade.in div.modal-content div.modal-body div#search form input#search-keywords {
+  font-size: 0.9em;
+  height: 3.0em;
+  margin-top:0.2em;
+  width:99.8% !important;
+}
+div#related-module-records.modal.fade.in div.modal-content div#search div.input-group-btn button[type="submit"]{
+	height:2.95em;
+	margin-top:0.15em;
+}
+
+div#related-module-records.modal.fade.in
+  div.modal-content
+  div.table-responsive.selection-stuff
+  table#records
+  thead
+  th {
+  height: 2.5em;
+  font-size: 1.12em !important;
+}
+div#related-module-records.modal.fade.in
+  div.modal-content
+  div.table-responsive.selection-stuff
+  table#records
+  tbody
+  td {
+  font-size: 1em !important;
+}
+div#related-module-records.modal.fade.in div.modal-content div.modal-footer button.btn.btn-primary.related-records-stuff {
+  font-size: 1.7vmin !important;
+  height: 2.5em;
+}
+
+/* ===== ESTILOS DE MODAL CONSOLIDADOS ===== */
+
+/* Modal dialog y modal-lg - configuración base */
+.modal-dialog,
+.modal-lg {
+  width: 80vw !important;
+  min-width: 60vw !important;
+  max-width: 80vw !important;
+  min-height: 80vh !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 1vw !important;
+}
+
+/* Modal content */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  max-height: 70vh;
+  overflow: hidden;
+}
+
+/* Modal body */
+.modal-body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 50vh;
+  max-height: 90%;
+  height: auto;
+  padding-bottom: 0 !important;
+  margin-bottom: 1vh !important;
+}
+.modal-body .table tbody > tr > td {
+  padding: 8px 8px !important;
+}
+#field-properties-modal .modal-body {
+  max-height: 90% !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  width: 100% !important;
+}
+.modal-footer {
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center;
+  margin: 0.5em !important;
+  padding: 10px 16px !important;
+  min-height: 5vmin !important;
+  background: #fff;
+  border-top: 1px solid #eee;
+  margin-top: auto !important;
+  box-shadow: none !important;
+}
+
+.modal-footer .btn,
+div#related-module-records.modal.fade.in
+  div.modal-content
+  div.modal-footer
+  button.btn.btn-primary.related-records-stuff {
+  margin-left: 8px;
+  margin-right: 16px;
+  margin-bottom: 0.8vh !important;
+  height: 2.5em;
+  font-size: 1em !important;
+  margin-top: 1em;
+}
+
+/* Modal header */
+.modal-header {
+  font-weight: 600;
+  font-size: 1.1em;
+  margin-left: 1em;
+}
+
+/* Ajuste responsivo de modales de selección de referencia (uitype=10) */
+@media (orientation: landscape) {
+  .modal-dialog .modal-lg {
+    max-width: 85vw !important;
+    width: 85vw !important;
+    min-width: 60vw !important;
+    max-height: 85vh;
+  }
+  .modal-content {
+    max-height: 86vh !important;
+    height: 98% !important;
+  }
+}
+@media (orientation: portrait) {
+  .modal-dialog.modal-lg {
+    max-width: 85vw !important;
+    width: 85vw !important;
+    min-width: 60vw;
+    max-height: 75vh;
+  }
+  .modal-content {
+    min-height: 65vh !important;
+    height: 85% !important;
+    max-height: 85%;
+  }
+}
+
+/* ===== BOTONES CORPORATIVOS ===== */
+/* Botón primario con colores de marca */
+.col-actions .btn-group .btn + .btn, .btn-group .btn + .btn-group, .col-actions .btn-group .btn-group + .btn, .col-actions .btn-group .btn-group + .btn-group{
+	margin-left: 0px;
+}
+
+.btn{
+  padding: 0.4em;
+  height: 2.3em;
+  min-width:2.3em;
+  border-radius: 0.4em !important;
+  vertical-align:middle;
+  margin-right:0.2em !important;
+}
+.btn-circle, .btn-circle.btn-xs{
+   border-radius: 50% !important;
+}
+.btn.btn-default, .btn.btn-sm.btn-warning{
+  padding: 0.4em;
+  vertical-align:middle;
+  font-size:12px;
+  height: 2.3em;
+}
+
+td.col-actions div.btn-group a.btn.btn-default.btn-sm.btn-info, div#ListViewContents table ul.actions li.action a, div.pull-right.graph-chat-btn-goup  a.btn.btn-success.pull-right,
+td.col-actions ul.actions li.action a.btn.btn-default,
+div#graphic-listview div.row-graphic div.pull-right.graph-chat-btn-goup a.btn,
+#LIST-VIEW-REPORT  div.container-fluid.base-list-container div.row div.btn-group a,
+div#metrics-alerts div.btn-group a.btn.btn-default
+ {
+    padding: 0.6em;
+    height: 2.3em;
+    vertical-align: middle;
+    min-width: 2.3em;
+    margin-right: 0.1em;
+}
+div#metrics-alerts div.btn-group a.btn.btn-default
+ {
+	 height: 2.65em;
+ }
+td.col-actions ul.actions li.action a.btn.btn-default, div#ListViewContents td ul.actions li.action a.btn.btn-default,
+div#LIST-VIEW-REPORT div.container-fluid.base-list-container  a.btn.btn-primary,
+div#LIST-VIEW-REPORT div.container-fluid.base-list-container  a.btn.btn-default {
+	padding-top: 0em !important;
+}
+div#ListViewContents td ul.actions button, div#ListViewContents td ul.actions a{
+    font-size: 12px !important;	
+}
+
+div#LIST-VIEW-GRAPHIC button#custom-graphic-btn, div#LIST-VIEW-GRAPHIC button#std-graphic-btn,
+div#LIST-VIEW-REPORT div.container-fluid.base-list-container  a.btn.btn-primary,
+div#LIST-VIEW-REPORT div.container-fluid.base-list-container  a.btn.btn-default
+{
+    font-size: 14px !important;
+}
+div#LIST-VIEW-REPORT div.container-fluid.base-list-container  a.btn.btn-primary,
+div#LIST-VIEW-REPORT div.container-fluid.base-list-container  a.btn.btn-default
+{
+	padding-top:0.45em !important;
+}
+.btn-primary,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:hover,
+.open > .dropdown-toggle.btn-primary {
+  background-color: #0266a9 !important;
+  border-color: #0266a9 !important;
+}
+
+form[id^="actions_progress_form-"] div.btn-toolbar div.btn-group button.btn.btn-default,
+form[id^="supplier_work_form-"] div.btn-toolbar div.btn-group button.btn.btn-default 
+{
+	font-size:14px;
+}
+form#formElement.form-horizontal  div.form-group div.col-lg-offset-2.col-lg-10 {
+	text-align: center;
+    margin-left:100px;
+	padding: 0px
+}
+
+form#formElement.form-horizontal  div.form-group div.col-lg-offset-2.col-lg-10 button,
+form#formElement.form-horizontal  div.form-group div.col-lg-offset-2.col-lg-10 a {
+   font-size:1.15em !important;
+}
+div#buttons-editview button, div#buttons-editview a {
+	font-size:1.1em !important;
+	height: 2.0em;
+	margin:0 auto;
+	vertical-align:middle;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+div#buttons-editview a {
+	padding-top: 0.3em !important;
+}
+/*metrics*/
+
+
+
+
+/* Estilos migrados desde Header.navbar.inc.tpl */
+#bell-num {
+  padding: 7px 9px;
+  background: #cc0000;
+  color: #ffffff;
+  font-weight: bold;
+  margin-left: 2px;
+  border-radius: 12px;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  position: absolute;
+  margin-top: -35px;
+  font-size: 11px;
+}
+.labellink {
+  color: blue;
+  cursor: pointer;
+}
+.labellink:hover {
+  text-decoration: underline;
+}
+#image {
+  display: none;
+}
+.navbar-nav > li > a {
+  padding: 15px;
+}
+.btn-no-hover {
+  font-weight: bold !important;
+}
+.btn-no-hover > li > a,
+#make-small-nav > i {
+  color: #2c3e50 !important;
+}
+.btn-no-hover > li > a:hover {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  text-decoration: none;
+}
+.btn-no-hover > li > a:focus {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  text-decoration: none;
+}
+@media (max-width: 768px) {
+  #logo {
+    width: 50px;
+    padding: 8px 5px;
+  }
+  #logo img {
+    width: 35px;
+    height: 30px;
+  }
+  .navbar-nav .profile-dropdown .dropdown-menu {
+    left: -214%;
+  }
+}
+@media (max-width: 400px) {
+  .navbar-nav .profile-dropdown .dropdown-menu {
+    left: -395%;
+  }
+}
+#consejos001:hover,
+#consejos001 > i:hover {
+  cursor: help;
+}
+#btn-group-desk i:hover {
+  color: #000000 !important;
+}
+#btn-group-desk a:hover {
+  color: #000000 !important;
+}
+.profile-dropdown > a {
+  display: flex !important;
+  align-items: center;
+}
+.profile-dropdown > a img {
+  margin-right: 8px;
+}
+.profile-dropdown > a .fa-chevron-circle-down {
+  margin-left: 8px;
+}
+.btn-default {
+  color: #fff;
+  background-color: #6e797a;
+  border-color: #ccc;
+  height:2.3em;
+}
+
+/* ===== EDITOR DE CAMPOS (LAYOUT EDITOR) ===== */
+/* Ajustes de espaciado y visualización para el editor de campos */
+#layout-editor header.main-box-header.clearfix {
+  padding-bottom: 4px !important;
+  padding-top: 8px !important;
+  min-height: 2em !important;
+  box-shadow: 1px 0px 0px 0 #cccccc;
+}
+div#layout-editor div.main-box.clearfix {
+  box-shadow: 1px 1px 2px 0 #cccccc !important;
+}
+#layout-editor .row .cf .nestable-lists,
+#layout-editor .nestable-lists {
+  padding-bottom: 8px !important;
+  padding-top: 6px !important;
+}
+#layout-editor .main-box .main-box-body {
+  padding-bottom: 0.5em !important;
+  padding-top: 0.3em !important ;
+}
+#layout-editor header.main-box-header.clearfix > div.pull-right {
+  margin-right: 2em;
+}
+
+#layout-editor
+  div[id^="block-fields-"].col-md-6.dd.block-fields
+  ul.dd-list.row
+  li.dd-item.block-field.col-xs-6 {
+  display: block;
+  position: relative;
+  min-height: 20px;
+  font-size: 1em;
+  line-height: 20px;
+  width: 50%;
+  margin: 0 auto;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+#layout-editor
+  div[id^="block-fields-"].col-md-6.dd.block-fields
+  ul.dd-list.row
+  li.dd-item.block-field.col-xs-6
+  div.dd-handle {
+  width: calc(100% - 80px) !important;
+}
+#layout-editor
+  div[id^="block-fields-"].col-md-6.dd.block-fields
+  ul.dd-list.row
+  li.dd-item.block-field.col-xs-6
+  div.dd-links {
+  width: 72px !important;
+}
+div.row.cf.nestable-lists div[id^="block-fields-"] ul.dd-list li.dd-item.block-field {
+	height:2.5em;
+	padding-top:0.25em;
+	padding-bottom:0.25em;
+	vertical-align:middle;
+}
+div#layout-editor ul.dd-list li.dd-item.block-field div.dd-links button {
+	margin-right:1px !important;
+}
+
+/* ===== CONFIGURACIÓN DE PLATZILLA ===== */
+/* Estilos para las cajas infográficas en la sección de configuración */
+div.tab-content div.main-box.infographic-box {
+  box-shadow: 1px 1px 2px 0 #cccccc !important;
+}
+
+/* ===== FOOTER DE PLATZILLA ===== */
+/* Posicionamiento fijo del footer en la parte inferior */
+footer#footer-bar {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 66px !important;
+  margin-left:0px;
+  width: calc(100% - 66px) !important;
+  padding-bottom: 0.1em !important;
+  padding-top: 0.1em !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+    background-image: linear-gradient(
+        to right, 
+        rgba(249, 248, 247, 0.0) 0%,  
+		rgba(249, 248, 247, 0.92) 8%, 
+        rgba(249, 248, 247, 1) 50%,    
+		rgba(249, 248, 247, 0.92) 92%,
+        rgba(249, 248, 247, 0.0) 100%
+  ) !important;
+  z-index: 99999 !important;
+}
+#fixed-btns-bar {
+	height:85px !important;
+}
+
+/* ===== MENÚ LATERAL IZQUIERDO ===== */
+/* Estilos para el menú de navegación lateral */
+#sidebar-nav .nav li .submenu > li > a {
+  line-height: 2.4em;
+}
+div#nav-col #col-left > div.col-left-nano-content.hidden-xs.hidden-sm {
+  margin-bottom: 1.5em;
+}
+/*Número de nuevos registros en el menú izquierdo*/
+#sidebar-nav .nav li .submenu > li > a div.contadorregistros-menu {
+  font-size: 0.5em !important;
+  padding-top: 0.5em !important;
+  margin-top: 0.3em !important;
+  line-height: 1.6em !important;
+  width: 2.5em !important;
+  height: 2.5em !important;
+}
+
+/* ===== LISTAS RELACIONADAS (TARJETAS) ===== */
+/* Estilos para las tarjetas en la cuadrícula de listas relacionadas */
+div.tab-content div[id^="tab-related-list"] #RLContents {
+  font-size: 1em !important;
+}
+
+div.tab-content div[id^="tab-related-list"] #RLContents small {
+  font-size: 1.1rem !important;
+}
+
+
+div.tab-content div[id^="tab-related-list"] #RLContents table.table.related-list-card-table thead tr th {
+  font-size: 0.9em !important;
+  color: #337ab7 !important;
+  font-weight: bold !important;
+  text-transform: capitalize !important;
+}
+div.tab-content div[id^="tab-related-list"] #RLContents table.table.related-list-card-table tbody tr.related-list-card-row td,
+div.tab-content div[id^="tab-related-list"] #RLContents table.table.related-list-card-table tbody tr.related-list-card-row td small {
+  font-size: 1.15rem !important;
+}
+
+/* Altura del contenedor principal de la tarjeta (card-body) - SIN scroll */
+div.tab-content div[id^="tab-related-list"] .card-body-related {
+  min-height: 260px !important;
+  max-height: 260px !important;
+  overflow: visible !important;
+}
+
+/* Área de contenido con scroll SOLO para el área de datos - MAXIMIZADA */
+div.tab-content
+  div[id^="tab-related-list"]
+  .table-responsive.related-list-card {
+  max-height: 240px !important;
+  min-height: 240px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding-right: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: #e5edfc #f5f5f5;
+}
+
+/* ===== PESTAÑA DE TAREAS EN DETAILVIEW ===== */
+/* Espaciado para la pestaña de tareas */
+div.tab-content div.flex-container.wrap.flex-start.items-align-baseline div h4 {
+  padding-bottom: 1em !important;
+}
+
+/* ===== LISTA DE TAREAS EN ESCRITORIO DE GESTIÓN ===== */
+/* Tamaños de fuente para la tabla de tareas */
+div.container-fluid.base-list-container
+  div.tab-content
+  div.table-responsive
+  table#table_list.table
+  tbody,
+div#ListViewContents
+  div.container-fluid.base-list-container
+  table#table_list.table
+  tbody {
+  font-size: 1.2rem !important;
+}
+
+div.container-fluid.base-list-container
+  div.tab-content
+  div.table-responsive
+  table#table_list.table
+  tbody
+  tr.table-title,
+div#ListViewContents
+  div.container-fluid.base-list-container
+  table#table_list.table
+  tbody
+  tr.table-title {
+  font-size: 1.2rem !important;
+}
+
+div#content-wrapper
+  div.tab-content
+  div.table-responsive
+  table#table_list.table
+  thead
+  tr.table-title
+  th
+  div.title-overflow {
+  font-size: 1.1em !important;
+  text-transform: uppercase !important;
+}
+
+div#ListViewContents
+  form
+  div.table-responsive
+  table#table_list.table
+  tbody
+  tr.table-title
+  th
+  div.title-overflow {
+  font-size: 1.2em !important;
+  text-transform: none !important;
+}
+
+div.tab-content
+  div.tab-pane.fade.active.in
+  div.table-responsive
+  table#table_list.table
+  tbody
+  tr
+  td,
+div.container-fluid.base-list-container div.tab-content div.table-responsive table#table_list.table tbody td.module-list-view-td,
+div#ListViewContents div.container-fluid.base-list-container table#table_list.table tbody td.module-list-view-td {
+  font-size: 1.25rem !important;
+}
+
+.row.filters-form div.input-group > span.input-group-addon.hidden-md,
+div.input-group span.input-group-addon.hidden-md,
+div.input-group select.form-control {
+  display: table-cell !important;
+}
+div.col-xs-12.col-md-4.col-lg-3.action-bar > a.btn > i,
+form > div.col-xs-12.col-md-4.col-lg-3.action-bar {
+  display: inline-block !important;
+}
+form.row.filters-form div.col-xs-12.col-md-4.col-lg-3.action-bar a.btn {
+  height: 2.8em !important;
+  padding: 1vmin !important;
+}
+
+/* ===== CREADOR DE DIAGNÓSTICOS ===== */
+/* Ajustes de ancho para el formulario de construcción de reportes */
+form[id^="REPORT-BUILDER-"]
+  div[id^="questionnaire-data-"]
+  div.col-lg-8.col-md-8.col-sm-8.border.rounded {
+  width: 90% !important;
+}
+
+/* ===== PERFILES DE USUARIO ===== */
+/* Ajustes de columnas en la tabla de perfiles de usuario */
+#email-box > div > div > div > table > tbody > tr td.col-name {
+  max-width: 30vmin !important;
+  width: 30%;
+  white-space: normal !important;
+}
+#email-box > div > div > div > table > tbody > tr td.col-description {
+  max-width: 50vmin !important;
+  width: 50%;
+  white-space: normal !important;
+}
+#email-box > div > div > div > table > thead > tr > th.col-actions {
+  text-align: right !important;
+}
+#email-box > div > div > div > table > tbody > tr > td.col-actions {
+  min-width: 10vmin !important;
+  width: 20%;
+  text-align: right;
+  vertical-align: middle;
+  /* Opcional: evita que la columna se haga más pequeña */
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #email-box > div > div > div > table > tbody > tr > td.col-actions {
+    min-width: 90px !important; /* Puede reducirse un poco en móviles */
+    font-size: 1em;
+  }
+}
+
+/* NOTA: Estilos de iconos de vistas consolidados en la sección "ESTILOS PARA ICONOS DE VISTAS" (línea ~1194) */
+
+/* ===== PARTE DE TRABAJO ===== */
+/* Estilos para la sección de parte de trabajo */
+table#table_list.table tbody#part-work- {
+  font-weight: normal;
+}
+
+/* ===== PROCESOS ===== */
+/* Estilos para la visualización y selección de procesos */
+div.tab-content
+  div[id^="tab-detail-"]
+  div#card-view-register-container
+  div.card-body
+  div.main-box
+  div#select_process.row
+  div.col-md-4
+  div.label-input
+  label[for="process_area"] {
+  width: 100% !important;
+  padding-bottom: 0.5em !important;
+}
+div#select_process.row {
+  width: 87vw !important;
+  max-width: 87vw !important;
+  margin: 0 auto;
+}
+#select_process.row div.col-md-4 {
+  width: 100%;
+  margin-bottom: 1em;
+  display: block;
+}
+
+div.tab-content
+  div[id^="tab-detail-"]
+  div#card-view-register-container
+  div.card-body
+  div.main-box
+  div#select_process.row
+  div#process_graphic {
+  width: 84vw;
+  max-width: 84vw;
+  justify-content: center;
+  margin: 0 auto;
+  height: 3em;
+  display: flex;
+}
+div.tab-content
+  div[id^="tab-detail-"]
+  div#card-view-register-container
+  div.card-body
+  div.main-box
+  div#select_process.row
+  div#process_graphic {
+  text-align: center !important;
+  margin: 0 auto !important;
+}
+div.tab-content
+  div[id^="tab-detail-"]
+  div#card-view-register-container
+  div.card-body
+  div.main-box
+  div#select_process.row
+  div#process_graphic
+  div.wrap-platzilla {
+  position: relative;
+  width: 90%;
+  text-align: center !important;
+}
+
+/* Pasos de proceso. Encabezado de tabla */
+table[id^="step-type-table-"].table.table-bordered.tablegridvalidate
+  > thead
+  > tr:nth-child(1)
+  td {
+  font-size: 1.1em !important;
+  font-weight: 600 !important;
+}
+
+table[id^="step-type-table-"].table.table-bordered.tablegridvalidate
+  > thead
+  tr:nth-child(2)
+  td,
+table[id^="process-steps-table-"] > thead > tr:nth-child(2) td {
+  font-size: 1em !important;
+  font-weight: 500 !important;
+  background-color: #f9f8f7 !important;
+}
+
+/* ===== MODAL DE LISTAS RELACIONADAS ===== */
+/* Dimensiones del modal de listas relacionadas */
+#related-lists-modal {
+  width: 75vw !important;
+  max-width: 85vw !important;
+}
+#related-lists-modal > div > div > form {
+  width: 75vw !important;
+  max-width: 85vw !important;
+  padding-left: 1em !important;
+  padding-right: 1em !important;
+}
+#StepEditViewNotes #td_process #process_title,
+#StepEditViewNotes #td_process #step_title {
+  height: 5em;
+}
+#StepEditViewNotes textarea[id^="step_notes-"].form-control {
+  height: 10em !important;
+}
+#StepEditViewNotes [id^="case-form-"] header > div > button {
+  height: 2.5em !important;
+}
+
+form[name="EditView"] table[id^="task-project-table"] tbody[id^="tbody-task-project-"],
+form[name="DetailView"] table#task-project-table- tbody[id^="tbody-task-project-"] {
+  font-size: 0.8em !important;
+  font-family: var(--font-family-base) !important;
+}
+
+form[name="EditView"] table[id^="task-project-table"] thead > tr:nth-child(2),
+form[name="DetailView"] table#task-project-table- thead > tr:nth-child(2) {
+  font-size: 0.9em !important;
+  font-weight: 500 !important;
+}
+
+/* ===== TABLA DE TAREAS EN TRABAJOS (EDITVIEW) ===== */
+/* Estilos para la tabla de tareas en el formulario de edición de trabajos */
+table[id^="task-project-table"] {
+  font-size: 1.4rem;
+}
+
+table[id^="task-project-table"] thead > tr:nth-child(2) {
+  font-weight: 500;
+  background-color: #fcfbfb;
+}
+table[id^="task-project-table"] tbody {
+  font-size: 1.15em;
+}
+table[id^="task-project-table"] .form-control {
+  font-size: 1.15em;
+}
+
+form[name="EditView"] table[id^="task-project-table"] tbody {
+  font-size: 1.0em;
+}
+
+
+table[id^="task-project-table"] tbody td div.input-group {
+  /*font-size: 1.3rem;*/
+  padding: 2px;
+}
+div[id^="tab-detail-"] div[id="tblTrabajosdelproyecto"] table[name="task-project-table"] tbody[name="job_project_tbody"] tr#job_project_td_DV td
+{
+	font-family: var(--font-family-base);
+	font-size:0.82em !important;
+	text-transform:uppercase;
+	font-weight:600 !important;
+	color:#4e5157 !important;
+	text-align:center;	
+}
+div[id^="tab-detail-"] div[id="tblTrabajosdelproyecto"] table[name="task-project-table"] tbody[name="job_project_tbody"]  td div.input-group{
+	font-family: var(--font-family-base);
+	font-size:1.08em !important;
+}
+
+div[id^="tab-detail-"] div[id="tblTrabajosdelproyecto"] table[name="task-project-table"] tbody[name="job_project_tbody"]  td div[id^="td_job_"] span[id^="job-id-"]{
+	font-family: var(--font-family-base);
+	font-size:0.80em !important;
+}
+
+/*EditView proyectos*/
+form div[id="tblTrabajosdelproyecto"] table[name="task-project-table"].table.table-bordered,
+form div[id="tblTrabajosdelproyecto"] table[name="task-project-table"] thead tr:nth-child(1) > td,
+form div[id="tblTrabajosdelproyecto"] table[name="task-project-table"] thead tr:nth-child(2) > td,
+form div[id="tblTrabajosdelproyecto"] table[name="task-project-table"] tbody[name="job_project_tbody"] tr[id^="tr-row-"] td,
+form div[id="tblTrabajosdelproyecto"] table[name="task-project-table"] tfoot[id^="tfoot"] tr td,
+form[name="EditView"] table[id^="task-project-table"] tbody[id^="tbody-task-project"] tr.tabla-field-row td,
+form[name="EditView"] table[id^="task-project-table"] thead tr td,
+form[name="EditView"] table[id^="task-project-table"] tfoot[id^="tfoot"] tr td
+ {
+	font-family: var(--font-family-base) !important;
+    vertical-align: middle;
+	border-bottom-color: #e5e7eb;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-collapse: collapse;
+	border-left: 0;
+	border-right:0;
+	border-top-color: #e5e7eb;
+	border-top-style: solid;
+	border-top-width: 1px;
+	box-sizing: border-box;
+	display:table-cell;
+}
+
+form div[id="tblTrabajosdelproyecto"] table[name="task-project-table"] thead tr:nth-child(1) > td
+{
+	font-size:0.95em !important;
+	font-weight:bold;
+	text-align: left;
+	color: #4e5157 !important;
+}
+form div[id="tblTrabajosdelproyecto"] table[name="task-project-table"] thead tr:nth-child(2) > td
+{
+	font-size:0.82em !important;
+	font-weight:500;
+	text-align:center;
+	color: #4e5157 !important;
+	text-transform:uppercase;
+}
+
+form div[id="tblTrabajosdelproyecto"] table[name="task-project-table"] tbody[name="job_project_tbody"] tr[id^="tr-row-"] td
+{
+	font-size:0.80em !important;	
+	color:#2e3034 !important;
+	line-height: 1em;
+}
+
+form div[id="tblTrabajosdelproyecto"] table[name="task-project-table"] tfoot[id^="tfoot"] tr td,
+table[id^="task-project-table"] tfoot[id^="tfoot"] tr td
+ {
+	font-size:0.87em !important;
+	font-weight:bold;
+	text-align; right;
+	color: #4e5157 !important;
+}
+
+/* ===== DATEPICKER (CAMPOS DE FECHA) ===== */
+/* Estilos para el selector de fechas en modo de edición */
+div.datepicker.datepicker-dropdown.dropdown-menu.datepicker-orient-left.datepicker-orient-top {
+  font-family: var(--font-family-base) !important;
+  font-size: 0.9em !important;
+  text-align:center;
+}
+
+/* ===== TABLA GRID EN MODO DE EDICIÓN ===== */
+/* Estilos para campos tipo Grid (uitype 2202) en formularios de edición */
+form[name="EditView"]
+  div.row.block-container
+  div[id^="tbl"]
+  div[data-field-type="Grid"]
+  div.table-responsive
+  table.table.table-bordered.tablegridvalidate {
+  table-layout: fixed !important;
+  font-size: 1em !important;
+}
+form[name="EditView"] div.row.block-container div[id^="tbl"] div[data-field-type="Grid"] div.table-responsive table.table.table-bordered.tablegridvalidate thead {
+  font-weight: 400 !important;
+  font-size: 1em !important;
+  background-color: var(--color-table-header, rgb(249, 248, 247)) !important;
+}
+
+.grid-cell-compact {
+  box-sizing: border-box !important;
+  min-width: 10em;
+}
+.grid-input-compact {
+  box-sizing: border-box !important;
+  max-width: 100% !important;
+}
+
+form div.table-responsive table.table.table-bordered.tablegridvalidate tbody tr[id^="row_"].gridvalidationtr td[id^="td_"].grid-cell-compact button.btn.btn-danger.btn-sm {
+  padding: 4px 9px;
+  font-size: 1em !important;
+  line-height: 1.4;
+}
+
+table.table.table-bordered.tablegridvalidate tbody tr[id^="row_"] div.grid-reference-compact input[id^="edit_"].grid-input-compact.grid-reference-input,
+form > div.row.block-container div[id^="tbl"] div[id^="td_"] table.table.table-bordered.tablegridvalidate tbody tr[id^="row_"] td.grid-cell-compact input.grid-input-compact {
+  border: 0px solid #ddd !important;
+  border-radius: 0px !important;
+  line-height: 1.2em;
+  height: 30px;
+  position: relative;
+  z-index: 2;
+  float: left;
+  margin-bottom: 0;
+/* --- Propiedades para el salto de línea automático --- */
+  white-space: normal;       /* Permite que el texto fluya a la siguiente línea */
+  word-wrap: break-word;     /* Rompe palabras largas si es necesario */
+  overflow-wrap: break-word; /* Estándar moderno para romper palabras */
+  vertical-align: middle;    /* Opcional: centra el texto verticalmente si hay varias líneas */
+}
+
+table.table.table-bordered.tablegridvalidate tbody tr[id^="row_"] td.grid-cell-compact button.grid-reference-btn,
+table.table.table-bordered.tablegridvalidate tbody tr[id^="row_"] td.grid-cell-compact button.grid-reference-clear {
+  border-radius: 0;
+  max-width: 22px !important;
+  width: 22px !important;
+  height: 23px !important;
+  border: 0px solid #ddd;
+  color: #555;
+  background-color:transparent !important;
+  text-align: center;
+  margin-right: 1px;
+  font-size: 1em;
+  padding: 0px !important;
+  margin-top: 0px;
+}
+
+table.table.table-bordered.tablegridvalidate tbody tr[id^="row_"] div.grid-reference-compact input[id^="edit_"].grid-input-compact.grid-reference-input {
+  font-size: 0.85em !important;
+  width: calc(100% - 48px);
+}
+table.table.table-bordered.tablegridvalidate tbody tr[id^="row_"] td.grid-cell-compact button i.fa.fa-plus-circle,
+table.table.table-bordered.tablegridvalidate tbody tr[id^="row_"] td.grid-cell-compact button i.fa.fa-eraser {
+  font-size: 0.7em !important;
+  vertical-align: top;
+  padding-top: 0.5em !important;
+}
+
+table.table.table-bordered.tablegridvalidate tbody tr[id^="row_"] td.grid-cell-compact input.grid-input-compact.numericvalidate,
+table.table.table-bordered.tablegridvalidate tbody tr[id^="row_"] td.grid-cell-compact input.grid-input-compact.percentvalidate,
+table.table.table-bordered.tablegridvalidate tbody tr[id^="row_"] td.grid-cell-compact input[class^="grid-input-compact calculated-"] {
+  text-align: right;
+}
+
+form div[id^="tbl"] div[id^="td_"] table.table.table-bordered.tablegridvalidate tbody tr[id$="-summary"] td[id^="td_"] {
+  text-align: right;
+  border-right: 1px solid #ddd !important;
+  padding: 8px 12px;
+}
+
+/* Mejoras de espaciado en el selector de meses y años del datepicker */
+.datepicker table tr td span {
+  display: inline-block !important;
+  margin: 1% !important;
+  padding: 6px 3px !important;
+  font-size: 11px !important;
+  text-align: center !important;
+  word-spacing: normal !important;
+  letter-spacing: normal !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  box-sizing: border-box !important;
+}
+
+/* Espaciado para meses - moderado */
+.datepicker-months table tr td span {
+  width: 22% !important;
+  margin: 1% !important;
+  padding: 8px 2px !important;
+  min-width: 45px !important;
+  border: 1px solid transparent !important;
+}
+
+/* Espaciado para años - más amplio para mejor usabilidad */
+.datepicker-years table tr td span {
+  width: 23% !important;
+  margin: 1% !important;
+  padding: 12px 4px !important;
+  min-width: 60px !important;
+  border: 1px solid transparent !important;
+  font-size: 13px !important;
+}
+
+/* Mejorar hover en meses y años */
+.datepicker-months table tr td span:hover,
+.datepicker-years table tr td span:hover {
+  border-color: #ddd !important;
+  background: #f5f5f5 !important;
+}
+
+/* ===== ESPACIADO EN HOME ===== */
+/* Mejora de espaciado entre filtros de búsqueda y menú de segundo nivel */
+.main-box-header .btn-toolbar {
+  padding-top: 0.5em !important;
+}
+
+#graphPreviewModal .modal-content {
+  height: 92vh !important;
+}
+
+/* ========================================================================
+   ESTILOS PARA ICONOS DE VISTAS - ALINEACIÓN HORIZONTAL CONSISTENTE
+   ======================================================================== */
+
+/* Contenedor de botones de vistas - forzar disposición horizontal */
+.list-view-filter .btn-group,
+.list-view-filter div.btn-group {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 0 !important;
+  vertical-align: middle !important;
+  height: auto !important;
+  min-height: 34px !important;
+}
+
+/* Todos los botones de vistas - altura y dimensiones consistentes */
+.list-view-filter .btn-group > button.btn,
+.list-view-filter .btn-group > a.btn {
+  height: 34px !important;
+  min-height: 34px !important;
+  max-height: 34px !important;
+  line-height: 20px !important;
+  padding: 6px 12px !important;
+  margin: 0 1px !important;
+  font-size: 15px !important;
+  vertical-align: middle !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+/* Respetar la clase .hide para botones que deben estar ocultos (Gráficos e Informes) */
+.list-view-filter .btn-group > button.btn.hide,
+.list-view-filter .btn-group > a.btn.hide {
+  display: none !important;
+}
+
+/* Estado hover - mantener misma altura */
+.list-view-filter .btn-group > button.btn:hover,
+.list-view-filter .btn-group > a.btn:hover {
+  height: 34px !important;
+  min-height: 34px !important;
+  max-height: 34px !important;
+  line-height: 20px !important;
+}
+
+/* Iconos dentro de los botones - centrado vertical */
+.list-view-filter .btn-group > button.btn > i,
+.list-view-filter .btn-group > a.btn > i,
+.list-view-filter .btn-group > button.btn > span.glyphicon,
+.list-view-filter .btn-group > a.btn > span.glyphicon {
+  vertical-align: middle !important;
+  line-height: 1 !important;
+  display: inline-block !important;
+}
+
+/* Dropdown de usuarios - misma altura */
+.list-view-filter .btn-group > button.dropdown-toggle {
+  height: 34px !important;
+  min-height: 34px !important;
+  max-height: 34px !important;
+  line-height: 20px !important;
+}
+
+/* Prevenir que los botones se apilen verticalmente */
+.list-view-filter .btn-group {
+  overflow: visible !important;
+  min-width: auto !important;
+}
+
+/* Asegurar que el contenedor padre no colapse */
+.list-view-filter {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+}
+
+/* Alineación del input-group (filtro y select de vistas) */
+.list-view-filter .input-group,
+.list-view-filter div.input-group {
+  display: inline-flex !important;
+  align-items: center !important;
+  vertical-align: middle !important;
+  margin-left: 2px !important;
+  height: auto !important;
+  min-height: 34px !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Input-group-btn - contenedor del botón de filtro */
+.list-view-filter .input-group-btn,
+.list-view-filter div.input-group-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  vertical-align: middle !important;
+  height: auto !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Botón de filtro (embudo) - misma altura que iconos de vistas */
+.list-view-filter .input-group-btn > button.btn.dropdown-toggle,
+.list-view-filter .input-group-btn > button.btn-primary.dropdown-toggle {
+  height: 34px !important;
+  min-height: 34px !important;
+  max-height: 34px !important;
+  line-height: 20px !important;
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+  padding-left: 7px !important;
+  padding-right: 7px !important;
+  vertical-align: middle !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Dropdown del botón de filtro - z-index alto para que aparezca sobre todo */
+.list-view-filter .input-group-btn .dropdown-menu {
+  z-index: 1050 !important;
+}
+
+/* Select de vistas - misma altura */
+.list-view-filter select#viewname.form-control,
+.list-view-filter select.form-control {
+  height: 34px !important;
+  min-height: 34px !important;
+  max-height: 34px !important;
+  line-height: 20px !important;
+  padding: 6px 12px !important;
+  vertical-align: middle !important;
+  box-sizing: border-box !important;
+  margin-top:0px !important;
+  margin-right:0px !important;
+  margin-bottom:0px!important;
+  position: relative !important;
+  z-index: 1 !important;
+  border-radius: 4px !important;
+}
+div#ListViewContents div.list-view-filter select#viewname.form-control{
+	  margin-left:30px !important;
+}
+
+div#LIST-VIEW-KANBAN-TASK-VIEW div.form-group.col-md-6.list-view-filter div.btn-group.btn-control.pull-left div.input-group select[id^="period-dates-"],
+div#LIST-VIEW-KANBAN-TASK-VIEW div.form-group.col-md-6.list-view-filter div.btn-group.btn-control.pull-left div.input-group select#viewname.form-control[onchange^="ListViewTabUtils.searchKanban"]
+ {
+	margin-left:0px !important;
+}
+div#LIST-VIEW-KANBAN-TASK-VIEW div.form-group.col-md-6.list-view-filter div.btn-group.btn-control.pull-left div.input-group div.input-group-addon {
+	width:34px;
+	height:34px;
+	border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: #ddd;
+}
+/*Altura de los botones en listview */
+div#LIST-VIEW-CALENDAR div.row div.btn-group.pull-left a.btn.btn-default,
+div#LIST-VIEW-CALENDAR div.row div.btn-group.pull-left button[type="button"].btn.btn-primary,
+div#LIST-VIEW-CALENDAR div.row div.btn-group.pull-left button
+ {
+	height:34px !important;
+	width:34px !important;
+	display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+	margin-left:0.1em;
+	margin-right:0.1em;
+ }
+ 
+/* Iconos dentro de los botones */
+div#LIST-VIEW-CALENDAR div.row div.btn-group.pull-left a.btn.btn-default i.fa,
+div#LIST-VIEW-CALENDAR div.row div.btn-group.pull-left button i.fa {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+}
+
+/* ===== AJUSTE DE TAMAÑO DE FUENTE DEL DATEPICKER ===== */
+/* Reducir tamaño de fuente para que coincida con campos de formulario */
+
+/* Contenedor principal del datepicker - ajuste general */
+div.datepicker.datepicker-dropdown.dropdown-menu {
+  font-family: var(--font-family-base) !important;
+  font-size: 12px !important;
+  
+}
+
+/* Encabezados del calendario (días de la semana: MO TU WE TH FR SA SU) */
+.datepicker table thead tr th {
+  font-size: 11px !important;
+  font-weight: 500 !important;
+}
+
+/* Días del mes (números 1-31) */
+.datepicker table tbody tr td {
+  font-size: 12px !important;
+}
+
+/* Título del mes/año en el encabezado y botones de navegación */
+.datepicker .datepicker-switch,
+.datepicker .prev,
+.datepicker .next {
+  font-size: 12px !important;
+}
+
+/* Selector de meses - override del estilo existente en línea 1122 */
+.datepicker-months table tr td span {
+  font-size: 11px !important;
+}
+
+/* Selector de años - override del estilo existente en línea 1137 */
+.datepicker-years table tr td span {
+  font-size: 12px !important;
+}
+
+/* Modal de tareas. id=taskViewModalContainer */
+div#taskViewModalContainer div.table-responsive .modal-dialog, .modal-lg label.control-label
+ {
+	font-size: 1.0vw !important;
+	font-family: var(--font-family-base) !important;
+}
+div#taskViewModalContainer  div.table-responsive .modal-dialog, .modal-lg
+ {
+	font-size: 0.95vw !important;
+	font-family: var(--font-family-base) !important;
+}
+
+div#taskViewModalContainer  div.table-responsive table.table.table-bordered.table-condensed
+ {
+	font-size: 1vw !important;
+	font-family: var(--font-family-base) !important;
+}
+div#taskViewModalContainer  div.table-responsive .table thead>tr>th {
+	text-transform:none !important;
+	font-size: 0.95em !important;
+	color:#000000 !important;
+}
+
+div#taskViewModalContainer  div.table-responsive table.table.table-bordered.table-condensed thead>tr>th.control-label
+div#taskViewModalContainer  div.table-responsive table.table.table-bordered.table-condensed tbody>tr>td.control-label
+ {
+	font-size: 0.95em !important;
+	color:#000000 !important;
+	padding-top:0.4em !important;
+	padding-bottom:0.4em !important;
+}
+
+div#taskViewModalContainer  div.table-responsive table.table.table-bordered.table-condensed tbody>tr>td
+ {
+	font-size: 0.90em !important;
+	color:#000000 !important;
+	padding-top:0.4em !important;
+	padding-bottom:0.4em !important;
+	border-right-style:none;
+	border-left-style:none;
+}
+div#taskViewModalContainer div.modal-body div.container-fluid table#taskviewmodalreport thead tr th, 
+div#taskViewModalContainer div.modal-body div.container-fluid table#taskviewmodalfeedback thead tr th{
+	color:#000000 !important;
+	text-align: center;
+	vertical-align: middle;
+    padding: 8px 4px;
+	text-transform: none !important;
+    font-size: 1.2rem !important;
+	background-color:rgb(231, 235, 238);
+}
+
+div#taskViewModalContainer div.modal-body div.container-fluid table#taskviewmodalreport tbody tr td,
+div#taskViewModalContainer div.modal-body div.container-fluid table#taskviewmodalfeedback tbody tr td{
+    font-family: var(--font-family-base);
+	font-size: 1.1rem !important;
+    color: #000000 !important;
+    padding-top: 0.4em !important;
+    padding-bottom: 0.4em !important;
+	font-weight:400 !important;
+}
+
+div#taskViewModalContainer tr#tvm-comparativa-tr-real td {
+	font-family: var(--font-family-base);
+	background-color: #EAEAEA !important;
+}
+div#taskViewModalContainer tr#tvm-comparativa-tr-proporciones td {
+	font-weight:600 !important;
+	font-family: var(--font-family-base);
+	background-color:#ffffff;
+}
+
+div.modal-body table#taskviewmodalreport{
+	font-size: 1.0em !important;
+}
+
+/*       */
+tbody[id^="task-project"][name="job_project_tbody"] .input-group select.form-control,
+tbody[id^="tbody-task-project-"] .input-group select.form-control{
+	width: 7em;
+	padding-right: 0.2em !important; /* Reserva espacio suficiente para la flecha */
+	text-overflow: ellipsis; /* Opcional: añade "..." si el texto se corta */
+    white-space: nowrap;
+    overflow: hidden;
+	font-family: var(--font-family-base);
+	font-size:1em;
+}
+table[id^="task-project-table-"] div[id^="td_select_job-"] input[id^="edit_seleccione_job-"], 
+table[id^="task-project-table-"] div[id^="td_select_job-"] input[id*="_display"],
+table[id^="task-project-table-"] input[name^="projec_job"],
+table[id^="task-project-table-"] .form-control
+ {                                            
+	font-size:1em !important;
+}
+
+
+/* CONFIGURACION PLATZILLA */
+div#tab-0-0 div.main-box.infographic-box  span.headline > b{
+	font-size: 0,85em !important;
+}
+
+/* ===== ESTILOS PARA CAMPOS READONLY EN PROJECT_WORK ===== */
+/* Campos no editables: fechas, responsable, avance trabajo, costos, situación */
+input[id^="job-start_date-"],
+input[id^="job-due_date-"],
+input[id^="name_responsible_job-"],
+input[id^="percentage_completion-"],
+input[id^="work_estimated_cost-"],
+input[id^="cost_work_performed-"],
+input[id^="work_situation-"] {
+    background-color: #e6ebf0 !important;
+}
+
+/* Campo calculado Avance proyecto(%) - un poco más oscuro para destacar */
+input[id^="project_progress-"] {
+    background-color: #d0d6e0 !important;
+    font-weight: bold;
+}
+
+/* Campos editables: Etapa, Nombre trabajo, Factor avance - fondo blanco */
+select[id^="stage-"],
+input[id^="edit_seleccione_job-"][readonly],
+input[id^="job_contribution_factor-"] {
+    background-color: #ffffff !important;
+}
+
+/* Fechas con informes diarios existentes en el datepicker */
+.datepicker table tr td.has-daily-report,
+.datepicker table tr td.day.has-daily-report {
+    background-color: #28a745 !important;
+    color: #ffffff !important;
+    border-radius: 4px !important;
+    font-weight: bold !important;
+}
+
+.datepicker table tr td.has-daily-report:hover,
+.datepicker table tr td.day.has-daily-report:hover {
+    background-color: #1e7e34 !important;
+    color: #ffffff !important;
+}
+
+/* Procesos   2026-06-23- GGC */
+div[id^="process-panel-container-"]{
+	font-family: var(--font-family-base);
+    font-size: var(--font-size-large);	
+}
+div[id^="process-panel-container-"] .table tbody>tr>td:first-child{
+	font-size: 0.85em;
+	font-weight:400 !important;
+}
+div[id^="process-panel-container-"] table[name="finalized_processes_t"] tbody tr:nth-child(1) td,
+div[id^="process-panel-container-"] table[name="incomplete processes_t"] tbody tr:nth-child(1) td{
+	font-weight:600 !important;
+	font-size:1.0em !important;
+}
+div[id^="process-panel-container-"] table[name="resumen_processes_t"] tbody tr td:nth-child(1),
+div[id^="process-panel-container-"] table[name="summary_cases_t"] tbody tr td:nth-child(1){
+	font-weight:500 !important;
+	font-size:0.90em !important;
+	color:#666666 !important;
+}
+
+/* Tareas automatizadas */
+div.tab-content div#tab-system{
+	font-size: 0.9em;
+}
+
+div.tab-content div#tab-system td.col-name, div#ListViewContents td.col-name,
+div#email-box div#ListViewContents td
+{
+	font-size: 1.0em;
+}
+/* ActivityEditView.tpl*/
+div.modal-body div#ActivityEditView.row {
+	font-family: var(--font-family-base);
+	font-size: var(--font-size-base);
+}
+form[name=EditView][data-localizador="ActivityEditViewForm"] span.fieldlabelcss {
+   width: 10vw !important;
+   font-family: var(--font-family-base);
+   font-size: var(--font-size-base);
+   background-color: #eeeeee y border: 1px solid #ccc;
+}
+form[name=EditView][data-localizador="ActivityEditViewForm"] div#ActivityEditView_field,
+form[name=EditView][data-localizador="ActivityEditViewForm"] span.fieldlabelcss1,
+form[name=EditView][data-localizador="ActivityEditViewForm"] span[id^="selected_record_display-"].selected-record-label.form-control-static {
+   min-width: 60vw !important;
+   font-family: var(--font-family-base);
+   font-size: var(--font-size-base);
+}
+form[name=EditView][data-localizador="ActivityEditViewForm"] span.fieldlabelcss1{
+	background-color: #eeeeee y border: 1px solid #ccc;
+} 

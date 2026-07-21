@@ -1,0 +1,43 @@
+    #icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+      gap: 12px;
+      max-height: 200px;          /* Altura fija para activar scroll */
+      overflow-y: auto;           /* Scroll vertical habilitado */
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 8px;
+      user-select: none;
+      scroll-snap-type: y mandatory;
+    }
+    
+
+    .icon-item {
+      color: #555;
+      text-align: center;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background-color 0.2s, color 0.2s;
+      border: 1px solid transparent;
+      scroll-snap-align: start;
+    }
+
+     .icon-item:hover {
+      background-color: #007bff;
+      color: white;
+      border-color: #0056b3;
+    }
+
+    .icon-item:focus,
+    .icon-item:focus-visible {
+      outline: 2px solid #0056b3;
+      outline-offset: 2px;
+    }
+    
+    .icon-item.selected {
+      background-color: #0056b3;
+      color: white;
+      border-color: #003d80;
+      cursor: default;
+    }

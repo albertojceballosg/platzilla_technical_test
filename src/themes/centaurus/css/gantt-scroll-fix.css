@@ -1,0 +1,185 @@
+/**
+ * Fix para Scroll Horizontal del Gantt
+ * Sobrescribe estilos de frappe-gantt.css, Bootstrap y custom-platzilla.css
+ */
+
+/* CRÍTICO: Sobrescribir overflow: hidden de custom-platzilla.css */
+.modal-content:has(.card-task-gantt),
+div[id^="task-gantt-"] {
+  overflow: visible !important;
+  overflow-x: visible !important;
+}
+
+/* Contenedor principal del Gantt */
+.card-task-gantt {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 85vh !important;
+  max-height: 85vh !important;
+  overflow-x: auto !important; /* Scroll horizontal siempre disponible */
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap !important;
+  position: relative !important;
+}
+
+/* Barra de scroll horizontal fija - posicionada encima del footer */
+.gantt-fixed-scrollbar {
+  position: fixed !important;
+  bottom: 30px !important; /* Espacio para el footer de Platzilla */
+  /* left y width se establecen dinámicamente via JS */
+  height: 14px !important;
+  background: #f6f6f6 !important;
+  border: 1px solid #ececec !important;
+  border-radius: 7px !important;
+  z-index: 1000 !important;
+  overflow-x: scroll !important;
+  overflow-y: hidden !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+}
+
+.gantt-fixed-scrollbar-inner {
+  height: 1px !important;
+  /* El ancho se establece dinámicamente via JS */
+}
+
+/* Scrollbar personalizado para la barra fija */
+.gantt-fixed-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #d2e7f5 #f6f6f6; /* thumb / track - Firefox */
+}
+
+.gantt-fixed-scrollbar::-webkit-scrollbar {
+  height: 12px;
+}
+
+.gantt-fixed-scrollbar::-webkit-scrollbar-track {
+  background: #f6f6f6;
+  border-radius: 6px;
+}
+
+.gantt-fixed-scrollbar::-webkit-scrollbar-thumb {
+  background: #d2e7f5;
+  border-radius: 6px;
+  border: 2px solid #f6f6f6;
+}
+
+.gantt-fixed-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #93b9d8; /* Color original al hacer hover */
+}
+
+/* Target del Gantt debe expandirse */
+.gantt-target {
+  display: inline-block !important;
+  width: auto !important;
+  min-width: 100% !important;
+  overflow: visible !important;
+}
+
+/* SVG del Gantt */
+.gantt-target svg,
+.gantt-target .gantt {
+  width: auto !important;
+  overflow: visible !important;
+  min-height: 80vh !important;
+}
+
+/* Asegurar que el SVG tenga altura suficiente */
+.gantt-target svg.gantt {
+  height: auto !important;
+  min-height: 80vh !important;
+}
+
+/* Sobrescribir gantt-container de frappe-gantt.css */
+.gantt-container {
+  overflow: visible !important;
+  width: auto !important;
+  position: relative !important;
+}
+
+/* Contenedores Bootstrap */
+.row {
+  overflow-x: visible !important;
+}
+
+.col-md-12 {
+  overflow-x: visible !important;
+}
+
+/* Scrollbar personalizado: fino y en tonos azules para el Gantt */
+.card-task-gantt {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #d2e7f5 #f6f6f6; /* thumb / track */
+}
+
+.card-task-gantt::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+
+.card-task-gantt::-webkit-scrollbar-track {
+  background: #f6f6f6;
+  border-radius: 10px;
+}
+
+.card-task-gantt::-webkit-scrollbar-thumb {
+  background: #d2e7f5;
+  border-radius: 10px;
+}
+
+.card-task-gantt::-webkit-scrollbar-thumb:hover {
+  background: #93b9d8; /* Color más oscuro al hacer hover */
+}
+
+/* ============================================
+   Estilos para tareas huérfanas (registro eliminado)
+   ============================================ */
+
+/* Grupo contenedor de tareas huérfanas - barra con fondo rojo claro */
+.bar-wrapper.task-orphan-group .bar {
+  fill: #ffcccc !important;
+}
+
+.bar-wrapper.task-orphan-group .bar-progress {
+  fill: #cc3333 !important;
+  opacity: 0.9 !important;
+  transform: scaleY(0.6) !important;
+  transform-origin: center !important;
+}
+
+/* Texto del grupo huérfano en rojo */
+.bar-wrapper.task-orphan-group .bar-label {
+  fill: #cc0000 !important;
+  font-weight: bold !important;
+}
+
+/* Tareas huérfanas individuales - barra con borde rojo */
+.bar-wrapper.task-orphan .bar {
+  fill: #ffe6e6 !important;
+  stroke: #cc0000 !important;
+  stroke-width: 2px !important;
+}
+
+.bar-wrapper.task-orphan .bar-progress {
+  fill: #cc4444 !important;
+  opacity: 0.9 !important;
+  transform: scaleY(0.6) !important;
+  transform-origin: center !important;
+}
+
+/* Texto de tarea huérfana en rojo */
+.bar-wrapper.task-orphan .bar-label {
+  fill: #cc0000 !important;
+  font-weight: 600 !important;
+}
+
+/* Sidebar (lista lateral) - texto rojo para huérfanas */
+.gantt-sidebar .task-orphan-group,
+.gantt-sidebar .task-orphan {
+  color: #cc0000 !important;
+}
+
+.gantt-sidebar .task-orphan-group {
+  font-weight: bold !important;
+  background-color: #fff0f0 !important;
+}

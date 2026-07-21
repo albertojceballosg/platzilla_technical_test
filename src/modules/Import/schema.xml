@@ -1,0 +1,20 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_import_locks</name>
+		</table>
+		<table>
+			<name>vtiger_import_locks_seq</name>
+		</table>
+		<table>
+			<name>vtiger_import_maps</name>
+		</table>
+		<table>
+			<name>vtiger_import_queue</name>
+		</table>
+		<table>
+			<name>vtiger_import_queue_seq</name>
+		</table>
+	</tables>
+</schema>

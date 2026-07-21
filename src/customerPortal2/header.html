@@ -1,0 +1,196 @@
+<!--
+/*********************************************************************************
+** The contents of this file are subject to the vtiger CRM Public License Version 1.0
+ * ("License"); You may not use this file except in compliance with the License
+ * The Original Code is:  vtiger CRM Open Source
+ * The Initial Developer of the Original Code is vtiger.
+ * Portions created by vtiger are Copyright (C) vtiger.
+ * All Rights Reserved.
+*
+ ********************************************************************************/
+-->
+<?php
+		//global $result;
+		global $client;
+		global $default_language;
+		global $Server_Path;
+		$customerid = $_SESSION['customer_id'];
+		$accountid = $_SESSION['customer_account_id'];
+?>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Zona Clientes, Time Management</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="favicon.ico" />
+
+<?php
+// Prototype library clashes with AutoComplete library in use so avoid on those pages
+if($_REQUEST['fun'] != 'newticket') {
+	echo '<script language="javascript" type="text/javascript" src="js/prototype.js"></script>';
+}
+?>
+
+<script language="javascript" type="text/javascript" src="js/general.js"></script>
+<script>
+function fnMySettings(){
+		params = "last_login=<?php echo $_SESSION['last_login']; ?>&support_start_date=<?php echo $_SESSION['support_start_date']; ?>&support_end_date=<?php echo $_SESSION['support_end_date']; ?>";
+		window.open("MySettings.php?"+params,"MySetttings","menubar=no,location=no,resizable=no,scrollbars=no,status=no,width=500,height=350,left=550,top=200");
+}
+</script>
+</head>
+
+<body>
+<table  width="100%" border="0" cellspacing="0" cellpadding="0" class="innerTab">
+   <tr>
+    <th align="left" width="30%"><img src="images/logotm.png">
+    		  <div style="text-align:left; padding-right:50px;">
+		    <a href="javascript:void(0)" title="Video Tutorial" onClick="window.open('videoExplicativo.php?login_language=<?php echo $default_language;?>&module=<?php echo $_REQUEST['module'];?>','venta','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=430, height=370, top=85, left=300'); ">
+		      <img border="0" src="help2.png" alt="video tutorial" width="30" >Video Tutorial
+		    </a>
+
+
+		  </div>
+</th>
+    <th  align="center" width=" 35%" class="hdr">
+
+<?php
+
+
+
+		if ( $_SESSION['unidadescontratadas'] > 0) {
+					$porcentajeconsumido = round($_SESSION['unidadesusadas'] / $_SESSION['unidadescontratadas'] * 100);
+		} else {
+					$porcentajeconsumido = -1;
+		}
+		if ( $_SESSION['diascontratados'] > 0) {
+					$porcentajetranscurrido = round($_SESSION['diastranscurridos'] / $_SESSION['diascontratados'] * 100);
+		} else {
+					$porcentajetranscurrido = -1;
+		}
+		if($accountid != '') {
+					$params = array('accountid' => "$accountid");
+					$account_name = $client->call('get_account_name', $params, $Server_Path, $Server_Path);
+					echo "<span style='font-size:18px;'>".$account_name."<span style='font-size:12px;'><br>(usuario: ".$_SESSION['lastname'].", ".$_SESSION['firstname'].")</span></span>";
+			}
+?>
+	</th>
+
+	<th align="right" style="padding-right:15px;" nowrap>
+
+<table>
+	<tr>
+			<td  class="hdr" colspan="2">
+			<a href="javascript:void(0);" onclick="fnMySettings();" class="hdr"><?php echo getTranslatedString('LBL_MY_SETTINGS');?></a>&nbsp;|&nbsp;
+			<a href="index.php?logout=true" class="hdr"><?php echo getTranslatedString('LBL_LOG_OUT');?></a>
+			</td>
+		</tr>
+  <?php if ($_SESSION['planname'])  {  ?>
+  <tr><td  class="hdr" colspan="2"><?php echo getTranslatedString('Horas mensuales consumidas');?></td></tr>
+	<?php if ( (0 <= $porcentajeconsumido) and ($porcentajeconsumido <= 100)) 	{  ?>
+	<tr>
+			<td  class="hdr"><div style="height: 10px; width: 140px;  background-color: #eeeeee; border: 2px #666666 solid; font-size:8px; text-align:left;" >
+						<div id="porcentaje1" style="height: 100%; width: <?php echo $porcentajeconsumido;  ?>%; background-color: gray; font-size:8px;" ></div>
+			</div></td><td  class="hdr"><?php echo $porcentajeconsumido;  ?>%</td>
+	</tr>
+	<?php }  else  if ($porcentajeconsumido > 100) { ?>
+	<tr><td  class="hdr" colspan="2">Horas superadas (<?php echo $porcentajeconsumido;  ?>%)</td></tr>
+	<?php }  ?>
+
+
+	<tr><td  class="hdr" colspan="2"><?php echo getTranslatedString('Tiempo del contrato transcurrido');?></td></tr>
+	<?php if ( (0 <= $porcentajetranscurrido) and ($porcentajetranscurrido <= 100)) 	{  ?>
+	<tr>
+			<td  class="hdr"><div style="height: 10px; width: 140px;  background-color: #eeeeee; border: 2px #666666 solid; font-size:8px; text-align:left;" >
+						<div id="porcentaje2" style="height: 100%; width: <?php echo $porcentajetranscurrido;  ?>%; background-color: gray; font-size:8px;" ></div>
+			</div></td><td  class="hdr"><?php echo $porcentajetranscurrido;  ?>%</td>
+	</tr>
+	<?php }  else  if ($porcentajetranscurrido > 100) { ?>
+	<tr><td  class="hdr" colspan="2">Contrato vencido</td></tr>
+	<?php }  ?>
+<?php } else {  //  SIN CONTRATO  ?>
+	<tr>
+			<td  class="hdr" colspan="2">Sin contrato<br><br></td>
+	</tr>
+<?php } ?>
+</table></th>
+   </tr>
+  <tr class="tableTop"><td colspan="3"></td></tr>
+  <tr class="tableMid">
+    <td colspan="3" align="center" valign="top">
+
+	<table cellspacing="0" cellpadding="0" align="center" border="0" width="100%">
+<!--	   <tr>
+			<td width="6" height="5"></td>
+	        <td align="right">
+		  <div style="text-align:left; padding-right:50px;">
+		    <a href="javascript:void(0)" title="Video Tutorial" onClick="window.open('videoExplicativo.php','venta','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=430, height=370, top=85, left=300'); ">
+		      <img border="0" src="help2.png" alt="video tutorial" width="30" >Video Tutorial
+		    </a>
+		    <?php
+		      $params = array('user_id' => $_SESSION['customer_id']);
+		      $cant_not = $client->call('get_cantnot',$params,$Server_path,$Server_path);
+
+		    //  if($cant_not>0){
+			echo '<a href="index.php?module=Notifications&action=index" style="text-decoration:none;">';
+			echo '&nbsp;&nbsp;&nbsp;<img border="0" src="sobre.png" alt="video tutorial" width="25" height="25" >';
+			echo "Tiene ".$cant_not." Notificaciones";
+			echo '</a>';
+		   //   }
+		    ?>
+
+		  </div>
+		</td>
+        	<td width="6" height="5">
+
+		</td>
+	   </tr>-->
+	   <tr>
+        	<td width="6" height="5"></td>
+        	<td bgcolor="#FFFFFF"></td>
+	        <td width="6" height="5"></td>
+	   </tr>
+	   <tr bgcolor="#FFFFFF">
+	        <td height="100"  bgcolor="#FFFFFF">&nbsp;</td>
+
+			<td valign="top">
+					<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="dvtCellInfo">
+
+
+					<!-- Table with Tickets and FAQ tabs - Starts -->
+					<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr><td>
+							<table class="small" border="0" cellpadding="1" cellspacing="0" width="100%">
+							<tbody>
+							   <tr>
+			             	<?php
+								$showmodule = array();
+								// Look if we have the information already
+								if(isset($_SESSION['__permitted_modules'])) {
+									$showmodule = $_SESSION['__permitted_modules'];
+								} else {
+									// Get the information from server
+									$params = array();
+									$showmodule = $client->call('get_modules',$params,$Server_path,$Server_path);
+									foreach($showmodule as $key => $modulo) {
+											if (!$_SESSION['tab_'.$modulo]) unset($showmodule[$key]);
+									}
+									$showmodule = array_values($showmodule);
+									// Store for further use.
+									$_SESSION['__permitted_modules'] = $showmodule;
+								}
+								for($i=0;$i<count($showmodule);$i++ ) {
+										echo "<td class='dvtUnSelectedCell'  align='center' nowrap='nowrap' id='$showmodule[$i]'><a href='index.php?module=".$showmodule[$i]."&action=index&login_language=$default_language'><b>".getTranslatedString($showmodule[$i])."</b></a></td>";
+								}
+							?>
+							  </tr>
+							</tbody>
+							</table></td></tr>
+
+
+				   <tr>
+					<td align="left" valign="top">
+						<div id="mnuTab">
+

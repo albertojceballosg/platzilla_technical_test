@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+<data_type>xml</data_type>
+<graphs>
+<graph gid="1">
+<axis>left</axis>
+<title>Objectivos</title>
+<color>#FFCC00</color>
+<color_hover>#000000</color_hover>
+<balloon_text_color>#000000</balloon_text_color>
+<bullet>round</bullet>
+<bullet_size>5</bullet_size>
+<balloon_text>
+<b>${value}</b><br>{description}
+</balloon_text>
+</graph>
+<graph gid="2">
+
+<color_hover>#000000</color_hover>
+<balloon_text_color>#000000</balloon_text_color>
+<bullet>round</bullet>
+<bullet_size>5</bullet_size>
+<balloon_text>
+<b>${value}</b><br>{description}
+</balloon_text>
+<data_labels>
+</data_labels>
+</graph>
+</graphs>  
+</settings>

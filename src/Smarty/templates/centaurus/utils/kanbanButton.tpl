@@ -1,0 +1,1 @@
+<a rel="'+item.link+'" href="#" onclick="item.onChange()" style="display: inline"><i class="fa fa-trash-o"></i>'+item.link_text+'</a>

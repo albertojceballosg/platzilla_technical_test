@@ -1,0 +1,67 @@
+/**
+ * Estilos para popovers de campos de área de texto
+ * Muestra el contenido completo del campo en un tooltip al hacer hover
+ */
+
+.text-area-popover {
+    max-width: 600px !important;
+    font-size: 13px;
+    z-index: 9999;
+}
+
+.text-area-popover .popover-body {
+    padding: 12px 15px;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    max-height: 400px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 1.5;
+}
+
+.text-area-popover .popover-header {
+    display: none;
+}
+
+.text-area-popover .arrow {
+    border-bottom-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.text-area-popover.bs-popover-top .arrow::after {
+    border-top-color: #fff !important;
+}
+
+.text-area-popover.bs-popover-bottom .arrow::after {
+    border-bottom-color: #fff !important;
+}
+
+.text-area-popover.bs-popover-left .arrow::after {
+    border-left-color: #fff !important;
+}
+
+.text-area-popover.bs-popover-right .arrow::after {
+    border-right-color: #fff !important;
+}
+
+/* Scroll personalizado para el contenido del popover */
+.text-area-popover .popover-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.text-area-popover .popover-body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.text-area-popover .popover-body::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.text-area-popover .popover-body::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

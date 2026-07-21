@@ -1,0 +1,11 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_itemformacion</name>
+		</table>
+		<table>
+			<name>vtiger_itemformacioncf</name>
+		</table>
+	</tables>
+</schema>

@@ -1,0 +1,17 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_plan_mantenimiento</name>
+		</table>
+		<table>
+			<name>vtiger_plan_mantenimientocf</name>
+		</table>
+		<table>
+			<name>vtiger_planes_replanificados</name>
+		</table>
+		<table>
+			<name>vtiger_module_plan</name>
+		</table>
+	</tables>
+</schema>

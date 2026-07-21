@@ -1,0 +1,42 @@
+.instance-data-sharing-element label {
+	font-size:   1em;
+	font-weight: 300;
+}
+.instance-data-sharing-element .btn {
+	margin-left: 5px;
+}
+.instance-data-sharing-element .main-box > .main-box-header {
+	padding-bottom: 20px;
+	padding-top:    20px;
+}
+.instance-data-sharing-element .main-box > .main-box-footer {
+	padding: 0 20px 20px 20px;
+}
+.instance-data-sharing-element .required {
+	color: #FF0000;
+}
+.invitation .nextBtn {
+	width: 100%;
+}
+.invitation #login-box-inner > h2 {
+	margin:     0;
+	padding:    5px 0 15px 0;
+	text-align: center;
+}
+.invitation #login-box {
+	max-width: 500px;
+}
+.invitation #login-box > #login-header > #login-logo {
+	padding:    30px 15px 15px 15px;
+	text-align: center;
+}
+.invitation #login-box > #login-header > #login-logo > a > img {
+	display: inline-block;
+	margin:  0;
+}
+.invitation #login-box label {
+	font-size: 1em;
+}
+.invitation .required {
+	color: #FF0000;
+}

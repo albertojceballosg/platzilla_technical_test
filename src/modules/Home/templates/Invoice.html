@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="{$LANGUAGE}">
+<head>
+	<meta charset="UTF-8" />
+	<title>{$TITLE}</title>
+	<style type="text/css">
+		@page {
+			header:  header;
+			footer: footer;
+			margin: 30mm 8mm 33mm 8mm;
+			padding: 0;
+			size:    auto;
+		}
+		body {
+			font-family: Verdana, Geneva, sans-serif;
+			font-size:   14px;
+			margin:      0;
+			padding:     0;
+		}
+	</style>
+</head>
+<body>
+	<htmlpageheader name="header">
+		<table style="border-bottom: 1px solid #e0e0e0; border-spacing: 0; border-collapse: separate; padding-top: 6mm; padding-bottom: 10px; width: 100%;">
+			<tbody>
+			<tr>
+				<td style="padding: 10px; width: 120px;">
+					<img src="{$LOGO_URI}" alt="Logo" style="max-width: 120px;" />
+				</td>
+				<td style="padding: 10px; width: 345px;">
+					<p style="font-weight: bold;">{$PROVIDER_NAME}</p>
+					<p>C.I.F.: {$PROVIDER_CIF}</p>
+					<p>{$PROVIDER_BILLING_ADDRESS}</p>
+				</td>
+				<td style="background-color: #F0F0F0; padding: 10px;">
+					<p style="font-weight: bold;">FACTURA: {$INVOICE_NUMBER}</p>
+					<p>Fecha de emisión: {$CREATION_DATE}</p>
+					<p>Fecha de vencimiento: {$DUE_DATE}</p>
+				</td>
+			</tr>
+		</table>
+	</htmlpageheader>
+	<htmlpagefooter name="footer">
+		<div id="terms-and-conditions" style="background-color: #F0F0F0; font-size: 10px; margin-top: 10px; padding: 15px; text-align: center;">{$TERMS_AND_CONDITIONS}</div>
+		<div style="font-size: 10px; padding-bottom: 50px; padding-top: 10px; text-align: center;">{$FOOTER}</div>
+	</htmlpagefooter>
+	<div id="invoice" style="height: 100%;">
+		<div id="customer" style="background-color: #F0F0F0; padding: 10px;">
+			<p style="margin: 0;">CLIENTE: {$CUSTOMER_NAME}</p>
+			<p style="margin: 0;">DIRECCIÓN: {$CUSTOMER_BILLING_ADDRESS}</p>
+			<p style="margin: 0;">C.I.F.: {$CUSTOMER_CIF}</p>
+		</div>
+		<table id="items" style="border-spacing: 0; border-collapse: separate; margin-top: 10px; width: 100%;">
+			<thead>
+			<tr>
+				<th style="background-color: #F0F0F0; border-bottom: 1px solid #000000; font-weight: 300; line-height: 20px;">ELEMENTO</th>
+				<th style="background-color: #F0F0F0; border-bottom: 1px solid #000000; font-weight: 300; line-height: 20px;">CTD</th>
+				<th style="background-color: #F0F0F0; border-bottom: 1px solid #000000; font-weight: 300; line-height: 20px;">PRECIO UNITARIO</th>
+				<th style="background-color: #F0F0F0; border-bottom: 1px solid #000000; font-weight: 300; line-height: 20px;">IMPUESTO</th>
+				<th style="background-color: #F0F0F0; border-bottom: 1px solid #000000; font-weight: 300; line-height: 20px;">PRECIO NETO</th>
+			</tr>
+			</thead>
+			<tbody>
+			{REPEAT $INVOICE_ITEMS}
+			<tr>
+				<td style="height: 36px; padding: 0 10px;">{$PRODUCT_NAME}</td>
+				<td style="height: 36px; padding: 0 10px; text-align: right; width: 10%;">{$PRODUCT_QUANTITY}</td>
+				<td style="height: 36px; padding: 0 10px; text-align: right; width: 15%;">{$PRODUCT_UNIT_PRICE}</td>
+				<td style="height: 36px; padding: 0 10px; text-align: right; width: 15%;">{$PRODUCT_TAX_AMOUNT}</td>
+				<td style="height: 36px; padding: 0 10px; text-align: right; width: 15%;">{$PRODUCT_TOTAL_PRICE}</td>
+			</tr>
+			{/REPEAT}
+			<tr>
+				<td colspan="4" style="background-color: #F0F0F0; border-top: 1px solid #000000; font-weight: bold; height: 36px; padding: 0 10px; text-align: right;">TOTAL GENERAL</td>
+				<td style="background-color: #F0F0F0; border-top: 1px solid #000000; font-weight: bold; height: 36px; padding: 0 10px; text-align: right;">{$INVOICE_TOTAL}</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

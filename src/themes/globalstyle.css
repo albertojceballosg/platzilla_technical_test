@@ -1,0 +1,57 @@
+/*+*******************************************************************************
+ * The contents of this file are subject to the vtiger CRM Public License Version 1.0
+ * ("License"); You may not use this file except in compliance with the License
+ * The Original Code is:  vtiger CRM Open Source
+ * The Initial Developer of the Original Code is vtiger.
+ * Portions created by vtiger are Copyright (C) vtiger.
+ * All Rights Reserved.
+ ********************************************************************************/
+
+/* Popup Styles */
+.shadow-this {
+	-moz-box-shadow: -1px 2px 5px 0.7px #AAA;
+	-webkit-box-shadow: -1px 2px 5px 0.7px #AAA;
+	box-shadow: -1px 2px 5px 0.7px #AAA;
+}
+
+.ed-Al-Fo {
+	z-index: 110;
+	position: absolute;
+	top: 25px;
+	left: 50%;
+	width: 500px;
+	height: auto;
+	background: #FFF;
+	display: none;
+	margin-left: -280px;
+	padding: 20px 40px;
+}
+.close-editor:not(.button) {
+	font-size: 22px;
+	font-size: 2.2rem;
+	line-height: 0.5;
+	position: absolute;
+	top: 16px;
+	right: 11px;
+	color: #AAA;
+	text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.6);
+	font-weight: bold;
+	cursor: pointer;
+}
+a.close-editor {
+	background: url(images/sprite-arrows.png) -40px -50px;
+	width: 30px;
+	height: 30px;
+}
+.cortinawhite {
+	height: 100%;
+	width: 100%;
+	display: none;
+	background: #eee;
+	position: fixed;
+	top: 0;
+	left: 0;
+	opacity: 0.4;
+	filter: alpha(opacity=40);
+	z-index: 1000;
+}

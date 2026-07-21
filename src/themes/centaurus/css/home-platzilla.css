@@ -1,0 +1,79 @@
+/* Estilos personalizados para la vista Home de Platzilla */
+
+.main-box {
+	box-shadow:    0px 0px 0px 0 #FFFFFF !important;
+	border-radius: 0px !important;
+}
+.base-list-container {
+	background-color: #ffffff;
+	margin:           0 -13px!important;
+	height:           auto;
+	min-height:       1150px !important;
+}
+.nav-platzilla {
+	margin:        0 -15px !important;
+	background: transparent !important;
+	border: none!important;
+	box-shadow: 1px 1px 2px 0 #F9F8F7!important;
+}
+#ACTIONS_PROGRESS .nav-platzilla {
+	box-shadow: 1px 1px 2px 0 #FFFFFF!important;
+}
+.nav-platzilla > li {
+	border: none!important;
+}
+.nav-platzilla > li:hover {
+	background-color: transparent !important;
+}
+.nav-platzilla > li > a {
+	font-weight: bold !important;
+	color: #cccccc!important;
+	border: none!important;
+	font-size: 0.92em !important;
+}
+.nav-platzilla > li > a:hover {
+	color: #000000!important;
+	border-bottom:3px solid #000000!important;
+	background-color: transparent !important;
+	padding-bottom: 0.5em !important;
+}
+.nav-platzilla > li.active {
+	background-color: transparent !important;
+	height: auto !important;
+}
+.nav-platzilla > li.active a {
+	color: #0266a9!important;
+	border-bottom:3px solid #0266a9!important;
+	margin: 0!important;
+	padding-bottom: 0.5em !important;
+	background-color: #FFFFFF !important;
+	display: inline-block !important;
+}
+.border-left{
+	border-left:1px solid #dee2e6!important
+}
+#ListViewContents {
+	margin-top: 4px;
+}
+.home-title {
+    margin-left: -3px;
+    font-weight: bold;
+}
+
+.table-th-align {
+    text-align: left;
+}
+.table-th-width {
+    width: auto;
+}
+.table-th-vertical {
+    vertical-align: top;
+}
+.table-th-flex {
+    display: inline-flex;
+}
+.title-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

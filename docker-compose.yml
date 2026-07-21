@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: platzilla_web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.6
+    container_name: platzilla_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: pg_crm_madre
+      MYSQL_USER: superuser
+      MYSQL_PASSWORD: 8hYLKcthnx
+    ports:
+      - "33066:3306"
+    volumes:
+      - ./db_init:/docker-entrypoint-initdb.d
+      - platzilla_db_data:/var/lib/mysql
+    command: --character-set-server=utf8 --collation-server=utf8_general_ci
+
+volumes:
+  platzilla_db_data:
