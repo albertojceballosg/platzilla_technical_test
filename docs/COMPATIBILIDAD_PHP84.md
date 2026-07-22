@@ -152,6 +152,23 @@ Con esto, **8 de los 16** ficheros de app que no parseaban en 8.4 quedan corregi
 sustitución mecánica retro-compatible. Los restantes tienen errores **estructurales** (no
 mecánicos) y se tratan caso a caso (ver `BACKLOG_MODERNIZACION.md`, tarea M4).
 
+## Triage de los ficheros con errores 8.4 "estructurales" (no mecánicos)
+
+De los 16 ficheros de app que no parseaban en 8.4, 8 se corrigieron por sustitución mecánica
+(arriba). Los restantes tienen errores **no mecánicos**; su análisis muestra que **ninguno
+amerita un parche a ciegas** — saber qué *no* tocar es parte del criterio:
+
+| Fichero | Diagnóstico | Decisión |
+|---|---|---|
+| `modules/orden_de_trabajo/handlers/taskToWork_methods.php` | `public function` a nivel de fichero; **falla también en PHP 5.6** y **ningún fichero lo incluye** → código muerto, roto de origen | No tocar (no es un bloqueo de migración; es deuda preexistente) |
+| `modules/Calendar/calendarLayout.2.php` | Variante ".2" **sin includes** en el código → muerto/legacy | No tocar; documentar |
+| `vtlib/ModuleDir/5.4.0/ModuleFile.php` | `class {$_MODULE_NAME} extends CRMEntity` → **plantilla de generación de código**, no PHP ejecutable | **Falso positivo**; tocarlo rompería la plantilla |
+| `modules/System/includes/XPath.class.php` | Fatal real `Cannot use [] for reading` (línea 1778, uso de `$arr[]` en lectura); es una **librería XML** usada por `systemconfig.php` | Fix cuidadoso o actualizar la librería; **no** parchear a ciegas (mismo criterio que ADOdb) |
+
+**Conclusión:** 3 de 4 son falsos positivos / código muerto / plantillas; solo `XPath.class.php`
+es un fatal real, y por ser código de librería se trata como dependencia a actualizar, no como
+refactor de app.
+
 ## Sonda de arranque real en PHP 8.4 (bootstrap del login)
 
 Además del análisis estático, se intentó **arrancar el CRM en PHP 8.4** para medir hasta dónde

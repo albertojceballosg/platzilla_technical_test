@@ -32,7 +32,7 @@ Backlog de mejoras puntuales detectadas con evidencia, atacadas por prioridad (i
 | M1 | 6 fixes PHP 8.4 mecánicos (`$var{}`→`$var[]`, `&new`) en app-code | Muy bajo (retro-compat) | ✅ hecho |
 | M2 | Higiene `docker-compose`: quitar `version:` obsoleta + healthcheck `db` | Bajo | ✅ hecho |
 | M3 | Externalizar credenciales de BD a variables de entorno (12-factor) | Bajo-medio (bootstrap) | ✅ hecho |
-| M4 | 4 ficheros con errores 8.4 **estructurales** (no mecánicos) | Medio (caso a caso) | pendiente |
+| M4 | 4 ficheros con errores 8.4 **estructurales** (no mecánicos) | Medio (caso a caso) | ✅ triado |
 
 M1 cubre: `include/utils/{encryption,GraphUtils,InstanceCreator.class}.php`,
 `modules/Calendar/Appointment.php`, `modules/Settings/EditCustomButtons.php`,
@@ -85,9 +85,10 @@ M1 cubre: `include/utils/{encryption,GraphUtils,InstanceCreator.class}.php`,
 
 ## Otros hallazgos de modernización (no-mysql) anotados
 
-- **Credenciales de BD en `config.inc.php`:** deberían externalizarse a variables de entorno del
-  contenedor (12-factor). No ahora: cambiaría el modelo de arranque de vtiger; requiere adaptar
-  el `entrypoint.sh`.
+- **Credenciales de BD en `config.inc.php`:** ✅ **hecho (M3)** — externalizadas a variables de
+  entorno con `getenv()`, inyectadas por `docker-compose`; el secreto ya no vive en el código.
+  (Las credenciales hardcodeadas del portal de notificaciones —punto 2 de arriba— siguen
+  pendientes por no ser testeables en local.)
 - **Password por-instancia = `md5('usr_'+instancia)`:** esquema **predecible/débil**. Nota de
   seguridad para rediseño del provisioning multi-instancia.
 - **Fin de línea CRLF (Windows)** en parte del código: cosmético; normalizar a LF sería ruidoso
