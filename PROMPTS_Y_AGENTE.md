@@ -26,6 +26,11 @@ tres tiempos para **no romper código legacy que no se puede recompilar fácilme
 2. **Cambiar en incrementos verificables** — validar cada cambio contra la app corriendo.
 3. **Documentar y versionar en pasos pequeños** — commits granulares en `development`, dejando
    `main` para la entrega final.
+4. **Medir en real, no teorizar** — para la compatibilidad con PHP 8.4 y MariaDB 10.5 se
+   levantaron **contenedores reales** (`php:8.4-cli/apache`, `mariadb:10.5`) y se **capturó qué
+   falla de verdad**, en vez de asumir incompatibilidades de manual. Las sondas corren en
+   contenedores desechables, sin tocar el stack vivo. Todo el análisis está en
+   `docs/COMPATIBILIDAD_PHP84.md` y `docs/COMPATIBILIDAD_MARIADB105.md`.
 
 ---
 
@@ -43,6 +48,22 @@ Detalle en `docs/AUDITORIA_MYSQL.md`. Titulares:
     MariaDB 10.5, sin tocar las 434 llamadas.
   - **Palanca 2 (PoC)** — refactor manual del módulo `notificaciones.php` al wrapper ADOdb,
     validado funcionalmente.
+
+**Segunda fase — modernización empírica hacia PHP 8.4 + MariaDB 10.5** (detalle en los `docs/`):
+
+- **BD migrada de verdad a MariaDB 10.5:** el servicio `db` del compose pasó de `mysql:5.6` a
+  `mariadb:10.5`; el sitio arranca y autentica contra 10.5 (HTTP 200), verificado end-to-end.
+- **Hallazgos medidos (no teóricos):** el import no falla, pero `STRICT_TRANS_TABLES` rompe 75
+  ENUM con `''` (saneados en `db_init/zz-sanitize-enums.sql`); las fechas cero **no** rompen
+  (refutado por medición); `utf8→utf8mb4` topa con 64 FKs (`ERROR 1832`); en PHP 8.4 el código app
+  se corrige progresivamente pero el arranque choca con **ADOdb** (librería → actualizar, no
+  parchear).
+- **Tandas de refactor retro-compatible** (validadas con `php -l` en 8.4 **y** 5.6): offsets
+  `$var{}`→`$var[]`, `&new`→`new`, `create_function`→`eval`/closures, `each()`→`foreach`,
+  `utf8_encode`→`mb_convert_encoding`.
+- **Endurecimiento de despliegue/seguridad:** healthcheck de BD + `depends_on: service_healthy`;
+  credenciales de BD y de notificaciones **externalizadas** a variables de entorno (12-factor),
+  fuera del código.
 
 ---
 
@@ -106,6 +127,51 @@ El valor real del uso de IA estuvo en el **diagnóstico iterativo**. Casos concr
 - *Causa:* están en `.gitignore`, así que no vienen en el clon.
 - *Resolución:* el `entrypoint.sh` ahora hace `mkdir -p` + `chmod` de las carpetas de escritura
   en cada arranque. Re-validado recreando el contenedor desde cero.
+
+### 3.3 Iteraciones de la fase empírica (PHP 8.4 + MariaDB 10.5)
+
+**Consulta 4 — No teorizar la compatibilidad de BD, medirla**
+> *"En vez de listar incompatibilidades de manual, levanta un MariaDB 10.5 real, importa el dump
+> completo y captura qué falla de verdad."*
+
+→ El import termina sin error fatal. El problema real resultó **sutil y solo visible en runtime**:
+`STRICT_TRANS_TABLES` (nuevo por defecto en 10.5) convierte 75 ENUM con `''` de *warning* silencioso
+a **ERROR 1265**. El sospechoso obvio —las fechas `0000-00-00`— quedó **descartado por medición**.
+
+**Consulta 5 — Mapear PHP 8.4 con dos redes distintas**
+> *"Barre `php -l` sobre todo `src/` para los parse errors, y por separado **ejecuta** las
+> funciones sospechosas, porque `php -l` no ve las funciones eliminadas."*
+
+→ Separó dos clases: **parse-time** (16 ficheros app, sobre todo `$var{...}`) y **runtime**
+(`each`/`ereg`/`create_function`/`mysql_*`, invisibles al linter). Definió el orden de ataque.
+
+**Consulta 6 — Distinguir código app de librería antes de "arreglar"**
+> *"Para cada fichero que falla, clasifícalo: ¿código de aplicación, plantilla, código muerto o
+> librería de terceros?"*
+
+→ Evitó parches inútiles: varios "errores" eran **plantillas de generación** (`{$_MODULE_NAME}`),
+**código muerto** (falla también en 5.6, sin includes) o **librerías** (ADOdb) → actualizar, no
+parchear. Saber qué **no** tocar fue parte del criterio.
+
+### 3.4 Errores resueltos en esta fase
+
+**Error E — `deviceDetect::mobile_device_detect() cannot be called statically` (índice, PHP 8.4).**
+- *Iteración:* "¿usa `$this`?" → no. *Resolución:* declarar el método `static` (retro-compatible
+  5.6 y 8.4). Primer fatal del bootstrap, desbloqueado.
+
+**Error F — El bootstrap 8.4 se colgaba/moría tras el fatal de app.**
+- *Iteración:* "¿es la BD o el código?" → `mysqli` conecta a 10.5 en ~0,01 s (no es la BD). El
+  arranque muere al compilar **ADOdb** (`Cannot unset $this`). *Resolución:* documentarlo como
+  **muro de librería** (actualizar ADOdb), no parchear a mano.
+
+**Error G — `ERROR 1832` al convertir a utf8mb4.**
+- *Iteración:* "¿por qué fallan 64 tablas? ¿lo evita `FOREIGN_KEY_CHECKS=0`?" → No: es estructural,
+  columnas en FK. *Resolución:* estrategia validada `DROP FK → CONVERT → re-ADD`, documentada y
+  reflejada en la lógica de migración del System Prompt (§5).
+
+**Método de validación transversal:** cada cambio de código se pasó por `php -l` en **PHP 8.4 y
+PHP 5.6** (para no romper el runtime vivo mientras se avanza hacia 8.4), y cada afirmación sobre la
+BD se comprobó en un contenedor MariaDB 10.5 real.
 
 ---
 
@@ -271,8 +337,11 @@ justo la garantía que el System Prompt exige. (Procedimiento reproducible anál
 ## 6. Conclusión
 
 La IA se usó como **acelerador con criterio**: auditar a escala, **diagnosticar causas raíz de
-forma iterativa** (errores A–D), refactorizar con un patrón verificable y documentar decisiones.
-El resultado es una modernización **demostrable** encaminada a **PHP 8.4 + MariaDB 10.5**, y un
-diseño de agente que captura el conocimiento de la arquitectura multi-tenant para **gestionar
-cambios por cliente y migraciones estructurales sin afectar a otras instancias** — convirtiendo un
-proceso legacy y arriesgado en uno seguro, aislado, idempotente y auditable.
+forma iterativa** (errores A–G), **medir en contenedores reales** en vez de teorizar, refactorizar
+con un patrón verificable (`php -l` en 8.4 **y** 5.6) y documentar cada decisión en commits
+granulares y en `docs/`. El resultado es una modernización **demostrable**: la BD **corre ya sobre
+MariaDB 10.5** (verificado), el código app avanza hacia **PHP 8.4** con el bloqueo restante
+identificado como de **dependencias** (no de criterio), y un diseño de agente que captura el
+conocimiento de la arquitectura multi-tenant para **gestionar cambios por cliente y migraciones
+estructurales sin afectar a otras instancias** — convirtiendo un proceso legacy y arriesgado en uno
+seguro, aislado, idempotente y auditable.
