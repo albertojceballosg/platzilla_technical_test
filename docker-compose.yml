@@ -9,6 +9,15 @@ services:
       - "8080:80"
     volumes:
       - ./src:/var/www/html
+    # Credenciales de BD inyectadas por entorno (12-factor). config.inc.php las lee
+    # con getenv(); el secreto ya NO vive en el código de la app. Sobrescribibles vía
+    # un fichero .env (no versionado); el default local permite arrancar sin configurar.
+    environment:
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_NAME: pg_crm_madre
+      DB_USER: superuser
+      DB_PASSWORD: "${DB_PASSWORD:-8hYLKcthnx}"
     depends_on:
       db:
         # Esperar a que la BD esté realmente lista (import del dump incluido),
@@ -19,10 +28,10 @@ services:
     image: mariadb:10.5
     container_name: platzilla_db
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD:-root}"
       MYSQL_DATABASE: pg_crm_madre
       MYSQL_USER: superuser
-      MYSQL_PASSWORD: 8hYLKcthnx
+      MYSQL_PASSWORD: "${DB_PASSWORD:-8hYLKcthnx}"
     ports:
       - "33066:3306"
     volumes:

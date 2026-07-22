@@ -4,6 +4,9 @@ db_init/*.sql
 !db_init/01-instance-users.sql
 !db_init/zz-sanitize-enums.sql
 
+# ── Secretos de entorno (12-factor): el .env real NO se versiona ──
+.env
+
 # ── Basura de Windows / WSL ──
 *.Zone.Identifier
 

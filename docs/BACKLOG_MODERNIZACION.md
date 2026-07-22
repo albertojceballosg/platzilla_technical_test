@@ -31,7 +31,7 @@ Backlog de mejoras puntuales detectadas con evidencia, atacadas por prioridad (i
 |---|---|---|---|
 | M1 | 6 fixes PHP 8.4 mecánicos (`$var{}`→`$var[]`, `&new`) en app-code | Muy bajo (retro-compat) | ✅ hecho |
 | M2 | Higiene `docker-compose`: quitar `version:` obsoleta + healthcheck `db` | Bajo | ✅ hecho |
-| M3 | Externalizar credenciales de BD a variables de entorno (12-factor) | Bajo-medio (bootstrap) | pendiente |
+| M3 | Externalizar credenciales de BD a variables de entorno (12-factor) | Bajo-medio (bootstrap) | ✅ hecho |
 | M4 | 4 ficheros con errores 8.4 **estructurales** (no mecánicos) | Medio (caso a caso) | pendiente |
 
 M1 cubre: `include/utils/{encryption,GraphUtils,InstanceCreator.class}.php`,

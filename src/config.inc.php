@@ -46,14 +46,17 @@ $HELPDESK_SUPPORT_EMAIL_REPLY_ID = $HELPDESK_SUPPORT_EMAIL_ID;
       db_password
       db_name
 */
-$dbconfig['db_server'] = 'db';
-$dbconfig['db_serverForNewDB'] = 'db';
-$dbconfig['db_serverForNewUsers'] = 'db';
-$dbconfig['db_port'] = ':3306';
-$dbconfig['db_username'] = 'superuser';
-$dbconfig['db_password'] = '8hYLKcthnx';
-$dbconfig['db_name'] = 'pg_crm_madre';
-$dbconfig['db_type'] = 'mysqli';
+// Credenciales de BD leídas del entorno (12-factor). Los valores no sensibles
+// conservan un fallback para desarrollo; la CONTRASEÑA no se versiona y debe venir
+// de la variable de entorno DB_PASSWORD (la inyecta docker-compose). Ver README.
+$dbconfig['db_server']            = getenv('DB_HOST') ?: 'db';
+$dbconfig['db_serverForNewDB']    = getenv('DB_HOST') ?: 'db';
+$dbconfig['db_serverForNewUsers'] = getenv('DB_HOST') ?: 'db';
+$dbconfig['db_port']              = ':' . (getenv('DB_PORT') ?: '3306');
+$dbconfig['db_username']          = getenv('DB_USER') ?: 'superuser';
+$dbconfig['db_password']          = getenv('DB_PASSWORD') ?: '';
+$dbconfig['db_name']              = getenv('DB_NAME') ?: 'pg_crm_madre';
+$dbconfig['db_type']              = 'mysqli';
 $dbconfig['db_status'] = 'true';
 
 global $platPrincipal,$modulesBasicosPlatzilla,$root_directory;
