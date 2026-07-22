@@ -5,6 +5,24 @@
 > demostrar que se entiende el alcance completo y que la priorización fue deliberada, no por
 > desconocimiento. Fecha: 2026-07-21.
 
+## Plan de ejecución (ventana de 24 h) — prioridad × impacto ÷ riesgo
+
+> Backlog acotado a lo realizable en ~24 h, con impacto real en entregables y sin dañar la
+> estabilidad del stack 5.6 vivo. Las sondas empíricas corren en contenedores desechables
+> (riesgo de estabilidad nulo); solo el refactor de código toca el árbol de la app.
+
+| # | Tarea | Entregable | Esfuerzo | Riesgo estabilidad |
+|---|---|---|---:|---|
+| T1 | Commit saneado ENUM + doc MariaDB 10.5 + `--sql-mode` | 1, 2 | 15 min | Nulo (aditivo) |
+| T2 | Sonda empírica PHP 8.4 (`php -l` + ejecución) → `docs/COMPATIBILIDAD_PHP84.md` | 1 | 2-3 h | Nulo (contenedor `php:8.4`) |
+| T4 | Cerrar eje BD: DEFINER/rutinas como `superuser` + integridad 5.6 vs 10.5 | 1, 3 | 1-1.5 h | Nulo (contenedor) |
+| T3 | PoC refactor PHP 8.4 sobre porción representativa (notificaciones) | 1 | 3-4 h | Medio, acotado a esa porción |
+| T5 | Evidencia multi-instancia: replay de migración estructural aislada | 3 | 2 h | Nulo (contenedor) |
+| T6 | Consolidar: enlazar docs, revisar commits, preparar merge a `main` | 1,2,3 | 1 h | Bajo |
+
+Secuencia: **T1 → T2 → T4 → T3 → T5 → T6**. Sacrificables si aprieta el tiempo: T3 y T5
+(T2+T4 ya equilibran los dos ejes de modernización).
+
 ## Lo que SÍ se hizo (contexto)
 
 - **Palanca 1 — migración del driver de BD `mysql` → `mysqli`** (vía ADOdb): moderniza todo el
