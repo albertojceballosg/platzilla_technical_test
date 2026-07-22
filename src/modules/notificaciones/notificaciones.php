@@ -45,36 +45,22 @@
             'Date'=>'date',
     );
 		function ejecutaConsulta($sql, $params = array()) {
-			global $adb;
-
-			if (!isset($adb)) {
-				$result = mysql_query($sql,$this->gdb);
-			} else {
-				$result = $this->adb->pquery($sql, $params);
+			// Modernizado (mysql_* -> ADOdb): se elimina el fallback legacy
+			// la llamada legacy a la extension mysql; $this->gdb nunca se inicializaba.
+			if ($this->adb) {
+				return $this->adb->pquery($sql, $params);
 			}
-			return $result;
+			return false;
 		}
 
 		function retornaFila($result) {
-			global $adb;
-
-			if (!isset($adb)) {
-				$row = mysql_fetch_array($result);
-			} else {
-				$row = $this->adb->fetch_array($result);
-			}
-			return $row;
+			// Modernizado (mysql_* -> ADOdb): fetch_array via wrapper.
+			return $this->adb->fetch_array($result);
 		}
 
 		function cantidadRegistros($result) {
-			global $adb;
-
-			if (!isset($adb)) {
-				$row = mysql_num_rows($result);
-			} else {
-				$row = $this->adb->num_rows($result);
-			}
-			return $row;
+			// Modernizado (mysql_* -> ADOdb): num_rows via wrapper.
+			return $this->adb->num_rows($result);
 		}
 
 		function CNotificaciones() {
@@ -277,12 +263,6 @@
 
 
 				while ($row = $this->adb->fetch_array($result)) {
-					$datosCuentas[] = array($row['accountid'],$row['accountname']);
-				}
-			} else {
-				$result = mysql_query($sql,$this->gdb);
-
-				while ($row = mysql_fetch_array($result)) {
 					$datosCuentas[] = array($row['accountid'],$row['accountname']);
 				}
 			}
@@ -1400,12 +1380,6 @@
 				if ($row = $this->adb->fetch_array($result)) {
 					return $row['nombres'];
 				}
-			} else {
-				$result = mysql_query($sql,$this->gdb);
-
-				if ($row = mysql_fetch_array($result)) {
-					return $row['nombres'];
-				}
 			}
 			return;
 		}
@@ -1431,7 +1405,6 @@
 						ON (A.notesid = B.notesid)
 						WHERE B.crmid = ".$id;
 
-			//$result = mysql_query($sql,$conex);
 			$result = $this->ejecutaConsulta($sql);
 
 			$bufferSalida = '
@@ -1466,7 +1439,6 @@
 					$bufferSalida.= '<tr><td>El registro no posee documentaci&oacute;n asociada
 									</td></tr>';
 				}
-				//while($row = mysql_fetch_assoc($result)) {
 				//<a href="'.$dirPadre.'index.php?module=uploads&action=downloadfile&entityid='.$id.'&fileid='.$row['attachmentsid'].'" title="Descargar fichero">'.$row['name'].'</a>
 
 				while($row = $this->retornaFila($result)) {
