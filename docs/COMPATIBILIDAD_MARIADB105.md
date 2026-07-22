@@ -142,6 +142,41 @@ transitoria que evita que *otras* escrituras laxas de la app rompan mientras no 
 > y retirar la Vía B. Una alternativa más quirúrgica a la Vía B es fijar el `sql_mode` por
 > conexión en la app (ADOdb/`config.inc.php`) en vez de a nivel de servidor.
 
+## Cierre del eje: integridad de datos y objetos con `DEFINER`
+
+Dos comprobaciones adicionales para dar por cerrado el eje BD.
+
+### Integridad: row-count 5.6 vs 10.5 (sin pérdida en la migración)
+
+`COUNT(*)` exacto de las **1264** tablas base, comparando la instancia viva 5.6 (`platzilla_db`)
+contra el dump cargado en 10.5 (`mdb105-test`):
+
+- **1262 tablas cuadran exacto.** Solo difieren 2: `vtiger_audit_trial` (5.6: 147892 / 10.5:
+  147870) y `vtiger_loginhistory` (5.6: 6921 / 10.5: 6914).
+- Ambas son tablas **append-only** (auditoría y logins) que la app viva 5.6 ha seguido
+  escribiendo **después** de tomarse el dump. La diferencia (29 filas, todas del lado vivo) es
+  **deriva de la instancia**, no pérdida de la migración.
+- **Conclusión:** el import a MariaDB 10.5 es **sin pérdida estructural** de datos.
+
+### Objetos con `DEFINER=root@localhost` (24: 2 vistas, 6 triggers, ~16 rutinas)
+
+Todos con `SQL SECURITY DEFINER`. Se probó ejecutándolos como el **usuario real de la app**
+(`superuser`, con grants de esquema, NO root):
+
+| Prueba | Resultado |
+|---|---|
+| `SELECT` sobre vista `v_activity_cost_analysis` | ✅ 295 filas |
+| Invocar función `ExtractNumber(...)` | ✅ devuelve valor |
+| Vista con `DEFINER` **inexistente** (`fantasma@localhost`) | ❌ **ERROR 1449** |
+
+**Veredicto:** los objetos `DEFINER=root@localhost` funcionan para la app en 10.5 **siempre que
+`root@localhost` exista** en el servidor destino (existe por defecto en la imagen MariaDB) y el
+usuario de la app tenga `EXECUTE`/`SELECT`. **Riesgo:** en un despliegue endurecido o
+multi-instancia donde `root@localhost` se elimine o renombre, **los 24 objetos rompen con ERROR
+1449**. Mitigación en migración: garantizar la existencia del usuario definer, o reescribir los
+objetos con `SQL SECURITY INVOKER` / un definer estable por instancia. (Esto alimenta las reglas
+de seguridad del System Prompt del agente multi-instancia.)
+
 ## Reproducir
 
 ```bash
