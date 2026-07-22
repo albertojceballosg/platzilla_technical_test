@@ -90,7 +90,8 @@ Revisión del backlog tras las tandas T/M/N. La etiqueta original "NO ahora" era
 - **Abordable fabricando un mock:** `Users.php` (HR/ProcessMaker/dotProject) y `security.php`
   conectan con **arrays de configuración** (`$db_hrm`, `$db_process`, `$db_login`), no con hosts
   fijos → se levanta una BD *stub* con el esquema mínimo, se apunta la config ahí y el refactor
-  `mysql_*`→`mysqli` pasa a ser testeable. El patrón ya está documentado.
+  `mysql_*`→`mysqli` pasa a ser testeable. **Demostrado en `security.php`** (ver item 5: mock +
+  refactor + verificado en 5.6 y 8.4). `Users.php` seguiría el mismo patrón por sistema externo.
 - **Actualizar dependencia (no parchear):** ADOdb — confirmado empíricamente (D3/N1/N3) que tiene
   bloqueos 8.4 más allá de `mysql_*` (`unset $this`, ficheros que no parsean) → subir a una versión
   de ADOdb compatible con 8.4 + regresión.
@@ -131,9 +132,25 @@ Revisión del backlog tras las tandas T/M/N. La etiqueta original "NO ahora" era
   `adodb-mysqli.inc.php` que la propia librería incluye). La ruta correcta a futuro es
   **actualizar ADOdb**, no parchearla.
 
-### 5. `include/security.php` — 12 llamadas (BD de login `$db_login`)
-- **Por qué no ahora:** depende de una **BD de login separada** cuya disponibilidad en local no
-  está confirmada. Testeable solo si se replica esa BD. Pendiente de confirmar destino.
+### 5. `include/security.php` — BD de login `$db_login` ✅ HECHO (con mock)
+- **Qué era:** 10 llamadas `mysql_*` (eliminadas en PHP 7) + un `$fila[password]` bareword (fatal
+  en PHP 8.0), dependiendo de una **BD de login separada** cuya disponibilidad en local no estaba
+  confirmada → se marcó "no testeable".
+- **Cómo se desbloqueó (mock):** se fabricó una BD stub (`login_mock.app_users` con `username`/
+  `password` y una fila `testuser`), se apuntó `$db_login` ahí, y se refactorizó a `mysqli`:
+  conexión compartida en `_loginDbConnect()`, `mysqli_connect` con host/puerto separados,
+  `mysqli_select_db`/`query`/`fetch_assoc`, + arreglo del bareword.
+- **Verificado de verdad** en **PHP 5.6 y 8.4** contra el mock: `obtenerPasswordLogin` devuelve el
+  valor esperado y el roundtrip `encrypt`/`decrypt` cuadra; `php -l` limpio en ambos.
+- **Reproducir el mock:**
+  ```sql
+  CREATE DATABASE login_mock CHARACTER SET utf8mb4;
+  CREATE TABLE login_mock.app_users (id INT AUTO_INCREMENT PRIMARY KEY,
+      username VARCHAR(64), password VARCHAR(255));
+  INSERT INTO login_mock.app_users (username,password) VALUES ('testuser','S3cr3t-Pass');
+  GRANT ALL ON login_mock.* TO 'superuser'@'%';
+  ```
+  (El `login_mock` es scaffolding de prueba; no se versiona ni queda en la instancia.)
 
 ## Otros hallazgos de modernización (no-mysql) anotados
 
