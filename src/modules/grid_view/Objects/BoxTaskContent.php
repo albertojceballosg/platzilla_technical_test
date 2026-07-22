@@ -275,7 +275,7 @@
 		public function setDateSet ($dateStart, $timeStart, $format) {
 			if (!empty($dateStart) && !empty($timeStart)) {
 				setlocale (LC_ALL, 'es_ES', 'Spanish_Traditional_Sort',  'Spanish_Spain', 'Spanish');
-				$this->dateSet = ucwords(utf8_encode(strftime ($format, strtotime ($dateStart . ' '. $timeStart))));
+				$this->dateSet = ucwords(mb_convert_encoding(strftime ($format, strtotime ($dateStart . ' '. $timeStart)), 'UTF-8', 'ISO-8859-1'));
 			} else {
 				$this->dateSet = null;
 			}
@@ -323,7 +323,7 @@
 		public function setDueDate ($dueDate, $timeEnd, $format) {
 			if (!empty($dueDate) && !empty($timeEnd)) {
 				setlocale (LC_ALL, 'es_ES', 'Spanish_Traditional_Sort',  'Spanish_Spain', 'Spanish');
-				$this->dueDate = ucwords(utf8_encode(strftime ($format, strtotime ($dueDate . ' '. $timeEnd))));
+				$this->dueDate = ucwords(mb_convert_encoding(strftime ($format, strtotime ($dueDate . ' '. $timeEnd)), 'UTF-8', 'ISO-8859-1'));
 			} else {
 				$this->dueDate = null;
 			}

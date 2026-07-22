@@ -290,7 +290,7 @@
 			if (!empty($dueDate)) {
 				$format = (empty($format)) ? '%A %d de %B - %Y, %H:%M:%S' : $format;
 				setlocale (LC_ALL, 'es_ES', 'Spanish_Traditional_Sort',  'Spanish_Spain', 'Spanish');
-				$this->dueDate = ucwords (utf8_encode (strftime ($format, strtotime ($dueDate))));
+				$this->dueDate = ucwords (mb_convert_encoding(strftime ($format, strtotime ($dueDate)), 'UTF-8', 'ISO-8859-1'));
 				$this->dateEnd = $dueDate;
 			} else {
 				$this->dueDate = null;
@@ -408,7 +408,7 @@
 			if (!empty($startDate)) {
 				$format = (empty($format)) ? '%A %d de %B - %Y, %H:%M:%S' : $format;
 				setlocale (LC_ALL, 'es_ES', 'Spanish_Traditional_Sort',  'Spanish_Spain', 'Spanish');
-				$this->startDate = ucwords (utf8_encode (strftime ($format, strtotime ($startDate))));
+				$this->startDate = ucwords (mb_convert_encoding(strftime ($format, strtotime ($startDate)), 'UTF-8', 'ISO-8859-1'));
 				$this->dateInit  = $startDate;
 			} else {
 				$this->startDate = null;

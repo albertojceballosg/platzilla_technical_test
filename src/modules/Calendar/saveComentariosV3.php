@@ -116,13 +116,13 @@
 		$userid = obtenerIDUserFromDesarrollador($vendorid);
 		guardarRegistroTrabajoNoPlanificado($userid,
 											$_REQUEST['horas_dedicadas_noplat'][$i],
-											utf8_encode($_REQUEST['incidencia_noplat'][$i]),
-											utf8_encode($_REQUEST['title_noplat'][$i]),
+											mb_convert_encoding($_REQUEST['incidencia_noplat'][$i], 'UTF-8', 'ISO-8859-1'),
+											mb_convert_encoding($_REQUEST['title_noplat'][$i], 'UTF-8', 'ISO-8859-1'),
 											$_REQUEST['parent_id_noplat'][$i],
 											"1",
 											"1",
 											"Si",
-											utf8_encode($_REQUEST['coment_desarrollador_noplat'][$i]));
+											mb_convert_encoding($_REQUEST['coment_desarrollador_noplat'][$i], 'UTF-8', 'ISO-8859-1'));
 	}*/
 	
 	$bufferSalida = '

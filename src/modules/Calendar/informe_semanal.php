@@ -10,7 +10,7 @@ function obtenerNombreDesarrollador() {
 	global $adb;
 		
 	if (obtenerValorVariable('TASK_VENDOR_TYPE','Vendors') != '') {
-		$condicionTipoProveedor = " AND vendortype = '".utf8_encode(html_entity_decode(obtenerValorVariable('TASK_VENDOR_TYPE','Vendors')))."'";
+		$condicionTipoProveedor = " AND vendortype = '".mb_convert_encoding(html_entity_decode(obtenerValorVariable('TASK_VENDOR_TYPE','Vendors')), 'UTF-8', 'ISO-8859-1')."'";
 	}
 
 
@@ -137,7 +137,7 @@ return $resultpor;
 			$bufferSalida.= '
 			<tr style="height: 25px;">
 				<td class="dvtCellInfo"  '.$styleColor.'>'.$fecha.'</td>
-				<td class="dvtCellInfo"  '.$styleColor.'>'.utf8_encode($description).'</td>
+				<td class="dvtCellInfo"  '.$styleColor.'>'.mb_convert_encoding($description, 'UTF-8', 'ISO-8859-1').'</td>
 
 
 
@@ -186,7 +186,7 @@ function informacionComentarioyNota($idregistro,$iddesarrollador) {
 			$bufferSalida.= '
 			<tr style="height: 25px;">
 				<td class="dvtCellInfo"  '.$styleColor.'>'.$fecha.'</td>
-				<td class="dvtCellInfo"  '.$styleColor.'>'.utf8_encode($description).'</td>
+				<td class="dvtCellInfo"  '.$styleColor.'>'.mb_convert_encoding($description, 'UTF-8', 'ISO-8859-1').'</td>
 				<td class="dvtCellInfo"  '.$styleColor.'>'.$porcentaje.'</td>
 
 
@@ -235,7 +235,7 @@ function informacionPuntosRealizados($idregistro,$iddesarrollador) {
 			$bufferSalida.= '
 			<tr style="height: 25px;">
 				<td class="dvtCellInfo"  '.$styleColor.'>'.$pointid.'</td>
-				<td class="dvtCellInfo"  '.$styleColor.'>'.utf8_encode($description).'</td>
+				<td class="dvtCellInfo"  '.$styleColor.'>'.mb_convert_encoding($description, 'UTF-8', 'ISO-8859-1').'</td>
 				<td class="dvtCellInfo"  '.$styleColor.'>'.number_format($porcentaje,0).'</td>
 				<td class="dvtCellInfo"  '.$styleColor.'>'.substr($date,8,2).'-'.substr($date,5,2).'-'.substr($date,0,4).'</td>
 				<td class="dvtCellInfo"  '.$styleColor.'>'.substr($enddate,8,2).'-'.substr($enddate,5,2).'-'.substr($enddate,0,4).'</td>
@@ -283,7 +283,7 @@ function informacionPuntosPendientes($idregistro,$iddesarrollador) {
 			$bufferSalida.= '
 			<tr style="height: 25px;">
 				<td class="dvtCellInfo"  '.$styleColor.'>'.($i+1).'<input type="hidden" value="'.$pointid.'" name="pointid[]"/></td>
-				<td class="dvtCellInfo" width="60%"  '.$styleColor.'>'.utf8_encode($description).'</td>
+				<td class="dvtCellInfo" width="60%"  '.$styleColor.'>'.mb_convert_encoding($description, 'UTF-8', 'ISO-8859-1').'</td>
 				<td class="dvtCellInfo"  '.$styleColor.'>'.(number_format($porcentaje,0)).'</td>
 				<td class="dvtCellInfo"  '.$styleColor.'>'.substr($date,8,2).'-'.substr($date,5,2).'-'.substr($date,0,4).'</td>
 
@@ -597,7 +597,7 @@ function listarDesarrollador()
 	$bufferSalida = '';
 	
 	if (obtenerValorVariable('TASK_VENDOR_TYPE','Vendors') != '') {
-		$condicionTipoProveedor = " AND vendortype = '".utf8_encode(html_entity_decode(obtenerValorVariable('TASK_VENDOR_TYPE','Vendors')))."'";
+		$condicionTipoProveedor = " AND vendortype = '".mb_convert_encoding(html_entity_decode(obtenerValorVariable('TASK_VENDOR_TYPE','Vendors')), 'UTF-8', 'ISO-8859-1')."'";
 	}
 
 	$sql = "SELECT  vendorname,v.vendorid,vendortype FROM vtiger_vendor v

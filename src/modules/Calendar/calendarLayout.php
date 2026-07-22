@@ -1454,7 +1454,7 @@ EOQ;
             </div><br>';
 					} else {
 						$eventlayer .= '<div class ="event" id="event_' . $cal['calendar']->month_array[ $slice ]->start_time->hour . '_' . $i . '" style="' . $opacity . 'background-color:' . $desarrollador_color . '">
-				<b><a    onclick="window.open(this.href, this.target, \'width=700,height=600,left=200,top=300,scrollbars=yes\'); return false;" href="index.php?modules=HelpDesk&action=control_diario&Popup=true&record=' . $registro_id . '&desarrollador=' . $desarrollador_id . '&CRM=47' . $current_user->roleid . '22" title="' . $subject_total . ':' . $desarrollador . ' Estado:' . $registro_estado . ' Cliente:' . $registro_cliente . '"><span style="color:#190707;">' . utf8_decode ($subject) . '</span></a></b>' . $imagen_cerrada . '
+				<b><a    onclick="window.open(this.href, this.target, \'width=700,height=600,left=200,top=300,scrollbars=yes\'); return false;" href="index.php?modules=HelpDesk&action=control_diario&Popup=true&record=' . $registro_id . '&desarrollador=' . $desarrollador_id . '&CRM=47' . $current_user->roleid . '22" title="' . $subject_total . ':' . $desarrollador . ' Estado:' . $registro_estado . ' Cliente:' . $registro_cliente . '"><span style="color:#190707;">' . mb_convert_encoding($subject, 'ISO-8859-1', 'UTF-8') . '</span></a></b>' . $imagen_cerrada . '
             </div><br>';
 					}
 				} else {

@@ -280,7 +280,7 @@
 			if (!empty($reportDate)) {
 				$format = (empty($format)) ? '%A %d de %B - %Y, %H:%M:%S' : $format;
 				setlocale (LC_ALL, 'es_ES', 'Spanish_Traditional_Sort',  'Spanish_Spain', 'Spanish');
-				$this->reportDate = ucwords (utf8_encode (strftime ($format, strtotime ($reportDate))));
+				$this->reportDate = ucwords (mb_convert_encoding(strftime ($format, strtotime ($reportDate)), 'UTF-8', 'ISO-8859-1'));
 			} else {
 				$this->reportDate = null;
 			}

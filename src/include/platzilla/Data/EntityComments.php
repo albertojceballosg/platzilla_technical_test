@@ -171,7 +171,7 @@
 		public function setWrittenOn ($writtenOn) {
 			if (!empty ($writtenOn)) {
 				setlocale (LC_ALL, 'es_ES', 'Spanish_Traditional_Sort',  'Spanish_Spain', 'Spanish');
-				$this->writtenOn = ucwords(utf8_encode(strftime ('%A %d, %B - %Y', strtotime ($writtenOn))));
+				$this->writtenOn = ucwords(mb_convert_encoding(strftime ('%A %d, %B - %Y', strtotime ($writtenOn)), 'UTF-8', 'ISO-8859-1'));
 			} else {
 				$this->writtenOn = date_create ()->format ('Y-m-d H:i:s');
 			}

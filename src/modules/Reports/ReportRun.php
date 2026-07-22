@@ -3778,7 +3778,7 @@ class ReportRun extends CRMEntity {
 				$dcount = 0;
 				foreach($array_value as $hdr => $value) {
 					$value = decode_html($value);
-					$worksheet->write(($key+1), $dcount, utf8_decode($value));
+					$worksheet->write(($key+1), $dcount, mb_convert_encoding($value, 'ISO-8859-1', 'UTF-8'));
 					$dcount++;
 				}
 				$rowcount++;
@@ -3799,7 +3799,7 @@ class ReportRun extends CRMEntity {
 				$dcount = 0;
 				foreach($array_value as $hdr => $value) {
 					$value = decode_html($value);
-					$worksheet->write(($key+$rowcount), $dcount, utf8_decode($value));
+					$worksheet->write(($key+$rowcount), $dcount, mb_convert_encoding($value, 'ISO-8859-1', 'UTF-8'));
 					$dcount++;
 				}
 			}

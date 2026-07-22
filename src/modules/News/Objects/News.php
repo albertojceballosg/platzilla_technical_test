@@ -190,7 +190,7 @@
 			$format = '%A %d de %B - %Y, %H:%M:%S';
 			if (!empty($creteDate)) {
 				setlocale (LC_ALL, 'es_ES', 'Spanish_Traditional_Sort',  'Spanish_Spain', 'Spanish');
-				$this->createDateFormat = ucwords (utf8_encode(strftime ($format, strtotime ($creteDate))));
+				$this->createDateFormat = ucwords (mb_convert_encoding(strftime ($format, strtotime ($creteDate)), 'UTF-8', 'ISO-8859-1'));
 			} else {
 				$this->createDateFormat = null;
 			}
@@ -206,7 +206,7 @@
 			$format = (empty ($format)) ? $format = '%A %d de %B - %Y, %H:%M:%S' : $format;
 			if (!empty($dueDate)) {
 				setlocale (LC_ALL, 'es_ES', 'Spanish_Traditional_Sort',  'Spanish_Spain', 'Spanish');
-				$this->dueDate = ucwords (utf8_encode(strftime ($format, strtotime ($dueDate))));
+				$this->dueDate = ucwords (mb_convert_encoding(strftime ($format, strtotime ($dueDate)), 'UTF-8', 'ISO-8859-1'));
 			} else {
 				$this->dueDate = null;
 			}
@@ -247,7 +247,7 @@
 			$format = (empty ($format)) ? $format = '%A %d de %B - %Y, %H:%M:%S' : $format;
 			if (!empty($initDay)) {
 				setlocale (LC_ALL, 'es_ES', 'Spanish_Traditional_Sort',  'Spanish_Spain', 'Spanish');
-				$this->initDay = ucwords (utf8_encode(strftime ($format, strtotime ($initDay))));
+				$this->initDay = ucwords (mb_convert_encoding(strftime ($format, strtotime ($initDay)), 'UTF-8', 'ISO-8859-1'));
 			} else {
 				$this->initDay = null;
 			}

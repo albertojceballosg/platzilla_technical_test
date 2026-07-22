@@ -35,7 +35,7 @@ define ("MAX_SIZE","1000000"); //100MB aprox
 
 if(!empty($_FILES)){
 	$extensions=array('mpeg','mpg','flv','mov','wmv','mp3','mp4',);
-	$video_filename = str_replace($tocut,$torep,stripslashes(utf8_decode($_FILES['file']['name'])));
+	$video_filename = str_replace($tocut,$torep,stripslashes(mb_convert_encoding($_FILES['file']['name'], 'ISO-8859-1', 'UTF-8')));
 	$video_extension = getExtension($video_filename);
 	$video_extension = strtolower($video_extension);
 	if (!in_array($video_extension,$extensions)){
@@ -50,7 +50,7 @@ if(!empty($_FILES)){
 		//asigna un nombre unico al video
 		$video_name=$video_filename;
 		$newname="storage/video_uploads/".$video_name;
-		$copied = copy(utf8_decode($_FILES['file']['tmp_name']), $newname);
+		$copied = copy(mb_convert_encoding($_FILES['file']['tmp_name'], 'ISO-8859-1', 'UTF-8'), $newname);
 		//echo $copied;
 		if (!$copied){
 			echo '<h1>Copy unsuccessful!</h1>';

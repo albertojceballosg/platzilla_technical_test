@@ -117,7 +117,7 @@ function desFormatearFecha($fecha){
 }
 function obtenerSubordinados ($h8Id,$tipo) {
     global $adb;
-	$vendorType = utf8_encode(html_entity_decode(obtenerValorVariable('TASK_VENDOR_TYPE','Vendors')));
+	$vendorType = mb_convert_encoding(html_entity_decode(obtenerValorVariable('TASK_VENDOR_TYPE','Vendors')), 'UTF-8', 'ISO-8859-1');
 	if ($tipo == 'H8'){
 		$sql = "SELECT  vendorname,v.vendorid,vendortype,u.id
 				FROM vtiger_users u
@@ -1123,7 +1123,7 @@ function obtenerDatosControlDiario($ticketid,$vendorid,$fecha) {
 			$bufferSalida.= '
 			<tr style="height: 25px;">
 				<td class="dvtCellInfo"  '.$styleColor.'>'.($i+1).'<input type="hidden" value="'.$pointid.'" name="pointid'.$j.'[]"/></td>
-				<td class="dvtCellInfo" width="50%"  '.$styleColor.'>'.utf8_encode($description).'</td>
+				<td class="dvtCellInfo" width="50%"  '.$styleColor.'>'.mb_convert_encoding($description, 'UTF-8', 'ISO-8859-1').'</td>
 				<td class="dvtCellInfo"  '.$styleColor.'>'.escribeComboPorcentaje(number_format($porcentaje,0),$j).'</td>
 				<td class="dvtCellInfo"  '.$styleColor.'>'.escribeEntradaFecha($pointid,'date',$date).'</td>';
 				/*
@@ -1339,7 +1339,7 @@ function obtenerDatosControlDiario($ticketid,$vendorid,$fecha) {
         $ticket_no=$fila['prefix'].($fila['cur_id']+1);
 
         $sql = "INSERT INTO vtiger_crmentity (crmid,smcreatorid,smownerid,setype,description,createdtime,modifiedtime)
-						VALUES(".$id.",".$user.",".$user.",'HelpDesk','".utf8_decode(mysql_real_escape_string($descripcion))."','".$modifiedtime."','".$modifiedtime."')";
+						VALUES(".$id.",".$user.",".$user.",'HelpDesk','".mb_convert_encoding(mysql_real_escape_string($descripcion), 'ISO-8859-1', 'UTF-8')."','".$modifiedtime."','".$modifiedtime."')";
 						
 		$re2=$adb->query($sql);
 		

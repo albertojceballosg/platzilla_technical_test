@@ -225,14 +225,14 @@ for($i = 0;$i < count($tickets);$i++) {
 			<td width="10%" class="dvtCellInfo">
 				<input type="hidden" name="ticketid_actualizados[]" value="0" id="ticketid_actualizados'.$tickets[$i].'">
 				<input type="hidden" name="ticketid[]" value="'.$tickets[$i].'">
-				'.utf8_encode($ticket['title']).'
+				'.mb_convert_encoding($ticket['title'], 'UTF-8', 'ISO-8859-1').'
 			</td>
 			<td width="10%" class="dvtCellInfo"><a href="index.php?module=Accounts&action=DetailView&record='.$ticket['accountid'].'">'.$ticket['accountname'].'</a></td>
-			<td width="20%" class="dvtCellInfo">'.(substr(utf8_encode($ticket['description']),0,200)).'</td>
+			<td width="20%" class="dvtCellInfo">'.(substr(mb_convert_encoding($ticket['description'], 'UTF-8', 'ISO-8859-1'),0,200)).'</td>
 			<td width="35%" class="dvtCellInfo" valign="top">'.$puntosPendientes['html'].'</td>
 			<td width="5%"  class="dvtCellInfo">'.escribeComboHoras($informeDiario['horas_dedicadas'],false,'onChange="actualizarHorasTrabajadasYHorasRegistradas()"',$hours_limit).'</td>
 			<td width="20%"  class="dvtCellInfo">
-				<textarea style="width:300px; height:120px;" class="detailedViewTextBox" name="coment_desarrollador[]" onchange="actualizarEstado(\'ticketid_actualizados'.$tickets[$i].'\');">'.str_replace("<br/>","\n",utf8_encode(html_entity_decode(($informeDiario['coment'])))).'</textarea>
+				<textarea style="width:300px; height:120px;" class="detailedViewTextBox" name="coment_desarrollador[]" onchange="actualizarEstado(\'ticketid_actualizados'.$tickets[$i].'\');">'.str_replace("<br/>","\n",mb_convert_encoding(html_entity_decode(($informeDiario['coment'])), 'UTF-8', 'ISO-8859-1')).'</textarea>
 			</td>
 		</tr>';
 }

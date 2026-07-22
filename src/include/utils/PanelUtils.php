@@ -383,7 +383,7 @@
 	function drawPieGraph ($data, $panelid) {
 		$xml_grafico = '<pie>';
 		foreach ($data as $value) {
-			$xml_grafico .= "<slice title='" . utf8_encode ($value['label']) . "'>" . number_format ($value['value'], 2, '.', '') . "</slice>";
+			$xml_grafico .= "<slice title='" . mb_convert_encoding($value['label'], 'UTF-8', 'ISO-8859-1') . "'>" . number_format ($value['value'], 2, '.', '') . "</slice>";
 		}
 		$xml_grafico .= '</pie>';
 
@@ -421,7 +421,7 @@
 			$data = array ();
 			while (list($val, $label) = $adb->fetch_row ($result)) {
 				$data[] = array (
-					'label' => utf8_encode ($label),
+					'label' => mb_convert_encoding($label, 'UTF-8', 'ISO-8859-1'),
 					'value' => $val,
 				);
 			}

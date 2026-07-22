@@ -45,7 +45,7 @@ class Vtiger_PackageExport {
 		if($node != '') $this->openNode($node,'');
 		$value = html_entity_decode($value);
 		$value = str_replace('&','&amp;',$value);
-		$this->__write(utf8_encode($value));
+		$this->__write(mb_convert_encoding($value, 'UTF-8', 'ISO-8859-1'));
 		if($node != '') $this->closeNode($node);
 	}
 	/** @access private */
@@ -797,7 +797,7 @@ class Vtiger_PackageExport {
 
 			$this->openNode('grid');
 			$this->outputNode($gridname, 'name');
-			$this->outputNode(utf8_decode($gridlabel), 'label');
+			$this->outputNode(mb_convert_encoding($gridlabel, 'ISO-8859-1', 'UTF-8'), 'label');
 			// Export subfields associated with the grid
 			$this->export_Subfields($moduleInstance, $gridid, $nameExport);
 			$this->closeNode('grid');
