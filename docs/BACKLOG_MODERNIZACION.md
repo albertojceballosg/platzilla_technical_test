@@ -23,6 +23,23 @@
 Secuencia: **T1 → T2 → T4 → T3 → T5 → T6**. Sacrificables si aprieta el tiempo: T3 y T5
 (T2+T4 ya equilibran los dos ejes de modernización).
 
+## Segunda tanda de modernizaciones puntuales (en curso)
+
+Backlog de mejoras puntuales detectadas con evidencia, atacadas por prioridad (impacto ÷ riesgo):
+
+| # | Tarea | Riesgo | Estado |
+|---|---|---|---|
+| M1 | 6 fixes PHP 8.4 mecánicos (`$var{}`→`$var[]`, `&new`) en app-code | Muy bajo (retro-compat) | en curso |
+| M2 | Higiene `docker-compose`: quitar `version:` obsoleta + healthcheck `db` | Bajo | pendiente |
+| M3 | Externalizar credenciales de BD a variables de entorno (12-factor) | Bajo-medio (bootstrap) | pendiente |
+| M4 | 4 ficheros con errores 8.4 **estructurales** (no mecánicos) | Medio (caso a caso) | pendiente |
+
+M1 cubre: `include/utils/{encryption,GraphUtils,InstanceCreator.class}.php`,
+`modules/Calendar/Appointment.php`, `modules/Settings/EditCustomButtons.php`,
+`modules/System/includes/common_functions.php`. M4 cubre:
+`modules/orden_de_trabajo/handlers/taskToWork_methods.php`, `modules/Calendar/calendarLayout.2.php`,
+`modules/System/includes/XPath.class.php`, `vtlib/ModuleDir/5.4.0/ModuleFile.php`.
+
 ## Lo que SÍ se hizo (contexto)
 
 - **Palanca 1 — migración del driver de BD `mysql` → `mysqli`** (vía ADOdb): moderniza todo el

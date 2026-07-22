@@ -78,7 +78,7 @@
 			$pattern = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 			$max     = (strlen ($pattern) - 1);
 			for ($i = 0; $i < 6; $i++) {
-				$code .= $pattern{mt_rand (0, $max)};
+				$code .= $pattern[mt_rand (0, $max)];
 			}
 			return $code;
 		}

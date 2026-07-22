@@ -19,8 +19,8 @@
 	}
 
 	$fieldModuleList = null;
-	if(! empty($customButton{'module'})) {
-		$fieldModuleList = CreateCustomButtonHelper::getModuleColumnsData($adb,$customButton{'module'});
+	if(! empty($customButton['module'])) {
+		$fieldModuleList = CreateCustomButtonHelper::getModuleColumnsData($adb,$customButton['module']);
 	}
 
 	$isInstance     = !empty ($_SESSION ['platInstancia']) ? true : false;

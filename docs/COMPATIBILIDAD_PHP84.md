@@ -124,15 +124,33 @@ saltan la abstracción y hay que refactorizar a `mysqli`/PDO.
 Como prueba de concepto se corrigieron dos ficheros **centrales y representativos**, elegidos por
 impacto (no por facilidad):
 
+La corrección es **retro-compatible**: todos estos ficheros pasan `php -l` tanto en **PHP 8.4**
+como en **PHP 5.6**, así que desbloquean el parseo en 8.4 sin desestabilizar el entorno 5.6.
+
+**Primera tanda (piezas centrales):**
+
 | Fichero | Rompedores | Fix |
 |---|---|---|
-| `include/database/PearDatabase.php` | 6× `$var{...}` (líneas 777-897) | `$var{k}` → `$var[k]` |
-| `include/platzilla/Objects/PlatformInstance.php` | 1× `$pattern{...}` (línea 93) | ídem |
+| `include/database/PearDatabase.php` | 6× `$var{...}` | `$var{k}` → `$var[k]` |
+| `include/platzilla/Objects/PlatformInstance.php` | 1× `$pattern{...}` | ídem |
 
 `PearDatabase.php` es el **wrapper de BD** del que depende toda la app (y las Palancas 1/2);
-`PlatformInstance.php` es el objeto **custom de multi-instancia**. La corrección `{}`→`[]` es
-**retro-compatible**: ambos ficheros pasan `php -l` tanto en **PHP 8.4** como en **PHP 5.6**, así
-que desbloquean el parseo en 8.4 sin desestabilizar el entorno 5.6 en producción.
+`PlatformInstance.php` es el objeto **custom de multi-instancia**.
+
+**Segunda tanda (6 ficheros de app-code, mismo patrón mecánico):**
+
+| Fichero | Rompedores |
+|---|---|
+| `include/utils/encryption.php` | `$inputString{$x}` |
+| `include/utils/GraphUtils.php` | `$start{0}`, `$step{0}` |
+| `include/utils/InstanceCreator.class.php` | `$pattern{...}` |
+| `modules/Calendar/Appointment.php` | 2× `&new Appointment()` → `new Appointment()` |
+| `modules/Settings/EditCustomButtons.php` | 2× `$customButton{'module'}` |
+| `modules/System/includes/common_functions.php` | `$header_and_lsd{8/9}` |
+
+Con esto, **8 de los 16** ficheros de app que no parseaban en 8.4 quedan corregidos por
+sustitución mecánica retro-compatible. Los restantes tienen errores **estructurales** (no
+mecánicos) y se tratan caso a caso (ver `BACKLOG_MODERNIZACION.md`, tarea M4).
 
 ## Sonda de arranque real en PHP 8.4 (bootstrap del login)
 
