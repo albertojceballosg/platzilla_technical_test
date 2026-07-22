@@ -119,6 +119,21 @@ saltan la abstracción y hay que refactorizar a `mysqli`/PDO.
    `create_function`→closures). Ver el commit de la PoC.
 3. El resto queda inventariado en `BACKLOG_MODERNIZACION.md` con su justificación de alcance.
 
+## PoC aplicada (desbloqueo de parseo)
+
+Como prueba de concepto se corrigieron dos ficheros **centrales y representativos**, elegidos por
+impacto (no por facilidad):
+
+| Fichero | Rompedores | Fix |
+|---|---|---|
+| `include/database/PearDatabase.php` | 6× `$var{...}` (líneas 777-897) | `$var{k}` → `$var[k]` |
+| `include/platzilla/Objects/PlatformInstance.php` | 1× `$pattern{...}` (línea 93) | ídem |
+
+`PearDatabase.php` es el **wrapper de BD** del que depende toda la app (y las Palancas 1/2);
+`PlatformInstance.php` es el objeto **custom de multi-instancia**. La corrección `{}`→`[]` es
+**retro-compatible**: ambos ficheros pasan `php -l` tanto en **PHP 8.4** como en **PHP 5.6**, así
+que desbloquean el parseo en 8.4 sin desestabilizar el entorno 5.6 en producción.
+
 ## Reproducir
 
 ```bash
