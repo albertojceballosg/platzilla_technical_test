@@ -376,6 +376,53 @@ calificado por `pg_crm_<codigo>`, una migración por-cliente **no puede alcanzar
 justo la garantía que el System Prompt exige. (Procedimiento reproducible análogo al de
 `docs/COMPATIBILIDAD_MARIADB105.md`.)
 
+### 5.5 Arquitectura de despliegue e interacción
+
+El enunciado plantea el agente **alojado en el servidor** como objetivo *a futuro*. El entregable
+de esta prueba es su **lógica** (el System Prompt de §5.1). Aquí se esboza **cómo se desplegaría e
+interactuaría**, para dejar claro el modelo completo.
+
+**Estado actual (honesto):** existe la **lógica** (System Prompt) y una **ejecución manual de
+referencia** (esta PoC: operador + Claude Code aplicando el método). **No** existe todavía el
+*harness* que lo convierta en un servicio autónomo escuchando peticiones — eso es infraestructura,
+no "diseñar la lógica".
+
+**Modelo de interacción (humano en el bucle, NO autónomo a ciegas):**
+
+```mermaid
+flowchart TD
+    C["Cliente / Operador"] -->|petición en lenguaje natural| I["Intake<br/>(chat / ticket / API)"]
+    I --> Z{"AuthZ: ¿autorizado<br/>sobre esta instancia?"}
+    Z -->|no| R["Rechaza + log"]
+    Z -->|sí| A["Bucle LLM + System Prompt"]
+    A --> M{"Clasifica mandato"}
+    M -->|"A: modernización central"| PA["Plan: medir en contenedor<br/>desechable + refactor<br/>retro-compatible"]
+    M -->|"B: personalización cliente"| PB["Plan: DDL calificado<br/>pg_crm_&lt;codigo&gt; +<br/>respaldo + rollback"]
+    PA --> D["Dry-run + impacto estimado"]
+    PB --> D
+    D --> G{"Confirmación humana"}
+    G -->|no| S["Detiene + log"]
+    G -->|sí| E["Ejecuta con herramientas<br/>acotadas + valida"]
+    E --> V["Reporta OK/FALLO + cómo revertir"]
+    E --> L[("Log de auditoría")]
+```
+
+**Componentes del harness (lo que faltaría para desplegarlo):**
+
+| Componente | Función |
+|---|---|
+| **Intake** | Recibe la petición NL (chat interno, ticket, endpoint API). |
+| **AuthZ** | Quién puede pedir qué y **sobre qué instancia** (un cliente no toca otra). |
+| **Bucle LLM** | Carga el System Prompt (§5.1) + las herramientas; p. ej. con el Claude Agent SDK. |
+| **Sandbox de herramientas** | Acceso acotado: BD como `usr_<codigo>`, shell/contenedores para las sondas empíricas, sistema de ficheros del repo. **Mínimo privilegio por mandato.** |
+| **Gate de confirmación** | Ningún cambio en producción sin OK humano tras el dry-run. |
+| **Log de auditoría** | Traza de qué se pidió, qué se ejecutó y cómo revertir. |
+
+**Sobre "el cliente":** el interlocutor directo es un **operador/administrador** con permisos, no
+el cliente final tecleando DDL. El cliente *solicita* una personalización (ticket/portal) y el
+agente la ejecuta **supervisado** contra la instancia de ese cliente. El gate de confirmación del
+prompt asume esa supervisión, porque son operaciones privilegiadas.
+
 ---
 
 ## 6. Conclusión
