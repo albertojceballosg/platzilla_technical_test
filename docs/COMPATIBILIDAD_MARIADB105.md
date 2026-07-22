@@ -177,6 +177,19 @@ multi-instancia donde `root@localhost` se elimine o renombre, **los 24 objetos r
 objetos con `SQL SECURITY INVOKER` / un definer estable por instancia. (Esto alimenta las reglas
 de seguridad del System Prompt del agente multi-instancia.)
 
+## Estado: stack migrado a MariaDB 10.5 (verificado)
+
+El servicio `db` de `docker-compose.yml` **ya usa `mariadb:10.5`** (antes `mysql:5.6`). Tras
+recrear el volumen (`docker compose down -v && up`), el primer arranque ejecuta automáticamente
+`01-instance-users.sql` + el dump + `zz-sanitize-enums.sql`. Verificación end-to-end:
+
+- Motor: `10.5.29-MariaDB`; 1264 tablas base; **0 ENUM inválidos** (saneado aplicado en el init).
+- `GRANT ... IDENTIFIED BY` de `01-instance-users.sql` funciona en 10.5 (MariaDB conserva esa
+  sintaxis; MySQL 8 no).
+- Usuarios de la app conectan: `superuser` y `usr_madre`.
+- **El sitio (PHP 5.6) responde HTTP 200 contra MariaDB 10.5** y renderiza el formulario de login
+  sin errores de BD.
+
 ## Reproducir
 
 ```bash

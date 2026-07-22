@@ -12,7 +12,7 @@ services:
       - db
 
   db:
-    image: mysql:5.6
+    image: mariadb:10.5
     container_name: platzilla_db
     environment:
       MYSQL_ROOT_PASSWORD: root
