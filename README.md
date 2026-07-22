@@ -193,6 +193,21 @@ Análisis y decisiones de la modernización (carpeta `docs/`):
 El diseño del agente de IA multi-instancia y las iteraciones con IA están en
 [`PROMPTS_Y_AGENTE.md`](PROMPTS_Y_AGENTE.md).
 
+### Prueba de migración a PHP 8.4 (experimental)
+
+El runtime de producción es PHP 5.6 (`Dockerfile`). Para **medir/probar** la migración a PHP 8.4
+existe un build experimental [`Dockerfile.php84`](Dockerfile.php84) (php:8.4-apache + `mysqli`):
+
+```bash
+docker build -f Dockerfile.php84 -t platzilla-web84 .
+docker run -d --name platzilla_web84 --network platzilla_default \
+  -v "$PWD/src:/var/www/html" platzilla-web84
+```
+
+Sirve para reproducir el análisis de [`docs/COMPATIBILIDAD_PHP84.md`](docs/COMPATIBILIDAD_PHP84.md).
+No sustituye al runtime 5.6: el sitio aún no arranca 100% en 8.4 (bloqueo en librerías de terceros
+como ADOdb, documentado).
+
 ## Nota sobre la base de datos
 
 El dump `base-datos-platzilla.sql` (~103 MB) **no está versionado** (ver `.gitignore`), tanto

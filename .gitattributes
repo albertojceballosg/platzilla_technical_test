@@ -1,0 +1,30 @@
+# ── Política de fin de línea ──────────────────────────────────────────────────
+# El árbol legacy está casi por completo en CRLF (Windows). NO se renormaliza a LF
+# de golpe para no ensuciar el histórico con un diff masivo (ver BACKLOG_MODERNIZACION.md).
+# Estrategia: congelar los ficheros legacy tal cual y forzar LF SOLO donde es
+# funcionalmente obligatorio (scripts que se ejecutan dentro de los contenedores).
+
+# Obligatorio LF (romperían con CRLF dentro de Linux/containers):
+*.sh        text eol=lf
+*.sql       text eol=lf
+Dockerfile* text eol=lf
+*.yml       text eol=lf
+
+# Congelar el código legacy: sin conversión de EOL (evita renormalización ruidosa).
+*.php  -text
+*.js   -text
+*.css  -text
+*.tpl  -text
+*.html -text
+*.inc  -text
+
+# Binarios (nunca convertir):
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
