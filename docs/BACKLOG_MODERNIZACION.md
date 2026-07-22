@@ -62,7 +62,25 @@ iCal, vtlib/thirdparty, ADOdb) → se actualizan, no se parchean a mano.
   (7 llamadas crudas eliminadas, enrutadas por el wrapper ADOdb; 0 `mysql_*` restantes;
   validado funcionalmente sobre mysqli).
 
-## Backlog: modernizable, NO ahora
+## Reevaluación (2026-07-22): "inabordable" → mayormente abordable
+
+Revisión del backlog tras las tandas T/M/N. La etiqueta original "NO ahora" era casi siempre
+**"no verificable localmente"** o **"es una librería"**, no imposibilidad técnica:
+
+- **Hecho desde entonces:** credenciales de `config.inc.php` (M3), credenciales hardcodeadas de
+  Notifications (externalizadas, ver más abajo), CRLF→LF como política (N6).
+- **Abordable fabricando un mock:** `Users.php` (HR/ProcessMaker/dotProject) y `security.php`
+  conectan con **arrays de configuración** (`$db_hrm`, `$db_process`, `$db_login`), no con hosts
+  fijos → se levanta una BD *stub* con el esquema mínimo, se apunta la config ahí y el refactor
+  `mysql_*`→`mysqli` pasa a ser testeable. El patrón ya está documentado.
+- **Actualizar dependencia (no parchear):** ADOdb — confirmado empíricamente (D3/N1/N3) que tiene
+  bloqueos 8.4 más allá de `mysql_*` (`unset $this`, ficheros que no parsean) → subir a una versión
+  de ADOdb compatible con 8.4 + regresión.
+- **Irreducible localmente:** validar contra los sistemas externos **reales** (OrangeHRM/
+  ProcessMaker/dotProject de producción) requiere acceso a ellos — pero eso es *validación de
+  integración*, no *modernización*.
+
+## Backlog: modernizable, NO ahora (estado revisado)
 
 ### 1. `modules/Users/Users.php` — 103 llamadas crudas a sistemas externos
 - **Qué es:** al crear/editar usuarios, sincroniza con OrangeHRM, ProcessMaker y dotProject
@@ -74,13 +92,15 @@ iCal, vtlib/thirdparty, ADOdb) → se actualizan, no se parchean a mano.
 - **Cómo se haría:** `mysql_connect/query/select_db` → `mysqli_*` (con inversión de argumentos),
   validado contra instancias de prueba de cada sistema externo.
 
-### 2. `customerPortal2/Notifications/*` — credenciales hardcodeadas
-- **Qué es:** `mysql_connect('127.0.0.1:3306','timeuser','Eceptu.2011', true)` — credenciales
-  **en código fuente**.
-- **Por qué no ahora:** (a) la conexión apunta a un host/usuario que no existe en local
-  (no testeable); (b) es un **hallazgo de seguridad** que merece su propio tratamiento
-  (mover credenciales a configuración/variables de entorno), no solo un cambio de API.
-- **Prioridad:** media-alta como deuda de **seguridad**, independiente de la migración mysqli.
+### 2. `customerPortal2/Notifications/*` — credenciales hardcodeadas ✅ HECHO (parte seguridad)
+- **Qué era:** `mysql_connect('127.0.0.1:3306','timeuser','Eceptu.2011', true)` — credenciales
+  **en código fuente**, repetidas en **10 ficheros**.
+- **Hecho:** el secreto se sacó del código a variables de entorno (`getenv('NOTIF_DB_*')`,
+  inyectadas por `docker-compose`, valor real en `.env` no versionado, default vacío). 0
+  apariciones de la password en el código. Validado `php -l` en 8.4 y 5.6.
+- **Pendiente (no testeable):** el refactor de driver `mysql_connect`→`mysqli` de estos ficheros
+  sigue sin poder validarse en local (el host `127.0.0.1:3306` de la BD de notificaciones no
+  existe aquí); abordable con un mock de esa BD.
 
 ### 3. Los ~30 archivos restantes con `mysql_connect()` crudo
 - **Por qué no ahora:** son **heterogéneos** (sistemas externos, portal de clientes, conexiones

@@ -18,7 +18,7 @@ if(!isset($_SESSION['customer_id']) || $_SESSION['customer_id'] == '')
 			<input type="hidden" name="action">
 			<input type="hidden" name="fun">
 <?php	
-$conex= mysql_connect('127.0.0.1:3306','timeuser','Eceptu.2011',true) or die("Error al intentar establecer la conexiÃ³n.");
+$conex= mysql_connect((getenv('NOTIF_DB_HOST')?:'127.0.0.1:3306'),(getenv('NOTIF_DB_USER')?:'timeuser'),getenv('NOTIF_DB_PASSWORD'),true) or die("Error al intentar establecer la conexiÃ³n.");
     $dbp = mysql_select_db('plat_gestiontime2',$conex);
   
   if(!$_REQUEST['fun']){

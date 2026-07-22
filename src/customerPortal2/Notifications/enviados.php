@@ -3,7 +3,7 @@
   $user = $_REQUEST['user'];
   
 $output='';
- $conex= mysql_connect('127.0.0.1:3306','timeuser','Eceptu.2011',true) or die("Error al intentar establecer la conexiÃ³n.");
+ $conex= mysql_connect((getenv('NOTIF_DB_HOST')?:'127.0.0.1:3306'),(getenv('NOTIF_DB_USER')?:'timeuser'),getenv('NOTIF_DB_PASSWORD'),true) or die("Error al intentar establecer la conexiÃ³n.");
     $dbp = mysql_select_db('plat_gestiontime2',$conex);
     mysql_query("SET NAMES 'utf8'");
     $sql="SELECT first_name, last_name, subject, sent_body, DATE_FORMAT(sent_date,'%d/%m/%Y') as sent_date, tmm_notifications.notificationid as numero ,   sent_date  as acomoda FROM `tmm_notifications` inner join vtiger_crmentity on (vtiger_crmentity.crmid = tmm_notifications.notificationid and vtiger_crmentity.deleted = 0 )

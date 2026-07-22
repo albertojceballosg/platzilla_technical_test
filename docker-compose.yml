@@ -18,6 +18,12 @@ services:
       DB_NAME: pg_crm_madre
       DB_USER: superuser
       DB_PASSWORD: "${DB_PASSWORD:-8hYLKcthnx}"
+      # BD externa de notificaciones (time-tracking). Credenciales sacadas del código
+      # (antes hardcodeadas en 10 ficheros); el valor real va en .env (no versionado),
+      # default vacío porque ese servicio no existe en el entorno local.
+      NOTIF_DB_HOST: "${NOTIF_DB_HOST:-127.0.0.1:3306}"
+      NOTIF_DB_USER: "${NOTIF_DB_USER:-timeuser}"
+      NOTIF_DB_PASSWORD: "${NOTIF_DB_PASSWORD:-}"
     depends_on:
       db:
         # Esperar a que la BD esté realmente lista (import del dump incluido),

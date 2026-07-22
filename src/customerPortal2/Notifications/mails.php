@@ -24,7 +24,7 @@
 
 
 
-	$conex= mysql_connect('127.0.0.1:3306','timeuser','Eceptu.2011',true) or die("Error al intentar establecer la conexiÃ³n.");
+	$conex= mysql_connect((getenv('NOTIF_DB_HOST')?:'127.0.0.1:3306'),(getenv('NOTIF_DB_USER')?:'timeuser'),getenv('NOTIF_DB_PASSWORD'),true) or die("Error al intentar establecer la conexiÃ³n.");
     $dbp = mysql_select_db('plat_gestiontime2',$conex);
     mysql_query("SET NAMES 'utf8'");
    /* $sql="SELECT first_name, last_name, subject, sent_body, DATE_FORMAT(sent_date,'%d/%m/%Y') as sent_date, respuesta, DATE_FORMAT(fecha_resp,'%d/%m/%Y') as fecha_resp,  tmm_notifications.notificationid as numero, tmm_notif_resp.check as check2 , id_respuesta, fecha_resp as acomoda 

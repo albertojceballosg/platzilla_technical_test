@@ -15,7 +15,7 @@ if($notificationid != '')
 	}
 	echo '<tr><td><input class="crmbutton small cancel" type="button" value="'.getTranslatedString('LBL_BACK_BUTTON').'" onclick="window.history.back();"/></td></tr>';
 	echo getblock_fieldlist($result);
-	$conex1= mysql_connect('127.0.0.1:3306','timeuser','Eceptu.2011',true) or die("Error al intentar establecer la conexiÃ³n.");
+	$conex1= mysql_connect((getenv('NOTIF_DB_HOST')?:'127.0.0.1:3306'),(getenv('NOTIF_DB_USER')?:'timeuser'),getenv('NOTIF_DB_PASSWORD'),true) or die("Error al intentar establecer la conexiÃ³n.");
 	$dbp = mysql_select_db('plat_gestiontime2',$conex1);
 	$sq='SELECT enviadopor, notstatus FROM tmm_notifications WHERE notificationid='.$notificationid;
 	

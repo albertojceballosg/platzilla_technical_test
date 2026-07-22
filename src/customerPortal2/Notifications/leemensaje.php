@@ -6,7 +6,7 @@
 $output='	';
  
  
-  $conex= mysql_connect('127.0.0.1:3306','timeuser','Eceptu.2011',true) or die("Error al intentar establecer la conexiÃ³n.");
+  $conex= mysql_connect((getenv('NOTIF_DB_HOST')?:'127.0.0.1:3306'),(getenv('NOTIF_DB_USER')?:'timeuser'),getenv('NOTIF_DB_PASSWORD'),true) or die("Error al intentar establecer la conexiÃ³n.");
     $dbp = mysql_select_db('plat_gestiontime2',$conex);
     $sql="SELECT first_name, last_name, subject, sent_body, sent_date FROM `tmm_notifications` inner join vtiger_crmentity on (vtiger_crmentity.crmid = tmm_notifications.notificationid and vtiger_crmentity.deleted = 0 )
 inner join vtiger_users on (vtiger_users.id = tmm_notifications.userid ) 
