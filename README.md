@@ -179,6 +179,20 @@ docker exec -it platzilla_web bash   # Shell dentro del contenedor web
 
 ---
 
+## Documentación técnica
+
+Análisis y decisiones de la modernización (carpeta `docs/`):
+
+| Documento | Contenido |
+|---|---|
+| [`docs/AUDITORIA_MYSQL.md`](docs/AUDITORIA_MYSQL.md) | Auditoría del código legacy `mysql_*` y estrategia de migración de driver (dos palancas). |
+| [`docs/COMPATIBILIDAD_PHP84.md`](docs/COMPATIBILIDAD_PHP84.md) | Análisis **empírico** PHP 5.6 → 8.4: parse errors (`php -l`) y funciones eliminadas; PoC aplicada. |
+| [`docs/COMPATIBILIDAD_MARIADB105.md`](docs/COMPATIBILIDAD_MARIADB105.md) | Análisis **empírico** del dump MySQL 5.6 → MariaDB 10.5: `sql_mode` estricto, ENUM `''`, integridad y `DEFINER`; mitigación aplicada. |
+| [`docs/BACKLOG_MODERNIZACION.md`](docs/BACKLOG_MODERNIZACION.md) | Plan de ejecución y elementos modernizables aplazados, con justificación de alcance. |
+
+El diseño del agente de IA multi-instancia y las iteraciones con IA están en
+[`PROMPTS_Y_AGENTE.md`](PROMPTS_Y_AGENTE.md).
+
 ## Nota sobre la base de datos
 
 El dump `base-datos-platzilla.sql` (~103 MB) **no está versionado** (ver `.gitignore`), tanto
