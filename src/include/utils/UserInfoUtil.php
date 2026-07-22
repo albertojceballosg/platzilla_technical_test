@@ -629,7 +629,7 @@
 		$log->debug ("about to start replacing the tokens");
 		require_once ($root_directory . '/modules/Emails/templates/testemailtemplateusage.php');
 		eval ("global $globals; ");
-		while (list($key, $val) = each ($dump)) {
+		foreach ($dump as $key => $val) {
 			$replacedString;
 			if (preg_match ("/\$/g", $val)) {
 				$log->debug ("token is " . $val);

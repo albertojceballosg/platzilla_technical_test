@@ -48,7 +48,7 @@ M1 cubre: `include/utils/{encryption,GraphUtils,InstanceCreator.class}.php`,
 | N4 | Medir/documentar "próxima ola" de deprecaciones 8.x | 21 avisos compile-time en 15 ficheros + runtime | Nulo | ✅ hecho |
 | N2 | BD `utf8`(utf8mb3) → `utf8mb4` | 1200/1264 directo; 64 bloqueadas por FK (ERROR 1832) | Medio | ✅ validado+documentado |
 | N5 | `utf8_encode/decode` → `mb_convert_encoding` | tanda: 9 en 2 ficheros; ~63 restantes (mismo patron) | Bajo-medio | ✅ tanda hecha |
-| N3 | `each()` → `foreach` | 68 usos app (removido 8.0) | Medio | pendiente |
+| N3 | `each()` → `foreach` | 2 app genuinas (resto en libs/JS) | Medio | ✅ hecho |
 | N6 | Higiene: `.gitattributes` (CRLF→LF) + target 8.4 en Dockerfile | — | Bajo | pendiente |
 
 Nota N1: los 6 `create_function` restantes están en librerías de terceros (Smarty, webmail,
