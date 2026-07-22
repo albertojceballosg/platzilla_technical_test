@@ -15,6 +15,9 @@ INDICACIONES.md
 # ── Contexto de traspaso para IA (credenciales/notas internas, no publicar) ──
 CONTEXTO.md
 
+# ── Documento interno adicional de la prueba (no publicar) ──
+NUEVO_DOC.md
+
 # ── Cachés y datos de runtime de vtiger (se regeneran solos) ──
 src/Smarty/templates_c/
 src/cache/
