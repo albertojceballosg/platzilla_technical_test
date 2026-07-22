@@ -238,6 +238,31 @@ y una estrategia de despliegue con "madre" como canario.
 > 4. *Dry-run:* muestra impacto; espera confirmación.
 > 5. *Ejecuta como `usr_acme`*, valida el esquema, reporta OK y cómo revertir.
 
+### 5.4 Evidencia empírica del aislamiento (la regla clave, demostrada)
+
+La regla de **AISLAMIENTO** no es teórica: se validó en un MariaDB 10.5 real. Con la "madre"
+(`pg_crm_madre`) y una 2ª instancia (`pg_crm_cliente_x`) cargadas, se aplicó una migración
+estructural **calificada por BD** solo a la instancia:
+
+```sql
+ALTER TABLE pg_crm_cliente_x.vtiger_courses
+  ADD COLUMN certificado_habilitado TINYINT(1) NOT NULL DEFAULT 0,
+  MODIFY COLUMN videotype ENUM('YOUTUBE','VIMEO','DAILYMOTION') DEFAULT NULL;
+```
+
+Comparando la "madre" antes y después (hash de su DDL + `CHECKSUM TABLE` de sus datos):
+
+| Medida de `pg_crm_madre.vtiger_courses` | Antes | Después |
+|---|---|---|
+| Hash de DDL | `dfc00df8…` | `dfc00df8…` (idéntico) |
+| `CHECKSUM TABLE` | `3741947163` | `3741947163` (idéntico) |
+| Columna `certificado_habilitado` | no existe | **sigue sin existir** |
+
+`cliente_x` recibió el cambio; la "madre" quedó **bit a bit intacta**. Esto confirma que, con DDL
+calificado por `pg_crm_<codigo>`, una migración por-cliente **no puede alcanzar otra instancia** —
+justo la garantía que el System Prompt exige. (Procedimiento reproducible análogo al de
+`docs/COMPATIBILIDAD_MARIADB105.md`.)
+
 ---
 
 ## 6. Conclusión
