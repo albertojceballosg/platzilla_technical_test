@@ -40,6 +40,20 @@ M1 cubre: `include/utils/{encryption,GraphUtils,InstanceCreator.class}.php`,
 `modules/orden_de_trabajo/handlers/taskToWork_methods.php`, `modules/Calendar/calendarLayout.2.php`,
 `modules/System/includes/XPath.class.php`, `vtlib/ModuleDir/5.4.0/ModuleFile.php`.
 
+## Tercera tanda: funciones eliminadas, charset y deprecaciones (en curso)
+
+| # | Tarea | Evidencia | Riesgo | Estado |
+|---|---|---|---|---|
+| N1 | `create_function()` → closures/eval | 1 app (FieldCalculate) + 6 en libs | Bajo | ✅ hecho (app) |
+| N4 | Medir/documentar "próxima ola" de deprecaciones 8.x | param opcional-antes-de-requerido, null→params, dynamic props | Nulo | pendiente |
+| N2 | BD `utf8`(utf8mb3) → `utf8mb4` | charset actual utf8; el System Prompt lo recomienda | Medio | pendiente |
+| N5 | `utf8_encode/decode` → `mb_convert_encoding` | 72 usos app (deprecado 8.2) | Bajo-medio | pendiente |
+| N3 | `each()` → `foreach` | 68 usos app (removido 8.0) | Medio | pendiente |
+| N6 | Higiene: `.gitattributes` (CRLF→LF) + target 8.4 en Dockerfile | — | Bajo | pendiente |
+
+Nota N1: los 6 `create_function` restantes están en librerías de terceros (Smarty, webmail,
+iCal, vtlib/thirdparty, ADOdb) → se actualizan, no se parchean a mano.
+
 ## Lo que SÍ se hizo (contexto)
 
 - **Palanca 1 — migración del driver de BD `mysql` → `mysqli`** (vía ADOdb): moderniza todo el

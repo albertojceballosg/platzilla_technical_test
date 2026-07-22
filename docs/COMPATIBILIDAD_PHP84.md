@@ -102,6 +102,19 @@ Nota sobre `mysql_*`: la migración de driver (Palanca 1, ver `AUDITORIA_MYSQL.m
 ADOdb el acceso que pasa por `PearDatabase`; el conteo aquí es de llamadas **crudas** que aún
 saltan la abstracción y hay que refactorizar a `mysqli`/PDO.
 
+### `create_function()` (eliminada en 8.0) — corregida en app-code
+
+De los usos de `create_function()`, el triage muestra que **solo 1 es código de aplicación**;
+el resto vive en librerías (Smarty, webmail/Roundcube, iCal, vtlib/thirdparty, ADOdb) → se
+resuelven **actualizando la librería**, no a mano.
+
+- `include/utils/FieldCalculate.php` evaluaba una fórmula aritmética con
+  `create_function('', 'return '.$input.';')`. El `$input` ya está **validado** con un whitelist
+  (`/^[\d\.\+\-\*\/\(\)\s]+$/`: solo dígitos, `. + - * /`, paréntesis y espacios), sin superficie
+  de inyección. Se sustituyó por `eval('return (...)')` envuelto en `try/catch (\Throwable)`,
+  **retro-compatible** (php -l OK en 8.4 y 5.6). Verificado funcionalmente: `2+3*4`→14,
+  `(1+2)*5`→15, `10/0`→0 (sin fatal), entradas no válidas→0.
+
 ## Diferencia clave entre las dos clases
 
 - **Parse error** (Fase 1): el fichero **no se puede ni cargar** → tumba cualquier petición que

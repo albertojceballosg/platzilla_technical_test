@@ -32,11 +32,19 @@
 			if (empty($input) || $input === '' || !is_string($input)) {
 				return 0;
 			}
-			$compute = @create_function ('', 'return '.$input.';');
-			if ($compute === false || !is_callable($compute)) {
+			// create_function() fue eliminada en PHP 8.0. El $input ya está validado arriba
+			// como expresión aritmética (solo dígitos . + - * / ( ) y espacios), sin superficie
+			// de inyección, por lo que se evalúa con eval() envuelto en try/catch. Retro-compatible
+			// con 5.6 (allí un fallo de eval devuelve false en vez de lanzar).
+			try {
+				$result = @eval ('return ('.$input.');');
+			} catch (\Throwable $e) {
 				return 0;
 			}
-			return (0 + $compute());
+			if (!is_numeric ($result)) {
+				return 0;
+			}
+			return (0 + $result);
 		}
 		/** @codingStandardsIgnoreEnd */
 
