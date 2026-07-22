@@ -54,6 +54,24 @@ M1 cubre: `include/utils/{encryption,GraphUtils,InstanceCreator.class}.php`,
 Nota N1: los 6 `create_function` restantes están en librerías de terceros (Smarty, webmail,
 iCal, vtlib/thirdparty, ADOdb) → se actualizan, no se parchean a mano.
 
+## Cuarta tanda: ereg/split, deprecaciones retro-compatibles, utf8 (en curso)
+
+Nota transversal: mientras el runtime vivo sea **PHP 5.6**, todo cambio debe ser
+**retro-compatible con 5.6**. Algunas correcciones 8.x (p. ej. tipos `?Type` nullable) romperían
+5.6 → se **difieren** hasta que el `Dockerfile` pase a 8.4.
+
+| # | Tarea | Evidencia | Retro-compat 5.6 | Estado |
+|---|---|---|---|---|
+| O1 | `ereg/split` → `preg_*`/`explode` | 5 ficheros app genuinos (resto en libs/JS) | ✅ | ✅ hecho |
+| O3 | Deprecaciones 8.x retro-compatibles | `${expr}`→`{${expr}}`, reordenar params, `#[\ReturnTypeWillChange]` | ✅ | pendiente |
+| O2 | Completar `utf8_encode/decode` → `mb_convert_encoding` | ~63 restantes | ✅ | pendiente |
+| — | Implicit nullable `?Type $x = null` (14, de N4) | **DIFERIDO**: rompe 5.6; se hará al pasar el runtime a 8.4 | ❌ | diferido |
+
+O1 cubrió: `include/utils/utils.php`, `modules/System/systemconfig.php` (ya libre de funciones
+eliminadas), `modules/Calendar/{RepeatEvents,iCalExport}.php`, `customerPortal2/HelpDesk/TicketsList.php`.
+`modules/Dashboard/Forms.php` era `String.split` de **JavaScript** (falso positivo). El resto de
+`ereg/split` del árbol están en librerías (phpsysinfo, Image, XPath).
+
 ## Lo que SÍ se hizo (contexto)
 
 - **Palanca 1 — migración del driver de BD `mysql` → `mysqli`** (vía ADOdb): moderniza todo el

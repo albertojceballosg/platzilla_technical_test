@@ -91,14 +91,14 @@ if($result == '') {
 				$enlaceNotificacion = '<img src="../themes/images/email.gif" style="cursor:pointer" onclick="document.getElementById(\'ticketid\').value = \''.$ticketid.'\';jQuery(\'#dlgNuevaNotificacion\').slideDown();">';
 
 
-				if(ereg('17. Dev terminado', $ticket_status)==1 || ereg('16. Realizar Doc', $ticket_status)==1 ){ 
+				if(preg_match('/17. Dev terminado/', $ticket_status)==1 || preg_match('/16. Realizar Doc/', $ticket_status)==1 ){ 
 						$list .= $ticketlist .'<td><strong>En espera de validaci&oacute;n</strong></td>';
 						$list.= '<td>'.$enlaceNotificacion.'</td></tr>';
-				} elseif (ereg('13. Dev validado', $ticket_status)==1){ 
+				} elseif (preg_match('/13. Dev validado/', $ticket_status)==1){ 
 						$list .= $ticketlist .'<td>Petici&oacute;n Validada</td>';
 						$list.= '<td>'.$enlaceNotificacion.'</td></tr>';
 						
-				} elseif (ereg('18. Pendiente de Validaci', $ticket_status)==1){ 
+				} elseif (preg_match('/18. Pendiente de Validaci/', $ticket_status)==1){ 
 						$list .= $ticketlist .'<td style="font-weight:bolder;Color:Red;"><p>Validar Petici&oacute;n</p></td>';
 						$list.= '<td>'.$enlaceNotificacion.'</td></tr>';
 	
