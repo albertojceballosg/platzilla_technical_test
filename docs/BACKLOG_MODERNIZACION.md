@@ -126,11 +126,18 @@ Revisión del backlog tras las tandas T/M/N. La etiqueta original "NO ahora" era
   por-instancia). Requieren tratamiento caso por caso y validación individual. Fuera del alcance
   de una PoC de 48 h. El **patrón de migración** ya está documentado en `AUDITORIA_MYSQL.md`.
 
-### 4. `adodb/` — 35 llamadas `mysql_*` en la librería
-- **Por qué no ahora (ni nunca a mano):** es **librería de terceros**. Editarla a mano rompería
-  la trazabilidad y la mantenibilidad. Ya quedó resuelto por la **Palanca 1** (usar el driver
-  `adodb-mysqli.inc.php` que la propia librería incluye). La ruta correcta a futuro es
-  **actualizar ADOdb**, no parchearla.
+### 4. `adodb/` — librería de terceros (mysql_* + bloqueos 8.4) — EXPLORADO
+- **Por qué no a mano:** es **librería de terceros**; parchearla es deuda que un `update`
+  sobrescribe. La ruta correcta es **actualizar ADOdb**.
+- **Exploración empírica (medida):** solo **3 de 124** ficheros no compilan en 8.4
+  (`adodb-xmlschema.inc.php`, `adodb-xmlschema03.inc.php`, `adodb-oracle.inc.php` —Oracle no se
+  usa). El núcleo + driver `mysqli` (121 ficheros) **ya compilan en 8.4**. El arranque muere solo
+  porque `PearDatabase.php` incluye `xmlschema` incondicionalmente, y ese fichero encadena fatales
+  8.0 (`unset($this)` → firma LSP `create(&$xmls)` → `set_magic_quotes_runtime`). Se confirmó que
+  el parche a mano **no escala**. Detalle en `COMPATIBILIDAD_PHP84.md` (sección "Exploración del
+  muro de ADOdb"). Exploración revertida: `adodb/` queda **pristina**.
+- **Recomendación:** actualizar a ADOdb ≥ 5.21 vía composer + regresión en staging; o (app-side)
+  hacer lazy el `require` de xmlschema en `PearDatabase` si se confirma que no se usa.
 
 ### 5. `include/security.php` — BD de login `$db_login` ✅ HECHO (con mock)
 - **Qué era:** 10 llamadas `mysql_*` (eliminadas en PHP 7) + un `$fila[password]` bareword (fatal

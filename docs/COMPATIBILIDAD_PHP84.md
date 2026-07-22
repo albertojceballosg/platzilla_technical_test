@@ -240,6 +240,38 @@ no se parchean a mano (ver `BACKLOG_MODERNIZACION.md`). Un sitio 100% funcional 
 PoC de 24 h; lo demostrable es que el camino de refactor de app-code es viable y que el bloqueo
 restante es de **dependencias**, no de criterio.
 
+## Exploración del muro de ADOdb: ¿parchear o actualizar? (medido)
+
+Se exploró empíricamente el bloqueo de ADOdb para decidir la vía correcta. Hallazgos:
+
+- **Solo 3 de 124 ficheros de ADOdb** no compilan en PHP 8.4: `adodb-xmlschema.inc.php`,
+  `adodb-xmlschema03.inc.php` y `adodb-oracle.inc.php` (driver Oracle, **no se usa** — la app usa
+  `mysqli`). **El núcleo + el driver `mysqli` (121 ficheros) ya compilan en 8.4.**
+- El arranque muere porque `include/database/PearDatabase.php` hace
+  `require_once('adodb/adodb-xmlschema.inc.php')` **incondicionalmente**, y ese fichero tiene una
+  **cadena** de incompatibilidades 8.0:
+  1. 4× `unset($this)` standalone (error de compilación),
+  2. 4× violación de firma LSP `dbTable::create(&$xmls)` vs `dbObject::create()`,
+  3. 2× `set_magic_quotes_runtime()` (eliminada en 8.0), por fichero.
+- **La exploración confirmó que el parche a mano NO escala:** al neutralizar el `unset($this)`, el
+  arranque avanza e **inmediatamente** choca con el siguiente fatal (LSP), y así sucesivamente.
+  Además, parchear una librería vendorizada es deuda que un futuro `update` sobrescribe.
+
+**Veredicto (medido, no teórico): actualizar ADOdb, no parchear.**
+- Vía correcta: subir ADOdb a una versión con soporte PHP 8 (≥ 5.21). Ideal por composer
+  (`composer require adodb/adodb-php`). En este entorno hay red pero no composer; un *swap* manual
+  es posible, pero un reemplazo de dependencia completo exige **regresión total** (aquí solo es
+  verificable la página de login), así que es tarea de CI/staging controlado, no un cambio en
+  caliente a ciegas.
+- Alternativa app-side (sin tocar la lib): hacer **lazy/condicional** el `require` de
+  `adodb-xmlschema` en `PearDatabase` (solo cargarlo cuando se use el esquema-desde-XML), lo que
+  desbloquearía el arranque sin parchear ADOdb — **si** se confirma que la app no usa xmlschema en
+  las peticiones normales (pendiente de verificar).
+
+> Nota de proceso: esta exploración se hizo sobre el contenedor 8.4 y **se revirtió por completo**;
+> la carpeta `adodb/` queda **pristina** (sin parches vendorizados). El valor entregado es la
+> **medición** y la decisión, no un parche.
+
 ## Reproducir
 
 ```bash
