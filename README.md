@@ -78,15 +78,16 @@ docker compose logs -f db
 
 Espera a ver el mensaje `ready for connections` antes de continuar.
 
-### 4. Asignar permisos de escritura (Smarty, caché, logs)
+### 4. Permisos de escritura (automático)
 
-vtiger necesita escribir en varias carpetas. Como `src/` se monta como volumen, hay que
-otorgar permisos dentro del contenedor:
+vtiger necesita escribir en varias carpetas (Smarty, caché, logs, etc.). El `entrypoint.sh`
+las **crea y les da permisos automáticamente** en cada arranque, así que no hay que hacer nada.
 
-```bash
-docker exec -u root platzilla_web bash -c \
-  "chmod -R 777 /var/www/html/Smarty /var/www/html/user_privileges /var/www/html/cache /var/www/html/logs /var/www/html/storage /var/www/html/test"
-```
+> Si por alguna razón necesitas re-aplicarlos manualmente:
+> ```bash
+> docker exec -u root platzilla_web bash -c \
+>   "chmod -R 777 /var/www/html/Smarty /var/www/html/user_privileges /var/www/html/cache /var/www/html/logs /var/www/html/storage /var/www/html/test"
+> ```
 
 ### 5. Limpiar la caché compilada de Smarty
 
