@@ -63,7 +63,7 @@ Nota transversal: mientras el runtime vivo sea **PHP 5.6**, todo cambio debe ser
 | # | Tarea | Evidencia | Retro-compat 5.6 | Estado |
 |---|---|---|---|---|
 | O1 | `ereg/split` → `preg_*`/`explode` | 5 ficheros app genuinos (resto en libs/JS) | ✅ | ✅ hecho |
-| O3 | Deprecaciones 8.x retro-compatibles | `${expr}`→`{${expr}}`, reordenar params, `#[\ReturnTypeWillChange]` | ✅ | pendiente |
+| O3 | Deprecaciones 8.x retro-compatibles | 3 fixes: `${expr}`, param requerido, ReturnTypeWillChange | ✅ | ✅ hecho |
 | O2 | Completar `utf8_encode/decode` → `mb_convert_encoding` | ~63 restantes | ✅ | pendiente |
 | — | Implicit nullable `?Type $x = null` (14, de N4) | **DIFERIDO**: rompe 5.6; se hará al pasar el runtime a 8.4 | ❌ | diferido |
 

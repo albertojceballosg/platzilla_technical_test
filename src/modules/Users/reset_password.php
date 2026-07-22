@@ -35,7 +35,7 @@
 			$userHash          = strtolower (md5 ($password));
 			$cryptType         = version_compare (PHP_VERSION, '5.3.0') >= 0 ? 'PHP5.3MD5' : 'MD5';
 			$dummy             = substr ($email, 0, 2);
-			$salt              = $cryptType == 'PHP5.3MD5' ? '$1$' . str_pad ($dummy, 9, '0') : "$1${$salt}$";
+			$salt              = $cryptType == 'PHP5.3MD5' ? '$1$' . str_pad ($dummy, 9, '0') : "$1{${$salt}}$";
 			$encryptedPassword = crypt ($password, $salt);
 			$targetAdb         = AdbManager::getInstance ()->getTargetInstanceAdb ($instance ['code']);
 			$targetAdb->connect (false);

@@ -1386,7 +1386,7 @@ function getAlertDataForSendEmail(){
 /*
 sendAlertEmail:  send email about Alerts to assigned user. It's used by BoxScoreAlertsCronJob
 */
-	function sendAlertEmail ($eventcode, $language = 'Español', $customVars, $attachment = null) {
+	function sendAlertEmail ($eventcode, $language, $customVars, $attachment = null) {
 		return true;
 	}
 

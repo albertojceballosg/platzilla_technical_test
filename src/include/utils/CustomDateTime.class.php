@@ -9,6 +9,7 @@
 		 * @param $string
 		 * @return CustomDateTime|DateTime|false
 		 */
+		#[\ReturnTypeWillChange]
 		public function modify($string) {
 			//$weekday = $this->format('w');
 		      // Change the modifier string if needed
