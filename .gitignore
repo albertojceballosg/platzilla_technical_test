@@ -7,6 +7,12 @@ db_init/*.sql
 # ── Respaldo local del .gitignore del cliente (no publicar) ──
 src/.gitignore.cliente.bak
 
+# ── Indicaciones internas de la prueba técnica (no publicar) ──
+INDICACIONES.md
+
+# ── Contexto de traspaso para IA (credenciales/notas internas, no publicar) ──
+CONTEXTO.md
+
 # ── Cachés y datos de runtime de vtiger (se regeneran solos) ──
 src/Smarty/templates_c/
 src/cache/

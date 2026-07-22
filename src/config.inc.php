@@ -88,7 +88,7 @@ $dbconfigoption['ssl'] = false;
 
 $host_name = $dbconfig['db_hostname'];
 
-$site_URL = 'http://localhost:8080/';
+$site_URL = 'http://app.platzilla.local:8080/';
 
 // root directory path
 $root_directory = '/var/www/html/';

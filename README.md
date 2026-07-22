@@ -96,9 +96,33 @@ Evita que se sirvan plantillas compiladas con rutas antiguas:
 docker exec -u root platzilla_web bash -c "rm -rf /var/www/html/Smarty/templates_c/*"
 ```
 
-### 6. Acceder a la aplicación
+### 6. Configurar el acceso por dominio (arquitectura multi-instancia)
 
-Abre **http://localhost:8080/**
+Platzilla decide **qué instancia / base de datos** cargar a partir del `HTTP_HOST` con el
+que se accede (ver `src/index.php`). El código mapea la primera etiqueta del dominio a una
+instancia: `app` → base de datos `madre`. Por eso hay que entrar por un dominio, no por
+`localhost` (que resolvería a una instancia inexistente).
+
+Añade esta línea a tu archivo `hosts`:
+
+```
+127.0.0.1   app.platzilla.local
+```
+
+- **Windows** (si abres el navegador en Windows con WSL2): edita
+  `C:\Windows\System32\drivers\etc\hosts` **como Administrador**.
+- **Linux / WSL nativo**: edita `/etc/hosts` con `sudo`.
+
+### 7. Acceder a la aplicación
+
+Abre **http://app.platzilla.local:8080/**
+
+Credenciales de acceso al CRM (instancia madre):
+
+| Campo | Valor |
+|-------|-------|
+| Usuario    | `admin` |
+| Contraseña | `uLd15YR86M0U` |
 
 ---
 
@@ -108,7 +132,7 @@ Valores definidos en `docker-compose.yml` y `src/config.inc.php`:
 
 | Parámetro | Valor |
 |-----------|-------|
-| URL de la app        | http://localhost:8080/ |
+| URL de la app        | http://app.platzilla.local:8080/ (requiere entrada en `hosts`) |
 | Puerto MySQL (host)  | `33066` → `3306` (contenedor) |
 | Base de datos        | `pg_crm_madre` |
 | Usuario MySQL        | `superuser` |
@@ -140,7 +164,7 @@ docker exec -it platzilla_web bash   # Shell dentro del contenedor web
 |---------|------------------|
 | `Call to undefined function mysql_connect()` | Falta la extensión `mysql` legacy. Reconstruye la imagen: `docker compose build --no-cache`. |
 | `Smarty: unable to write file ...templates_c/...` | Faltan permisos. Ejecuta el paso **4**. |
-| La página carga sin estilos (CSS roto) | `$site_URL` apunta a producción o la caché de Smarty está oxidada. Verifica `src/config.inc.php` (`http://localhost:8080/`) y ejecuta el paso **5**. |
+| La página carga sin estilos (CSS roto) | `$site_URL` apunta a producción o la caché de Smarty está oxidada. Verifica `src/config.inc.php` (`$site_URL = 'http://app.platzilla.local:8080/'`) y ejecuta el paso **5**. |
 | La BD no se importó | El dump se ejecuta solo con el volumen vacío. Fuerza una reimportación con `docker compose down -v` y vuelve a levantar. |
 
 > Los errores de consola del navegador relacionados con `contentscript.js` u
