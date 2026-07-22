@@ -1,5 +1,7 @@
 # ── Dump de base de datos (pesado, se restaura vía docker-entrypoint-initdb.d) ──
 db_init/*.sql
+# ...pero SÍ versionamos el script de provisión de usuarios por instancia:
+!db_init/01-instance-users.sql
 
 # ── Basura de Windows / WSL ──
 *.Zone.Identifier

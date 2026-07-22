@@ -902,6 +902,7 @@
 
 		function sql_concat ($list) {
 			switch ($this->dbType) {
+				case 'mysqli':
 				case 'mysql':
 					return 'concat(' . implode (',', $list) . ')';
 				case 'pgsql':

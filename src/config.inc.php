@@ -53,7 +53,7 @@ $dbconfig['db_port'] = ':3306';
 $dbconfig['db_username'] = 'superuser';
 $dbconfig['db_password'] = '8hYLKcthnx';
 $dbconfig['db_name'] = 'pg_crm_madre';
-$dbconfig['db_type'] = 'mysql';
+$dbconfig['db_type'] = 'mysqli';
 $dbconfig['db_status'] = 'true';
 
 global $platPrincipal,$modulesBasicosPlatzilla,$root_directory;

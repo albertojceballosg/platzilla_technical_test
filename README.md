@@ -139,6 +139,12 @@ Valores definidos en `docker-compose.yml` y `src/config.inc.php`:
 | Contraseña MySQL     | `8hYLKcthnx` |
 | Contraseña root      | `root` |
 | Host de BD (interno) | `db` (nombre del servicio) |
+| Driver de BD (`db_type`) | `mysqli` (modernizado desde `mysql` legacy) |
+
+> **Arquitectura multi-instancia:** además de la conexión principal (`superuser`), la app abre
+> una conexión por instancia con usuario `usr_<instancia>` y clave `md5('usr_<instancia>')`.
+> El script `db_init/01-instance-users.sql` provisiona `usr_madre` automáticamente en el primer
+> arranque. Sin él, el flujo autenticado falla con `Access denied for user 'usr_madre'`.
 
 El script [`entrypoint.sh`](entrypoint.sh) reescribe automáticamente el host de la BD de
 `localhost` a `db` en `config.inc.php` al arrancar, para que la app encuentre el contenedor
