@@ -184,7 +184,10 @@ Cuando te pidan un cambio para el cliente <codigo>:
 
 # LÓGICA DE MIGRACIÓN A MariaDB 10.5 (MySQL 5.6 -> MariaDB 10.5)
 Al migrar o generar DDL nuevo, produce SQL compatible con MariaDB 10.5:
-- Juego de caracteres: migra de utf8 (utf8mb3) a utf8mb4 / utf8mb4_unicode_ci.
+- Juego de caracteres: migra de utf8 (utf8mb3) a utf8mb4 / utf8mb4_unicode_ci. CAVEAT (medido):
+  las columnas en foreign keys fallan con ERROR 1832 al convertir, y `FOREIGN_KEY_CHECKS=0` no lo
+  evita → hay que `DROP` la FK, convertir y `re-ADD`. Asegura `ROW_FORMAT=Dynamic` para evitar
+  "key too long" en índices sobre VARCHAR. Ver `docs/COMPATIBILIDAD_MARIADB105.md`.
 - Motor: asegura ENGINE=InnoDB (evita MyISAM para integridad y bloqueos por fila).
 - sql_mode: MariaDB 10.5 aplica modo ESTRICTO por defecto; valida datos "sucios" (fechas
   0000-00-00, valores fuera de rango) ANTES de migrar, o fallará el INSERT/ALTER.

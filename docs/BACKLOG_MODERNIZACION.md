@@ -46,7 +46,7 @@ M1 cubre: `include/utils/{encryption,GraphUtils,InstanceCreator.class}.php`,
 |---|---|---|---|---|
 | N1 | `create_function()` → closures/eval | 1 app (FieldCalculate) + 6 en libs | Bajo | ✅ hecho (app) |
 | N4 | Medir/documentar "próxima ola" de deprecaciones 8.x | 21 avisos compile-time en 15 ficheros + runtime | Nulo | ✅ hecho |
-| N2 | BD `utf8`(utf8mb3) → `utf8mb4` | charset actual utf8; el System Prompt lo recomienda | Medio | pendiente |
+| N2 | BD `utf8`(utf8mb3) → `utf8mb4` | 1200/1264 directo; 64 bloqueadas por FK (ERROR 1832) | Medio | ✅ validado+documentado |
 | N5 | `utf8_encode/decode` → `mb_convert_encoding` | 72 usos app (deprecado 8.2) | Bajo-medio | pendiente |
 | N3 | `each()` → `foreach` | 68 usos app (removido 8.0) | Medio | pendiente |
 | N6 | Higiene: `.gitattributes` (CRLF→LF) + target 8.4 en Dockerfile | — | Bajo | pendiente |

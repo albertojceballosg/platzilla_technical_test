@@ -190,6 +190,42 @@ recrear el volumen (`docker compose down -v && up`), el primer arranque ejecuta 
 - **El sitio (PHP 5.6) responde HTTP 200 contra MariaDB 10.5** y renderiza el formulario de login
   sin errores de BD.
 
+## Modernización de charset: utf8 (utf8mb3) → utf8mb4 (N2, validado empíricamente)
+
+El esquema está en `utf8`, que en MySQL/MariaDB es **utf8mb3** (máx. 3 bytes/char): **no** admite
+emoji ni caracteres Unicode de 4 bytes. `utf8mb4` es el Unicode completo. El System Prompt del
+agente ya lo recomienda; aquí se prueba **en real** en `mdb105-test` (1264 tablas) qué implica.
+
+**Resultado del `ALTER TABLE … CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci` masivo:**
+
+- **1200 / 1264 tablas convierten directo.**
+- **No hay problema de "key too long":** el `ROW_FORMAT=Dynamic` (1258 tablas) admite prefijos de
+  índice hasta 3072 B, y un `VARCHAR(255)` utf8mb4 ocupa 1020 B. (Habría fallado con el antiguo
+  límite de 767 B o en MyISAM.)
+- **64 tablas fallan con `ERROR 1832`:** no se puede cambiar el charset de una columna que
+  participa en una **foreign key** (el esquema tiene **382 FKs**). **`SET FOREIGN_KEY_CHECKS=0` NO
+  lo evita** — es una restricción estructural, no de verificación.
+
+**Estrategia correcta (validada):** `DROP FOREIGN KEY` → `CONVERT` → **re-crear la FK** (con ambas
+columnas ya en utf8mb4, el charset casa). Probado: al soltar `fk_1_vtiger_role2picklist`, la tabla
+convierte sin error. Recipe reproducible con `information_schema` para generar el guion:
+
+```sql
+-- 1) Snapshot de las FKs para poder recrearlas (guardar la salida):
+SELECT CONCAT('ALTER TABLE `',TABLE_NAME,'` ADD CONSTRAINT `',CONSTRAINT_NAME,
+  '` FOREIGN KEY (`',COLUMN_NAME,'`) REFERENCES `',REFERENCED_TABLE_NAME,'`(`',
+  REFERENCED_COLUMN_NAME,'`);')
+FROM information_schema.KEY_COLUMN_USAGE
+WHERE TABLE_SCHEMA='pg_crm_madre' AND REFERENCED_TABLE_NAME IS NOT NULL;
+-- 2) Generar los DROP FOREIGN KEY (análogo). 3) SET FOREIGN_KEY_CHECKS=0;
+-- 4) DROP FKs -> ALTER DATABASE + CONVERT de todas las tablas -> re-ADD FKs.
+-- 5) SET FOREIGN_KEY_CHECKS=1; validar.
+```
+
+No se ejecuta en la BD viva: la app funciona correctamente en utf8 y esta migración es *one-time*,
+con respaldo + rollback y despliegue **madre-canario luego por instancia** (mismas reglas del
+System Prompt). Queda como guion validado y documentado.
+
 ## Reproducir
 
 ```bash
