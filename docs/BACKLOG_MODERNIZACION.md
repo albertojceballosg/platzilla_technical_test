@@ -45,7 +45,7 @@ M1 cubre: `include/utils/{encryption,GraphUtils,InstanceCreator.class}.php`,
 | # | Tarea | Evidencia | Riesgo | Estado |
 |---|---|---|---|---|
 | N1 | `create_function()` → closures/eval | 1 app (FieldCalculate) + 6 en libs | Bajo | ✅ hecho (app) |
-| N4 | Medir/documentar "próxima ola" de deprecaciones 8.x | param opcional-antes-de-requerido, null→params, dynamic props | Nulo | pendiente |
+| N4 | Medir/documentar "próxima ola" de deprecaciones 8.x | 21 avisos compile-time en 15 ficheros + runtime | Nulo | ✅ hecho |
 | N2 | BD `utf8`(utf8mb3) → `utf8mb4` | charset actual utf8; el System Prompt lo recomienda | Medio | pendiente |
 | N5 | `utf8_encode/decode` → `mb_convert_encoding` | 72 usos app (deprecado 8.2) | Bajo-medio | pendiente |
 | N3 | `each()` → `foreach` | 68 usos app (removido 8.0) | Medio | pendiente |

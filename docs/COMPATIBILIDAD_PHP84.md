@@ -165,6 +165,38 @@ Con esto, **8 de los 16** ficheros de app que no parseaban en 8.4 quedan corregi
 sustitución mecánica retro-compatible. Los restantes tienen errores **estructurales** (no
 mecánicos) y se tratan caso a caso (ver `BACKLOG_MODERNIZACION.md`, tarea M4).
 
+## Próxima ola: deprecaciones 8.x (aún no fatales, camino a PHP 9)
+
+Tras (1) los parse errors y (2) las funciones eliminadas, queda una tercera capa: **deprecaciones**
+que hoy solo emiten aviso pero serán **fatales en PHP 9**. Conviene medirlas para dimensionar el
+esfuerzo, aunque no bloqueen la PoC.
+
+**a) Detectables por `php -l` (compile-time)** — barrido sobre código app en 8.4, **21 avisos** en
+**15 ficheros**:
+
+| Deprecación | Desde | Avisos | Fix mecánico |
+|---|---|---:|---|
+| Parámetro implícitamente nullable (`Type $x = null`) | 8.4 | 14 | `?Type $x = null` |
+| Parámetro opcional antes de uno requerido | 8.0 | 5 | reordenar parámetros |
+| `${expr}` (variable-variables) en strings | 8.2 | 1 | `{${expr}}` |
+| Return type incompatible sin `#[\ReturnTypeWillChange]` | 8.1 | 1 | añadir el atributo o tipar |
+
+Ficheros app afectados: `include/utils/{CommonUtils,comunesSixSigma,CustomDateTime.class,
+DemoDataManager.class,HtmlGenerator.class,InstanceCreator.class,PlatformUtils.class}.php`,
+`include/platzilla/…`, `modules/Calendar/{Activity,CalendarCommon}.php`,
+`modules/Users/reset_password.php`, `vtlib/Vtiger/Mailer.php`, entre otros.
+
+**b) NO detectables por `php -l` (runtime, requieren cobertura de ejecución):**
+- **`null` a parámetros internos no-nullables** (deprecado 8.1): p.ej. `strlen($x)`, `trim($x)`,
+  `preg_match(..., $x)` con `$x === null`. Omnipresente en código legacy; solo aflora al ejecutar.
+- **Propiedades dinámicas** (deprecado 8.2, **eliminado en 9**): escribir en propiedades de objeto
+  no declaradas. Muy común en vtiger; se mitiga declarando las propiedades o con
+  `#[\AllowDynamicProperties]`.
+
+**Recomendación:** son fixes mayormente mecánicos pero de volumen; no urgen para una PoC en 8.4
+(no son fatales todavía), pero definen el trabajo pendiente para llegar a PHP 9. Se dejan medidos
+y documentados como backlog.
+
 ## Triage de los ficheros con errores 8.4 "estructurales" (no mecánicos)
 
 De los 16 ficheros de app que no parseaban en 8.4, 8 se corrigieron por sustitución mecánica
