@@ -1,0 +1,16 @@
+# Imagen EXPERIMENTAL para tantear el arranque del CRM en PHP 8.4 (PoC de migración).
+# No sustituye al runtime de producción (php:5.6-apache); sirve para medir qué
+# arranca en 8.4 y guiar el refactor. Ver docs/COMPATIBILIDAD_PHP84.md.
+FROM php:8.4-apache
+
+# En PHP 8.4 la extensión nativa 'mysql' ya no existe: solo mysqli / pdo_mysql
+# (la app usa ADOdb con db_type='mysqli' desde la Palanca 1).
+RUN docker-php-ext-install mysqli pdo pdo_mysql \
+    && a2enmod rewrite
+
+RUN echo 'memory_limit = 1024M' >> /usr/local/etc/php/php.ini \
+    && echo 'upload_max_filesize = 64M' >> /usr/local/etc/php/php.ini \
+    && echo 'post_max_size = 64M' >> /usr/local/etc/php/php.ini \
+    && echo 'max_execution_time = 300' >> /usr/local/etc/php/php.ini \
+    && echo 'display_errors = On' >> /usr/local/etc/php/php.ini \
+    && echo 'error_reporting = E_ALL' >> /usr/local/etc/php/php.ini

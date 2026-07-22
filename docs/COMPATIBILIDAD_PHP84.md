@@ -134,6 +134,32 @@ impacto (no por facilidad):
 **retro-compatible**: ambos ficheros pasan `php -l` tanto en **PHP 8.4** como en **PHP 5.6**, así
 que desbloquean el parseo en 8.4 sin desestabilizar el entorno 5.6 en producción.
 
+## Sonda de arranque real en PHP 8.4 (bootstrap del login)
+
+Además del análisis estático, se intentó **arrancar el CRM en PHP 8.4** para medir hasta dónde
+llega el bootstrap. Montaje: imagen experimental `Dockerfile.php84` (`php:8.4-apache` + `mysqli`/
+`pdo_mysql` — la extensión nativa `mysql` ya no existe en 8.4), el **mismo `src`** y la **misma
+BD MariaDB 10.5** que el stack real. Resultados, en orden:
+
+1. **Fatal de app (corregido):** `index.php:22` llamaba `deviceDetect::mobile_device_detect()`
+   (método de instancia) de forma **estática** → fatal en PHP 8.0. Fix retro-compatible: declarar
+   el método `static` (no usa `$this`). Valida en `php -l` 8.4 **y** 5.6; el sitio 5.6 sigue
+   sirviendo el login (HTTP 200).
+2. **El driver de BD funciona:** `mysqli` desde PHP 8.4 conecta a MariaDB 10.5 en ~0,01 s y
+   consulta `vtiger_users` sin problema. El eje BD no es el cuello de botella.
+3. **Muro de librería de terceros (ADOdb):** superado el fatal de app, el bootstrap alcanza
+   **ADOdb**, que no es 8.4-compatible: fatal de compilación **"Cannot unset `$this`"**
+   (`adodb/adodb-xmlschema.inc.php`), **2** usos de `unset($this)` y **3** ficheros de `adodb/`
+   que **no parsean** en 8.4.
+
+**Conclusión (confirma el límite de la PoC):** la capa de **código de aplicación** se moderniza
+progresivamente (2 fatales de app ya corregidos: `PearDatabase`/`PlatformInstance` y
+`deviceDetect`), pero el arranque completo choca contra **librerías empaquetadas** (ADOdb, y por
+extensión PHPExcel/mpdf/tcpdf/Smarty…). Esas se **actualizan a una versión compatible con 8.4**,
+no se parchean a mano (ver `BACKLOG_MODERNIZACION.md`). Un sitio 100% funcional en 8.4 excede una
+PoC de 24 h; lo demostrable es que el camino de refactor de app-code es viable y que el bloqueo
+restante es de **dependencias**, no de criterio.
+
 ## Reproducir
 
 ```bash

@@ -66,7 +66,7 @@ bug fixes with many thanks and much credit to http://www.punchkickinteractive.co
 */
 class deviceDetect {
 	
-	function mobile_device_detect($iphone=true,$ipad=true,$android=true,$opera=true,$blackberry=true,$palm=true,$windows=true,$mobileredirect=false,$desktopredirect=false){
+	static function mobile_device_detect($iphone=true,$ipad=true,$android=true,$opera=true,$blackberry=true,$palm=true,$windows=true,$mobileredirect=false,$desktopredirect=false){
 
 	  $mobile_browser   = false; // set mobile browser as false till we can prove otherwise
 	  $user_agent       = $_SERVER['HTTP_USER_AGENT']; // get the user agent value - this should be cleaned to ensure no nefarious input gets executed
