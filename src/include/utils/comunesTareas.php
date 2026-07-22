@@ -796,7 +796,7 @@
 
 		$result = $adb->query ($sql, $conex);
 		while ($fila = $adb->fetchByAssoc ($result)) {
-			$idcrmentity = utf8_encode ($fila['crmid']);
+			$idcrmentity = mb_convert_encoding ($fila['crmid'], 'UTF-8', 'ISO-8859-1');
 		}
 
 		$idcrmentity++;
@@ -924,7 +924,7 @@
 					LEFT JOIN vtiger_crmentity ON p.proveedorid=crmid
 					LEFT JOIN vtiger_proveedorcf vcf ON vcf.proveedorid=p.proveedorid
 					 WHERE
-					tipo_proveedor='" . utf8_encode (html_entity_decode (obtenerValorVariable ('TASK_VENDOR_TYPE', 'proveedor'))) . "' AND
+					tipo_proveedor='" . mb_convert_encoding (html_entity_decode (obtenerValorVariable ('TASK_VENDOR_TYPE', 'proveedor')), 'UTF-8', 'ISO-8859-1') . "' AND
 					deleted=0 ORDER BY proveedor_name ";
 
 		$result = $adb->query ($sql);
@@ -973,7 +973,7 @@
 			<option value="" selected>' . getTranslatedString ('Seleccione Desarrollador') . '</option>
 		';
 		foreach ($desaSelect as $key => $value) {
-			$bufferSalida .= '<option ' . isSelected ($value['id'], $_REQUEST[ 'vendor' . $id ]) . ' value="' . $value['id'] . '" >' . utf8_encode ($value['name']) . '</option>
+			$bufferSalida .= '<option ' . isSelected ($value['id'], $_REQUEST[ 'vendor' . $id ]) . ' value="' . $value['id'] . '" >' . mb_convert_encoding ($value['name'], 'UTF-8', 'ISO-8859-1') . '</option>
 			';
 		}
 		$bufferSalida .= '</select>';
@@ -1024,7 +1024,7 @@
 		';
 
 		foreach ($tipoSelect as $key => $value) {
-			$bufferSalida .= '<option ' . isSelected ($value['id'], $_REQUEST[ 'type' . $id ]) . ' value="' . $value['id'] . '" >' . utf8_encode ($value['name']) . '</option>
+			$bufferSalida .= '<option ' . isSelected ($value['id'], $_REQUEST[ 'type' . $id ]) . ' value="' . $value['id'] . '" >' . mb_convert_encoding ($value['name'], 'UTF-8', 'ISO-8859-1') . '</option>
 			';
 		}
 		$bufferSalida .= '</select>';
@@ -1295,7 +1295,7 @@
 		$sql    = "SELECT crmid FROM vtiger_crmentity  ORDER BY crmid DESC LIMIT 0,1";
 		$result = $adb->query ($sql);
 		while ($fila = $adb->fetchByAssoc ($result)) {
-			$idcrmentity = utf8_encode ($fila['crmid']);
+			$idcrmentity = mb_convert_encoding ($fila['crmid'], 'UTF-8', 'ISO-8859-1');
 		}
 
 		//Incrementa la variable para asignar el nuevo crmid

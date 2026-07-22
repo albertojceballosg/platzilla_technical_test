@@ -1250,7 +1250,7 @@
 
 				$bufferSalida.= '
 				<tr class="lvtColData"'.$style.' id="row_'.$row['conversacionid'].'">
-					<td>'.utf8_encode($row['subject']).'</td>
+					<td>'.mb_convert_encoding($row['subject'], 'UTF-8', 'ISO-8859-1').'</td>
 					<td>'.$row['date'].'</td>
 					<td>'.$this->obtenerNombreUsuario($row['smcreatorid']).'</td>
 					<td>'.$enlaceTicket.'</td>
@@ -1533,7 +1533,7 @@
 			}
 
 			if (!isset($this->adb))
-				$bufferSalida = utf8_encode($bufferSalida);
+				$bufferSalida = mb_convert_encoding($bufferSalida, 'UTF-8', 'ISO-8859-1');
 			return $bufferSalida;
 		}
 
@@ -1688,7 +1688,7 @@
 			}
 
 			if (!isset($this->adb))
-				$bufferSalida = utf8_encode($bufferSalida);
+				$bufferSalida = mb_convert_encoding($bufferSalida, 'UTF-8', 'ISO-8859-1');
 			return $bufferSalida;
 		}
 
