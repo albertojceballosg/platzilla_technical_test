@@ -5,6 +5,16 @@
 
 Options +FollowSymLinks
 RewriteEngine on
+
+# Avatares de usuario ausentes -> avatar por defecto.
+# Los ficheros <plat>/user_images/Avatar_<id>.png son subidas de usuario que vivian
+# en el filesystem de produccion y no forman parte del dump/repo; en local dan 404.
+# Si el fichero solicitado no existe en disco, servimos el avatar generico en su lugar.
+# Debe ir antes de las reglas 'module-*' para cortar el request cuanto antes.
+RewriteCond %{REQUEST_URI} /user_images/.*\.(png|jpe?g|gif)$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ /Image/avatar/png/man.png [L]
+
 #ggc#RewriteCond %{HTTPS} off
 #ggc#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 ##RewriteRule ^clientes/(.+) https://app.platzilla.com/index.php?plat=$1
