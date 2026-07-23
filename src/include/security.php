@@ -40,14 +40,27 @@
 		return $conexion;
 	}
 
+	// Busca un usuario con SENTENCIA PREPARADA (evita inyección SQL vía $user).
+	// El nombre de tabla no puede parametrizarse en un prepared statement, así que se
+	// valida como identificador seguro (whitelist) antes de interpolarlo entre backticks.
+	function _loginFetchUser($conexion, $aplicativo, $user) {
+		if (!preg_match('/^[A-Za-z0-9_]+$/', $aplicativo)) {
+			die('Nombre de tabla no válido');
+		}
+		$sql  = "SELECT * FROM `$aplicativo` WHERE username = ?";
+		$stmt = mysqli_prepare($conexion, $sql) or die(mysqli_error($conexion));
+		mysqli_stmt_bind_param($stmt, 's', $user);
+		mysqli_stmt_execute($stmt);
+		$res  = mysqli_stmt_get_result($stmt);
+		$fila = $res ? mysqli_fetch_assoc($res) : null;
+		mysqli_stmt_close($stmt);
+		return $fila;
+	}
+
 	function obtenerPasswordLogin($user,$aplicativo){
 		$conexion = _loginDbConnect();
-
-		$sql = "SELECT * FROM $aplicativo WHERE username = '$user'";
-		$res = mysqli_query($conexion, $sql)  or die(mysqli_error($conexion));
-
-		$fila = mysqli_fetch_assoc($res);
-		$pass = $fila['password'];
+		$fila = _loginFetchUser($conexion, $aplicativo, $user);
+		$pass = $fila ? $fila['password'] : null;
 
 		//$pass = decrypt($pass,"estaeslaclave01EncryptadaDeEnacol");
 
@@ -56,12 +69,8 @@
 
 	function encryptarPasswordLogin($user,$aplicativo){
 		$conexion = _loginDbConnect();
-
-		$sql = "SELECT * FROM $aplicativo WHERE username = '$user'";
-		$res = mysqli_query($conexion, $sql)  or die(mysqli_error($conexion));
-
-		$fila = mysqli_fetch_assoc($res);
-		$pass = $fila['password'];
+		$fila = _loginFetchUser($conexion, $aplicativo, $user);
+		$pass = $fila ? $fila['password'] : null;
 
 		$pass = encrypt($pass,"estaeslaclave01EncryptadaDeEnacol");
 

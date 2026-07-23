@@ -149,6 +149,11 @@ Revisión del backlog tras las tandas T/M/N. La etiqueta original "NO ahora" era
   `mysqli_select_db`/`query`/`fetch_assoc`, + arreglo del bareword.
 - **Verificado de verdad** en **PHP 5.6 y 8.4** contra el mock: `obtenerPasswordLogin` devuelve el
   valor esperado y el roundtrip `encrypt`/`decrypt` cuadra; `php -l` limpio en ambos.
+- **+ Seguridad (SQL injection):** la consulta interpolaba `$user`/`$aplicativo` sin escapar. Se
+  migró a **sentencia preparada** (`mysqli_prepare` + `bind_param` para `$user`) y el nombre de
+  tabla se valida como identificador (`^[A-Za-z0-9_]+$`). Verificado: `x' OR '1'='1` ya **no**
+  devuelve fila (neutralizada) y una tabla maliciosa se rechaza. Es el patrón a replicar en el
+  resto del código legacy (la interpolación de SQL es transversal — deuda de seguridad pendiente).
 - **Reproducir el mock:**
   ```sql
   CREATE DATABASE login_mock CHARACTER SET utf8mb4;
